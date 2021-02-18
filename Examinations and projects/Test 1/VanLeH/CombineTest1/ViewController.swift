@@ -7,14 +7,24 @@
 //
 
 import UIKit
+import Combine
+
+// 1. Delegate
+protocol ViewControllerDelegate {
+    
+}
 
 class ViewController: UIViewController {
 
+    // 2. Closure
+    var foo: (() -> ())?
+
+    // 4. Combine
+    var publisher = PassthroughSubject<Void, Never>()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        // 3. Notification
+        NotificationCenter.default.post(name: NSNotification.Name("aaa"), object: nil)
     }
-
-
 }
-
