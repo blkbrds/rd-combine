@@ -34,7 +34,7 @@
 
 - Để minh họa cho luồng người ta hay dùng một loại biểu đồ gọi là [marble diagram](http://rxmarbles.com/), loại diagram này rất đơn giản, trực quan và dễ hiểu. Mô hình dưới đây là luồng sự kiện "click vào 1 button"
 
-![reactive](./resources/images/1.5/reactive.png)
+![reactive](./.readmesource/img_drop_first.png)
 
 - Ở đây tín hiệu giúp ta biết được khi nào luồng sự kiện click **completed** là khi window hoặc view chứa button bị đóng lại.
 - Chúng ta bắt các sự kiện **bất đồng bộ** (ví dụ như tap vào button, gọi API, ...) bằng cách define một function dùng để xử lý một giá trị được phát ra, một function khác để handle error, tương tự với completed. Các function chúng ta define là các **observer**, luồng là chủ thể đang được lắng nghe hay còn gọi là **Observable**. Ví dụ sử dụng mã ASCII để minh hoạ:
