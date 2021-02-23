@@ -3,7 +3,7 @@ R&amp;D - iOS - Combine
 
 ## Đề bài
 Tạo 2 màn hình như hình sau:
-![Test 1](./Examinations and Projects/images/Test1/Home+Edit.png)
+![Test 1](./Examinations and Projects/images/Test 1/Home+Edit.png)
 
 **Mô tả:**
 * Màn hình Home:
@@ -26,4 +26,4 @@ Tạo 2 màn hình như hình sau:
  * Tạo thư mục chứa code trong thư mục _**rd-combine/ Examinations and Projects/Test1/*Tên người làm***_ (ví dụ: rd-combine/ Examinations and Projects/Test1/VanLeH)
  * Đặt tên pull request: _**Tên người làm – Test 1**_ (ví dụ: Van Le H – Test 1)
  * Comment cho từng cách viết. Ví dụ:
- ![Comment](./Examinations and Projects/images/Test1/comment.png)
+ ![Comment](./Examinations and Projects/images/Test 1/comment.png)
