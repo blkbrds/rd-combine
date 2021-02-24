@@ -1,27 +1,40 @@
-**Reactive Programming with Swift**
+**Transforming Oprators**
 
 > Mọi chia sẻ hay sao chép phải được cấp phép, tác quyền thuộc team iOS - Asian Tech, Inc
 
 # Contents
 
-1. [Get Started](#get-started)
+1. [Collecting values](#collecting_values)
     1. [Reactive](#Reactive)
     2. [Observable và Observer](#Observable-Observer)
     3. [Operator - man in the middle](#Operator-man-in-the-middle)
     4. [Subjects](#Subjects)
 
-2. [Deep Dive](docs/Deep-dive)
-    1. [Creation](docs/Deep-dive/Creation.md)
-    2. [Operators](docs/Deep-dive/Operators)
-    3. [MVVM](docs/Deep-dive/MVVM.md)
+2. [Mapping values](#mapping_values)
+    1. [Reactive](#Reactive)
+    2. [Observable và Observer](#Observable-Observer)
+    3. [Operator - man in the middle](#Operator-man-in-the-middle)
+    4. [Subjects](#Subjects)
 
-3. Advanced(Update later)
+3. [Flattening publishers](#flattening_publishers)
+    1. [Reactive](#Reactive)
+    2. [Observable và Observer](#Observable-Observer)
+    3. [Operator - man in the middle](#Operator-man-in-the-middle)
+    4. [Subjects](#Subjects)
 
-4. [Testing](docs/Testing.md)
-    1. [RxTests](#RxTests)
-    2. [RxNimble](#RxNimble)(Update later)
+4. [Replacing upstream output](#replacing_upstream_output)
+    1. [Reactive](#Reactive)
+    2. [Observable và Observer](#Observable-Observer)
+    3. [Operator - man in the middle](#Operator-man-in-the-middle)
+    4. [Subjects](#Subjects)
 
-## 1. Getting Started <a name="get-started"></a>
+5. [Incrementally transforming output](#incrementally_transforming_output)
+    1. [Reactive](#Reactive)
+    2. [Observable và Observer](#Observable-Observer)
+    3. [Operator - man in the middle](#Operator-man-in-the-middle)
+    4. [Subjects](#Subjects)
+
+## 1. Collecting values <a name="collecting_values"></a>
 ### 1.1. Reactive <a name="Reactive"></a>
 
 **Reactive programming là gì?**
@@ -374,21 +387,23 @@ variable.value = "2"
 1) next(2)
 2) next(2)
 ```
-## 2. [Deep Dive](docs/Deep-dive)
+## 2. Mapping values <a name="mapping_values"></a>
 Sau khi tìm hiểu các khái niệm cơ bản của Reactive programming và RxSwift thì trong phần này, chúng ta sẽ đi sâu hơn vào cách hoạt động, xử lý và ứng dụng trong từng trường hợp cụ thể của chúng.
 
 #### [Creation](docs/Deep-dive/Creation.md)
 #### [Operators](docs/Deep-dive/Operators)
 #### [MVVM](docs/Deep-dive/MVVM.md)
 
-## 3. Advanced(Update later)
+## 3. Flattening publishers <a name="flattening_publishers"></a>
 
-## 4. Testing <a name="testing"></a>
+## 4. Replacing upstream output <a name="replacing_upstream_output"></a>
 Phần này sẽ tập trung vào implement Unit-Testing bằng các framework trên RxSwift Community như `RxTests`, `RxBlocking`, `RxNimble`
 
 ### 4.1. [RxTests](docs/Testing.md) <a name="RxTests"></a> 
 
 ### 4.2. RxNimble <a name="RxNimble"></a> (Update later)
+
+## 5. Incrementally transforming output <a name="incrementally_transforming_output"></a>
 
 ## References <a name="References"></a>
 
