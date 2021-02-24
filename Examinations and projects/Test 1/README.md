@@ -27,3 +27,4 @@ Tạo 2 màn hình như hình sau:
  * Đặt tên pull request: _**Tên người làm – Test 1**_ (ví dụ: Van Le H – Test 1)
  * Comment cho từng cách viết. Ví dụ:
  ![Comment](./Examinations and Projects/images/Test 1/comment.png)
+ * Trả lời câu hỏi số 2 trong file README.md của thư mục project
