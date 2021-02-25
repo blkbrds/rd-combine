@@ -397,12 +397,45 @@ Sau khi tìm hiểu các khái niệm cơ bản của Reactive programming và R
 ## 3. Flattening publishers <a name="flattening_publishers"></a>
 
 ## 4. Replacing upstream output <a name="replacing_upstream_output"></a>
-Phần này sẽ tập trung vào implement Unit-Testing bằng các framework trên RxSwift Community như `RxTests`, `RxBlocking`, `RxNimble`
 
-### 4.1. [RxTests](docs/Testing.md) <a name="RxTests"></a> 
+### 4.1. [replaceNil(with:)] <a name="replaceNil"></a> 
+replaceNil: nếu publisher phát ra giá trị nào nil thì sẽ thay thế bằng giá trị nào đó được chỉ định. 
+![replaceNil](./.readmesource/replaceNil.png)
+Ví dụ:
+```swift
+let publisher = [1, nil, 3].publisher
+publisher.replaceNil(with: 2)
+    .sink { completion in
+        print(completion)
+    } receiveValue: { value in
+        if let value = value {
+            print(value)
+        }
+    }
+```
+Kết quả:
+1
+2
+3
+finished
+### 4.2. replaceEmpty(with:) <a name="replaceEmpty"></a>
+replaceEmpty: Toán tử replaceEmpty sẽ chèn thêm giá trị nếu publisher không phát đi bất cứ gì mà lại complete.
+![replaceEmpty](./.readmesource/replaceEmpty.png)
+Ví dụ:
+```swift
+let empty = Empty<Int, Never>()
 
-### 4.2. RxNimble <a name="RxNimble"></a> (Update later)
-
+empty
+    .replaceEmpty(with: 1)
+    .sink { completion in
+        print(completion)
+    } receiveValue: { value in
+        print(value)
+    }
+```
+Kết quả:
+1
+finished
 ## 5. Incrementally transforming output <a name="incrementally_transforming_output"></a>
 
 ## References <a name="References"></a>
