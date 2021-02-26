@@ -388,7 +388,72 @@ variable.value = "2"
 2) next(2)
 ```
 ## 2. Mapping values <a name="mapping_values"></a>
-Sau khi tìm hiểu các khái niệm cơ bản của Reactive programming và RxSwift thì trong phần này, chúng ta sẽ đi sâu hơn vào cách hoạt động, xử lý và ứng dụng trong từng trường hợp cụ thể của chúng.
+### 2.1 Map <a name="map"></a>
+Xem đoạn code sau và hình dung
+``` var subscriptions = Set<AnyCancellable>()
+let formatter = NumberFormater()
+formatter.numberStyle = .spellOut
+[22, 7, 1989].publisher
+.map {
+formatter.string(for: NSNumber(integerLiteral: $0)) ?? "" }
+.sink(receiveValue: { print($0) })
+.store(in: $subscriptions)
+```
+Giải thích
+- Tạo ra một formatter của Number. Nhiệm vụ nó là biến đổi từ số thành chữ
+- Tạo ra 1 publisher từ một array Integer
+- Sử dụng toàn tử .map để biến đổi tường giá trị nhận được thành kiểu string
+- Các toàn tử còn lại thì như đã trình bày các phần trước
+
+>Toán tử `map` giúp biến đổi kiểu giá trị Output của Publisher
+
+### 2.2 Map key paths <a name="map_key_paths"></a>
+Bổ sung cho toán tử `map` trên thì Combine hỗ trợ cho chúng ta thêm 3 function của nó như sau:
+``` map<T>(_:)
+map<T0, T1>(_:_:)
+map<T0, T1, T2>(_:_:_:)
+```
+Thay vì tấn công biến đổi chính đối tượng khi nó là Output của 1 publisher nào đó. Thì ta có thể biến đổi trong publisher đó thành một publisher khác. Mà phát ra kiểu giá trị mới, chính là kiểu giá trị của 1 trong các thuộc tính đối tượng. Xem ví dụ đi cho chắc.
+
+``` struct Dog {
+    var name: String
+    var age: Int
+}
+
+let publisher = [Dog(name: "MiMi", age: 3), 
+                Dog(name: "MiMi", age: 3), 
+                Dog(name: "MiMi", age: 3), 
+                Dog(name: "MiMi", age: 3)].publisher
+                
+publisher
+    .map(\(.name)
+    .sink(receiveValue: { print($0) })
+    .store(in: &subscroptions)
+```
+
+Giải thích
+- Ta có class Dog
+- Tạo 1 publisher từ việc biến đổi 1 Array Dog. Lúc này Output của publisher là Dog
+- Sử dụng `map(\.name)` để tạo 1 publisher mới với Output là String. String là kiểu dữ liệu cho thuộc tính `name` của class Dog
+- sink và store như bình thường
+
+### 2.3 tryMap <a name= "tryMap"></a>
+Khi bạn làm những việc liên quan tới nhập xuất, kiểm tra, media, file... thì hầu như phải sử dụng `try catch` nhiều. Nó giúp cho việc đảm bảo chương trình của bạn không bị crash. Tất nhiên, nhiều lúc bạn phải cần biến đổi từ kiểu giá trị này tới một kiểu giá trị mà có khả năng sinh ra lỗi. Khi đó bạn hãy dùng `tryMap` như một cứu cánh.
+
+Khi gặp lỗi trong quá trình biến đổi thì tự động cho vào `completion` hoặc `error`. Bạn vẫn có thể quản lí nó và không cần quan tâm gì tới bắt `try catch` ...
+
+``` Just("Đây là đường dẫn tới file media")
+        .tryMap { try FileManager.default.contentsOfDirectory(atPath: $0) }
+        .sink(receiveCompletion: { print("Finished ", $0)}, 
+            receiveValue: { print("Value ", $0)})
+        .store(in: &subscription)
+```
+
+Giải thích
+- Just là 1 publisher, sẽ phát ra ngay giá trị khởi tạo
+- Sử dụng `tryMap` để biến đổi Output là `string` (hiểu là đường dẫn của 1 file nào đó) thành đổi tượng là `file`(data)
+- Trong closure của `tryMap` thì tiến hành đọc file với đường dẫn kia
+- Nếu có lỗi thì sẽ nhận được `completion` với trị là `failure`
 
 #### [Creation](docs/Deep-dive/Creation.md)
 #### [Operators](docs/Deep-dive/Operators)
