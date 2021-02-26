@@ -31,7 +31,7 @@ final class EditProfileViewController: UIViewController {
 
     // MARK: - Properties
     let screenType: ScreenType
-    var delegate: EditProfileViewControllerDelegate?
+    weak var delegate: EditProfileViewControllerDelegate?
     var closureHandler: ((UserInfoViewModel) -> Void)?
     var viewModel = EditProfileViewModel(userNameSubject: nil, addressSubject: nil)
 
