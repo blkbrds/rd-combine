@@ -459,6 +459,32 @@ Giải thích
 
 ## 3. Flattening publishers <a name="flattening_publishers"></a>
 
+
+![flatmap](./.readmesource/img_flat_map.png)
+
+```
+Chuyển đổi tất cả các yếu tố từ nhà xuất bản ngược dòng thành nhà xuất bản mới với số lượng nhà xuất bản tối đa mà bạn chỉ định.
+
+```
+
+[Tài liệu](https://developer.apple.com/documentation/combine/publishers/flatmap)
+
+
+Sử dụng:
+- Thường được sử dụng để làm phẳng giá trị nhận được.
+
+
+Ví dụ:
+
+![flatmap](./.readmesource/img_flat_map_ex1.png)
+
+
+Kêt quả:
+
+![flatmap](./.readmesource/img_flat_map_ex1_rs.png)
+
+
+
 ## 4. Replacing upstream output <a name="replacing_upstream_output"></a>
 
 ### 4.1. replaceNil(with:) <a name="replaceNil"></a> 
