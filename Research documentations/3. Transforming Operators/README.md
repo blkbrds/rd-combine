@@ -448,8 +448,136 @@ finished
 
 ## 5. Incrementally transforming output <a name="incrementally_transforming_output"></a>
 
-## References <a name="References"></a>
+Phần này chúng ta sẽ nói về `scan` và  `tryScan` là 2 opearators cho phép ta biến đổi từng phần tử upstream publisher theo một closure tự ta định nghĩa. Với `tryScan` ta có làm việc với closure nào có thể trả về lỗi.
 
-https://github.com/ReactiveX/RxSwift
+- Đây là 2 function của nó
+``` swift
+public func scan<T>(_ initialResult: T, _ nextPartialResult: (T, Output) -> T) -> Result<T, Just<Output>.Failure>.Publisher
 
-http://rxmarbles.com/
+public func tryScan<T>(_ initialResult: T, _ nextPartialResult: (T, Output) throws -> T) -> Result<T, Error>.Publisher
+```
+
+Parameters
+- initialResult:
+Là kết quả trước được trả về bởi closure nextPartialResult.
+-  nextPartialResult: 
+Là một closure có thể trả về lỗi hoặc không, closure cung cấp cho ta 2 tham số là giá trị được closure trả về trước đó và giá trị tiếp theo được phát từ upstream publisher.
+
+## Lý thuyết chỉ có nhiêu đó ta có thể tham khảo một số demo phía dưới để xem hắn hoạt động như thế nào:
+
+### 5.1. scan <a name="scan"></a> 
+
+#### 5.1.1. Ví dụ 1 
+- Ví dụ này `scan` bắt đầu việc lưu bắt đầu là 0. Nó sẽ nhận mỗi giá trị từ publisher rồi cộng với giá trị đã lưu trước đó và sau đó lưu giá trị rồi phát nó đi.
+
+Để dễ hình dung thì ta có thể xem hình bên dưới :))
+
+![scan_result_1](./.readmesource/img_scan_1.png)
+
+Code
+``` swift
+(0...10).publisher
+    .scan(0, { $0 + $1 })
+    .sink { (value) in
+        print("\(value)", terminator: " ")
+    }
+```
+- Khởi tạo với giá trị ban đầu là 0, sau khi nhận giá trị từ publisher thì sẽ cộng với giá trị được closure trả về trước đó. ( Để dễ hiểu thì do lần đầu tiên chưa chạy closre nên ta phải khởi tạo giá trị là 0 đó:>>)
+- `terminator` thì để in ra trên một dòng thôi.
+
+Ta có thể thấy sự thay đổi giá trị qua hình bên dưới:
+
+![scan_result_1](./.readmesource/img_scan_2.png)
+
+Kết quả:
+```
+0 1 3 6 10 15 21 28 36 45 55 100
+```
+
+#### 5.1.2. Thêm một ví dụ về việc sử dụng `scan`:
+
+Ví dụ nói về việc thối tiền, mục tiêu là đưa ra ít tờ tiền nhất.>>
+
+``` swift
+extension Int {
+    var moneyFormater: String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currencyAccounting
+        return formatter.string(from: NSNumber(value: self))!
+    }
+}
+```
+Cái `extension` này để formater ra theo số mệnh giá tiền cho nhanh thôi, code chính vẫn ở bên dưới :)) 
+
+``` swift
+var subscriptions = Set<AnyCancellable>()
+let typeOfMoneys = [500_000, 200_000, 100_000, 50_000, 20_000, 10_000, 5_000, 2_000, 1_000]
+    .sorted(by: { $0 > $1 })
+    .publisher
+
+var output: [(Int, String)] = []    // Là số tờ của từng mệnh giá cần thối lại cho khách hàng
+let input: Int = 1_023_000          // Số tiền khách đưa
+let bill: Int = 1_000               // Số tiền khách phải trả
+
+typeOfMoneys
+    .scan(input - bill, {
+        if $0 < $1 {
+            return $0
+        }
+        output.append(($0 / $1, "\($1.moneyFormater)"))
+        return $0 % $1
+    })
+    .sink { (completion) in
+        print("\n\n", output)
+    } receiveValue: { (value) in
+        print(" \(value)", terminator: " ")
+    }.store(in: &subscriptions)
+```
+- Đầu tiên để đưa lại ít tờ tiền cho khách hàng nhất thì phải sắp xếp mệnh giá từ cao xuống thấp.
+- Giá trị khởi tạo ban đầu chính là số tiền phải thối lại cho khách hàng = input - bill
+- Closure lúc này sẽ trả về số tiền còn lại phải đưa cho khách hàng.
+- Nếu số tiền còn lại phải thối bé hơn mệnh giá của tiền (được nhânh từ publisher) thì sẽ trả về số tiền còn lại lúc trước được closure trả về. Còn nếu không thì sẽ lưu vào mảng output số tờ và mệnh giá tiền. Tiếp tục cần trả về số tiền còn lại sau khi trừ đi số tiền đã lưu.
+
+Kết quả:
+``` swift
+ 22000  22000  22000  22000  2000  2000  2000  0  0     // Sự thay đổi của việc tính toán
+
+ [(2, "$500,000.00"), (1, "$20,000.00"), (1, "$2,000.00")]
+```
+
+### 5.2. tryScan <a name="RxNimble"></a>
+Một ví dụ về việc dùng `tryScan`:
+
+Code:
+``` swift
+enum DError: Error {
+    case divisionByZeroError
+}
+
+[10, 8, 9, 0, 5, 6].publisher
+    .tryScan(100, {
+        if $1 == 0 {
+            throw DError.divisionByZeroError
+        }
+        return $0 / $1
+    })
+    .sink { (completion) in
+        print(completion)
+    } receiveValue: { (value) in
+        print("\(value)", terminator: " ")
+    }
+```
+- Ở ví dụ trên thì khởi tạo giá trị ban đầu là 100, mỗi khi nhận được phần tử từ publisher bằng 0 thì sẽ kết thúc với một lỗi. Còn không thì sẽ trả về thương của giá trị mà closure trả về lúc trước và giá trị nhận từ publisher hiện tại.
+- Hắn dùng thì cũng giống `scan` thôi chỉ khác là khi mà closure trả về một lỗi thì publisher sẽ kết thúc với lỗi đó luôn. Ta có thể xem kết quả bên dưới.
+
+
+
+Kết quả:
+```
+10 1 0 failure(__lldb_expr_7.DError.divisionByZeroError)
+```
+
+![tryScan_result_1](./.readmesource/img_tryScan_1.png)
+
+
+# Hết roài :))!!
