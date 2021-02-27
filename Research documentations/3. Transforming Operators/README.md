@@ -459,15 +459,11 @@ Giải thích
 
 ## 3. Flattening publishers <a name="flattening_publishers"></a>
 
+[Tài liệu](https://developer.apple.com/documentation/combine/publishers/flatmap)
 
-![flatmap](./.readmesource/img_flat_map.png)
-
-```
 Chuyển đổi tất cả các yếu tố từ nhà xuất bản ngược dòng thành nhà xuất bản mới với số lượng nhà xuất bản tối đa mà bạn chỉ định.
 
-```
-
-[Tài liệu](https://developer.apple.com/documentation/combine/publishers/flatmap)
+![flatmap](./.readmesource/img_flat_map.png)
 
 
 Sử dụng:
