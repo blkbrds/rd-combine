@@ -20,23 +20,23 @@ struct User {
     var address: String
 }
 
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
     
-    @IBOutlet weak var nameLabel1: UILabel!
-    @IBOutlet weak var nameLabel2: UILabel!
-    @IBOutlet weak var nameLabel3: UILabel!
-    @IBOutlet weak var nameLabel4: UILabel!
+    @IBOutlet private weak var nameLabel1: UILabel!
+    @IBOutlet private weak var nameLabel2: UILabel!
+    @IBOutlet private weak var nameLabel3: UILabel!
+    @IBOutlet private weak var nameLabel4: UILabel!
     
-    @IBOutlet weak var addressName1: UILabel!
-    @IBOutlet weak var addressName2: UILabel!
-    @IBOutlet weak var addressName3: UILabel!
-    @IBOutlet weak var addressName4: UILabel!
+    @IBOutlet private weak var addressName1: UILabel!
+    @IBOutlet private weak var addressName2: UILabel!
+    @IBOutlet private weak var addressName3: UILabel!
+    @IBOutlet private weak var addressName4: UILabel!
     
     
-    @IBOutlet weak var button1: UIButton!
-    @IBOutlet weak var button2: UIButton!
-    @IBOutlet weak var button3: UIButton!
-    @IBOutlet weak var button4: UIButton!
+    @IBOutlet private weak var button1: UIButton!
+    @IBOutlet private weak var button2: UIButton!
+    @IBOutlet private weak var button3: UIButton!
+    @IBOutlet private weak var button4: UIButton!
     
     
     override func viewDidLoad() {
@@ -106,8 +106,8 @@ class HomeViewController: UIViewController {
     }
     
     @objc func updateDataUser(_ notification: NSNotification) {
-        guard let name = notification.userInfo?["name"] as? String  else {return}
-        guard let address = notification.userInfo?["address"] as? String  else {return}
+        guard let name = notification.userInfo?["name"] as? String,
+              let address = notification.userInfo?["address"] as? String  else {return}
         nameLabel3.text = name
         addressName3.text = address
     }

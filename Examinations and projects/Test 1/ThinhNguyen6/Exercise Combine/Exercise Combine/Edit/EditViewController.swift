@@ -11,12 +11,11 @@ import Combine
 protocol EditViewControllerDelegate: class {
     func viewController(_ view: EditViewController, needsPerform action: EditViewController.Action)
 }
-class EditViewController: UIViewController {
+final class EditViewController: UIViewController {
     
     enum Action {
         case done(String, String)
     }
-    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
     
@@ -35,7 +34,6 @@ class EditViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     @IBAction func doneButtonTouchUpInside(_ sender: Any) {
-        
         guard let name: String = nameTextField.text,
               let address: String = addressTextField.text,
               !name.isEmpty,
