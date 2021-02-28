@@ -14,7 +14,7 @@ protocol ViewControllerDelegate {
     
 }
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
 
     // 2. Closure
     var foo: (() -> ())?
