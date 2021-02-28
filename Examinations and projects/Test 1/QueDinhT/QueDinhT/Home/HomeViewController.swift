@@ -20,6 +20,8 @@ final class HomeViewController: UIViewController {
     @IBOutlet private weak var addressCombineLabel: UILabel!
 
     var viewModel = HomeViewModel()
+
+    // Combine
     static let userInput = PassthroughSubject<User, Never>()
     var subscriptions = Set<AnyCancellable>()
 
@@ -27,6 +29,7 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         updateView()
+        // Notification
         NotificationCenter.default.addObserver(self, selector: #selector(updateDataNotif(notification:)),
                                                name: Notification.Name("Notification center"), object: nil)
     }
@@ -47,9 +50,11 @@ final class HomeViewController: UIViewController {
         let vc = EditViewController()
         switch sender.tag {
         case 0:
+            // Delegate
             vc.viewModel = viewModel.viewModelForEdit(editType: .delegate)
             vc.delegate = self
         case 1:
+            // Closure
             vc.viewModel = viewModel.viewModelForEdit(editType: .closure)
             vc.closure = { [weak self] user in
                 guard let this = self else { return }
@@ -57,8 +62,10 @@ final class HomeViewController: UIViewController {
                 this.updateView()
             }
         case 2:
+            // Notification
             vc.viewModel = viewModel.viewModelForEdit(editType: .notification)
         default:
+            // Combine
             vc.viewModel = viewModel.viewModelForEdit(editType: .combine)
             HomeViewController.userInput.sink { [weak self] (user) in
                 guard let this = self else { return }
@@ -71,6 +78,7 @@ final class HomeViewController: UIViewController {
         present(vc, animated: true, completion: nil)
     }
 
+    // Notification
     @objc private func updateDataNotif(notification: NSNotification) {
         if let user = notification.userInfo?["user"] as? User {
             viewModel.users[2] = user
@@ -79,6 +87,7 @@ final class HomeViewController: UIViewController {
     }
 }
 
+// MARK: - EditViewControllerDelegate
 extension HomeViewController: EditViewControllerDelegate {
     func view(_ view: EditViewController, needPerformAction action: EditViewController.Action) {
         switch action {

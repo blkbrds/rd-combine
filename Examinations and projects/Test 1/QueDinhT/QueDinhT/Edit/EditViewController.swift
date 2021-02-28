@@ -14,6 +14,7 @@ enum EditType: Int {
     case combine
 }
 
+// Delegate
 protocol EditViewControllerDelegate: class {
     func view(_ view: EditViewController, needPerformAction action: EditViewController.Action)
 }

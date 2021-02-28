@@ -1,5 +1,34 @@
 **rd-combine** 
 
+
+------------ Ưu nhược điểm ------------
+1. Delegate
+- Ưu điểm: 
+    Đơn giản, dễ implement, dễ sửa chữa, thêm bớt funtions
+- Nhược điểm:
+    Chỉ là mối quan hệ 1-1, nên chỉ truyền dữ liệu được 2 màn hình với nhau
+
+2. Closure:
+- Ưu điểm:
+    Đơn giản, dễ implement
+- Nhược điểm:
+    Dễ bị leak memory
+    
+3. Notification:
+- Ưu điểm:
+    Mối quan hệ 1-n, nhiều đối tượng có thể cùng lắng nghe
+- Nhược điểm:
+    Khó control code, nhất là khi bị lạm dụng quá nhiều
+    
+4. Combine:
+- Ưu điểm:
+    Đơn giản, dễ implement
+    Mối quan hệ1-n
+- Nhược điểm:
+    Khó control code
+    Không quen đối với người mới sử dụng
+    
+
 R&D - iOS - Combine
 
 # Contents
