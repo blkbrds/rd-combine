@@ -2,16 +2,28 @@
 
 R&D - iOS - Combine
 
-# Contents
-## 1. [Research documentations](https://github.com/blkbrds/rd-combine/tree/main/Research%20documentations)
-_Thư mục này chứa tất cả các tài liệu tổng hợp là kết quả của từng nhóm research, bao gồm **document** và **code demo**_
-
-## 2. [Examinations and projects](https://github.com/blkbrds/rd-combine/tree/main/Examinations%20and%20projects)
-_Thư mục này chứa các **bài kiểm tra**, **bài làm** và **final project** của các nhóm_
-
-# References
-- [Combine by Raywernderlich](https://www.raywenderlich.com/books/combine-asynchronous-programming-with-swift/v2.0)
-- [FxStudio](https://fxstudio.dev/category/code/combine/)
-
-# License
-Xem [License](https://github.com/blkbrds/rd-combine/blob/main/LICENSE) để biết thêm thông tin chi tiết.
+1 Delegate 
+ Ưu điểm: 
+ - cách dùng quen thuộc, cơ bản nhất đổi với người mới 
+ - dễ sử dụng 
+ Nhược điểm:
+ - Chỉ chuyển 1 chiều từ 
+ Closure: 
+ Ưu điểm :
+ - Viết ngắn gọn, thuận tiện khi dùng trong hàm callback, completion 
+ Nhược điểm:
+- Khó hiểu
+Notification:
+Ưu điểm: 
+- Truyền được nhiều màn hình
+Nhược điểm:
+- Rườm rà, khó kiểm soát code 
+Combine 
+Ưu điểm:
+- Mới mẻ, dễ sử dụng 
+- Được hỗ trợ nhiều cách truyền 
+- Theo phong cách reactive programing nên không phải quan tâm logic nhiều, gọn lẹ 
+Nhược điểm
+- Chưa biết vì còn mới 
+- Học lâu, cần nắm vững các loại trên mới có thể học dùng combine tốt được
+ 
