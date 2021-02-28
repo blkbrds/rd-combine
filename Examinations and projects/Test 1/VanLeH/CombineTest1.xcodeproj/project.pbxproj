@@ -15,13 +15,15 @@
 		745CE2AD25DE105500EEEB29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 745CE2AB25DE105500EEEB29 /* LaunchScreen.storyboard */; };
 		748F560225EA3A470032AF66 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748F560025EA3A470032AF66 /* EditViewController.swift */; };
 		748F560325EA3A470032AF66 /* EditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 748F560125EA3A470032AF66 /* EditViewController.xib */; };
-		748F560C25EB44B90032AF66 /* UserNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748F560B25EB44B90032AF66 /* UserNormal.swift */; };
-		748F560F25EB45040032AF66 /* UserCombine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748F560E25EB45040032AF66 /* UserCombine.swift */; };
+		748F560C25EB44B90032AF66 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748F560B25EB44B90032AF66 /* User.swift */; };
 		748F561325EB47590032AF66 /* UserViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748F561225EB47590032AF66 /* UserViewDelegate.swift */; };
 		748F561825EB49020032AF66 /* UIVIewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748F561725EB49020032AF66 /* UIVIewExt.swift */; };
 		748F561C25EB4A1C0032AF66 /* UserViewClosureWay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748F561B25EB4A1C0032AF66 /* UserViewClosureWay.swift */; };
 		748F562025EB4A840032AF66 /* UserViewNotifictaionWay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748F561F25EB4A840032AF66 /* UserViewNotifictaionWay.swift */; };
 		748F562525EB4E3A0032AF66 /* UserViewCombineWay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748F562425EB4E3A0032AF66 /* UserViewCombineWay.swift */; };
+		748F562925EB84800032AF66 /* UserViewModelCombineWay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748F562825EB84800032AF66 /* UserViewModelCombineWay.swift */; };
+		748F562E25EB89B00032AF66 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748F562D25EB89B00032AF66 /* UserViewModel.swift */; };
+		748F563325EB90230032AF66 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748F563225EB90230032AF66 /* HomeViewModel.swift */; };
 		749E3CB925E8D04D00B5A26B /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749E3CB825E8D04D00B5A26B /* HomeViewController.xib */; };
 		749E3CBD25E8D32900B5A26B /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749E3CBC25E8D32900B5A26B /* UserView.swift */; };
 		749E3CC025E8D33A00B5A26B /* UserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749E3CBF25E8D33A00B5A26B /* UserView.xib */; };
@@ -38,13 +40,15 @@
 		745CE2AE25DE105500EEEB29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		748F560025EA3A470032AF66 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		748F560125EA3A470032AF66 /* EditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditViewController.xib; sourceTree = "<group>"; };
-		748F560B25EB44B90032AF66 /* UserNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNormal.swift; sourceTree = "<group>"; };
-		748F560E25EB45040032AF66 /* UserCombine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCombine.swift; sourceTree = "<group>"; };
+		748F560B25EB44B90032AF66 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		748F561225EB47590032AF66 /* UserViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewDelegate.swift; sourceTree = "<group>"; };
 		748F561725EB49020032AF66 /* UIVIewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVIewExt.swift; sourceTree = "<group>"; };
 		748F561B25EB4A1C0032AF66 /* UserViewClosureWay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewClosureWay.swift; sourceTree = "<group>"; };
 		748F561F25EB4A840032AF66 /* UserViewNotifictaionWay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewNotifictaionWay.swift; sourceTree = "<group>"; };
 		748F562425EB4E3A0032AF66 /* UserViewCombineWay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewCombineWay.swift; sourceTree = "<group>"; };
+		748F562825EB84800032AF66 /* UserViewModelCombineWay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModelCombineWay.swift; sourceTree = "<group>"; };
+		748F562D25EB89B00032AF66 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		748F563225EB90230032AF66 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		749E3CB825E8D04D00B5A26B /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		749E3CBC25E8D32900B5A26B /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		749E3CBF25E8D33A00B5A26B /* UserView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserView.xib; sourceTree = "<group>"; };
@@ -98,10 +102,8 @@
 		748F55FE25EA39EB0032AF66 /* UserView */ = {
 			isa = PBXGroup;
 			children = (
+				748F563025EB8BD00032AF66 /* Delegate, Closure, Notification */,
 				748F562325EB4E1D0032AF66 /* Combine */,
-				748F561E25EB4A6F0032AF66 /* Notification */,
-				748F561A25EB4A030032AF66 /* Closure */,
-				748F561125EB47230032AF66 /* Delegate */,
 				749E3CBC25E8D32900B5A26B /* UserView.swift */,
 				749E3CBF25E8D33A00B5A26B /* UserView.xib */,
 			);
@@ -122,6 +124,7 @@
 			children = (
 				745CE2A425DE105000EEEB29 /* HomeViewController.swift */,
 				749E3CB825E8D04D00B5A26B /* HomeViewController.xib */,
+				748F563225EB90230032AF66 /* HomeViewModel.swift */,
 			);
 			path = HomeVC;
 			sourceTree = "<group>";
@@ -129,8 +132,7 @@
 		748F560A25EB449E0032AF66 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				748F560B25EB44B90032AF66 /* UserNormal.swift */,
-				748F560E25EB45040032AF66 /* UserCombine.swift */,
+				748F560B25EB44B90032AF66 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -163,8 +165,20 @@
 			isa = PBXGroup;
 			children = (
 				748F562425EB4E3A0032AF66 /* UserViewCombineWay.swift */,
+				748F562825EB84800032AF66 /* UserViewModelCombineWay.swift */,
 			);
 			path = Combine;
+			sourceTree = "<group>";
+		};
+		748F563025EB8BD00032AF66 /* Delegate, Closure, Notification */ = {
+			isa = PBXGroup;
+			children = (
+				748F562D25EB89B00032AF66 /* UserViewModel.swift */,
+				748F561E25EB4A6F0032AF66 /* Notification */,
+				748F561A25EB4A030032AF66 /* Closure */,
+				748F561125EB47230032AF66 /* Delegate */,
+			);
+			path = "Delegate, Closure, Notification";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,10 +259,12 @@
 				745CE2A525DE105000EEEB29 /* HomeViewController.swift in Sources */,
 				745CE2A125DE105000EEEB29 /* AppDelegate.swift in Sources */,
 				748F561825EB49020032AF66 /* UIVIewExt.swift in Sources */,
-				748F560F25EB45040032AF66 /* UserCombine.swift in Sources */,
-				748F560C25EB44B90032AF66 /* UserNormal.swift in Sources */,
+				748F560C25EB44B90032AF66 /* User.swift in Sources */,
+				748F562925EB84800032AF66 /* UserViewModelCombineWay.swift in Sources */,
 				745CE2A325DE105000EEEB29 /* SceneDelegate.swift in Sources */,
 				748F561C25EB4A1C0032AF66 /* UserViewClosureWay.swift in Sources */,
+				748F563325EB90230032AF66 /* HomeViewModel.swift in Sources */,
+				748F562E25EB89B00032AF66 /* UserViewModel.swift in Sources */,
 				748F561325EB47590032AF66 /* UserViewDelegate.swift in Sources */,
 				749E3CBD25E8D32900B5A26B /* UserView.swift in Sources */,
 				748F562525EB4E3A0032AF66 /* UserViewCombineWay.swift in Sources */,
