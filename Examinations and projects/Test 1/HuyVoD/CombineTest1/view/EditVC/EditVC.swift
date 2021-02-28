@@ -34,6 +34,7 @@ final class EditVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        doneButton.layer.cornerRadius = 5
         updateView()
     }
     

@@ -73,6 +73,7 @@ final class DetailView: UIView {
         Bundle.main.loadNibNamed(nibName, owner: self)
         moveEditScreenButton.titleLabel?.textAlignment = .center
         contentView.translatesAutoresizingMaskIntoConstraints = false
+        moveEditScreenButton.layer.cornerRadius = 5
         addSubview(contentView)
         guard let contentView = contentView else { return }
         addConstraint(NSLayoutConstraint(item: contentView,
