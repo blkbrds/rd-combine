@@ -107,14 +107,14 @@
 			children = (
 				52DF528925EB3FBA00AEEE65 /* AppDelegate.swift */,
 				52DF529225EB3FBE00AEEE65 /* Assets.xcassets */,
-				52DF529425EB3FBE00AEEE65 /* LaunchScreen.storyboard */,
-				52DF529725EB3FBE00AEEE65 /* Info.plist */,
-				52DF52C225EB407100AEEE65 /* HomeViewController.swift */,
-				52DF52C325EB407100AEEE65 /* HomeViewController.xib */,
 				52DF52CC25EB4F5F00AEEE65 /* EditViewController.swift */,
 				52DF52CD25EB4F5F00AEEE65 /* EditViewController.xib */,
 				52DF52D325EB6F5D00AEEE65 /* EditViewModel.swift */,
+				52DF52C225EB407100AEEE65 /* HomeViewController.swift */,
+				52DF52C325EB407100AEEE65 /* HomeViewController.xib */,
 				52DF52D825EBF6C400AEEE65 /* HomeViewModel.swift */,
+				52DF529725EB3FBE00AEEE65 /* Info.plist */,
+				52DF529425EB3FBE00AEEE65 /* LaunchScreen.storyboard */,
 			);
 			path = CombineTest1;
 			sourceTree = "<group>";

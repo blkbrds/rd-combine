@@ -6,6 +6,13 @@
 //
 
 import UIKit
+import Combine
+
+// delegate
+protocol EditViewControllerDelegate: class {
+
+    func view(_ view: EditViewController, needsPerform action: EditViewController.Action)
+}
 
 final class EditViewController: UIViewController {
 
@@ -15,7 +22,10 @@ final class EditViewController: UIViewController {
     @IBOutlet private weak var doneButton: UIButton!
 
     // MARK: - Propeties
-    var viewModel: EditViewModel? 
+    var viewModel: EditViewModel?
+    weak var delegate: EditViewControllerDelegate?
+    // comnbine
+    var publisher: PassthroughSubject<EditViewModel, Never>?
     // MARK: - Initialize
     
     // MARK: - Life cycle
@@ -33,6 +43,11 @@ final class EditViewController: UIViewController {
         nameTextField.layer.borderColor = UIColor.black.cgColor
         addressTextField.layer.borderWidth = 0.5
         addressTextField.layer.borderColor = UIColor.black.cgColor
+        nameTextField.delegate = self
+        addressTextField.delegate = self
+        guard let viewModel = viewModel else { return }
+        nameTextField.text = viewModel.name
+        addressTextField.text = viewModel.address
     }
     // MARK: - Public functions
     
@@ -40,10 +55,49 @@ final class EditViewController: UIViewController {
     
     // MARK: - IBActions
     @IBAction private func doneButtonTouchUpInside(_ sender: UIButton) {
-        
+        guard let viewModel = viewModel else { return }
+        switch viewModel.editCase {
+        case .delegate:
+            delegate?.view(self, needsPerform: .updateInformation(name: viewModel.name, address: viewModel.address))
+        case .notification:
+        break
+        case .combine:
+            publisher?.send(viewModel)
+            publisher?.send(completion: .finished)
+        default:
+            break
+        }
+        self.dismiss(animated: true, completion: nil)
     }
 
     @IBAction private func exitButtonTouchUpInside(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension EditViewController {
+
+    enum Action {
+        case updateInformation(name: String, address: String)
+    }
+}
+
+// MARK: - UITextFieldDelegate
+extension EditViewController: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let viewModel = viewModel else { return false }
+        switch textField {
+        case nameTextField:
+            nameTextField.resignFirstResponder()
+            viewModel.updateName(name: nameTextField.text)
+            addressTextField.becomeFirstResponder()
+        case addressTextField:
+            addressTextField.resignFirstResponder()
+            viewModel.updateAddress(address: addressTextField.text)
+        default:
+            break
+        }
+        return true
     }
 }

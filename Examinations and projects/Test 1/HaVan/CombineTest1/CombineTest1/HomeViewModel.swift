@@ -8,5 +8,12 @@
 import Foundation
 
 final class HomeViewModel {
-    
+
+    private(set) var name: String = "Robert Pattinson"
+    private(set) var address: String = "London, England"
+
+    func updateInformation(_ newName: String, _ newAddress: String) {
+        name = newName
+        address = newAddress
+    }
 }

@@ -33,12 +33,18 @@ final class HomeViewController: UIViewController {
     
     // MARK: - Propeties
     var editCase: EditCase = .delegate
+    var viewModel = HomeViewModel()
+    var subscriptions = Set<AnyCancellable>()
     // MARK: - Initialize
     
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     // MARK: - Override functions
     
@@ -58,17 +64,40 @@ final class HomeViewController: UIViewController {
         setUpButton(combineButton)
     }
 
+    private func updateUI(editCase: EditCase) {
+        switch editCase {
+        case .delegate:
+            firstNameLabel.text = viewModel.name
+            firstAddressLabel.text = viewModel.address
+        case .closure:
+            break
+        case .combine:
+            break
+        case .notification:
+            lastNameLabel.text = viewModel.name
+            lastAddressLabel.text = viewModel.address
+        }
+    }
+
     private func moveToEditViewController(_ button: UIButton) {
         let vc = EditViewController()
         switch button {
         case delegateButton:
             editCase = .delegate
+            vc.delegate = self
         case closureButton:
             editCase = .closure
         case notificationButton:
             editCase = .notification
         case combineButton:
             editCase = .combine
+            vc.publisher = PassthroughSubject<EditViewModel, Never>()
+            _ = vc.publisher?.sink(receiveCompletion: { (completion) in
+                self.updateUI(editCase: .combine)
+            }, receiveValue: { (viewModel) in
+                self.viewModel.updateInformation(viewModel.name, viewModel.address)
+            }).store(in: &subscriptions)
+            
         default:
             break
         }
@@ -80,7 +109,6 @@ final class HomeViewController: UIViewController {
     // MARK: - Public functions
     
     // MARK: - Objc functions
-    
     // MARK: - IBActions
     @IBAction private func editButtonTouchUpInside(_ sender: UIButton) {
         moveToEditViewController(sender)
@@ -88,5 +116,14 @@ final class HomeViewController: UIViewController {
 
 }
 
-extension HomeViewController {
+// MARK: - EditViewControllerDelegate
+extension HomeViewController: EditViewControllerDelegate {
+
+    func view(_ view: EditViewController, needsPerform action: EditViewController.Action) {
+        switch action {
+        case .updateInformation(name: let newName, address: let newAddress):
+            viewModel.updateInformation(newName, newAddress)
+            updateUI(editCase: .delegate)
+        }
+    }
 }

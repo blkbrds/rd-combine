@@ -16,4 +16,14 @@ final class EditViewModel {
     init(editCase: EditCase) {
         self.editCase = editCase
     }
+
+    func updateName(name: String?) {
+        guard let newName = name else { return }
+        self.name = newName
+    }
+
+    func updateAddress(address: String?) {
+        guard let newAddress = address else { return }
+        self.address = newAddress
+    }
 }
