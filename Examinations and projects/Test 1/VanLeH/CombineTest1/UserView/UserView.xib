@@ -61,9 +61,9 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstItem="HoP-ws-ibN" firstAttribute="leading" secondItem="R90-Tp-Jk5" secondAttribute="leading" constant="36" id="8qW-TG-USc"/>
                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="123-98-vOA" secondAttribute="bottom" id="KNd-nz-etO"/>
-                        <constraint firstItem="123-98-vOA" firstAttribute="top" secondItem="aJT-Lf-lQF" secondAttribute="bottom" constant="12" id="Kdg-qs-3fx"/>
+                        <constraint firstItem="HoP-ws-ibN" firstAttribute="centerX" secondItem="R90-Tp-Jk5" secondAttribute="centerX" id="KPa-8d-pyl"/>
+                        <constraint firstItem="123-98-vOA" firstAttribute="top" secondItem="aJT-Lf-lQF" secondAttribute="bottom" constant="12" id="Ksb-7S-PDv"/>
                         <constraint firstAttribute="trailing" secondItem="hMg-DV-2Gl" secondAttribute="trailing" constant="20" id="Nns-bI-Jeu"/>
                         <constraint firstItem="aJT-Lf-lQF" firstAttribute="top" secondItem="hMg-DV-2Gl" secondAttribute="bottom" constant="12" id="U8n-P5-cXu"/>
                         <constraint firstItem="hMg-DV-2Gl" firstAttribute="top" secondItem="HoP-ws-ibN" secondAttribute="bottom" constant="12" id="Ur0-4v-LZa"/>
@@ -72,7 +72,6 @@
                         <constraint firstItem="123-98-vOA" firstAttribute="centerX" secondItem="R90-Tp-Jk5" secondAttribute="centerX" id="oM0-ak-mCo"/>
                         <constraint firstItem="HoP-ws-ibN" firstAttribute="top" secondItem="R90-Tp-Jk5" secondAttribute="top" id="res-8l-g8E"/>
                         <constraint firstItem="hMg-DV-2Gl" firstAttribute="leading" secondItem="R90-Tp-Jk5" secondAttribute="leading" constant="20" id="x1T-JS-4wU"/>
-                        <constraint firstAttribute="trailing" secondItem="HoP-ws-ibN" secondAttribute="trailing" constant="36" id="x6d-Nc-Qx4"/>
                     </constraints>
                 </view>
             </subviews>
