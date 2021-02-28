@@ -8,21 +8,11 @@
 import UIKit
 import Combine
 
-// 1. Delegate
-protocol HomeViewControllerDelegate: class {
-    func homeViewController(vc: UIViewController, perform action: HomeViewController.Action)
-}
-
 final class HomeViewController: UIViewController {
 
     @IBOutlet private var editButtons: [UIButton]!
     @IBOutlet private var usernameLabels: [UILabel]!
     @IBOutlet private var addressLabels: [UILabel]!
-    
-    // 1. Delegate
-    enum Action {
-        case editInfo
-    }
     
     // 4. Combine
     var subscriptions = Set<AnyCancellable>()
@@ -79,9 +69,9 @@ final class HomeViewController: UIViewController {
     
 }
 
-extension HomeViewController: HomeViewControllerDelegate {
-    func homeViewController(vc: UIViewController, perform action: Action) {
-        guard let vc = vc as? EditInfoViewController else { return }
+extension HomeViewController: EditInfoViewControllerDelegate {
+    func editInfoViewController(vc: UIViewController, perform action: EditInfoViewController.Action) {
+        guard action == .editedInfo, let vc = vc as? EditInfoViewController else { return }
         updateInfo(vc.viewModel)
     }
 }

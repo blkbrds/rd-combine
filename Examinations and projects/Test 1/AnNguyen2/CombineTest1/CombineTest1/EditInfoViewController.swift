@@ -8,6 +8,11 @@
 import UIKit
 import Combine
 
+// 1. Delegate
+protocol EditInfoViewControllerDelegate: class {
+    func editInfoViewController(vc: UIViewController, perform action: EditInfoViewController.Action)
+}
+
 final class EditInfoViewModel {
     var tag: Int
     var username: String
@@ -27,7 +32,12 @@ final class EditInfoViewController: UIViewController {
     var viewModel: EditInfoViewModel = EditInfoViewModel()
     
     // 1. Delegate
-    weak var delegate: HomeViewControllerDelegate?
+    enum Action {
+        case editedInfo
+        case cancel
+    }
+    
+    weak var delegate: EditInfoViewControllerDelegate?
 
     // 2. Closure
     var editInfo: ((EditInfoViewModel) -> Void)?
@@ -48,7 +58,7 @@ final class EditInfoViewController: UIViewController {
         viewModel.address = address
         
         // 1. Delegate
-        delegate?.homeViewController(vc: self, perform: .editInfo)
+        delegate?.editInfoViewController(vc: self, perform: .editedInfo)
         dismiss(animated: true)
         
         // 2. Closure
