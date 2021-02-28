@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="CombineTest1" customModuleProvider="target">
+            <connections>
+                <outlet property="closureButton" destination="ruZ-U4-VUq" id="GWp-lc-Cvd"/>
+                <outlet property="combineButton" destination="f6b-BU-7r4" id="Wc0-zD-BsZ"/>
+                <outlet property="delegateButton" destination="fgk-os-8de" id="oe2-47-Jfv"/>
+                <outlet property="firstAddressLabel" destination="3Iy-Or-GJ1" id="7I8-OW-wFI"/>
+                <outlet property="firstNameLabel" destination="Qml-Jx-7hl" id="TsE-wk-wPc"/>
+                <outlet property="lastAddressLabel" destination="S0E-Fz-buK" id="pYO-ha-gHN"/>
+                <outlet property="lastNameLabel" destination="vdl-zb-BeD" id="Unr-MA-Cmi"/>
+                <outlet property="notificationButton" destination="PuV-cl-5Md" id="Fwd-IE-a4t"/>
+                <outlet property="secondAddressLabel" destination="cpS-0z-Mpz" id="sH5-DS-0KS"/>
+                <outlet property="secondNameLabel" destination="zHw-WD-JIq" id="QVR-gk-2VG"/>
+                <outlet property="thirdAddressLabel" destination="yEw-L6-xfK" id="drv-ck-ava"/>
+                <outlet property="thirdNameLabel" destination="2PH-vy-8pw" id="ygo-kz-gYi"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="edward" translatesAutoresizingMaskIntoConstraints="NO" id="M7h-fj-apX" userLabel="edward-1">
+                    <rect key="frame" x="60" y="80" width="90" height="116"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="116" id="Hto-yj-YyU"/>
+                        <constraint firstAttribute="width" constant="90" id="lIc-dy-FzK"/>
+                    </constraints>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="edward" translatesAutoresizingMaskIntoConstraints="NO" id="5fd-Dv-Q4v" userLabel="edward-2">
+                    <rect key="frame" x="265" y="80" width="89" height="116"/>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="edward" translatesAutoresizingMaskIntoConstraints="NO" id="6t8-UU-dWz" userLabel="edward-3">
+                    <rect key="frame" x="60.666666666666657" y="384" width="89" height="116"/>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="edward" translatesAutoresizingMaskIntoConstraints="NO" id="frh-gC-EPc" userLabel="edward-4">
+                    <rect key="frame" x="265" y="384" width="89" height="116"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Robert Pattinson" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qml-Jx-7hl" userLabel="Robert Pattinson-1">
+                    <rect key="frame" x="41" y="206" width="128" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" systemColor="linkColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Robert Pattinson" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zHw-WD-JIq" userLabel="Robert Pattinson-2">
+                    <rect key="frame" x="245.66666666666663" y="206" width="128" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" systemColor="linkColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Robert Pattinson" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vdl-zb-BeD" userLabel="Robert Pattinson-4">
+                    <rect key="frame" x="245.66666666666663" y="510" width="128" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" systemColor="linkColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="London, England" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Iy-Or-GJ1" userLabel="London, England-1">
+                    <rect key="frame" x="41" y="232" width="128" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="London, England" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpS-0z-Mpz" userLabel="London, England-2">
+                    <rect key="frame" x="245.66666666666663" y="232" width="128" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="London, England" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yEw-L6-xfK" userLabel="London, England-3">
+                    <rect key="frame" x="41" y="536" width="128" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="London, England" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S0E-Fz-buK" userLabel="London, England-4">
+                    <rect key="frame" x="245.66666666666663" y="536" width="128" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgk-os-8de">
+                    <rect key="frame" x="60" y="256" width="90" height="48"/>
+                    <color key="backgroundColor" systemColor="systemBlueColor"/>
+                    <state key="normal">
+                        <string key="title">Edit
+(Delegate)</string>
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="editButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="PQl-eh-mJh"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PuV-cl-5Md">
+                    <rect key="frame" x="60" y="560" width="90" height="48"/>
+                    <color key="backgroundColor" systemColor="systemBlueColor"/>
+                    <state key="normal">
+                        <string key="title">Edit
+(Notification)</string>
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="editButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="buT-dK-Q7N"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6b-BU-7r4">
+                    <rect key="frame" x="264.66666666666669" y="560" width="90" height="48"/>
+                    <color key="backgroundColor" systemColor="systemBlueColor"/>
+                    <state key="normal">
+                        <string key="title">Edit
+(Combine)</string>
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="editButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="QFu-Hk-ZBv"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ruZ-U4-VUq">
+                    <rect key="frame" x="264.66666666666669" y="256" width="90" height="48"/>
+                    <color key="backgroundColor" systemColor="systemBlueColor"/>
+                    <state key="normal">
+                        <string key="title">Edit
+(Closure)</string>
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="editButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="kdU-x3-LB8"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Robert Pattinson" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2PH-vy-8pw" userLabel="Robert Pattinson-3">
+                    <rect key="frame" x="41" y="510" width="128" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" systemColor="linkColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="3Iy-Or-GJ1" firstAttribute="centerX" secondItem="Qml-Jx-7hl" secondAttribute="centerX" id="1gD-a4-gaI"/>
+                <constraint firstItem="2PH-vy-8pw" firstAttribute="centerX" secondItem="6t8-UU-dWz" secondAttribute="centerX" id="6HG-Sv-Tl6"/>
+                <constraint firstItem="fgk-os-8de" firstAttribute="top" secondItem="3Iy-Or-GJ1" secondAttribute="bottom" constant="3" id="7ZC-98-4om"/>
+                <constraint firstItem="frh-gC-EPc" firstAttribute="height" secondItem="6t8-UU-dWz" secondAttribute="height" id="8Sa-VU-od7"/>
+                <constraint firstItem="f6b-BU-7r4" firstAttribute="centerY" secondItem="PuV-cl-5Md" secondAttribute="centerY" id="9Vq-zn-M2L"/>
+                <constraint firstItem="f6b-BU-7r4" firstAttribute="width" secondItem="PuV-cl-5Md" secondAttribute="width" id="AAt-cA-M8W"/>
+                <constraint firstItem="2PH-vy-8pw" firstAttribute="top" secondItem="6t8-UU-dWz" secondAttribute="bottom" constant="10" id="D1n-gA-LG3"/>
+                <constraint firstItem="frh-gC-EPc" firstAttribute="centerX" secondItem="5fd-Dv-Q4v" secondAttribute="centerX" id="ER2-8v-UsA"/>
+                <constraint firstItem="vdl-zb-BeD" firstAttribute="centerY" secondItem="2PH-vy-8pw" secondAttribute="centerY" id="GFP-Uq-BU9"/>
+                <constraint firstItem="Qml-Jx-7hl" firstAttribute="centerX" secondItem="M7h-fj-apX" secondAttribute="centerX" id="GY9-DV-BrM"/>
+                <constraint firstItem="cpS-0z-Mpz" firstAttribute="centerY" secondItem="3Iy-Or-GJ1" secondAttribute="centerY" id="GsZ-d8-D5l"/>
+                <constraint firstItem="frh-gC-EPc" firstAttribute="centerY" secondItem="6t8-UU-dWz" secondAttribute="centerY" id="INh-B6-Xb6"/>
+                <constraint firstItem="ruZ-U4-VUq" firstAttribute="centerX" secondItem="cpS-0z-Mpz" secondAttribute="centerX" id="M3k-Ay-dVh"/>
+                <constraint firstItem="6t8-UU-dWz" firstAttribute="centerX" secondItem="M7h-fj-apX" secondAttribute="centerX" id="MfE-AJ-hwm"/>
+                <constraint firstItem="S0E-Fz-buK" firstAttribute="centerX" secondItem="vdl-zb-BeD" secondAttribute="centerX" id="MwL-3V-anw"/>
+                <constraint firstItem="yEw-L6-xfK" firstAttribute="top" secondItem="2PH-vy-8pw" secondAttribute="bottom" constant="5" id="NtQ-4b-Odg"/>
+                <constraint firstItem="ruZ-U4-VUq" firstAttribute="centerY" secondItem="fgk-os-8de" secondAttribute="centerY" id="OTh-Wr-B0B"/>
+                <constraint firstItem="vdl-zb-BeD" firstAttribute="centerX" secondItem="frh-gC-EPc" secondAttribute="centerX" id="PIY-P8-Ba2"/>
+                <constraint firstItem="frh-gC-EPc" firstAttribute="width" secondItem="6t8-UU-dWz" secondAttribute="width" id="SKc-EF-pb8"/>
+                <constraint firstItem="M7h-fj-apX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="80" id="UrO-YI-rK5"/>
+                <constraint firstItem="5fd-Dv-Q4v" firstAttribute="height" secondItem="M7h-fj-apX" secondAttribute="height" id="VwY-Nk-yNX"/>
+                <constraint firstItem="PuV-cl-5Md" firstAttribute="width" secondItem="fgk-os-8de" secondAttribute="width" id="XOu-Pk-13f"/>
+                <constraint firstItem="6t8-UU-dWz" firstAttribute="width" secondItem="M7h-fj-apX" secondAttribute="width" multiplier="0.988889" id="Z1D-UF-bwe"/>
+                <constraint firstItem="6t8-UU-dWz" firstAttribute="top" secondItem="fgk-os-8de" secondAttribute="bottom" constant="80" id="ZhK-qN-rOf"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5fd-Dv-Q4v" secondAttribute="trailing" constant="60" id="aUD-xn-jh3"/>
+                <constraint firstItem="PuV-cl-5Md" firstAttribute="top" secondItem="yEw-L6-xfK" secondAttribute="bottom" constant="3" id="eLb-BU-FcC"/>
+                <constraint firstItem="Qml-Jx-7hl" firstAttribute="top" secondItem="M7h-fj-apX" secondAttribute="bottom" constant="10" id="hDm-ER-182"/>
+                <constraint firstItem="yEw-L6-xfK" firstAttribute="centerX" secondItem="2PH-vy-8pw" secondAttribute="centerX" id="i2B-9G-0rn"/>
+                <constraint firstItem="M7h-fj-apX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="60" id="isz-5w-qEG"/>
+                <constraint firstItem="fgk-os-8de" firstAttribute="centerX" secondItem="3Iy-Or-GJ1" secondAttribute="centerX" id="kfy-hH-J5D"/>
+                <constraint firstItem="f6b-BU-7r4" firstAttribute="centerX" secondItem="S0E-Fz-buK" secondAttribute="centerX" id="mlE-QD-HEo"/>
+                <constraint firstItem="zHw-WD-JIq" firstAttribute="centerX" secondItem="5fd-Dv-Q4v" secondAttribute="centerX" id="p08-P6-r8f"/>
+                <constraint firstItem="6t8-UU-dWz" firstAttribute="height" secondItem="M7h-fj-apX" secondAttribute="height" id="pKH-pe-KMn"/>
+                <constraint firstItem="cpS-0z-Mpz" firstAttribute="centerX" secondItem="zHw-WD-JIq" secondAttribute="centerX" id="qTV-cA-Bsy"/>
+                <constraint firstItem="PuV-cl-5Md" firstAttribute="centerX" secondItem="yEw-L6-xfK" secondAttribute="centerX" id="t7M-in-9CB"/>
+                <constraint firstItem="ruZ-U4-VUq" firstAttribute="width" secondItem="fgk-os-8de" secondAttribute="width" id="tx2-BG-20n"/>
+                <constraint firstItem="S0E-Fz-buK" firstAttribute="centerY" secondItem="yEw-L6-xfK" secondAttribute="centerY" id="vQg-Gh-fMz"/>
+                <constraint firstItem="5fd-Dv-Q4v" firstAttribute="top" secondItem="M7h-fj-apX" secondAttribute="top" id="wJI-cH-fZS"/>
+                <constraint firstItem="zHw-WD-JIq" firstAttribute="centerY" secondItem="Qml-Jx-7hl" secondAttribute="centerY" id="wg6-NA-DIv"/>
+                <constraint firstItem="3Iy-Or-GJ1" firstAttribute="top" secondItem="Qml-Jx-7hl" secondAttribute="bottom" constant="5" id="x11-ag-hLI"/>
+                <constraint firstItem="5fd-Dv-Q4v" firstAttribute="width" secondItem="M7h-fj-apX" secondAttribute="width" multiplier="0.988889" id="y0C-4d-7dt"/>
+            </constraints>
+            <point key="canvasLocation" x="79.710144927536234" y="133.69565217391306"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="edward" width="250" height="355"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
