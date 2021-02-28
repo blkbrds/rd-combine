@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 // 1. Delegate
 protocol EditViewControllerDelegate: class {
@@ -15,7 +16,7 @@ protocol EditViewControllerDelegate: class {
 final class EditViewController: UIViewController {
 
     enum Action {
-        case didSelectedBackButton(user: User)
+        case didSelectedDoneButton(user: User)
     }
 
     @IBOutlet private weak var doneButton: UIButton!
@@ -28,9 +29,16 @@ final class EditViewController: UIViewController {
     weak var delegate: EditViewControllerDelegate?
     // 2. Closure
     var closure: ((_ user: User) -> Void)?
+    // 4. Combine
+    let publisher: PassthroughSubject<User, Never> = PassthroughSubject<User, Never>()
 
     override func viewDidLoad() {
         doneButton.layer.cornerRadius = 25
+    }
+
+    // MARK: - Actions
+    @IBAction func closeButtonTouchUpInside(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
     }
 
     @IBAction private func doneButtonTouchUpInside(_ sender: UIButton) {
@@ -45,18 +53,20 @@ final class EditViewController: UIViewController {
         dismiss(animated: true) {
             if let title = PassDataType(rawValue: indexPath.row)?.title {
                 switch title {
-                // Delegate
+                // 1. Delegate
                 case "Delegate":
-                    self.delegate?.vc(self, needsPerform: .didSelectedBackButton(user: user))
-                // Closure
+                    self.delegate?.vc(self, needsPerform: .didSelectedDoneButton(user: user))
+                // 2. Closure
                 case "Closure":
                     self.closure?(user)
-                // Notification
+                // 3. Notification
                 case "Notification":
                     let userInfo: [String: String] = ["name": _name, "address": _address]
                     NotificationCenter.default.post(name: Notification.Name.init("NotificationCenter"), object: nil, userInfo: userInfo)
+                    // 4. Combine: Emit value
                 case "Combine":
-                    break
+                    self.publisher
+                        .send(user)
                 default:
                     break
                 }

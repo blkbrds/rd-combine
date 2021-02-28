@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import Combine
 
 final class HomeViewController: UIViewController {
 
     @IBOutlet private weak var collectionView: UICollectionView!
 
     var viewModel: HomeViewModel = HomeViewModel()
+    private var cancelables = Set<AnyCancellable>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +28,7 @@ final class HomeViewController: UIViewController {
               let indexPath = viewModel.indexPath else { return }
         let name: String = userInfo["name"] as? String ?? ""
         let address: String = userInfo["address"] as? String ?? ""
-        viewModel.user = User(name: name, address: address)
+        viewModel.users[indexPath.row] = User(name: name, address: address)
         let indexPaths: [IndexPath] = [IndexPath(row: indexPath.row, section: indexPath.section)]
         collectionView.reloadItems(at: indexPaths)
     }
@@ -63,11 +65,21 @@ extension HomeViewController: CustomCollectionViewCellDelegate {
         guard let indexPath = collectionView.indexPath(for: cell) else { return }
         viewModel.indexPath = indexPath
         let vc = EditViewController()
+        
+        // Combine: Received value from publisher
+        vc.publisher
+            .sink(receiveValue: { user in
+                self.viewModel.users[indexPath.row] = user
+                let indexPaths: [IndexPath] = [IndexPath(row: indexPath.row, section: indexPath.section)]
+                self.collectionView.reloadItems(at: indexPaths)
+            })
+            .store(in: &cancelables)
         vc.viewModel = viewModel.getEditViewModel()
+        
         // Closure
         vc.closure = { [weak self] (value) in
             guard let indexPath = self?.viewModel.indexPath else { return }
-            self?.viewModel.user = value
+            self?.viewModel.users[indexPath.row] = value
             let indexPaths: [IndexPath] = [IndexPath(row: indexPath.row, section: indexPath.section)]
             self?.collectionView.reloadItems(at: indexPaths)
         }
@@ -84,9 +96,9 @@ extension HomeViewController: CustomCollectionViewCellDelegate {
 extension HomeViewController: EditViewControllerDelegate {
     func vc(_ vc: EditViewController, needsPerform action: EditViewController.Action) {
         switch action {
-        case .didSelectedBackButton(let user):
+        case .didSelectedDoneButton(let user):
             guard let indexPath = viewModel.indexPath else { return }
-            viewModel.user = user
+            viewModel.users[indexPath.row] = user
             let indexPaths: [IndexPath] = [IndexPath(row: indexPath.row, section: indexPath.section)]
             collectionView.reloadItems(at: indexPaths)
         }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 struct User {
     var name: String = "No Name"

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 protocol CustomCollectionViewCellDelegate: class {
     func cell(_ cell: CustomCollectionViewCell, needsPerform action: CustomCollectionViewCell.Action)

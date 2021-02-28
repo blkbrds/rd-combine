@@ -10,6 +10,7 @@ import Foundation
 final class EditViewModel {
 
     var indexPath: IndexPath?
+    var user: User = User()
 
     init(indexPath: IndexPath?) {
         self.indexPath = indexPath

@@ -101,16 +101,30 @@
                         <action selector="doneButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="pJC-RD-1Ep"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bas-si-1yR">
+                    <rect key="frame" x="331" y="4" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="bas-si-1yR" secondAttribute="height" id="GTh-kv-sSt"/>
+                        <constraint firstAttribute="width" constant="40" id="xLy-uc-dfH"/>
+                    </constraints>
+                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" image="xmark.circle.fill" catalog="system"/>
+                    <connections>
+                        <action selector="closeButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="izZ-Ll-Ipg"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="odK-4i-4fa" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.75" id="0Rw-nG-spL"/>
+                <constraint firstItem="bas-si-1yR" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="4" id="0Td-L9-q0r"/>
                 <constraint firstItem="IuW-js-iLf" firstAttribute="top" secondItem="QO7-3Y-qCo" secondAttribute="bottom" constant="30" id="Lfp-Bb-Xpn"/>
                 <constraint firstItem="IuW-js-iLf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="WMS-hU-bfw"/>
                 <constraint firstItem="QO7-3Y-qCo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ZuT-vb-BWe"/>
                 <constraint firstItem="QO7-3Y-qCo" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="100" id="cKS-Py-cIg"/>
                 <constraint firstItem="odK-4i-4fa" firstAttribute="top" secondItem="IuW-js-iLf" secondAttribute="bottom" constant="30" id="hAc-t8-wff"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="bas-si-1yR" secondAttribute="trailing" constant="4" id="mnK-qH-lXS"/>
                 <constraint firstItem="odK-4i-4fa" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="pQP-wB-0fs"/>
                 <constraint firstItem="IuW-js-iLf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="pqR-Z4-lIr"/>
             </constraints>
@@ -118,6 +132,7 @@
         </view>
     </objects>
     <resources>
+        <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

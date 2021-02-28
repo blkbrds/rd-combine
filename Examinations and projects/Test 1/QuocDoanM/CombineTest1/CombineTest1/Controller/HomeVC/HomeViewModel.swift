@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import Combine
 
-final class HomeViewModel {
+final class HomeViewModel: ObservableObject {
 
     var indexPath: IndexPath?
-    var user: User = User()
+    var users: [User] = [User(), User(), User(), User()]
 
     func numberOfItems(in section: Int) -> Int {
         return PassDataType.allCases.count
@@ -18,10 +19,10 @@ final class HomeViewModel {
 
     func cellForItem(at indexPath: IndexPath) -> CustomViewModel {
         guard let type: PassDataType = PassDataType(rawValue: indexPath.row) else {
-            return CustomViewModel(user: user,
+            return CustomViewModel(user: users[indexPath.row],
                                    descriptionEdit: "")
         }
-        return CustomViewModel(user: user,
+        return CustomViewModel(user: users[indexPath.row],
                                descriptionEdit: type.title)
     }
 
