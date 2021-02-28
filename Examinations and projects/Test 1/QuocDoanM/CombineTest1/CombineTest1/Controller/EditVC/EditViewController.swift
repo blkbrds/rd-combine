@@ -63,7 +63,7 @@ final class EditViewController: UIViewController {
                 case "Notification":
                     let userInfo: [String: String] = ["name": _name, "address": _address]
                     NotificationCenter.default.post(name: Notification.Name.init("NotificationCenter"), object: nil, userInfo: userInfo)
-                    // 4. Combine: Emit value
+                // 4. Combine: Emit value
                 case "Combine":
                     self.publisher
                         .send(user)

@@ -22,8 +22,3 @@ public enum PassDataType: Int, CaseIterable {
         }
     }
 }
-
-final class Manager {
-    static let shared: Manager = Manager()
-    
-}
