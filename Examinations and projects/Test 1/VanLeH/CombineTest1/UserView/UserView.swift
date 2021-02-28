@@ -54,5 +54,7 @@ class UserView: UIView {
         addressLabel.text = user.address
     }
 
-    @IBAction func editButtonTouchUpInside(_ sender: Any) { }
+    @IBAction func editButtonTouchUpInside(_ sender: Any) {
+        
+    }
 }

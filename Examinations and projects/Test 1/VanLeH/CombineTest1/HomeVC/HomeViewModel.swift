@@ -41,6 +41,18 @@ final class HomeViewModel {
         let viewModel = UserViewModel(editButtonTitle: way.editButtonTitle, user: users[wayIndex])
         return viewModel
     }
+
+    func viewModelForEditVC(wayIndex: Int) -> EditViewModel? {
+        guard let way = AsynchronousWay(rawValue: wayIndex) else { return nil }
+        switch way {
+        case .delegate, .closure, .notification:
+            let viewModel = EditViewModelNormalWay(tag: wayIndex, user: users[wayIndex])
+            return viewModel
+        case .combine:
+            let viewModel = EditViewModelCombineWay(tag: wayIndex, user: users[wayIndex])
+            return viewModel
+        }
+    }
 }
 
 struct DummyData {

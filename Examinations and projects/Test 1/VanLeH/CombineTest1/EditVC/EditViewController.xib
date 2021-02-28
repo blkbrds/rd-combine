@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mNx-LV-cZO">
-                    <rect key="frame" x="0.0" y="30" width="375" height="637"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dsa-QO-rZC">
                             <rect key="frame" x="340" y="14" width="20" height="20"/>
@@ -103,7 +103,7 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="mNx-LV-cZO" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="LvM-qU-z4Q"/>
+                <constraint firstItem="mNx-LV-cZO" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="LvM-qU-z4Q"/>
                 <constraint firstItem="mNx-LV-cZO" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="TRK-rx-GaA"/>
                 <constraint firstItem="mNx-LV-cZO" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="cY7-XJ-gXn"/>
                 <constraint firstItem="mNx-LV-cZO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="tSh-1w-Btm"/>

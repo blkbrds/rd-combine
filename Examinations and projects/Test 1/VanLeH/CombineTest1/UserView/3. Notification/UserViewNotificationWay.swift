@@ -13,6 +13,6 @@ import UIKit
 final class UserViewNotificationWay: UserView {
 
     override func editButtonTouchUpInside(_ sender: Any) {
-        NotificationCenter.default.post(name: Notification.Name("goToEdit"), object: ["userAtIndex": tag])
+        NotificationCenter.default.post(name: Notification.Name("goToEdit"), object: nil, userInfo: ["userAtIndex": tag])
     }
 }
