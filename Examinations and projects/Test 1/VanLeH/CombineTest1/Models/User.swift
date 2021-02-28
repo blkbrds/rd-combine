@@ -13,7 +13,7 @@ final class User {
     var name: String
     var address: String
 
-    init(imageName: String, name: String, address: String) {
+    init(imageName: String = "", name: String = "", address: String = "") {
         self.imageName = imageName
         self.name = name
         self.address = address

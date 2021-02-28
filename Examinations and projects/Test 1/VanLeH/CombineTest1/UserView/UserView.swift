@@ -40,11 +40,16 @@ class UserView: UIView {
     }
 
     func configUI() {
-        editButton.setTitle(viewModel.editButtonTitle, for: .normal)
+        let style = NSMutableParagraphStyle()
+        style.alignment = NSTextAlignment.center
+        let attributedStr = NSAttributedString(string: viewModel.editButtonTitle, attributes: [NSAttributedString.Key.paragraphStyle : style])
+        editButton.setAttributedTitle(attributedStr, for: .normal)
+
+        configUIWithUser(viewModel.user)
     }
 
     func configUIWithUser(_ user: User) {
-        userImageView.image = UIImage(contentsOfFile: user.imageName)
+        userImageView.image = UIImage(named: user.imageName)
         nameLabel.text = user.name
         addressLabel.text = user.address
     }

@@ -17,22 +17,7 @@ final class UserViewCombineWay: UserView {
 
     var subscription = Set<AnyCancellable>()
 
-    // MARK: Override function
-    override func configUI() {
-        super.configUI()
-        configObserver()
-    }
-
     override func editButtonTouchUpInside(_ sender: Any) {
         goToEditAction.send(tag)
-    }
-
-    private func configObserver() {
-        guard let viewModel = viewModel as? UserViewModelCombineWay else { return }
-        viewModel.userSubject
-            .sink(receiveValue: { [weak self] user in
-                self?.configUIWithUser(user)
-            })
-            .store(in: &subscription)
     }
 }

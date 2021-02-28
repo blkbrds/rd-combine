@@ -14,13 +14,6 @@ final class UserViewClosureWay: UserView {
 
     var goToEdit: ((Int) -> (Void))?
 
-    // MARK: Override function
-    override func configUI() {
-        super.configUI()
-        guard let viewModel = viewModel as? UserViewModelNormalWay else { return }
-        configUIWithUser(viewModel.user)
-    }
-
     override func editButtonTouchUpInside(_ sender: Any) {
         goToEdit?(tag)
     }

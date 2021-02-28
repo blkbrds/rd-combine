@@ -36,7 +36,7 @@
                             <color key="textColor" red="0.84705882349999995" green="0.1764705882" blue="0.17254901959999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="123-98-vOA">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="123-98-vOA">
                             <rect key="frame" x="14" y="116" width="94" height="32"/>
                             <color key="backgroundColor" red="0.29019607843137252" green="0.56470588235294117" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
@@ -59,7 +59,7 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="HoP-ws-ibN" firstAttribute="leading" secondItem="R90-Tp-Jk5" secondAttribute="leading" constant="36" id="8qW-TG-USc"/>
-                        <constraint firstAttribute="bottom" secondItem="123-98-vOA" secondAttribute="bottom" id="KNd-nz-etO"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="123-98-vOA" secondAttribute="bottom" id="KNd-nz-etO"/>
                         <constraint firstItem="123-98-vOA" firstAttribute="top" secondItem="aJT-Lf-lQF" secondAttribute="bottom" constant="12" id="Kdg-qs-3fx"/>
                         <constraint firstAttribute="trailing" secondItem="hMg-DV-2Gl" secondAttribute="trailing" constant="20" id="Nns-bI-Jeu"/>
                         <constraint firstItem="aJT-Lf-lQF" firstAttribute="top" secondItem="hMg-DV-2Gl" secondAttribute="bottom" constant="12" id="U8n-P5-cXu"/>

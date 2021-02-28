@@ -20,16 +20,9 @@ final class UserViewDelegateWay: UserView {
         case goToEdit(userAtIndex: Int)
     }
 
-    weak var deleage: UserViewDelegate?
-
-    // MARK: Override function
-    override func configUI() {
-        super.configUI()
-        guard let viewModel = viewModel as? UserViewModelNormalWay else { return }
-        configUIWithUser(viewModel.user)
-    }
+    weak var delegate: UserViewDelegate?
 
     override func editButtonTouchUpInside(_ sender: Any) {
-        deleage?.view(self, needPerforms: .goToEdit(userAtIndex: tag))
+        delegate?.view(self, needPerforms: .goToEdit(userAtIndex: tag))
     }
 }

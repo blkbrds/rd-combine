@@ -10,14 +10,7 @@ import UIKit
 
 // 3. Notification
 
-final class UserViewNotifictaionWay: UserView {
-
-    // MARK: Override function
-    override func configUI() {
-        super.configUI()
-        guard let viewModel = viewModel as? UserViewModelNormalWay else { return }
-        configUIWithUser(viewModel.user)
-    }
+final class UserViewNotificationWay: UserView {
 
     override func editButtonTouchUpInside(_ sender: Any) {
         NotificationCenter.default.post(name: Notification.Name("goToEdit"), object: ["userAtIndex": tag])

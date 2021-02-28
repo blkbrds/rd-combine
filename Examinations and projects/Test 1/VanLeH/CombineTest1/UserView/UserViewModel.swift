@@ -8,11 +8,7 @@
 
 import Foundation
 
-protocol UserViewModel {
-    var editButtonTitle: String { get set }
-}
-
-final class UserViewModelNormalWay: UserViewModel {
+final class UserViewModel {
 
     var editButtonTitle: String
     var user: User
