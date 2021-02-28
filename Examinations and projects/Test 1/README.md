@@ -1,30 +1,35 @@
-# Test 1
+# rd-combine
 R&amp;D - iOS - Combine
 
-## Đề bài
-Tạo 2 màn hình như hình sau:
-![Test 1](https://github.com/blkbrds/rd-combine/blob/main/Examinations%20and%20projects/images/Test%201/Home%2BEdit.png)
+> **Trả lời câu hỏi ưu nhược điểm ở đây**
+1. Delegate:
+    1. Ưu điểm:
+       - Dễ sử dụng khi truyền dữ liệu giữa các đối tượng
+       - chỉ cần một protocol để truyền dữ liệu giữa các class
+       - Nó giúp tách các trường hợp truyền dữ liệu một cách riêng biệt
+    2. Nhược điểm:
+       - Chỉ truyền dữ liệu dạng 1 - 1, khó khăn trong việc truyền dữ liệu 1 - nhiều class với nhau
 
-**Mô tả:**
-* Màn hình Home:
-    * Nhấn button Edit thì sẽ present màn hình Edit
-    * 4 nút của 4 view tương ứng với 4 cách viết (delegate, closure, notification, combine)
-* Màn hình Edit:
-    * Bấm nút X thì đóng màn hình, quay về Home. Không thay đổi dữ liệu.
-    * Nhập thông tin vào Name, Address bấm Done thì đóng màn hình, quay về Home và cập nhật dữ liệu mới ở ô tương ứng lúc bấm nút Edit.
+2. Closure:
+    1. Ưu điểm:
+       - Cách viết ngắn gọn, tiết kiệm được thời gian code.
+    2. Nhược điểm:
+       - Cách viết khá khó hiểu với những người mới tìm hiểu.
 
-## Câu hỏi
-1. Viết code truyền dữ liệu giữa 2 màn hình theo 4 cách:
-    1. Delegate (1.0)
-    2. Closure (2.0)
-    3. Notification (1.0)
-    4. Combine (3.0)
-2. Rút ra ưu, nhược điểm của từng cách viết (2.0)
+3. Notification:
 
-## Yêu cầu
- * Tạo 1 brach trên github với format tên branch là: _**test1/tên_người_làm**_ (ví dụ: test1/van_le_h)
- * Tạo thư mục chứa code trong thư mục _**rd-combine/ Examinations and Projects/Test1/*Tên người làm***_ (ví dụ: rd-combine/ Examinations and Projects/Test1/VanLeH)
- * Đặt tên pull request: _**Tên người làm – Test 1**_ (ví dụ: Van Le H – Test 1)
- * Comment cho từng cách viết. Ví dụ:
- ![Comment](https://raw.githubusercontent.com/blkbrds/rd-combine/main/Examinations%20and%20projects/images/Test%201/comment.png)
- * Trả lời câu hỏi số 2 trong file README.md của thư mục project
+    1. Ưu điểm:
+       - triển khai dễ dàng, nhanh chóng
+       - có thể truyền dữ liệu theo kiểu 1 - nhiều class
+    2. Nhược điểm:
+       - Dễ dẫn tới sai sót nếu không kiểm soát được các notification.
+    
+4. Combine:
+
+    1. Ưu điểm:
+       - Dễ dàng trong việc giải quyết các bài toán lập trình bất đồng bộ.
+       - Hỗ trợ nhiều các operator cho phép chúng ta xử lý dữ liệu nhanh hơn dễ dàng hơn.
+       - Support nhiều kiểu dữ liệu khác nhau.
+    2. Nhược điểm:
+       - Thời gian tìm hiểu lâu.
+       - Khó với những người mới bắt đầu.
