@@ -1,4 +1,8 @@
-*# Contents
+**rd-combine** 
+
+R&D - iOS - Combine
+
+# Contents
 ## 1. [Research documentations](https://github.com/blkbrds/rd-combine/tree/main/Research%20documentations)
 _Thư mục này chứa tất cả các tài liệu tổng hợp là kết quả của từng nhóm research, bao gồm **document** và **code demo**_
 
@@ -10,4 +14,4 @@ _Thư mục này chứa các **bài kiểm tra**, **bài làm** và **final proj
 - [FxStudio](https://fxstudio.dev/category/code/combine/)
 
 # License
-Xem [License](https://github.com/blkbrds/rd-combine/blob/main/LICENSE) để biết thêm thông tin chi tiết
+Xem [License](https://github.com/blkbrds/rd-combine/blob/main/LICENSE) để biết thêm thông tin chi tiết.
