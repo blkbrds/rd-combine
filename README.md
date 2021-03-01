@@ -1,17 +1,37 @@
-**rd-combine** 
+# rd-combine
+R&amp;D - iOS - Combine
 
-R&D - iOS - Combine
+1. Delegate:
+    1. Ưu điểm:
+    - implement dễ, dễ hiểu
+    - tách từng function trong 1 extension dễ quản lý
 
-# Contents
-## 1. [Research documentations](https://github.com/blkbrds/rd-combine/tree/main/Research%20documentations)
-_Thư mục này chứa tất cả các tài liệu tổng hợp là kết quả của từng nhóm research, bao gồm **document** và **code demo**_
+    2. Nhược điểm:
+    - code dài.
 
-## 2. [Examinations and projects](https://github.com/blkbrds/rd-combine/tree/main/Examinations%20and%20projects)
-_Thư mục này chứa các **bài kiểm tra**, **bài làm** và **final project** của các nhóm_
+2. Closure:
+    1. Ưu điểm:
+    - ngắn gọn
 
-# References
-- [Combine by Raywernderlich](https://www.raywenderlich.com/books/combine-asynchronous-programming-with-swift/v2.0)
-- [FxStudio](https://fxstudio.dev/category/code/combine/)
+    2. Nhược điểm:
+    - chú ý memory và khó hiểu.
+    - .Có thể bị leaks memory nếu không handle kĩ
 
-# License
-Xem [License](https://github.com/blkbrds/rd-combine/blob/main/LICENSE) để biết thêm thông tin chi tiết.
+3. Notification:
+    1. Ưu điểm:
+    - dùng dễ, gởi tín hiệu đi xa và rộng trong toàn app.
+    - 1 nguồn phát nhiều đối tượng nghe.
+
+    2. Nhược điểm:
+    - để ý memory
+    - sử dụng phù hợp trong từng hoàn cảnh
+
+4. Combine:
+    1. Ưu điểm:
+    - Cách viết ngắn gọn
+    - truyền cho toàn app
+    - hỗ trợ các operator xử lý gọn
+
+    2. Nhược điểm:
+    - khó hiểu khó năm bắt ở mức high level
+    - khó debug
