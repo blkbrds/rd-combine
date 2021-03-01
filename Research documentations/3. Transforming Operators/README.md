@@ -26,10 +26,8 @@
     2. [replaceEmpty(with:)](#replaceEmpty)
 
 5. [Incrementally transforming output](#incrementally_transforming_output)
-    1. [Reactive](#Reactive)
-    2. [Observable và Observer](#Observable-Observer)
-    3. [Operator - man in the middle](#Operator-man-in-the-middle)
-    4. [Subjects](#Subjects)
+    1. [scan](#scan)
+    2. [tryScan](#tryScan)
 
 ## 1. Collecting values <a name="collecting_values"></a>
 ### 1.1. Reactive <a name="Reactive"></a>
@@ -631,7 +629,7 @@ Kết quả:
  [(2, "$500,000.00"), (1, "$20,000.00"), (1, "$2,000.00")]
 ```
 
-### 5.2. tryScan <a name="RxNimble"></a>
+### 5.2. tryScan <a name="tryScan"></a>
 Một ví dụ về việc dùng `tryScan`:
 
 Code:
