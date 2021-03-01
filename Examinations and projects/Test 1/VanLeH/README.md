@@ -8,7 +8,7 @@ R&amp;D - iOS - Combine
     - .
     2. Nhược điểm:
     - .
-   
+
 2. Closure:
     1. Ưu điểm
     2. Nhược điểm
