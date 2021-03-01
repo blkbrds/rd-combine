@@ -5,11 +5,9 @@
 # Contents
 
 1. [Collecting values](#collecting_values)
-    1. [Reactive](#Reactive)
-    2. [Observable và Observer](#Observable-Observer)
-    3. [Operator - man in the middle](#Operator-man-in-the-middle)
-    4. [Subjects](#Subjects)
-
+    1. [Collect()](#collect())
+    2. [Collect(n)](#Collect(n))
+    
 2. [Mapping values](#mapping_values)
     1. [Reactive](#Reactive)
     2. [Observable và Observer](#Observable-Observer)
@@ -23,10 +21,9 @@
     4. [Subjects](#Subjects)
 
 4. [Replacing upstream output](#replacing_upstream_output)
-    1. [Reactive](#Reactive)
-    2. [Observable và Observer](#Observable-Observer)
-    3. [Operator - man in the middle](#Operator-man-in-the-middle)
-    4. [Subjects](#Subjects)
+    1. [replaceNil(with:)](#replaceNil)
+    2. [replaceEmpty(with:)](#replaceEmpty)
+>>>>>>> topic/transforming_operators
 
 5. [Incrementally transforming output](#incrementally_transforming_output)
     1. [Reactive](#Reactive)
@@ -41,7 +38,7 @@
  -  **là operator liên quan tới collecting các giá trị phát ra, tổng hợp lại và xử lý 1 lần nhiều giá trị**
 
     **Cách dùng lấy publisher và gọi function sau: .collect() hay .collect(n) (n là một giá trị cụ thể nào đó)**.
-    
+    ### 1.1 collect()<a name="collect()"></a>
     ```swift
     public func collect() -> Result<[Publishers.Sequence<Elements, Failure>.Output], Failure>.Publisher
     ```
@@ -81,6 +78,8 @@
 
 **tổng hợp một số lượng cụ thể của các element phát ra, và sau đó phát ra array đó **
 
+### 1.2 collect(n)<a name="collect(n)"></a>
+
 ```swift
 public func collect(_ count: Int) -> Result<[Publishers.Sequence<Elements, Failure>.Output], Failure>.Publisher
 ```
@@ -105,143 +104,77 @@ passthoughtSubject.send(completion: .finished)
 [9, 10]
 finished
 ```
-==========================
-
-#### 1.4.2. BehaviorSubject
-
-​    BehaviorSubject có cơ chế hoạt động gần giống với PublishSubject, nhưng Observer sẽ nhận được giá trị mặc định hoặc giá trị ngay trước thời điểm subscribe. Observer sẽ nhận được ít nhất một giá trị.
-
-​    Chẳng hạn, nếu coi việc cuộn thanh trượt của UIScrollView là một observable (offset là giá trị của các phần tử trong stream), thì ngay khi subscribe vào observable, chúng ta cần biết vị trí offset hiện tại của UIScrollView, do vậy chúng ta cần sử dụng BehaviorSubject
-
-#### ![BehaviorSubject-diagram](./resources/images/2.4/BehaviorSubject-diagram.png)
-
-```swift
-let disposeBag = DisposeBag()
-
-// Khởi tạo đối tượng BehaviorSubject.
-let subject = BehaviorSubject(value: "Initial value")
-
-// subject phát đi event.
-subject.onNext("1")
-
-// Đăng ký lắng nge đối tượng subject trên.
-subject.subscribe {
-        print("1)", $0)
-    }
-    .disposed(by: disposeBag)
-
-subject.onNext("2")
-
-// Đăng ký lắng nge đối tượng subject trên.
-subject.subscribe {
-        print("2)", $0)
-    }
-    .disposed(by: disposeBag)
-
-subject.onNext("3")
-```
-
-```swift
-// Output:
-1) 1
-1) 2
-2) 2
-1) 3
-2) 3
-```
-
-#### 1.4.3. ReplaySubject
-
-​    ReplaySubject tương tự như BehaviorSubject nhưng thay vì phát thêm duy nhất một phần tử trước đó, ReplaySubject cho phép ta chỉ định số lượng phần tử tối đa được phát lại khi subscribe. Ngoài ra, khi khởi tạo ReplaySubject, chúng ta không cần khai báo giá trị mặc định như BehaviorSubject.
-
-![ReplaySubject-diagram](./resources/images/2.4/ReplaySubject-diagram.png)
-
-```swift
-let disposeBag = DisposeBag()
-
-// Khởi tạo đối tượng BehaviorSubject.
-let subject = ReplaySubject<String>.create(bufferSize: 2)
-
-// subject phát đi event.
-subject.onNext("1")
-subject.onNext("2")
-subject.onNext("3")
-
-// Đăng ký lắng nge đối tượng subject trên.
-subject.subscribe {
-        print("1)", $0)
-    }
-    .disposed(by: disposeBag)
-
-// Đăng ký lắng nge đối tượng subject trên.
-subject.subscribe {
-        print("2)", $0) 
-    }
-    .disposed(by: disposeBag)
-
-subject.onNext("4")
-
-// deinit subject
-subject.dispose()
-```
-
-```swift
-// Ouput:
-1) 2
-1) 3
-2) 2
-2) 3
-1) 4
-2) 4
-
-```
-
-#### 1.4.4. Variable
-
-Variable là một kiểu của BehaviorSubject mà có thể lưu giữ giá trị(Value) hiện tại như một trạng thái(state). Chúng ta có thể truy cập vào giá trị hiện tại đó thông qua thuộc tính `value`, việc thay đổi `value` này tương đương với hàm `onNext` của các loại subject khác
-
-- Không thể add sự kiện error vào một Variable
-- Không thể add sự kiện completed vào một Variable, sự kiện này chỉ được phát ra khi nó bị deallocated
-
-Chúng ta rất hay dùng subject kiểu Variable, đặc biệt là trong các trường hợp không cần quan tâm tới việc khi nào có error và khi nào completed
-
-```swift
-let disposeBag = DisposeBag()
-
-// Khởi tạo đối tượng BehaviorSubject.
-let variable = Variable("Initial value")
-
-// subject phát đi event.
-variable.value = "New initial value"
-
-// Đăng ký lắng nge đối tượng subject trên.
-variable.asObservable()
-        .subscribe {
-            print("1)", $0)
-        }
-        .disposed(by: disposeBag)
-
-variable.value = "1"
-
-// Đăng ký lắng nge đối tượng subject trên.
-variable.asObservable()
-        .subscribe {
-            print("2)", $0)
-        }
-        .disposed(by: disposeBag)
-
-variable.value = "2"
-```
-
-```swift
-1) next(New initial value)
-1) next(1)
-2) next(1)
-1) next(2)
-2) next(2)
-```
 ## 2. Mapping values <a name="mapping_values"></a>
+
 Sau khi tìm hiểu các khái niệm cơ bản của Reactive programming và RxSwift thì trong phần này, chúng ta sẽ đi sâu hơn vào cách hoạt động, xử lý và ứng dụng trong từng trường hợp cụ thể của chúng.
+
+### 2.1 Map <a name="map"></a>
+Xem đoạn code sau và hình dung
+``` var subscriptions = Set<AnyCancellable>()
+let formatter = NumberFormater()
+formatter.numberStyle = .spellOut
+[22, 7, 1989].publisher
+.map {
+formatter.string(for: NSNumber(integerLiteral: $0)) ?? "" }
+.sink(receiveValue: { print($0) })
+.store(in: $subscriptions)
+```
+Giải thích
+- Tạo ra một formatter của Number. Nhiệm vụ nó là biến đổi từ số thành chữ
+- Tạo ra 1 publisher từ một array Integer
+- Sử dụng toàn tử .map để biến đổi tường giá trị nhận được thành kiểu string
+- Các toàn tử còn lại thì như đã trình bày các phần trước
+
+>Toán tử `map` giúp biến đổi kiểu giá trị Output của Publisher
+
+### 2.2 Map key paths <a name="map_key_paths"></a>
+Bổ sung cho toán tử `map` trên thì Combine hỗ trợ cho chúng ta thêm 3 function của nó như sau:
+``` map<T>(_:)
+map<T0, T1>(_:_:)
+map<T0, T1, T2>(_:_:_:)
+```
+Thay vì tấn công biến đổi chính đối tượng khi nó là Output của 1 publisher nào đó. Thì ta có thể biến đổi trong publisher đó thành một publisher khác. Mà phát ra kiểu giá trị mới, chính là kiểu giá trị của 1 trong các thuộc tính đối tượng. Xem ví dụ đi cho chắc.
+
+``` struct Dog {
+    var name: String
+    var age: Int
+}
+
+let publisher = [Dog(name: "MiMi", age: 3), 
+                Dog(name: "MiMi", age: 3), 
+                Dog(name: "MiMi", age: 3), 
+                Dog(name: "MiMi", age: 3)].publisher
+                
+publisher
+    .map(\(.name)
+    .sink(receiveValue: { print($0) })
+    .store(in: &subscroptions)
+```
+
+Giải thích
+- Ta có class Dog
+- Tạo 1 publisher từ việc biến đổi 1 Array Dog. Lúc này Output của publisher là Dog
+- Sử dụng `map(\.name)` để tạo 1 publisher mới với Output là String. String là kiểu dữ liệu cho thuộc tính `name` của class Dog
+- sink và store như bình thường
+
+### 2.3 tryMap <a name= "tryMap"></a>
+Khi bạn làm những việc liên quan tới nhập xuất, kiểm tra, media, file... thì hầu như phải sử dụng `try catch` nhiều. Nó giúp cho việc đảm bảo chương trình của bạn không bị crash. Tất nhiên, nhiều lúc bạn phải cần biến đổi từ kiểu giá trị này tới một kiểu giá trị mà có khả năng sinh ra lỗi. Khi đó bạn hãy dùng `tryMap` như một cứu cánh.
+
+Khi gặp lỗi trong quá trình biến đổi thì tự động cho vào `completion` hoặc `error`. Bạn vẫn có thể quản lí nó và không cần quan tâm gì tới bắt `try catch` ...
+
+``` Just("Đây là đường dẫn tới file media")
+        .tryMap { try FileManager.default.contentsOfDirectory(atPath: $0) }
+        .sink(receiveCompletion: { print("Finished ", $0)}, 
+            receiveValue: { print("Value ", $0)})
+        .store(in: &subscription)
+```
+
+Giải thích
+- Just là 1 publisher, sẽ phát ra ngay giá trị khởi tạo
+- Sử dụng `tryMap` để biến đổi Output là `string` (hiểu là đường dẫn của 1 file nào đó) thành đổi tượng là `file`(data)
+- Trong closure của `tryMap` thì tiến hành đọc file với đường dẫn kia
+- Nếu có lỗi thì sẽ nhận được `completion` với trị là `failure`
+>>>>>>> topic/transforming_operators
 
 #### [Creation](docs/Deep-dive/Creation.md)
 #### [Operators](docs/Deep-dive/Operators)
@@ -255,6 +188,80 @@ Phần này sẽ tập trung vào implement Unit-Testing bằng các framework t
 ### 4.1. [RxTests](docs/Testing.md) <a name="RxTests"></a> 
 
 ### 4.2. RxNimble <a name="RxNimble"></a> (Update later)
+[Tài liệu](https://developer.apple.com/documentation/combine/publishers/flatmap)
+
+Chuyển đổi tất cả các yếu tố từ nhà xuất bản ngược dòng thành nhà xuất bản mới với số lượng nhà xuất bản tối đa mà bạn chỉ định.
+
+![flatmap](./.readmesource/img_flat_map.png)
+
+
+Sử dụng:
+- Thường được sử dụng để làm phẳng giá trị nhận được.
+
+
+Ví dụ:
+
+![flatmap](./.readmesource/img_flat_map_ex1.png)
+
+
+Kêt quả:
+
+![flatmap](./.readmesource/img_flat_map_ex1_rs.png)
+
+
+
+## 4. Replacing upstream output <a name="replacing_upstream_output"></a>
+
+### 4.1. replaceNil(with:) <a name="replaceNil"></a> 
+
+replaceNil: nếu publisher phát ra giá trị nào nil thì sẽ thay thế bằng giá trị nào đó được chỉ định. 
+
+![replaceNil](./.readmesource/replaceNil.png)
+
+Ví dụ:
+
+```swift
+let publisher = [1, nil, 3].publisher
+publisher.replaceNil(with: 2)
+    .sink { completion in
+        print(completion)
+    } receiveValue: { value in
+        if let value = value {
+            print(value)
+        }
+    }
+```
+
+Kết quả:
+1
+2
+3
+finished
+
+### 4.2. replaceEmpty(with:) <a name="replaceEmpty"></a>
+
+replaceEmpty: Toán tử replaceEmpty sẽ chèn thêm giá trị nếu publisher không phát đi bất cứ gì mà lại complete.
+
+![replaceEmpty](./.readmesource/replaceEmpty.png)
+
+Ví dụ:
+
+```swift
+let empty = Empty<Int, Never>()
+
+empty
+    .replaceEmpty(with: 1)
+    .sink { completion in
+        print(completion)
+    } receiveValue: { value in
+        print(value)
+    }
+```
+
+Kết quả:
+1
+finished
+>>>>>>> topic/transforming_operators
 
 ## 5. Incrementally transforming output <a name="incrementally_transforming_output"></a>
 
