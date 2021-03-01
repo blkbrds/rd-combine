@@ -11,10 +11,9 @@
     4. [Subjects](#Subjects)
 
 2. [Mapping values](#mapping_values)
-    1. [Reactive](#Reactive)
-    2. [Observable và Observer](#Observable-Observer)
-    3. [Operator - man in the middle](#Operator-man-in-the-middle)
-    4. [Subjects](#Subjects)
+    1. [Map](#map)
+    2. [Map key paths](#map_key_paths)
+    3. [tryMap](#tryMap)
 
 3. [Flattening publishers](#flattening_publishers)
     1. [Reactive](#Reactive)
