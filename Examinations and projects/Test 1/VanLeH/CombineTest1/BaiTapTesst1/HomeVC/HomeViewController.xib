@@ -11,10 +11,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="CombineTest1" customModuleProvider="target">
             <connections>
+                <outlet property="addressDelegateLabel" destination="VdG-yH-b4H" id="lKN-aP-Y0K"/>
                 <outlet property="editClosureButton" destination="aYE-3A-xei" id="a3e-dw-ZAk"/>
                 <outlet property="editCombineButton" destination="e2W-0t-DUc" id="JnE-Ci-SJn"/>
                 <outlet property="editDelegateButton" destination="EPy-M4-QGF" id="KVy-ou-B5D"/>
                 <outlet property="editNotificationButton" destination="aWd-2v-94z" id="hfG-bA-CM9"/>
+                <outlet property="nameDelegateLabel" destination="0qR-Ch-JVh" id="Qj2-cI-O4F"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -26,7 +28,7 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="6eR-Re-MFz" userLabel="closure">
                     <rect key="frame" x="214" y="108" width="214" height="122"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_default" translatesAutoresizingMaskIntoConstraints="NO" id="QL3-0l-MJK">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_user_default" translatesAutoresizingMaskIntoConstraints="NO" id="QL3-0l-MJK">
                             <rect key="frame" x="67" y="0.0" width="80" height="80"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="80" id="Vdn-Nu-ohH"/>
@@ -62,6 +64,9 @@
                             <state key="normal" title="Edit">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="editClosureTouchUpInside:" destination="-1" eventType="touchUpInside" id="fmc-fJ-tVk"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>
@@ -75,7 +80,7 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="dmn-mQ-4Ls" userLabel="combine">
                     <rect key="frame" x="214" y="294" width="214" height="122"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_default" translatesAutoresizingMaskIntoConstraints="NO" id="cmH-B2-E3b">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_user_default" translatesAutoresizingMaskIntoConstraints="NO" id="cmH-B2-E3b">
                             <rect key="frame" x="67" y="0.0" width="80" height="80"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="80" id="1CU-wE-usW"/>
@@ -111,6 +116,9 @@
                             <state key="normal" title="Edit">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="editCombineTouchUpInside:" destination="-1" eventType="touchUpInside" id="nCE-tG-ZfV"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>
@@ -123,21 +131,21 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="LwY-5d-Mrz" userLabel="delegate">
                     <rect key="frame" x="0.0" y="108" width="214" height="122"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_default" translatesAutoresizingMaskIntoConstraints="NO" id="4PL-dC-sNr">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_user_default" translatesAutoresizingMaskIntoConstraints="NO" id="4PL-dC-sNr">
                             <rect key="frame" x="67" y="0.0" width="80" height="80"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="80" id="fIo-Gx-pNa"/>
                                 <constraint firstAttribute="height" constant="80" id="zsF-wI-1wK"/>
                             </constraints>
                         </imageView>
-                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qR-Ch-JVh">
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0qR-Ch-JVh" userLabel="Nguyen Hong Hanh Nguyen Hong hanh">
                             <rect key="frame" x="10" y="89" width="194" height="0.0"/>
                             <attributedString key="attributedText">
                                 <fragment content="Nguyen Hong Hanh Nguyen Hong hanh ">
                                     <attributes>
                                         <color key="NSColor" red="1" green="0.15097666631614259" blue="0.096498527962311953" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <font key="NSFont" size="18" name="HiraginoSans-W6"/>
-                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="6" tighteningFactorForTruncation="0.0"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineSpacing="6" tighteningFactorForTruncation="0.0"/>
                                     </attributes>
                                 </fragment>
                             </attributedString>
@@ -159,6 +167,9 @@
                             <state key="normal" title="Edit">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="editDelegateTouchUpInside:" destination="-1" eventType="touchUpInside" id="tRV-ar-jax"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>
@@ -172,7 +183,7 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="DK5-ZG-mPZ" userLabel="notification">
                     <rect key="frame" x="0.0" y="294" width="214" height="122"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_default" translatesAutoresizingMaskIntoConstraints="NO" id="Bm1-e1-Mvg">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_user_default" translatesAutoresizingMaskIntoConstraints="NO" id="Bm1-e1-Mvg">
                             <rect key="frame" x="67" y="0.0" width="80" height="80"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="80" id="Koe-rp-mGR"/>
@@ -208,6 +219,9 @@
                             <state key="normal" title="Edit">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="editNotificationTouchUpInside:" destination="-1" eventType="touchUpInside" id="c1A-Yk-HqY"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>
@@ -238,7 +252,7 @@
         </view>
     </objects>
     <resources>
-        <image name="user_default" width="64" height="64"/>
+        <image name="ic_user_default" width="64" height="64"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

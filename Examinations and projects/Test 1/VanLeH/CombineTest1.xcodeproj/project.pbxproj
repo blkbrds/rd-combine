@@ -12,6 +12,9 @@
 		7342C5FC25ECF52300F83AE0 /* ExtButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7342C5FB25ECF52300F83AE0 /* ExtButton.swift */; };
 		7342C60325EDC3FA00F83AE0 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7342C60125EDC3FA00F83AE0 /* EditViewController.swift */; };
 		7342C60425EDC3FA00F83AE0 /* EditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7342C60225EDC3FA00F83AE0 /* EditViewController.xib */; };
+		73AB410625EDEEF3001A2DA4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AB410525EDEEF3001A2DA4 /* User.swift */; };
+		73AB410A25EDFA1C001A2DA4 /* EditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AB410925EDFA1C001A2DA4 /* EditViewModel.swift */; };
+		73AB410D25EDFAC2001A2DA4 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AB410C25EDFAC2001A2DA4 /* HomeViewModel.swift */; };
 		745CE2A125DE105000EEEB29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745CE2A025DE105000EEEB29 /* AppDelegate.swift */; };
 		745CE2A525DE105000EEEB29 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745CE2A425DE105000EEEB29 /* ViewController.swift */; };
 		745CE2AA25DE105500EEEB29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 745CE2A925DE105500EEEB29 /* Assets.xcassets */; };
@@ -23,6 +26,9 @@
 		7342C5FB25ECF52300F83AE0 /* ExtButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtButton.swift; sourceTree = "<group>"; };
 		7342C60125EDC3FA00F83AE0 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		7342C60225EDC3FA00F83AE0 /* EditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditViewController.xib; sourceTree = "<group>"; };
+		73AB410525EDEEF3001A2DA4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		73AB410925EDFA1C001A2DA4 /* EditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewModel.swift; sourceTree = "<group>"; };
+		73AB410C25EDFAC2001A2DA4 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		745CE29D25DE105000EEEB29 /* CombineTest1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CombineTest1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		745CE2A025DE105000EEEB29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		745CE2A425DE105000EEEB29 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -44,6 +50,7 @@
 		732A82A825EC97E0005FB7D0 /* BaiTapTesst1 */ = {
 			isa = PBXGroup;
 			children = (
+				73AB410425EDEEE6001A2DA4 /* Model */,
 				7342C60025EDC3E600F83AE0 /* EditVC */,
 				7342C5FF25EDC3DA00F83AE0 /* HomeVC */,
 			);
@@ -63,6 +70,7 @@
 			children = (
 				732A82A925ECC0C3005FB7D0 /* HomeViewController.swift */,
 				732A82AA25ECC0C3005FB7D0 /* HomeViewController.xib */,
+				73AB410C25EDFAC2001A2DA4 /* HomeViewModel.swift */,
 			);
 			path = HomeVC;
 			sourceTree = "<group>";
@@ -72,8 +80,17 @@
 			children = (
 				7342C60125EDC3FA00F83AE0 /* EditViewController.swift */,
 				7342C60225EDC3FA00F83AE0 /* EditViewController.xib */,
+				73AB410925EDFA1C001A2DA4 /* EditViewModel.swift */,
 			);
 			path = EditVC;
+			sourceTree = "<group>";
+		};
+		73AB410425EDEEE6001A2DA4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				73AB410525EDEEF3001A2DA4 /* User.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		745CE29425DE105000EEEB29 = {
@@ -175,8 +192,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73AB410A25EDFA1C001A2DA4 /* EditViewModel.swift in Sources */,
 				7342C60325EDC3FA00F83AE0 /* EditViewController.swift in Sources */,
 				745CE2A525DE105000EEEB29 /* ViewController.swift in Sources */,
+				73AB410D25EDFAC2001A2DA4 /* HomeViewModel.swift in Sources */,
+				73AB410625EDEEF3001A2DA4 /* User.swift in Sources */,
 				745CE2A125DE105000EEEB29 /* AppDelegate.swift in Sources */,
 				732A82AB25ECC0C3005FB7D0 /* HomeViewController.swift in Sources */,
 				7342C5FC25ECF52300F83AE0 /* ExtButton.swift in Sources */,
