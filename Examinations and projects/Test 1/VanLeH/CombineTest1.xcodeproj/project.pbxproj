@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		732A82AB25ECC0C3005FB7D0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732A82A925ECC0C3005FB7D0 /* HomeViewController.swift */; };
 		732A82AC25ECC0C3005FB7D0 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732A82AA25ECC0C3005FB7D0 /* HomeViewController.xib */; };
+		7342C5FC25ECF52300F83AE0 /* ExtButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7342C5FB25ECF52300F83AE0 /* ExtButton.swift */; };
+		7342C60325EDC3FA00F83AE0 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7342C60125EDC3FA00F83AE0 /* EditViewController.swift */; };
+		7342C60425EDC3FA00F83AE0 /* EditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7342C60225EDC3FA00F83AE0 /* EditViewController.xib */; };
 		745CE2A125DE105000EEEB29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745CE2A025DE105000EEEB29 /* AppDelegate.swift */; };
 		745CE2A525DE105000EEEB29 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745CE2A425DE105000EEEB29 /* ViewController.swift */; };
 		745CE2AA25DE105500EEEB29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 745CE2A925DE105500EEEB29 /* Assets.xcassets */; };
@@ -17,6 +20,9 @@
 /* Begin PBXFileReference section */
 		732A82A925ECC0C3005FB7D0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		732A82AA25ECC0C3005FB7D0 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		7342C5FB25ECF52300F83AE0 /* ExtButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtButton.swift; sourceTree = "<group>"; };
+		7342C60125EDC3FA00F83AE0 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		7342C60225EDC3FA00F83AE0 /* EditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditViewController.xib; sourceTree = "<group>"; };
 		745CE29D25DE105000EEEB29 /* CombineTest1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CombineTest1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		745CE2A025DE105000EEEB29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		745CE2A425DE105000EEEB29 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,10 +44,36 @@
 		732A82A825EC97E0005FB7D0 /* BaiTapTesst1 */ = {
 			isa = PBXGroup;
 			children = (
+				7342C60025EDC3E600F83AE0 /* EditVC */,
+				7342C5FF25EDC3DA00F83AE0 /* HomeVC */,
+			);
+			path = BaiTapTesst1;
+			sourceTree = "<group>";
+		};
+		7342C5FA25ECF33700F83AE0 /* Ext */ = {
+			isa = PBXGroup;
+			children = (
+				7342C5FB25ECF52300F83AE0 /* ExtButton.swift */,
+			);
+			path = Ext;
+			sourceTree = "<group>";
+		};
+		7342C5FF25EDC3DA00F83AE0 /* HomeVC */ = {
+			isa = PBXGroup;
+			children = (
 				732A82A925ECC0C3005FB7D0 /* HomeViewController.swift */,
 				732A82AA25ECC0C3005FB7D0 /* HomeViewController.xib */,
 			);
-			path = BaiTapTesst1;
+			path = HomeVC;
+			sourceTree = "<group>";
+		};
+		7342C60025EDC3E600F83AE0 /* EditVC */ = {
+			isa = PBXGroup;
+			children = (
+				7342C60125EDC3FA00F83AE0 /* EditViewController.swift */,
+				7342C60225EDC3FA00F83AE0 /* EditViewController.xib */,
+			);
+			path = EditVC;
 			sourceTree = "<group>";
 		};
 		745CE29425DE105000EEEB29 = {
@@ -66,6 +98,7 @@
 				745CE2A025DE105000EEEB29 /* AppDelegate.swift */,
 				745CE2A425DE105000EEEB29 /* ViewController.swift */,
 				732A82A825EC97E0005FB7D0 /* BaiTapTesst1 */,
+				7342C5FA25ECF33700F83AE0 /* Ext */,
 				745CE2A925DE105500EEEB29 /* Assets.xcassets */,
 				745CE2AE25DE105500EEEB29 /* Info.plist */,
 			);
@@ -129,6 +162,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7342C60425EDC3FA00F83AE0 /* EditViewController.xib in Resources */,
 				745CE2AA25DE105500EEEB29 /* Assets.xcassets in Resources */,
 				732A82AC25ECC0C3005FB7D0 /* HomeViewController.xib in Resources */,
 			);
@@ -141,9 +175,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7342C60325EDC3FA00F83AE0 /* EditViewController.swift in Sources */,
 				745CE2A525DE105000EEEB29 /* ViewController.swift in Sources */,
 				745CE2A125DE105000EEEB29 /* AppDelegate.swift in Sources */,
 				732A82AB25ECC0C3005FB7D0 /* HomeViewController.swift in Sources */,
+				7342C5FC25ECF52300F83AE0 /* ExtButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

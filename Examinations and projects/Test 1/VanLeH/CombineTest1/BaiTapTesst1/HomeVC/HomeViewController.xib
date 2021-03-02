@@ -11,10 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="CombineTest1" customModuleProvider="target">
             <connections>
-                <outlet property="editClosure" destination="aYE-3A-xei" id="a3e-dw-ZAk"/>
-                <outlet property="editCombine" destination="e2W-0t-DUc" id="Mki-3H-mXb"/>
-                <outlet property="editDelegate" destination="EPy-M4-QGF" id="KVy-ou-B5D"/>
-                <outlet property="editNotification" destination="aWd-2v-94z" id="hfG-bA-CM9"/>
+                <outlet property="editClosureButton" destination="aYE-3A-xei" id="a3e-dw-ZAk"/>
+                <outlet property="editCombineButton" destination="e2W-0t-DUc" id="JnE-Ci-SJn"/>
+                <outlet property="editDelegateButton" destination="EPy-M4-QGF" id="KVy-ou-B5D"/>
+                <outlet property="editNotificationButton" destination="aWd-2v-94z" id="hfG-bA-CM9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="6eR-Re-MFz" userLabel="closure">
-                    <rect key="frame" x="214" y="108" width="214" height="128"/>
+                    <rect key="frame" x="214" y="108" width="214" height="122"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_default" translatesAutoresizingMaskIntoConstraints="NO" id="QL3-0l-MJK">
                             <rect key="frame" x="67" y="0.0" width="80" height="80"/>
@@ -52,14 +52,13 @@
                             <color key="textColor" red="1" green="0.19587395930000001" blue="0.1145816408" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYE-3A-xei">
-                            <rect key="frame" x="47" y="98" width="120" height="30"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="aYE-3A-xei">
+                            <rect key="frame" x="47" y="98" width="120" height="24"/>
                             <color key="backgroundColor" name="AccentColor"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="120" id="PR6-Y4-xcW"/>
-                                <constraint firstAttribute="height" constant="30" id="dxd-fG-l4d"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
+                            <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="12"/>
                             <state key="normal" title="Edit">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
@@ -74,7 +73,7 @@
                     </constraints>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="dmn-mQ-4Ls" userLabel="combine">
-                    <rect key="frame" x="214" y="300" width="214" height="128"/>
+                    <rect key="frame" x="214" y="294" width="214" height="122"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_default" translatesAutoresizingMaskIntoConstraints="NO" id="cmH-B2-E3b">
                             <rect key="frame" x="67" y="0.0" width="80" height="80"/>
@@ -102,14 +101,13 @@
                             <color key="textColor" red="1" green="0.19587395930000001" blue="0.1145816408" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2W-0t-DUc">
-                            <rect key="frame" x="47" y="98" width="120" height="30"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="e2W-0t-DUc">
+                            <rect key="frame" x="47" y="98" width="120" height="24"/>
                             <color key="backgroundColor" systemColor="linkColor"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="30" id="g4I-hp-LkX"/>
                                 <constraint firstAttribute="width" constant="120" id="uzu-bb-Gaz"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
+                            <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="12"/>
                             <state key="normal" title="Edit">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
@@ -123,7 +121,7 @@
                     </constraints>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="LwY-5d-Mrz" userLabel="delegate">
-                    <rect key="frame" x="0.0" y="108" width="214" height="128"/>
+                    <rect key="frame" x="0.0" y="108" width="214" height="122"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_default" translatesAutoresizingMaskIntoConstraints="NO" id="4PL-dC-sNr">
                             <rect key="frame" x="67" y="0.0" width="80" height="80"/>
@@ -151,14 +149,13 @@
                             <color key="textColor" red="1" green="0.19587395930000001" blue="0.1145816408" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EPy-M4-QGF">
-                            <rect key="frame" x="47" y="98" width="120" height="30"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="EPy-M4-QGF">
+                            <rect key="frame" x="47" y="98" width="120" height="24"/>
                             <color key="backgroundColor" name="AccentColor"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="30" id="W3m-lS-ieu"/>
                                 <constraint firstAttribute="width" constant="120" id="vPC-07-580"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
+                            <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="12"/>
                             <state key="normal" title="Edit">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
@@ -173,7 +170,7 @@
                     </constraints>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="DK5-ZG-mPZ" userLabel="notification">
-                    <rect key="frame" x="0.0" y="300" width="214" height="128"/>
+                    <rect key="frame" x="0.0" y="294" width="214" height="122"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_default" translatesAutoresizingMaskIntoConstraints="NO" id="Bm1-e1-Mvg">
                             <rect key="frame" x="67" y="0.0" width="80" height="80"/>
@@ -201,14 +198,13 @@
                             <color key="textColor" red="1" green="0.19587395930000001" blue="0.1145816408" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWd-2v-94z">
-                            <rect key="frame" x="47" y="98" width="120" height="30"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="aWd-2v-94z">
+                            <rect key="frame" x="47" y="98" width="120" height="24"/>
                             <color key="backgroundColor" systemColor="linkColor"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="30" id="6gU-qq-CMG"/>
                                 <constraint firstAttribute="width" constant="120" id="ShK-2i-XMA"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
+                            <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="12"/>
                             <state key="normal" title="Edit">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
@@ -238,7 +234,7 @@
                 <constraint firstItem="dmn-mQ-4Ls" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="zWd-qN-2BA"/>
                 <constraint firstItem="DK5-ZG-mPZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="zwW-s0-4G4"/>
             </constraints>
-            <point key="canvasLocation" x="-436" y="-364"/>
+            <point key="canvasLocation" x="-559" y="-396"/>
         </view>
     </objects>
     <resources>
