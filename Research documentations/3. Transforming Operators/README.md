@@ -5,7 +5,7 @@
 # Contents
 
 1. [Collecting values](#collecting_values)
-    1. [Collect()](#collect())
+    1. [Collect](#collect())
     2. [Collect(n)](#Collect(n))
     
 2. [Mapping values](#mapping_values)
@@ -37,7 +37,7 @@
  -  **là operator liên quan tới collecting các giá trị phát ra, tổng hợp lại và xử lý 1 lần nhiều giá trị**
 
     **Cách dùng lấy publisher và gọi function sau: .collect() hay .collect(n) (n là một giá trị cụ thể nào đó)**.
-    ### 1.1 collect()<a name="collect()"></a>
+### 1.1 collect()<a name="collect()"></a>
     ```swift
     public func collect() -> Result<[Publishers.Sequence<Elements, Failure>.Output], Failure>.Publisher
     ```
@@ -171,7 +171,6 @@ Giải thích
 - Sử dụng `tryMap` để biến đổi Output là `string` (hiểu là đường dẫn của 1 file nào đó) thành đổi tượng là `file`(data)
 - Trong closure của `tryMap` thì tiến hành đọc file với đường dẫn kia
 - Nếu có lỗi thì sẽ nhận được `completion` với trị là `failure`
->>>>>>> topic/transforming_operators
 
 #### [Creation](docs/Deep-dive/Creation.md)
 #### [Operators](docs/Deep-dive/Operators)
@@ -258,7 +257,6 @@ empty
 Kết quả:
 1
 finished
->>>>>>> topic/transforming_operators
 
 ## 5. Incrementally transforming output <a name="incrementally_transforming_output"></a>
 
