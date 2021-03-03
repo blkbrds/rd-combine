@@ -23,7 +23,6 @@
 4. [Replacing upstream output](#replacing_upstream_output)
     1. [replaceNil(with:)](#replaceNil)
     2. [replaceEmpty(with:)](#replaceEmpty)
->>>>>>> topic/transforming_operators
 
 5. [Incrementally transforming output](#incrementally_transforming_output)
     1. [Reactive](#Reactive)
@@ -105,8 +104,6 @@ passthoughtSubject.send(completion: .finished)
 finished
 ```
 ## 2. Mapping values <a name="mapping_values"></a>
-
-Sau khi tìm hiểu các khái niệm cơ bản của Reactive programming và RxSwift thì trong phần này, chúng ta sẽ đi sâu hơn vào cách hoạt động, xử lý và ứng dụng trong từng trường hợp cụ thể của chúng.
 
 ### 2.1 Map <a name="map"></a>
 Xem đoạn code sau và hình dung
