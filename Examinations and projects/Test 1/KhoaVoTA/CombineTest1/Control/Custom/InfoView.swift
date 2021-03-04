@@ -62,8 +62,6 @@ final class InfoView: View {
         }
     }
 
-    
-
     // MARK: - IBActions
     @IBAction private func editInfoButtonTouchUpInside(_ sender: UIButton) {
         guard let viewModel = viewModel else { return }
