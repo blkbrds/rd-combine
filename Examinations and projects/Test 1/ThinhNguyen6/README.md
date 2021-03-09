@@ -6,8 +6,8 @@ Delegate
     -  cách dùng quen thuộc, cơ bản nhất đổi với người mới 
     - dễ sử dụng 
 Nhược điểm:
-    - Chỉ chuyển 1 chiều từ
-    - Viết dài dòng
+    - Viết dài dòng, rời rạc code 
+
 Closure: 
 Ưu điểm :
     - Viết ngắn gọn, thuận tiện khi dùng trong hàm callback, completion 
