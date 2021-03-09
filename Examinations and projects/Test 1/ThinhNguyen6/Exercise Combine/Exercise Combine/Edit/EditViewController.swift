@@ -25,7 +25,9 @@ final class EditViewController: UIViewController {
     var viewModel: EditViewModel = EditViewModel()
     
     var editInformation:((EditViewModel) -> Void)?
-    var type: EditType = .delegate
+    var valuePassthrought: PassthroughSubject<EditViewModel, Never>?
+    
+    var type: HomeViewModel.EditType = .delegate
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -56,7 +58,8 @@ final class EditViewController: UIViewController {
         case .closure:
             editInformation?(viewModel)
         case .combine:
-            HomeViewController.userInput.send(User(name: name, address: address))
+            valuePassthrought?.send(viewModel)
+            valuePassthrought?.send(completion: .finished)
         }
         dismiss(animated: true, completion: nil)
     }
