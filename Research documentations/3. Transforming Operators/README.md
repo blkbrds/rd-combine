@@ -14,10 +14,6 @@
     3. [tryMap](#tryMap)
 
 3. [Flattening publishers](#flattening_publishers)
-    1. [Reactive](#Reactive)
-    2. [Observable và Observer](#Observable-Observer)
-    3. [Operator - man in the middle](#Operator-man-in-the-middle)
-    4. [Subjects](#Subjects)
 
 4. [Replacing upstream output](#replacing_upstream_output)
     1. [replaceNil(with:)](#replaceNil)
@@ -175,12 +171,6 @@ Giải thích
 
 ## 3. Flattening publishers <a name="flattening_publishers"></a>
 
-## 4. Replacing upstream output <a name="replacing_upstream_output"></a>
-Phần này sẽ tập trung vào implement Unit-Testing bằng các framework trên RxSwift Community như `RxTests`, `RxBlocking`, `RxNimble`
-
-### 4.1. [RxTests](docs/Testing.md) <a name="RxTests"></a> 
-
-### 4.2. RxNimble <a name="RxNimble"></a> (Update later)
 [Tài liệu](https://developer.apple.com/documentation/combine/publishers/flatmap)
 
 Chuyển đổi tất cả các yếu tố từ nhà xuất bản ngược dòng thành nhà xuất bản mới với số lượng nhà xuất bản tối đa mà bạn chỉ định.
