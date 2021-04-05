@@ -2,9 +2,8 @@
 
 
 
-Trong chương này chúng ta sẽ tìm hiểu về Filtering, sau đây là định ghĩa ủa `Transforming` và `Filtering` :
+Trong chương này chúng ta sẽ tìm hiểu về Filtering, sau đây là định ghĩa của `Filtering` :
 
-> Transforming Operators: Sử dụng Transforming Operators để biến đổi các giá trị từ Publisher.
 > Filtering Operators: Sử dụng Filtering Operators để thu gọn hoặc giới hạn các giá trị từ publisher.
 
 ## 1.Filtering Basics
@@ -110,7 +109,7 @@ example(of: "ignoreOutout") {
 
 ### 3.1 first(where:)
 
-Dùng để tìm kiếm phần tử đầu tiên phù hợp với yêu cầu đặt ra sau đó sẽ tự completion.
+Dùng để tìm kiếm phần tử đầu tiên phù hợp với yêu cầu đặt ra sau đó sẽ tự completion cho dù upstream publisher đã kết thúc hay chưa.
 
 ![](/Users/mba0212/Downloads/hinh10.png)
 
@@ -153,7 +152,8 @@ receiveValue: { print($0)})
 
 ## 4. Dropping values
 
-- dropFirst(): Loại bỏ đi các phần tử đứng đầu được chỉ định rõ số lượng.
+- dropFirst(): Loại bỏ đi các phần tử đứng đầu được chỉ định rõ số lượng. Không truyền `param` thì mặc định là 1.
+    ``Ví dụ``: dropFirst(5):  thì sẽ loại bỏ 5 phần tử đầu tiên
 - drop(while:):  Phần tử nào thoả mãn điều kiện sẽ bị loại trừ. Cho đến khi gặp phần tử đầu tiên không thoả mãn.
 - drop(untilOutputFrom:) Loại bỏ các phần tử trước đó cho đến khi có sự kiện phát từ 1 publisher khác.
 
