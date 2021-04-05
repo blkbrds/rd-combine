@@ -47,6 +47,10 @@ example(of: "filter") {
         .sink(receiveValue: { print($0) })
 }
 ```
+Giải thích: 
+
+* Tạo 1 publisher từ 1 Array String chứa 7 phần tử
+* Sử dụng toán tử `filter` tìm trong mảng cities các phần tử có chứa "d"
 
 *Kết quả:*
 
