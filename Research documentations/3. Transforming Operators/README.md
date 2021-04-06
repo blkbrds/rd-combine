@@ -197,7 +197,7 @@ Kêt quả:
 
 ### 4.1. replaceNil(with:) <a name="replaceNil"></a> 
 
-replaceNil: nếu publisher phát ra giá trị nào nil thì sẽ thay thế bằng giá trị nào đó được chỉ định. 
+> Nếu publisher phát ra giá trị nào nil thì sẽ thay thế bằng giá trị nào đó được chỉ định. 
 
 ![replaceNil](./.readmesource/replaceNil.png)
 
@@ -223,7 +223,7 @@ finished
 
 ### 4.2. replaceEmpty(with:) <a name="replaceEmpty"></a>
 
-replaceEmpty: Toán tử replaceEmpty sẽ chèn thêm giá trị nếu publisher không phát đi bất cứ gì mà lại complete.
+> Toán tử replaceEmpty sẽ chèn thêm giá trị nếu publisher không phát đi bất cứ gì mà lại complete.
 
 ![replaceEmpty](./.readmesource/replaceEmpty.png)
 
