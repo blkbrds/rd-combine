@@ -11,6 +11,8 @@ class SignInViewController: UIViewController {
     
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     @IBOutlet weak var signInButton: UIButton!
+    
+    var viewModel: SignInViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +42,7 @@ class SignInViewController: UIViewController {
     
     private func handleSignIn() {
         let vc = HomeViewController()
+        vc.viewModel = HomeViewModel()
         navigationController?.pushViewController(vc, animated: true)
     }
 }
