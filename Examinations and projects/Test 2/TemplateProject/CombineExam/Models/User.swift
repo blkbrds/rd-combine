@@ -11,5 +11,5 @@ struct User {
     var id: String = UUID().uuidString
     var name: String
     var address: String
-    var password: String = "123456"
+    var password: String = "12345678"
 }
