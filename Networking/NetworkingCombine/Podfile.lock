@@ -1,0 +1,26 @@
+PODS:
+  - Introspect (0.1.2)
+  - SDWebImage (5.10.2):
+    - SDWebImage/Core (= 5.10.2)
+  - SDWebImage/Core (5.10.2)
+  - SDWebImageSwiftUI (2.0.1):
+    - SDWebImage (~> 5.10)
+
+DEPENDENCIES:
+  - Introspect
+  - SDWebImageSwiftUI
+
+SPEC REPOS:
+  trunk:
+    - Introspect
+    - SDWebImage
+    - SDWebImageSwiftUI
+
+SPEC CHECKSUMS:
+  Introspect: 85a29d2c5ee4d3d15469ad0b75fd8839f3e72674
+  SDWebImage: b969dcfc02c40a5da71eac0b03b8f1a0c794a86f
+  SDWebImageSwiftUI: ff3dc77f69330e6513c655bcb9b5080a033405a5
+
+PODFILE CHECKSUM: ea44aeac14de452bd5547294baaf269652b50de6
+
+COCOAPODS: 1.10.1
