@@ -1,18 +1,12 @@
 //
-//  User.swift
+//  LocalDatabase.swift
 //  CombineExam
 //
-//  Created by MBP0051 on 4/11/21.
+//  Created by Van Le H. on 4/11/21.
+//  Copyright © 2021 ___ORGANIZATIONNAME___ All rights reserved.
 //
 
 import Foundation
-
-struct User {
-    var id: String = UUID().uuidString
-    var name: String
-    var address: String
-    var password: String = "123456"
-}
 
 struct LocalDatabase {
     static let users: [User] = [User(name: "Tram", address: "1 ong ich khiem"),

@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignInViewController" customModule="CombineExam" customModuleProvider="target">
             <connections>
                 <outlet property="indicatorView" destination="Ja1-xK-WQg" id="5tB-lf-3YI"/>
+                <outlet property="signInButton" destination="sYt-ff-hEG" id="vsO-K0-C8B"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -42,7 +43,7 @@
                                     <rect key="frame" x="0.0" y="150" width="374" height="45"/>
                                     <color key="backgroundColor" systemColor="systemTealColor"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <state key="normal" title="Button"/>
+                                    <state key="normal" title="Sign In"/>
                                     <connections>
                                         <action selector="signInButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="IwQ-8H-m2W"/>
                                     </connections>
@@ -58,8 +59,8 @@
                         <constraint firstItem="2Kb-EQ-sZf" firstAttribute="top" secondItem="xYE-UJ-v0i" secondAttribute="top" id="ohW-pS-1kS"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SignUp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AqE-J8-r1W">
-                    <rect key="frame" x="143.5" y="194" width="127.5" height="106.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AqE-J8-r1W">
+                    <rect key="frame" x="149" y="194" width="116" height="106.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="40"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>

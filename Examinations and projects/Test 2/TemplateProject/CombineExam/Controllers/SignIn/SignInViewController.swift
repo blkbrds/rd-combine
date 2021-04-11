@@ -10,7 +10,8 @@ import UIKit
 class SignInViewController: UIViewController {
     
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
-    
+    @IBOutlet weak var signInButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         UINavigationBar.appearance().prefersLargeTitles = true

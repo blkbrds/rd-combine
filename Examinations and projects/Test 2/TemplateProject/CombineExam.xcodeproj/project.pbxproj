@@ -22,6 +22,9 @@
 		4E9FDE062622143E006F4EB4 /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FDE042622143E006F4EB4 /* HomeViewCell.swift */; };
 		4E9FDE072622143E006F4EB4 /* HomeViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E9FDE052622143E006F4EB4 /* HomeViewCell.xib */; };
 		4E9FDE0C2622186D006F4EB4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FDE0B2622186D006F4EB4 /* User.swift */; };
+		74D73E5326234D92003BE284 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D73E5226234D92003BE284 /* StringExt.swift */; };
+		74D73E5726234DBA003BE284 /* SignInError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D73E5626234DBA003BE284 /* SignInError.swift */; };
+		74D73E5B26234E3D003BE284 /* LocalDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D73E5A26234E3D003BE284 /* LocalDatabase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,9 @@
 		4E9FDE042622143E006F4EB4 /* HomeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
 		4E9FDE052622143E006F4EB4 /* HomeViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewCell.xib; sourceTree = "<group>"; };
 		4E9FDE0B2622186D006F4EB4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		74D73E5226234D92003BE284 /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
+		74D73E5626234DBA003BE284 /* SignInError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInError.swift; sourceTree = "<group>"; };
+		74D73E5A26234E3D003BE284 /* LocalDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDatabase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +80,7 @@
 		4E9FDDD7262211A9006F4EB4 /* CombineExam */ = {
 			isa = PBXGroup;
 			children = (
+				74D73E5126234D83003BE284 /* Utils */,
 				4E9FDE0A26221865006F4EB4 /* Models */,
 				4E9FDDED262211B8006F4EB4 /* Controllers */,
 				4E9FDDD8262211A9006F4EB4 /* AppDelegate.swift */,
@@ -140,6 +147,16 @@
 				4E9FDE0B2622186D006F4EB4 /* User.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		74D73E5126234D83003BE284 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				74D73E5226234D92003BE284 /* StringExt.swift */,
+				74D73E5626234DBA003BE284 /* SignInError.swift */,
+				74D73E5A26234E3D003BE284 /* LocalDatabase.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,8 +235,11 @@
 			files = (
 				4E9FDDF7262211F4006F4EB4 /* HomeViewController.swift in Sources */,
 				4E9FDDF0262211DC006F4EB4 /* SignInViewController.swift in Sources */,
+				74D73E5726234DBA003BE284 /* SignInError.swift in Sources */,
 				4E9FDE062622143E006F4EB4 /* HomeViewCell.swift in Sources */,
 				4E9FDDDD262211A9006F4EB4 /* ViewController.swift in Sources */,
+				74D73E5326234D92003BE284 /* StringExt.swift in Sources */,
+				74D73E5B26234E3D003BE284 /* LocalDatabase.swift in Sources */,
 				4E9FDE0C2622186D006F4EB4 /* User.swift in Sources */,
 				4E9FDDFE26221201006F4EB4 /* DetailViewController.swift in Sources */,
 				4E9FDDD9262211A9006F4EB4 /* AppDelegate.swift in Sources */,
@@ -370,17 +390,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = EKZA327T6Q;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CombineExam/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = justin.nguyen.CombineExam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -389,17 +412,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = EKZA327T6Q;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CombineExam/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = justin.nguyen.CombineExam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
