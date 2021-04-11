@@ -3,7 +3,7 @@ R&amp;D - iOS - Combine
 
 ## Đề bài
 Tạo 2 màn hình như hình sau:
-![Test 1](https://github.com/blkbrds/rd-combine/blob/main/Examinations%20and%20projects/images/Test%201/Home%2BEdit.png)
+![Test 2](https://github.com/blkbrds/rd-combine/blob/main/Examinations%20and%20projects/images/Test%202/SignIn%2BHome.png)
 
 **Mô tả**
 * Màn hình Sign In:
