@@ -23,4 +23,7 @@ extension Character {
 
 extension String {
     var containsEmoji: Bool { contains { $0.isEmoji } }
+    var trimmed: String {
+        return self.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
 }

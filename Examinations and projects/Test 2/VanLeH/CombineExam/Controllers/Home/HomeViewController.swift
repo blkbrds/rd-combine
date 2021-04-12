@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class HomeViewController: UIViewController {
     
@@ -13,7 +14,9 @@ class HomeViewController: UIViewController {
     let identifier = String(describing: "HomeViewCell")
     
     var viewModel: HomeViewModel = HomeViewModel()
-    
+
+    private var subscriptions = [AnyCancellable]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Home"
@@ -24,10 +27,23 @@ class HomeViewController: UIViewController {
         tableView.delegate = self
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        binding()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+
+    private func binding() {
+        viewModel.didSearch
+            .sink { [weak self] _ in
+                self?.tableView.reloadData()
+            }
+            .store(in: &subscriptions)
+    }
+
+    @IBAction func searchTextFieldEditingChanged(_ sender: UITextField) {
+        viewModel.inputtedTextSubject.send(sender.text?.trimmed)
     }
 }
 
