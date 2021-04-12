@@ -2,8 +2,9 @@
 R&amp;D - iOS - Combine
 
 ## Đề bài
-Tạo 2 màn hình như hình sau:
-![Test 2-SignIn](https://github.com/blkbrds/rd-combine/blob/main/Examinations%20and%20projects/images/Test%202/Home.png)
+Tạo màn hình như hình sau:
+
+![Test 2 - Sign In](https://github.com/blkbrds/rd-combine/blob/main/Examinations%20and%20projects/images/Test%202/Home.png)
 
 **Mô tả**
 1. Validate field username theo yêu cầu username không ít hơn 2 ký tự và nhiều hơn 20 ký tự; username không được chứa emoji (sử dụng biến `containsEmoji` để check).
