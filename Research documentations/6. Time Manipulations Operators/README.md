@@ -1,11 +1,14 @@
-**rd-combine**
+# Debounce
+Debounce là 1 trong 2 operator của nhóm Holding off on events. Sau đây chúng ta sẽ tìm hiểu về nó nhé :D
+## 1. Khái niệm
+ - Debounce là 1 toán tử phát ra giá trị sau khi **lần cuối** upstream Publisher **phát ra sự kiện** với **một khoảng thời gian xác định**. Lý thuyết hơi khô khan chúng ta qua phần biểu đồ để hiểu nó hơn nhé.
+## 2. Biểu đồ
+<img src=".Research%20documentations/7.%20Sequence%20Operators/readmesource/ExampleDebounce.png">
 
-R&D - iOS - Combine
+## 3. Công dụng
+## 4. Tham số
 
-# Contents
-# References
-- [Combine by Raywernderlich](https://www.raywenderlich.com/books/combine-asynchronous-programming-with-swift/v2.0)
-- [FxStudio](https://fxstudio.dev/category/code/combine/)
-
-# License
-Xem [License](https://github.com/blkbrds/rd-combine/blob/main/LICENSE) để biết thêm thông tin chi tiết.
+### h3
+#### h4
+##### h5
+###### h6
