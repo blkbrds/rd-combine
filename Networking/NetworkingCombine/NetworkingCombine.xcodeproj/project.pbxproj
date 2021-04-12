@@ -19,6 +19,7 @@
 		12029EBA9B578E406C17611C /* Pods_NetworkingCombine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 603866ECE5E0B0B7EABEDAC6 /* Pods_NetworkingCombine.framework */; };
 		33DD428225F3D48A00A2C75E /* TrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DD428125F3D48A00A2C75E /* TrendingCell.swift */; };
 		33DD428625F3E0C400A2C75E /* MostPopularCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DD428525F3E0C400A2C75E /* MostPopularCell.swift */; };
+		6AE567E42623E95200E50042 /* Cocktail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE567E32623E95200E50042 /* Cocktail.swift */; };
 		B54C7C8225F0D8E900AB8FE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54C7C8125F0D8E900AB8FE9 /* AppDelegate.swift */; };
 		B54C7C8425F0D8E900AB8FE9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54C7C8325F0D8E900AB8FE9 /* SceneDelegate.swift */; };
 		B54C7C8825F0D8EB00AB8FE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B54C7C8725F0D8EB00AB8FE9 /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 		33DD428525F3E0C400A2C75E /* MostPopularCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularCell.swift; sourceTree = "<group>"; };
 		5C290F56A88290AA8F2DB97A /* Pods-NetworkingCombine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkingCombine.release.xcconfig"; path = "Target Support Files/Pods-NetworkingCombine/Pods-NetworkingCombine.release.xcconfig"; sourceTree = "<group>"; };
 		603866ECE5E0B0B7EABEDAC6 /* Pods_NetworkingCombine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetworkingCombine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AE567E32623E95200E50042 /* Cocktail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cocktail.swift; sourceTree = "<group>"; };
 		7107D950721E9C65BEB817D6 /* Pods-List-NavigationDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-List-NavigationDemo.release.xcconfig"; path = "Target Support Files/Pods-List-NavigationDemo/Pods-List-NavigationDemo.release.xcconfig"; sourceTree = "<group>"; };
 		B54C7C7E25F0D8E900AB8FE9 /* NetworkingCombine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkingCombine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B54C7C8125F0D8E900AB8FE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				0EFE1FE225F1E8960026EC2D /* Restaurant.swift */,
+				6AE567E32623E95200E50042 /* Cocktail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 				B54C7C8425F0D8E900AB8FE9 /* SceneDelegate.swift in Sources */,
 				0EE7B20C25F5FD11005D3D28 /* PullToRefresh.swift in Sources */,
 				B56AC73A25F77546003E2873 /* TrendingView.swift in Sources */,
+				6AE567E42623E95200E50042 /* Cocktail.swift in Sources */,
 				0EFE201B25F201350026EC2D /* RestauranService.swift in Sources */,
 				B5BF1A2825F8D6F600DC42F1 /* TrendingViewModel.swift in Sources */,
 				B56AC73425F77340003E2873 /* HomeViewModel.swift in Sources */,
