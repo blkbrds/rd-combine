@@ -15,13 +15,28 @@ final class SignInViewModel {
     let user = User(name: "name", address: "Da Nang")
     let emailPublisher = CurrentValueSubject<String, Never>("")
     let pwdPublisher = CurrentValueSubject<String, Never>("")
+    let noticePublisher = PassthroughSubject<SignInError, Never>()
 
 
     init() {
         send()
+        noticePublisher.sink { (value) in
+            print(value.message)
+        }.store(in: &subscriptions)
     }
 
     func isValidEmail() -> Bool {
+        if emailPublisher.value.count > 20 || emailPublisher.value.count < 2 {
+            noticePublisher.send(SignInError.invalidUsernameLength)
+        }
+        if pwdPublisher.value.count > 20 || pwdPublisher.value.count < 8 {
+            noticePublisher.send(SignInError.invalidPasswordLength)
+        }
+        if emailPublisher.value.containsEmoji {
+            noticePublisher.send(SignInError.invalidUsername)
+            return false
+        }
+
         if emailPublisher.value.count <= 20,
            emailPublisher.value.count >= 2,
            !emailPublisher.value.containsEmoji,
