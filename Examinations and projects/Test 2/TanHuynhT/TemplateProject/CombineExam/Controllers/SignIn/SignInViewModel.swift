@@ -6,7 +6,11 @@
 //
 
 import Foundation
+import Combine
 
 final class SignInViewModel {
-    
+
+    var subscription = Set<AnyCancellable>()
+    var userNamesubject = PassthroughSubject<String, Never>()
+    var passwordSubject = PassthroughSubject<String, Never>()
 }
