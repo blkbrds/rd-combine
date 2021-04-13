@@ -17,7 +17,7 @@ typealias RequestPublisher = AnyPublisher<(data: Data, response: URLResponse), E
 
 final class Provider<Target: TargetType>: ProviderType {
     
-    func requestWithTarget(target: Target) -> RequestPublisher {
+    func request(target: Target) -> RequestPublisher {
         if let rq = target.getRequest() {
             let publisher: RequestPublisher  = URLSession.shared.dataTaskPublisher(for: rq)
                 .mapError({ $0 })

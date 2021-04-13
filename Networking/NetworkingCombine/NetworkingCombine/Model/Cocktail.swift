@@ -16,11 +16,6 @@ final class Cocktail: Codable {
         case imageURL = "strDrinkThumb"
     }
 
-    init(nameTilte: String, imageURL: String) {
-        self.nameTitle = nameTitle
-        self.imageURL = imageURL
-    }
-
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         nameTitle = try container.decode(String.self, forKey: .nameTitle)

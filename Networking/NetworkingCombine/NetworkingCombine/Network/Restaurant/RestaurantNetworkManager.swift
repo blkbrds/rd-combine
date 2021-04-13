@@ -12,14 +12,14 @@ final class RestaurantNetworkManager: RestaurantNetworkable {
     var provider: Provider<RestauranService> = Provider<RestauranService>()
 
     func getTrendings(page: Int) -> AnyPublisher<TrendingResponseData, Error> {
-        return provider.requestWithTarget(target: .trendings(page: page))
+        return provider.request(target: .trendings(page: page))
             .catchAPIError()
             .decode(TrendingResponseData.self)
         
     }
     
     func getPopulars(page: Int) -> AnyPublisher<PopularResponseData, Error> {
-        return provider.requestWithTarget(target: .populars(page: page))
+        return provider.request(target: .populars(page: page))
             .catchAPIError()
             .decode(PopularResponseData.self)
     }
