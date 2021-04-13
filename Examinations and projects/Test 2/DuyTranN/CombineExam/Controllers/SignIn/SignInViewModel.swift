@@ -14,6 +14,8 @@ final class SignInViewModel {
     let userNameSubject = CurrentValueSubject<String, Never>("")
     let passwordSubject = CurrentValueSubject<String, Never>("")
     let validationSubject = CurrentValueSubject<(SignInError?, SignInError?), Never>((nil, nil))
+    let checkDatabaseSubject = PassthroughSubject<Bool, Never>()
+
     private var subscriptions = Set<AnyCancellable>()
 
     // MARK: - Life cycle
@@ -38,6 +40,10 @@ final class SignInViewModel {
     }
 
     // MARK: - Public functions
+    func tappedSignInButton() {
+        let foundedUser = LocalDatabase.users.first(where: { $0.name == userNameSubject.value })
+        checkDatabaseSubject.send(foundedUser != nil)
+    }
 
     // MARK: - Private functions
     private func validationUserName() -> SignInError? {

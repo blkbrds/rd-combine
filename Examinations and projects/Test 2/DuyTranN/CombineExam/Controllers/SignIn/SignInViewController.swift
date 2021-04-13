@@ -33,12 +33,7 @@ class SignInViewController: UIViewController {
 
     // MARK: - IBActions
     @IBAction private func signInButtonTouchUpInside(_ sender: UIButton) {
-//        indicatorView.startAnimating()
-//        indicatorView.isHidden = false
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//            self.indicatorView.stopAnimating()
-//            self.handleSignIn()
-//        }
+        viewModel.tappedSignInButton()
     }
 }
 
@@ -61,9 +56,7 @@ extension SignInViewController {
 
         /// `Binding`
         viewModel.validationSubject
-            .sink(receiveCompletion: { completion in
-                print("Received completion: \(completion)")
-            }, receiveValue: { [weak self] value in
+            .sink(receiveValue: { [weak self] value in
                 guard let this = self else { return }
                 this.updateSignInButton()
 
@@ -74,6 +67,23 @@ extension SignInViewController {
                 if let passwordError = value.1 {
                     print("🧨", passwordError.message)
                     return
+                }
+            })
+            .store(in: &subscriptions)
+
+        viewModel.checkDatabaseSubject
+            .sink(receiveValue: { [weak self] isValid in
+                guard let this = self else { return }
+                guard isValid else {
+                    print("🧨 Tài khoản ko có trong DB")
+                    return
+                }
+                print("☘️ Đăng nhập thành công")
+                this.indicatorView.startAnimating()
+                this.indicatorView.isHidden = false
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    this.indicatorView.stopAnimating()
+                    this.handleSignIn()
                 }
             })
             .store(in: &subscriptions)
