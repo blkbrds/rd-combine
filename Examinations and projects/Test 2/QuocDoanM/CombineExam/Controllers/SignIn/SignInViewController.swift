@@ -41,18 +41,23 @@ class SignInViewController: UIViewController {
 
 
     @IBAction private func signInButtonTouchUpInside(_ sender: UIButton) {
+        LocalDatabase.users.contains(where: { user -> Bool in
+            user.name == self.userNameTextField.text && user.password == self.passwordTextField.text
+        }) ? self.handleSignIn() : print("Loi")
+        
+        
+    }
+    
+    private func handleSignIn() {
         indicatorView.startAnimating()
         indicatorView.isHidden = false
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.indicatorView.stopAnimating()
-            self.handleSignIn()
+            let vc = HomeViewController()
+            vc.viewModel = HomeViewModel()
+            self.navigationController?.pushViewController(vc, animated: true)
         }
-    }
-    
-    private func handleSignIn() {
-        let vc = HomeViewController()
-        vc.viewModel = HomeViewModel()
-        navigationController?.pushViewController(vc, animated: true)
+        
     }
 
     private func enableSignInButton() {
@@ -70,11 +75,14 @@ extension SignInViewController: UITextFieldDelegate {
                     .sink { completion in
                         print("Completion: ", completion)
                     } receiveValue: { value in
-                        if (value.count >= 2 && value.count <= 20) && !value.containsEmoji {
-                            self.isValidateUserName = true
-                            
-                        } else {
-                            self.isValidateUserName = false
+                        self.isValidateUserName = (2...20).contains(value.count) && !value.containsEmoji
+                        if !self.isValidateUserName {
+                            if !(2...20).contains(value.count) {
+                                print(SignInError.invalidUsernameLength.message)
+                            }
+                            if value.containsEmoji {
+                                print(SignInError.invalidUsername.message)
+                            }
                         }
                     }
                     .store(in: &subscriptions)
@@ -89,10 +97,9 @@ extension SignInViewController: UITextFieldDelegate {
                     .sink { completion in
                         print("Completion: ", completion)
                     } receiveValue: { value in
-                        if (value.count >= 8 && value.count <= 20) {
-                            self.isValidatePassword = true
-                        } else {
-                            self.isValidatePassword = false
+                        self.isValidatePassword = (8...20).contains(value.count)
+                        if !self.isValidatePassword {
+                            print(SignInError.invalidPasswordLength.message)
                         }
                     }
                     .store(in: &subscriptions)
