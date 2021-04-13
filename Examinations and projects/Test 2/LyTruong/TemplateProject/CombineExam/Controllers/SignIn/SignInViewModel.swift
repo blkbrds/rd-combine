@@ -26,7 +26,7 @@ final class SignInViewModel: ObservableObject {
         .debounce(for: 0.8, scheduler: RunLoop.main)
         .removeDuplicates()
         .map { input in
-            return input == "Tram"
+            return LocalDatabase.users.contains(where: {$0.name == input })
         }
         .eraseToAnyPublisher()
     }
