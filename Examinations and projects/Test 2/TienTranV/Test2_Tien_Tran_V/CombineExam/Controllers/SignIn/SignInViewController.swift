@@ -76,12 +76,13 @@ private extension SignInViewController {
         viewModel.validationInput
             .sink(receiveCompletion: { _ in
                 return
-            }, receiveValue: { (isOkay, error) in
+            }, receiveValue: { [weak self](isOkay, error) in
+                guard let this = self else { return }
                 if let error = error {
                     print("😵\(error.message)")
-                    self.signInButton.isEnabled = false
+                    this.signInButton.isEnabled = false
                 } else {
-                    self.signInButton.isEnabled = isOkay
+                    this.signInButton.isEnabled = isOkay
                 }
             })
             .store(in: &bindings)
@@ -89,12 +90,13 @@ private extension SignInViewController {
         viewModel.validationResult
             .sink(receiveCompletion: { _ in
                 return
-            }, receiveValue: { (isOkay, error) in
+            }, receiveValue: { [weak self] (isOkay, error) in
+                guard let this = self else { return }
                 if let error = error {
                     print("😵\(error.message)")
                 } else {
                     if isOkay {
-                        self.handleSignIn()
+                        this.handleSignIn()
                     }
                 }
             })
