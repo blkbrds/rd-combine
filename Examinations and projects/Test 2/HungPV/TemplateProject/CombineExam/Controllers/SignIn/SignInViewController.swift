@@ -16,7 +16,6 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
 
     var viewModel: SignInViewModel = SignInViewModel()
-    let user: User = User(name: "", address: "")
     private var subcripstions: Set<AnyCancellable> = Set<AnyCancellable>()
 
     override func viewDidLoad() {
@@ -86,7 +85,9 @@ class SignInViewController: UIViewController {
         indicatorView.isHidden = false
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.indicatorView.stopAnimating()
-            if self.viewModel.passwordText.value == self.user.password {
+            if LocalDatabase.users.contains(where: {
+                $0.address == self.viewModel.passwordText.value
+            }) {
                 self.handleSignIn()
             } else {
                 print("Đăng nhập không thành công")
