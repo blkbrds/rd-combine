@@ -37,10 +37,17 @@ class SignInViewController: UIViewController {
         viewModel.isValidate?
             .assign(to: \.isEnabled, on: signInButton)
             .store(in: &subscriptions)
-        viewModel.error
-            .dropFirst()
-            .sink { error in
-                print(error.message)
+        emailTextField.publisher
+            .sink { email in
+                guard let email = email else { return }
+                print(self.viewModel.valiDateEmail(email: email))
+            }
+            .store(in: &subscriptions)
+        
+        passwordTextField.publisher
+            .sink { password in
+                guard let password = password else { return }
+                print(self.viewModel.valiDatePassword(password: password))
             }
             .store(in: &subscriptions)
     }

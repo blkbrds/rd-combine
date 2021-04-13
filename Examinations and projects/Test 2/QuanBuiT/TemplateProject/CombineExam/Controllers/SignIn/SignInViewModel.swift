@@ -13,7 +13,6 @@ final class SignInViewModel {
     @Published var email: String?
     @Published var password: String?
     var isValidate: AnyPublisher<Bool, Never>?
-    let error = PassthroughSubject<SignInError, Never>()
     
     init() {
         isValidate = Publishers.CombineLatest($email, $password)
@@ -22,18 +21,6 @@ final class SignInViewModel {
                 return  self.valiDate(email: email, password: password)
             }
             .eraseToAnyPublisher()
-        $email
-            .map { String($0 ?? "") }
-            .sink { email in
-                self.valiDateEmail(email: email)
-            }
-            .store(in: &subscriptions)
-        $password
-            .map { String($0 ?? "") }
-            .sink { password in
-                self.valiDatePassword(password: password)
-            }
-            .store(in: &subscriptions)
     }
     
     func valiDate(email: String, password: String) -> Bool {
@@ -44,17 +31,19 @@ final class SignInViewModel {
         }
     }
     
-    func valiDateEmail(email: String) {
-        if email.count < 2 && email.count > 20 {
-            error.send(.invalidUsernameLength)
+    func valiDateEmail(email: String) -> String {
+        if email.count < 2 || email.count > 20 {
+            return SignInError.invalidUsernameLength.message
         } else if email.containsEmoji {
-            error.send(.invalidUsername)
+            return SignInError.invalidUsername.message
         }
+        return ""
     }
     
-    func valiDatePassword(password: String) {
-        if password.count < 8 && password.count > 20 {
-            error.send(.invalidPasswordLength)
+    func valiDatePassword(password: String) -> String{
+        if password.count < 8 || password.count > 20 {
+            return SignInError.invalidPasswordLength.message
         }
+        return ""
     }
 }
