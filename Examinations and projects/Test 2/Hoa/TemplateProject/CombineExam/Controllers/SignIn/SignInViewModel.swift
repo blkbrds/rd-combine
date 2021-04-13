@@ -48,12 +48,13 @@ final class SignInViewModel {
     }
 
     func checkData() -> Bool {
-        if emailPublisher.value == user.name,
-           pwdPublisher.value == user.password {
-            return true
-        } else {
-            return false
-        }
+        LocalDatabase.users.contains(where: { (user) -> Bool in
+            if user.name == emailPublisher.value, pwdPublisher.value == self.user.password {
+                return true
+            } else {
+                return false
+            }
+        })
     }
 
     func send() {
