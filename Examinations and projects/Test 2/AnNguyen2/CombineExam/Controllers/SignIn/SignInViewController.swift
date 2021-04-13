@@ -29,6 +29,7 @@ class SignInViewController: UIViewController {
         UINavigationBar.appearance().shadowImage = UIImage()
         
         bindingData()
+        handleErrors()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,8 +57,24 @@ class SignInViewController: UIViewController {
                     
         usernameTextField.textPublisher
             .combineLatest(passwordTextField.textPublisher)
-            .map({ _ in self.viewModel.validUsername && self.viewModel.validatedPassword })
+            .map({ [weak self] _ in
+                    self?.viewModel.inValidUsername == nil && self?.viewModel.validatedPassword == nil
+            })
             .assign(to: \.isEnabled, on: signInButton)
+            .store(in: &subscriptions)
+    }
+    
+    private func handleErrors() {
+        passwordTextField.textPublisher
+            .merge(with: usernameTextField.textPublisher)
+            .sink(receiveValue: { [weak self] _ in
+                if let error = self?.viewModel.validatedPassword {
+                    print(error.message)
+                }
+                if let error = self?.viewModel.inValidUsername {
+                    print(error.message)
+                }
+            })
             .store(in: &subscriptions)
     }
     

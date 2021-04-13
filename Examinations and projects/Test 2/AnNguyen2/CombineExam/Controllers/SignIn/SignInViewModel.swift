@@ -11,23 +11,20 @@ final class SignInViewModel {
     var username: String = ""
     var password: String = ""
     
-    var validUsername: Bool {
+    var inValidUsername: SignInError? {
         if username.count < 2 || username.count >= 20 {
-            print(SignInError.invalidUsernameLength.message)
-            return false
+            return SignInError.invalidUsernameLength
         } else if username.containsEmoji {
-            print(SignInError.invalidUsername.message)
-            return false
+            return SignInError.invalidUsername
         }
-        return true
+        return nil
     }
     
-    var validatedPassword: Bool {
+    var validatedPassword: SignInError? {
         if password.count < 8 || password.count >= 20 {
-            print(SignInError.invalidPasswordLength)
-            return false
+            return SignInError.invalidPasswordLength
         }
-        return true
+        return nil
     }
     
     var checkValidUser: Bool {
