@@ -32,12 +32,13 @@ class SignInViewController: UIViewController {
             .sink(receiveCompletion: { completion in
                 print(completion)
             }, receiveValue: { [weak self] text in
+                guard let this = self else { return }
+                this.viewModel.usernameValidate.send(false)
                 if text.count < 2 || text.count > 20 {
                     print(SignInError.invalidUsernameLength.message)
                 } else if text.containsEmoji {
                     print(SignInError.invalidUsername.message)
                 } else {
-                    guard let this = self else { return }
                     this.viewModel.usernameValidate.send(true)
                 }
             })
@@ -48,6 +49,7 @@ class SignInViewController: UIViewController {
                 print(completion)
             }, receiveValue: { [weak self] pwText in
                 guard let this = self else { return }
+                this.viewModel.passwordValidate.send(false)
                 if pwText.count < 8 || pwText.count > 20 {
                     print(SignInError.invalidPasswordLength.message)
                 } else if pwText.count > 8 || pwText.count < 20 {
