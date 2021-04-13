@@ -13,13 +13,13 @@ class SignInViewController: UIViewController {
 
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     @IBOutlet weak var signInButton: UIButton!
-    @IBOutlet weak var userNameTextFeild: UITextField!
-    @IBOutlet weak var passWordTextFeild: UITextField!
+    @IBOutlet weak var userNameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
 
     var viewModel: SignInViewModel?
-    var isEnable: Bool = false
-    var isCorrect: Bool = false
-    var publisher = PassthroughSubject<Bool,Never>()
+    var userNameValidate = CurrentValueSubject<Bool,Never>(false)
+    var passwordValidate = CurrentValueSubject<Bool,Never>(false)
+    var subcripstions = Set<AnyCancellable>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +31,19 @@ class SignInViewController: UIViewController {
         UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         UINavigationBar.appearance().shadowImage = UIImage()
 
+        let _ = userNameValidate
+        .combineLatest(passwordValidate)
+        .map {
+            $0 && $1
+        }
+        .sink(receiveValue: { (isEnabled) in
+            if isEnabled {
+                self.signInButton.isEnabled = isEnabled
+            } else {
+                self.signInButton.isEnabled = isEnabled
+            }
+        })
+        .store(in: &subcripstions)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -39,35 +52,44 @@ class SignInViewController: UIViewController {
     }
 
     @IBAction func userNameEditingChanged(_ sender: Any) {
-        guard let userName = userNameTextFeild.text?.count else { return }
-        if userName > 2 && userName < 20 {
-            isEnable = true
-        } else {
-            print(SignInError.invalidUsernameLength.message)
-        }
+        guard let userName = userNameTextField.text else { return }
+        isValidateUserName(userName: userName)
     }
 
-    @IBAction func passWordEditingChanged(_ sender: Any) {
-        guard let passWord = passWordTextFeild.text?.count else { return }
-        if passWord > 8 && passWord < 20 {
-            isEnable = true
-        } else {
-            print(SignInError.invalidPasswordLength.message)
-        }
+    @IBAction func passwordEditingChanged(_ sender: Any) {
+        guard let password = passwordTextField.text else { return }
+        isValidatePassword(password: password)
     }
 
     @IBAction func signInTouchUpInside(_ sender: Any) {
-        guard let userName = userNameTextFeild.text, let passWord = passWordTextFeild.text else { return }
-        for index in 0..<LocalDatabase.users.count {
-            if userName == LocalDatabase.users[index].name && passWord == LocalDatabase.users[index].password {
-                let vc = HomeViewController()
-                navigationController?.pushViewController(vc, animated: true)
-            } else {
-                isCorrect = false
-            }
+        LocalDatabase.users.contains(where: { user -> Bool in
+            user.name == self.userNameTextField.text && user.password == self.passwordTextField.text
+        }) ? self.handleSignIn() : print("Đăng nhập không thành công")
+    }
+
+    private func isValidateUserName(userName: String) {
+        if userName.count < 2 || userName.count > 20 {
+            print(SignInError.invalidUsernameLength.message)
+            userNameValidate.send(false)
+        } else if userName.containsEmoji {
+            print(SignInError.invalidUsername.message)
+            userNameValidate.send(false)
+        } else {
+            userNameValidate.send(true)
         }
-        if !isCorrect {
-            print("Dang nhap khong thanh cong")
+    }
+
+    private func isValidatePassword(password: String) {
+        if password.count < 8 || password.count > 20 {
+            print(SignInError.invalidPasswordLength.message)
+            userNameValidate.send(false)
+        } else {
+            passwordValidate.send(true)
         }
+    }
+
+    private func handleSignIn() {
+        let vc = HomeViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
