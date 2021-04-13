@@ -12,9 +12,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignInViewController" customModule="CombineExam" customModuleProvider="target">
             <connections>
                 <outlet property="indicatorView" destination="Ja1-xK-WQg" id="5tB-lf-3YI"/>
-                <outlet property="passWordTextField" destination="6jt-qW-pZC" id="3FM-k3-jAu"/>
+                <outlet property="passwordTextField" destination="6jt-qW-pZC" id="dkc-lP-LEt"/>
                 <outlet property="signInButton" destination="sYt-ff-hEG" id="vsO-K0-C8B"/>
-                <outlet property="usernameTextField" destination="HMb-7A-klu" id="U9J-8U-j7f"/>
+                <outlet property="userNameTextField" destination="HMb-7A-klu" id="tpi-eR-bFC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -29,7 +29,7 @@
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="2Kb-EQ-sZf">
                             <rect key="frame" x="0.0" y="0.0" width="374" height="195"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HMb-7A-klu">
+                                <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HMb-7A-klu">
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="45"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="45" id="df1-ol-jap"/>
@@ -37,7 +37,7 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6jt-qW-pZC">
+                                <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6jt-qW-pZC">
                                     <rect key="frame" x="0.0" y="75" width="374" height="45"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" keyboardType="alphabet" secureTextEntry="YES" textContentType="password"/>
@@ -45,8 +45,14 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sYt-ff-hEG">
                                     <rect key="frame" x="0.0" y="150" width="374" height="45"/>
                                     <color key="backgroundColor" systemColor="systemTealColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <state key="normal" title="Sign In"/>
+                                    <state key="normal" title="Sign In">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <state key="disabled">
+                                        <color key="titleColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
                                     <connections>
                                         <action selector="signInButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="IwQ-8H-m2W"/>
                                     </connections>
@@ -74,6 +80,7 @@
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="xYE-UJ-v0i" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-20" id="1uV-AA-tKk"/>
                 <constraint firstItem="AqE-J8-r1W" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="84f-zq-8Vd"/>
@@ -84,8 +91,16 @@
                 <constraint firstItem="xYE-UJ-v0i" firstAttribute="top" secondItem="AqE-J8-r1W" secondAttribute="bottom" constant="50" id="mWq-pb-wws"/>
                 <constraint firstItem="Ja1-xK-WQg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="xRZ-Tf-EPr"/>
             </constraints>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="bev-Lr-8FN" appends="YES" id="ZGg-ew-uDw"/>
+            </connections>
             <point key="canvasLocation" x="-14.492753623188406" y="89.732142857142847"/>
         </view>
+        <tapGestureRecognizer id="bev-Lr-8FN">
+            <connections>
+                <action selector="tapGestureRecoginer:" destination="-1" id="07o-aV-qeM"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <systemColor name="systemBackgroundColor">
