@@ -55,7 +55,6 @@ final class SignInViewModel: ObservableObject {
     enum PasswordCheck {
       case valid
       case empty
-      case noMatch
       case notStrongEnough
     }
     
@@ -98,8 +97,6 @@ final class SignInViewModel: ObservableObject {
           switch passwordCheck {
           case .empty:
             return "Password must not be empty"
-          case .noMatch:
-            return "Passwords don't match"
           case .notStrongEnough:
             return "Password not strong enough"
           default:

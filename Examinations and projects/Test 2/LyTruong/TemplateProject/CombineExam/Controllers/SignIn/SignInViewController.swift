@@ -19,6 +19,7 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         userNameTextField.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: UIControl.Event.editingChanged)
+        passWordTextField.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: UIControl.Event.editingChanged)
         UINavigationBar.appearance().prefersLargeTitles = true
         UINavigationBar.appearance().barTintColor = #colorLiteral(red: 0.3564865291, green: 0.7821497917, blue: 0.9799445271, alpha: 1)
         UINavigationBar.appearance().tintColor = #colorLiteral(red: 0.3564865291, green: 0.7821497917, blue: 0.9799445271, alpha: 1)
@@ -48,7 +49,10 @@ class SignInViewController: UIViewController {
         indicatorView.isHidden = false
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.indicatorView.stopAnimating()
-//            self.handleSignIn()
+            guard let viewModel = self.viewModel else {return}
+            if viewModel.isValid {
+                self.handleSignIn()
+            }
         } 
     }
     
