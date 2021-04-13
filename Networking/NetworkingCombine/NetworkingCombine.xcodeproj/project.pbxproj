@@ -19,6 +19,8 @@
 		12029EBA9B578E406C17611C /* Pods_NetworkingCombine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 603866ECE5E0B0B7EABEDAC6 /* Pods_NetworkingCombine.framework */; };
 		33DD428225F3D48A00A2C75E /* TrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DD428125F3D48A00A2C75E /* TrendingCell.swift */; };
 		33DD428625F3E0C400A2C75E /* MostPopularCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DD428525F3E0C400A2C75E /* MostPopularCell.swift */; };
+		4EE143AB262534270040BE4B /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE143AA262534270040BE4B /* Provider.swift */; };
+		4EE143B3262534650040BE4B /* RestaurantNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE143B2262534650040BE4B /* RestaurantNetworkManager.swift */; };
 		6AE567E42623E95200E50042 /* Cocktail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE567E32623E95200E50042 /* Cocktail.swift */; };
 		B54C7C8225F0D8E900AB8FE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54C7C8125F0D8E900AB8FE9 /* AppDelegate.swift */; };
 		B54C7C8425F0D8E900AB8FE9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54C7C8325F0D8E900AB8FE9 /* SceneDelegate.swift */; };
@@ -54,6 +56,8 @@
 		0EFE202825F20A980026EC2D /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		33DD428125F3D48A00A2C75E /* TrendingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCell.swift; sourceTree = "<group>"; };
 		33DD428525F3E0C400A2C75E /* MostPopularCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularCell.swift; sourceTree = "<group>"; };
+		4EE143AA262534270040BE4B /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		4EE143B2262534650040BE4B /* RestaurantNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantNetworkManager.swift; sourceTree = "<group>"; };
 		5C290F56A88290AA8F2DB97A /* Pods-NetworkingCombine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkingCombine.release.xcconfig"; path = "Target Support Files/Pods-NetworkingCombine/Pods-NetworkingCombine.release.xcconfig"; sourceTree = "<group>"; };
 		603866ECE5E0B0B7EABEDAC6 /* Pods_NetworkingCombine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetworkingCombine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AE567E32623E95200E50042 /* Cocktail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cocktail.swift; sourceTree = "<group>"; };
@@ -155,9 +159,8 @@
 		0EFE1FED25F1FE910026EC2D /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				4EE143B1262534530040BE4B /* Restaurant */,
 				0EFE201D25F204460026EC2D /* Core */,
-				0EFE201A25F201350026EC2D /* RestauranService.swift */,
-				0EFE202425F204B50026EC2D /* RestaurantNetworkable.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 				0EFE201E25F204530026EC2D /* Method.swift */,
 				0EFE202125F2047F0026EC2D /* TargetType.swift */,
 				0EFE202825F20A980026EC2D /* Error.swift */,
+				4EE143AA262534270040BE4B /* Provider.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -183,6 +187,16 @@
 				0E03795426008EB000EAB901 /* TrendingCellViewModel.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		4EE143B1262534530040BE4B /* Restaurant */ = {
+			isa = PBXGroup;
+			children = (
+				4EE143B2262534650040BE4B /* RestaurantNetworkManager.swift */,
+				0EFE201A25F201350026EC2D /* RestauranService.swift */,
+				0EFE202425F204B50026EC2D /* RestaurantNetworkable.swift */,
+			);
+			path = Restaurant;
 			sourceTree = "<group>";
 		};
 		A761492DBACF47A8059AE48F /* Pods */ = {
@@ -440,10 +454,12 @@
 			files = (
 				0E037952260061A000EAB901 /* PagerView.swift in Sources */,
 				B56AC72225F772B8003E2873 /* HomeSearchView.swift in Sources */,
+				4EE143AB262534270040BE4B /* Provider.swift in Sources */,
 				B56AC70E25F7725A003E2873 /* TabBarView.swift in Sources */,
 				33DD428625F3E0C400A2C75E /* MostPopularCell.swift in Sources */,
 				B5FC009325F4792600104C9D /* Colors.swift in Sources */,
 				B56AC73E25F7774E003E2873 /* Cell.swift in Sources */,
+				4EE143B3262534650040BE4B /* RestaurantNetworkManager.swift in Sources */,
 				0EFE201F25F204530026EC2D /* Method.swift in Sources */,
 				B56AC72F25F772F3003E2873 /* ProfileView.swift in Sources */,
 				B57BB5E825FB188C0068CB09 /* UITabKit.swift in Sources */,
