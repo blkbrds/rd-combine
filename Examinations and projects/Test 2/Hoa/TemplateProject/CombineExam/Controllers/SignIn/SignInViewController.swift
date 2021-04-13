@@ -39,11 +39,15 @@ class SignInViewController: UIViewController {
 
 
     @IBAction private func signInButtonTouchUpInside(_ sender: UIButton) {
-        indicatorView.startAnimating()
-        indicatorView.isHidden = false
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.indicatorView.stopAnimating()
-            self.handleSignIn()
+        if viewModel.checkData() {
+            indicatorView.startAnimating()
+            indicatorView.isHidden = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.indicatorView.stopAnimating()
+                self.handleSignIn()
+            }
+        } else {
+            print("Đăng nhập không thành công")
         }
     }
     

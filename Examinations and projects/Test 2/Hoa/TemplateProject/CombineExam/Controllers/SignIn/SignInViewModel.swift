@@ -25,14 +25,20 @@ final class SignInViewModel {
         if emailPublisher.value.count <= 20,
            emailPublisher.value.count >= 2,
            !emailPublisher.value.containsEmoji,
-           emailPublisher.value == user.name,
            pwdPublisher.value.count >= 8,
-           pwdPublisher.value.count <= 20,
-           pwdPublisher.value == user.password
-        {
+           pwdPublisher.value.count <= 20 {
             return true
         }
         return false
+    }
+
+    func checkData() -> Bool {
+        if emailPublisher.value == user.name,
+           pwdPublisher.value == user.password {
+            return true
+        } else {
+            return false
+        }
     }
 
     func send() {
