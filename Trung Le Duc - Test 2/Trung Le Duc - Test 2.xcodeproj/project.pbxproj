@@ -1,0 +1,459 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		97625523262599770047E14C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97625522262599770047E14C /* AppDelegate.swift */; };
+		97625525262599770047E14C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97625524262599770047E14C /* SceneDelegate.swift */; };
+		97625527262599770047E14C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97625526262599770047E14C /* ViewController.swift */; };
+		9762552A262599770047E14C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97625528262599770047E14C /* Main.storyboard */; };
+		9762552C2625997E0047E14C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9762552B2625997E0047E14C /* Assets.xcassets */; };
+		9762552F2625997E0047E14C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9762552D2625997E0047E14C /* LaunchScreen.storyboard */; };
+		97625546262599B10047E14C /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9762553A262599B10047E14C /* HomeViewCell.swift */; };
+		97625547262599B10047E14C /* HomeViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9762553B262599B10047E14C /* HomeViewCell.xib */; };
+		97625548262599B10047E14C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9762553C262599B10047E14C /* HomeViewModel.swift */; };
+		97625549262599B10047E14C /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9762553D262599B10047E14C /* HomeViewController.xib */; };
+		9762554A262599B10047E14C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9762553E262599B10047E14C /* HomeViewController.swift */; };
+		9762554B262599B10047E14C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97625540262599B10047E14C /* DetailViewController.swift */; };
+		9762554C262599B10047E14C /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97625541262599B10047E14C /* DetailViewController.xib */; };
+		9762554D262599B10047E14C /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97625543262599B10047E14C /* SignInViewController.xib */; };
+		9762554E262599B10047E14C /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97625544262599B10047E14C /* SignInViewModel.swift */; };
+		9762554F262599B10047E14C /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97625545262599B10047E14C /* SignInViewController.swift */; };
+		97625553262599BB0047E14C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97625552262599BB0047E14C /* User.swift */; };
+		97625559262599C20047E14C /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97625556262599C10047E14C /* StringExt.swift */; };
+		9762555A262599C20047E14C /* SignInError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97625557262599C10047E14C /* SignInError.swift */; };
+		9762555B262599C20047E14C /* LocalDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97625558262599C10047E14C /* LocalDatabase.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9762551F262599770047E14C /* Trung Le Duc - Test 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Trung Le Duc - Test 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		97625522262599770047E14C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		97625524262599770047E14C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		97625526262599770047E14C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		97625529262599770047E14C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9762552B2625997E0047E14C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9762552E2625997E0047E14C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		976255302625997E0047E14C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9762553A262599B10047E14C /* HomeViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
+		9762553B262599B10047E14C /* HomeViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewCell.xib; sourceTree = "<group>"; };
+		9762553C262599B10047E14C /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		9762553D262599B10047E14C /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		9762553E262599B10047E14C /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		97625540262599B10047E14C /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		97625541262599B10047E14C /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		97625543262599B10047E14C /* SignInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
+		97625544262599B10047E14C /* SignInViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		97625545262599B10047E14C /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		97625552262599BB0047E14C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		97625556262599C10047E14C /* StringExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
+		97625557262599C10047E14C /* SignInError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInError.swift; sourceTree = "<group>"; };
+		97625558262599C10047E14C /* LocalDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalDatabase.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9762551C262599770047E14C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		97625516262599770047E14C = {
+			isa = PBXGroup;
+			children = (
+				97625521262599770047E14C /* Trung Le Duc - Test 2 */,
+				97625520262599770047E14C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		97625520262599770047E14C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9762551F262599770047E14C /* Trung Le Duc - Test 2.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		97625521262599770047E14C /* Trung Le Duc - Test 2 */ = {
+			isa = PBXGroup;
+			children = (
+				97625522262599770047E14C /* AppDelegate.swift */,
+				97625524262599770047E14C /* SceneDelegate.swift */,
+				97625526262599770047E14C /* ViewController.swift */,
+				97625528262599770047E14C /* Main.storyboard */,
+				9762552B2625997E0047E14C /* Assets.xcassets */,
+				9762552D2625997E0047E14C /* LaunchScreen.storyboard */,
+				976255302625997E0047E14C /* Info.plist */,
+				97625555262599C10047E14C /* Utils */,
+				97625551262599BB0047E14C /* Models */,
+				97625537262599B10047E14C /* Controllers */,
+			);
+			path = "Trung Le Duc - Test 2";
+			sourceTree = "<group>";
+		};
+		97625537262599B10047E14C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				97625538262599B10047E14C /* Home */,
+				9762553F262599B10047E14C /* Detail */,
+				97625542262599B10047E14C /* SignIn */,
+			);
+			name = Controllers;
+			path = "../../Examinations and projects/Test 2/TemplateProject/CombineExam/Controllers";
+			sourceTree = "<group>";
+		};
+		97625538262599B10047E14C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				97625539262599B10047E14C /* Cells */,
+				9762553C262599B10047E14C /* HomeViewModel.swift */,
+				9762553D262599B10047E14C /* HomeViewController.xib */,
+				9762553E262599B10047E14C /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		97625539262599B10047E14C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9762553A262599B10047E14C /* HomeViewCell.swift */,
+				9762553B262599B10047E14C /* HomeViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		9762553F262599B10047E14C /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				97625540262599B10047E14C /* DetailViewController.swift */,
+				97625541262599B10047E14C /* DetailViewController.xib */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		97625542262599B10047E14C /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				97625543262599B10047E14C /* SignInViewController.xib */,
+				97625544262599B10047E14C /* SignInViewModel.swift */,
+				97625545262599B10047E14C /* SignInViewController.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		97625551262599BB0047E14C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				97625552262599BB0047E14C /* User.swift */,
+			);
+			name = Models;
+			path = "../../Examinations and projects/Test 2/TemplateProject/CombineExam/Models";
+			sourceTree = "<group>";
+		};
+		97625555262599C10047E14C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				97625556262599C10047E14C /* StringExt.swift */,
+				97625557262599C10047E14C /* SignInError.swift */,
+				97625558262599C10047E14C /* LocalDatabase.swift */,
+			);
+			name = Utils;
+			path = "../../Examinations and projects/Test 2/TemplateProject/CombineExam/Utils";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9762551E262599770047E14C /* Trung Le Duc - Test 2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 976255332625997E0047E14C /* Build configuration list for PBXNativeTarget "Trung Le Duc - Test 2" */;
+			buildPhases = (
+				9762551B262599770047E14C /* Sources */,
+				9762551C262599770047E14C /* Frameworks */,
+				9762551D262599770047E14C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Trung Le Duc - Test 2";
+			productName = "Trung Le Duc - Test 2";
+			productReference = 9762551F262599770047E14C /* Trung Le Duc - Test 2.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		97625517262599770047E14C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					9762551E262599770047E14C = {
+						CreatedOnToolsVersion = 12.4;
+					};
+				};
+			};
+			buildConfigurationList = 9762551A262599770047E14C /* Build configuration list for PBXProject "Trung Le Duc - Test 2" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 97625516262599770047E14C;
+			productRefGroup = 97625520262599770047E14C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9762551E262599770047E14C /* Trung Le Duc - Test 2 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9762551D262599770047E14C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9762552F2625997E0047E14C /* LaunchScreen.storyboard in Resources */,
+				9762554C262599B10047E14C /* DetailViewController.xib in Resources */,
+				97625547262599B10047E14C /* HomeViewCell.xib in Resources */,
+				97625549262599B10047E14C /* HomeViewController.xib in Resources */,
+				9762554D262599B10047E14C /* SignInViewController.xib in Resources */,
+				9762552C2625997E0047E14C /* Assets.xcassets in Resources */,
+				9762552A262599770047E14C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9762551B262599770047E14C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				97625527262599770047E14C /* ViewController.swift in Sources */,
+				97625559262599C20047E14C /* StringExt.swift in Sources */,
+				97625546262599B10047E14C /* HomeViewCell.swift in Sources */,
+				97625523262599770047E14C /* AppDelegate.swift in Sources */,
+				97625548262599B10047E14C /* HomeViewModel.swift in Sources */,
+				9762554E262599B10047E14C /* SignInViewModel.swift in Sources */,
+				9762554F262599B10047E14C /* SignInViewController.swift in Sources */,
+				97625525262599770047E14C /* SceneDelegate.swift in Sources */,
+				9762555B262599C20047E14C /* LocalDatabase.swift in Sources */,
+				9762554A262599B10047E14C /* HomeViewController.swift in Sources */,
+				97625553262599BB0047E14C /* User.swift in Sources */,
+				9762555A262599C20047E14C /* SignInError.swift in Sources */,
+				9762554B262599B10047E14C /* DetailViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		97625528262599770047E14C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				97625529262599770047E14C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9762552D2625997E0047E14C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9762552E2625997E0047E14C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		976255312625997E0047E14C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		976255322625997E0047E14C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		976255342625997E0047E14C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Trung Le Duc - Test 2/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.trungld123.Trung-Le-Duc---Test-2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		976255352625997E0047E14C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Trung Le Duc - Test 2/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.trungld123.Trung-Le-Duc---Test-2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9762551A262599770047E14C /* Build configuration list for PBXProject "Trung Le Duc - Test 2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				976255312625997E0047E14C /* Debug */,
+				976255322625997E0047E14C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		976255332625997E0047E14C /* Build configuration list for PBXNativeTarget "Trung Le Duc - Test 2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				976255342625997E0047E14C /* Debug */,
+				976255352625997E0047E14C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 97625517262599770047E14C /* Project object */;
+}

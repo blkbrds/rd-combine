@@ -8,10 +8,15 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignInViewController" customModule="CombineExam" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignInViewController" customModule="Trung_Le_Duc___Test_2" customModuleProvider="target">
             <connections>
+                <outlet property="btnLogin" destination="sYt-ff-hEG" id="eSV-vG-UjW"/>
                 <outlet property="indicatorView" destination="Ja1-xK-WQg" id="5tB-lf-3YI"/>
+                <outlet property="lblPasswordMessage" destination="fhE-Db-5QY" id="f1o-sq-hcx"/>
+                <outlet property="lblUsernameMessage" destination="ZZA-Lp-ZsY" id="nJi-1R-GcK"/>
+                <outlet property="passWordTextField" destination="6jt-qW-pZC" id="Qdp-el-j9G"/>
                 <outlet property="signInButton" destination="sYt-ff-hEG" id="vsO-K0-C8B"/>
+                <outlet property="userNameTextField" destination="HMb-7A-klu" id="mju-GU-jtV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -45,6 +50,7 @@
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" title="Sign In"/>
                                     <connections>
+                                        <action selector="btnSubmitClicked:" destination="-1" eventType="touchUpInside" id="bfx-8B-EmH"/>
                                         <action selector="signInButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="IwQ-8H-m2W"/>
                                     </connections>
                                 </button>
@@ -68,17 +74,35 @@
                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Ja1-xK-WQg">
                     <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
                 </activityIndicatorView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhE-Db-5QY">
+                    <rect key="frame" x="20" y="575.5" width="374" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZA-Lp-ZsY">
+                    <rect key="frame" x="20" y="626" width="374" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="xYE-UJ-v0i" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-20" id="1uV-AA-tKk"/>
+                <constraint firstItem="fhE-Db-5QY" firstAttribute="top" secondItem="xYE-UJ-v0i" secondAttribute="bottom" constant="30" id="2sX-Y3-oBt"/>
                 <constraint firstItem="AqE-J8-r1W" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="84f-zq-8Vd"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fhE-Db-5QY" secondAttribute="trailing" constant="20" id="Cvi-ZQ-wAK"/>
                 <constraint firstItem="Ja1-xK-WQg" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="F6e-MG-3RE"/>
+                <constraint firstItem="ZZA-Lp-ZsY" firstAttribute="top" secondItem="fhE-Db-5QY" secondAttribute="bottom" constant="30" id="OOW-Dd-qBS"/>
+                <constraint firstItem="fhE-Db-5QY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="To9-uW-YAO"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZZA-Lp-ZsY" secondAttribute="trailing" constant="20" id="UM5-Ka-wVf"/>
                 <constraint firstItem="xYE-UJ-v0i" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="W2Y-yo-BCT"/>
                 <constraint firstItem="xYE-UJ-v0i" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="ZuV-fS-nOh"/>
                 <constraint firstItem="AqE-J8-r1W" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" priority="500" constant="150" id="k1F-bX-alE"/>
                 <constraint firstItem="xYE-UJ-v0i" firstAttribute="top" secondItem="AqE-J8-r1W" secondAttribute="bottom" constant="50" id="mWq-pb-wws"/>
+                <constraint firstItem="ZZA-Lp-ZsY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="qyO-hS-x9F"/>
                 <constraint firstItem="Ja1-xK-WQg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="xRZ-Tf-EPr"/>
             </constraints>
             <point key="canvasLocation" x="-14.492753623188406" y="89.732142857142847"/>
