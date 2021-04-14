@@ -42,6 +42,7 @@ class HomeViewController: UIViewController {
     private func handleObservers() {
         searchTextField.textPublisher
             .debounce(for: .milliseconds(300), scheduler: DispatchQueue.main)
+            .map({ $0.trimmingCharacters(in: .whitespacesAndNewlines) })
             .removeDuplicates()
             .sink { [weak self] (text) in
                 self?.viewModel?.searchUsers(with: text)
