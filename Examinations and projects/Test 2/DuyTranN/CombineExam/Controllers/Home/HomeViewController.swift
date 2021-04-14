@@ -34,6 +34,7 @@ class HomeViewController: UIViewController {
                                   for: .editingChanged)
 
         viewModel.searchInputSubject
+            .throttle(for: .seconds(1), scheduler: DispatchQueue.main, latest: true)
             .sink(receiveValue: { [weak self] _ in
                 guard let this = self else { return }
                 this.tableView.reloadData()

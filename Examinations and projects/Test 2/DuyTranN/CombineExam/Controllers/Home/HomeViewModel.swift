@@ -11,21 +11,20 @@ import Combine
 final class HomeViewModel {
 
     // MARK: - Properties
-    let sourcesUsers = LocalDatabase.users
-    var displayUsers: [User] = []
-    var searchInputSubject = CurrentValueSubject<String, Never>("")
+    var displayUsers: [User] = LocalDatabase.users
+    var searchInputSubject = PassthroughSubject<String, Never>()
     var subscriptions = Set<AnyCancellable>()
 
     // MARK: - Life cycle
     init() {
         searchInputSubject
-            .sink(receiveValue: { [weak self] _ in
+            .sink(receiveValue: { [weak self] value in
                 guard let this = self else { return }
-                guard !this.searchInputSubject.value.isEmpty else {
-                    this.displayUsers = this.sourcesUsers
+                guard !value.isEmpty else {
+                    this.displayUsers = LocalDatabase.users
                     return
                 }
-                this.displayUsers = this.sourcesUsers.filter({ $0.name.contains(this.searchInputSubject.value) })
+                this.displayUsers = LocalDatabase.users.filter({ $0.name.contains(value) })
             })
             .store(in: &subscriptions)
     }
