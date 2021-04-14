@@ -28,11 +28,9 @@ final class SignInViewModel {
             return nil
         }
         .eraseToAnyPublisher()
-
     var stores: Set<AnyCancellable> = []
 
-    
-    @Published var users: [User]
+    var users: [User]
     
     init() {
         users = LocalDatabase.users

@@ -17,6 +17,10 @@ class SignInViewController: UIViewController {
     
     var viewModel: SignInViewModel!
     
+    deinit {
+        print(123)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         UINavigationBar.appearance().prefersLargeTitles = true
@@ -28,6 +32,11 @@ class SignInViewController: UIViewController {
         UINavigationBar.appearance().shadowImage = UIImage()
         
         setupBindings()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        viewModel.stores.removeAll()
     }
     
     private func setupBindings() {
