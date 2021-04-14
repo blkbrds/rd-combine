@@ -13,7 +13,8 @@ final class SignInViewModel {
     enum ValidationState {
         case failed(SignInError)
     }
-
+    
+    // MARK: - Properties
     var subscriptions = Set<AnyCancellable>()
     let validationState = PassthroughSubject<ValidationState, Never>()
     let signInError: CurrentValueSubject = CurrentValueSubject<SignInError?, Never>(nil)
@@ -22,7 +23,7 @@ final class SignInViewModel {
     @Published var passwordText: String?
 
     var isValidate: AnyPublisher<Bool, Never>?
-    var isExistUser: Bool {
+    var isUserExistDB: Bool {
         return LocalDatabase.users.contains(where: { $0.name == emailText && $0.password == passwordText })
     }
     
@@ -37,6 +38,7 @@ final class SignInViewModel {
                     .eraseToAnyPublisher()
     }
     
+    // MARK: - Public
     func validateEmail() {
         guard let emailText = emailText else { return }
         if emailText.count < 2 || emailText.count > 20 {

@@ -82,7 +82,7 @@ final class SignInViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
             guard let this = self else { return }
             this.indicatorView.stopAnimating()
-            if this.viewModel.isExistUser {
+            if this.viewModel.isUserExistDB {
                 this.handleSignIn()
             } else {
                 print("Email va password khong ton tai trong DB")

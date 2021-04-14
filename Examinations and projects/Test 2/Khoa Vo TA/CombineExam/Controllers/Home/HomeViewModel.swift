@@ -10,6 +10,7 @@ import Combine
 
 final class HomeViewModel {
     
+    // MARK: - Properties
     private(set) var users: CurrentValueSubject = CurrentValueSubject<[User], Never>([])
     
     @Published var keyword: String?
@@ -25,7 +26,8 @@ final class HomeViewModel {
             this.users.send(users)
         }).store(in: &subscriptions)
     }
-
+    
+    // MARK: - Public
     func numberOfItems() -> Int {
         return users.value.count
     }
