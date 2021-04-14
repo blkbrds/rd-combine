@@ -42,9 +42,27 @@ class SignInViewController: UIViewController {
                 .assign(to: \.email, on: viewModel)
                 .store(in: &bindings)
 
+            userNameTextField.textPublisher
+                .sink(receiveCompletion: { _ in }, receiveValue: { value in
+                    if value.containsEmoji {
+                        print(SignInError.invalidUsername.message)
+                    } else if value.count < 2 || value.count > 20 {
+                        print(SignInError.invalidUsernameLength.message)
+                    }
+                })
+                .store(in: &bindings)
+
             passwordTextField.textPublisher
                 .receive(on: RunLoop.main)
                 .assign(to: \.password, on: viewModel)
+                .store(in: &bindings)
+
+            passwordTextField.textPublisher
+                .sink(receiveCompletion: { _ in }, receiveValue: { value in
+                    if value.count < 8 || value.count > 20 {
+                        print(SignInError.invalidPasswordLength.message)
+                    }
+                })
                 .store(in: &bindings)
         }
 
@@ -70,7 +88,6 @@ class SignInViewController: UIViewController {
         } else {
             print("Đăng nhập không thành công")
         }
-
     }
     
     private func handleSignIn() {
