@@ -90,6 +90,7 @@ class SignInViewController: UIViewController {
 
     private func handleSignIn() {
         let vc = HomeViewController()
+        vc.viewModel = HomeViewModel(resultList: LocalDatabase.users)
         navigationController?.pushViewController(vc, animated: true)
     }
 }
