@@ -199,9 +199,9 @@
 		4EE143B1262534530040BE4B /* Restaurant */ = {
 			isa = PBXGroup;
 			children = (
-				4EE143B2262534650040BE4B /* RestaurantNetworkManager.swift */,
 				0EFE201A25F201350026EC2D /* RestauranService.swift */,
 				0EFE202425F204B50026EC2D /* RestaurantNetworkable.swift */,
+				4EE143B2262534650040BE4B /* RestaurantNetworkManager.swift */,
 			);
 			path = Restaurant;
 			sourceTree = "<group>";

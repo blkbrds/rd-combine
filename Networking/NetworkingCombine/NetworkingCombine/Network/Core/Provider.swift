@@ -9,17 +9,17 @@ import Foundation
 import Combine
 
 protocol ProviderType: AnyObject {
-
+    
     associatedtype Target: TargetType
 }
 
-typealias RequestPublisher = AnyPublisher<(data: Data, response: URLResponse), Error>
+typealias RequestPublisher = AnyPublisher<URLSession.DataTaskPublisher.Output, Error>
 
 final class Provider<Target: TargetType>: ProviderType {
     
     func request(target: Target) -> RequestPublisher {
         if let rq = target.getRequest() {
-            let publisher: RequestPublisher  = URLSession.shared.dataTaskPublisher(for: rq)
+            let publisher: RequestPublisher = URLSession.shared.dataTaskPublisher(for: rq)
                 .mapError({ $0 })
                 .receive(on: DispatchQueue.main)
                 .eraseToAnyPublisher()
@@ -33,7 +33,7 @@ final class Provider<Target: TargetType>: ProviderType {
 }
 
 extension RequestPublisher {
-
+    
     func catchAPIError() -> Self {
         let publisher = tryMap { output -> URLSession.DataTaskPublisher.Output in
             guard let response = output.response as? HTTPURLResponse else {
@@ -51,10 +51,12 @@ extension RequestPublisher {
         }.eraseToAnyPublisher()
         return publisher   
     }
-
-    func decode<D: Decodable>(_ type: D.Type, using decoder: JSONDecoder = JSONDecoder()) -> AnyPublisher<D, Error> {
+    
+    func decode<D: Decodable>(_ type: D.Type, using decoder: JSONDecoder = JSONDecoder()) -> AnyPublisher<D, Error> {   
         let publisher = map { $0.data }
-            .decode(type: D.self, decoder: decoder).eraseToAnyPublisher()
+            .decode(type: D.self, decoder: decoder)
+            .print()
+            .eraseToAnyPublisher()
         return publisher
     }
 }
