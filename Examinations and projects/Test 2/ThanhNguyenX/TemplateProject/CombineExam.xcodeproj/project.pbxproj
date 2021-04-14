@@ -27,6 +27,7 @@
 		74D73E5326234D92003BE284 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D73E5226234D92003BE284 /* StringExt.swift */; };
 		74D73E5726234DBA003BE284 /* SignInError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D73E5626234DBA003BE284 /* SignInError.swift */; };
 		74D73E5B26234E3D003BE284 /* LocalDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D73E5A26234E3D003BE284 /* LocalDatabase.swift */; };
+		E303346E2626DD9C0007A424 /* HomeViewCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E303346D2626DD9C0007A424 /* HomeViewCellVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		74D73E5226234D92003BE284 /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 		74D73E5626234DBA003BE284 /* SignInError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInError.swift; sourceTree = "<group>"; };
 		74D73E5A26234E3D003BE284 /* LocalDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDatabase.swift; sourceTree = "<group>"; };
+		E303346D2626DD9C0007A424 /* HomeViewCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCellVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 			children = (
 				4E9FDE042622143E006F4EB4 /* HomeViewCell.swift */,
 				4E9FDE052622143E006F4EB4 /* HomeViewCell.xib */,
+				E303346D2626DD9C0007A424 /* HomeViewCellVM.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 			files = (
 				4E9FDDF7262211F4006F4EB4 /* HomeViewController.swift in Sources */,
 				4E9FDDF0262211DC006F4EB4 /* SignInViewController.swift in Sources */,
+				E303346E2626DD9C0007A424 /* HomeViewCellVM.swift in Sources */,
 				74D73E5726234DBA003BE284 /* SignInError.swift in Sources */,
 				4E9FDE062622143E006F4EB4 /* HomeViewCell.swift in Sources */,
 				4E9FDDDD262211A9006F4EB4 /* ViewController.swift in Sources */,
