@@ -14,8 +14,6 @@ class HomeViewController: UIViewController {
     
     var viewModel: HomeViewModel?
     
-    var data = 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Home"
