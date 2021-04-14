@@ -9,6 +9,8 @@ import UIKit
 
 class SignInViewController: UIViewController {
     
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passWordTextField: UITextField!
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     @IBOutlet weak var signInButton: UIButton!
     
