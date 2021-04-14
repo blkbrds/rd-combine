@@ -6,11 +6,18 @@
 //
 
 import UIKit
+import Combine
 
 class HomeViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
+    @Published private var _searchString: String = ""
+    
     let identifier = String(describing: "HomeViewCell")
+    let people: [User] = []
+    var subscriptions = [AnyCancellable]()
+    let data = PassthroughSubject< [User], Never>()
+    var getUserToken: AnyCancellable?
     
     var viewModel: HomeViewModel?
     
@@ -26,9 +33,11 @@ class HomeViewController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: false)
     }
+    
 }
 
 extension HomeViewController: UITableViewDataSource {
@@ -37,11 +46,12 @@ extension HomeViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) else {
             fatalError()
         }
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return LocalDatabase.users.count
     }
 }
 
