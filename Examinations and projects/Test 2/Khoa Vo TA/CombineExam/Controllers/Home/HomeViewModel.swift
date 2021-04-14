@@ -10,13 +10,28 @@ import Combine
 
 final class HomeViewModel {
     
-    // var data: [User] = []
+    private(set) var users: CurrentValueSubject = CurrentValueSubject<[User], Never>([])
     
-    var data: AnyPublisher<[User], Never>?
+    @Published var keyword: String?
     
-    @Published var keyword: String = ""
+    var subscriptions = Set<AnyCancellable>()
     
-    private func handleSearchResult() {
-        //data = 
+    init() {
+        $keyword.map({ keyword -> [User] in
+            guard let keyword = keyword else { return [] }
+            return LocalDatabase.users.filter { $0.name.lowercased().contains(keyword.lowercased()) }
+        }).sink(receiveValue: { [weak self] users in
+            guard let this = self else { return }
+            this.users.send(users)
+        }).store(in: &subscriptions)
+    }
+
+    func numberOfItems() -> Int {
+        return users.value.count
+    }
+
+    func viewModelForItem(at indexPath: IndexPath) -> HomeViewCellViewModel {
+        let item = users.value[indexPath.row]
+        return HomeViewCellViewModel(name: item.name, address: item.address)
     }
 }

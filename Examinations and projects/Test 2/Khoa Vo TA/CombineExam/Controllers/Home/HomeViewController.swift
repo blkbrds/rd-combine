@@ -42,12 +42,18 @@ final class HomeViewController: UIViewController {
     
     // MARK: - Private
     private func bindViewModel() {
-//        searchTextField.publisher
-//            .assign(to: \.keyword, on: viewModel)
-//            .store(in: &subscriptions)
+        searchTextField.publisher
+            .debounce(for: 0.3, scheduler: RunLoop.main)
+            .assign(to: \.keyword, on: viewModel)
+            .store(in: &subscriptions)
+        
+        viewModel.users.sink { [weak self] users in
+            guard let this = self else { return }
+            this.reloadData()
+        }.store(in: &subscriptions)
     }
     
-    private func updateView() {
+    private func reloadData() {
         tableView.reloadData()
     }
 }
@@ -55,14 +61,15 @@ final class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? HomeViewCell else {
             fatalError()
         }
+        cell.viewModel = viewModel.viewModelForItem(at: indexPath)
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return viewModel.numberOfItems()
     }
 }
 
