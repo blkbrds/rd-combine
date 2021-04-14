@@ -15,8 +15,9 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    var viewModel: SignInViewModel?
+    var viewModel: SignInViewModel = SignInViewModel()
     private var subscriptions = Set<AnyCancellable>()
+
     private var isValidateUserName: Bool = false
     private var isValidatePassword: Bool = false
 
@@ -29,9 +30,8 @@ class SignInViewController: UIViewController {
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         UINavigationBar.appearance().shadowImage = UIImage()
-        
-        passwordTextField.delegate = self
-        userNameTextField.delegate = self
+
+        setupBindings()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,13 +39,30 @@ class SignInViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
+    private func setupBindings() {
+        userNameTextField.textPublisher
+            .receive(on: RunLoop.main)
+            .assign(to: \.userName, on: viewModel)
+            .store(in: &subscriptions)
+
+        passwordTextField.textPublisher
+            .receive(on: RunLoop.main)
+            .assign(to: \.password, on: viewModel)
+            .store(in: &subscriptions)
+
+        viewModel.readyToSubmit
+            .map { $0 != nil}
+            .receive(on: RunLoop.main)
+            .sink(receiveValue: { isEnable in
+                self.signInButton.isEnabled = isEnable
+            })
+            .store(in: &subscriptions)
+    }
 
     @IBAction private func signInButtonTouchUpInside(_ sender: UIButton) {
-        LocalDatabase.users.contains(where: { user -> Bool in
-            user.name == self.userNameTextField.text && user.password == self.passwordTextField.text
-        }) ? self.handleSignIn() : print("Loi")
-        
-        
+        viewModel.enableSignInButton(userNameTextField.text ?? "", passwordTextField.text ?? "") { isAvailable in
+            isAvailable ? self.handleSignIn() : print("Loi")
+        }
     }
     
     private func handleSignIn() {
@@ -58,56 +75,5 @@ class SignInViewController: UIViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
         
-    }
-
-    private func enableSignInButton() {
-        signInButton.isEnabled = isValidatePassword && isValidateUserName
-    }
-}
-
-extension SignInViewController: UITextFieldDelegate {
-    func textFieldDidChangeSelection(_ textField: UITextField) {
-        switch textField {
-        case userNameTextField:
-            if #available(iOS 14.0, *) {
-                let userNamePublisher: PassthroughSubject<String, SignInError> = PassthroughSubject<String, SignInError>()
-                userNamePublisher
-                    .sink { completion in
-                        print("Completion: ", completion)
-                    } receiveValue: { value in
-                        self.isValidateUserName = (2...20).contains(value.count) && !value.containsEmoji
-                        if !self.isValidateUserName {
-                            if !(2...20).contains(value.count) {
-                                print(SignInError.invalidUsernameLength.message)
-                            }
-                            if value.containsEmoji {
-                                print(SignInError.invalidUsername.message)
-                            }
-                        }
-                    }
-                    .store(in: &subscriptions)
-                userNamePublisher.send(userNameTextField.text ?? "")
-            } else {
-                // Fallback on earlier versions
-            }
-        default:
-            if #available(iOS 14.0, *) {
-                let passwordPublisher: PassthroughSubject<String, SignInError> = PassthroughSubject<String, SignInError>()
-                passwordPublisher
-                    .sink { completion in
-                        print("Completion: ", completion)
-                    } receiveValue: { value in
-                        self.isValidatePassword = (8...20).contains(value.count)
-                        if !self.isValidatePassword {
-                            print(SignInError.invalidPasswordLength.message)
-                        }
-                    }
-                    .store(in: &subscriptions)
-                passwordPublisher.send(passwordTextField.text ?? "")
-            } else {
-                // Fallback on earlier versions
-            }
-        }
-        enableSignInButton()
     }
 }
