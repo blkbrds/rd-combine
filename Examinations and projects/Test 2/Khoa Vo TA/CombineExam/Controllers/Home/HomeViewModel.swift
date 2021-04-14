@@ -6,7 +6,17 @@
 //
 
 import Foundation
+import Combine
 
 final class HomeViewModel {
     
+    // var data: [User] = []
+    
+    var data: AnyPublisher<[User], Never>?
+    
+    @Published var keyword: String = ""
+    
+    private func handleSearchResult() {
+        //data = 
+    }
 }
