@@ -6,11 +6,15 @@
 //
 
 import UIKit
+import Combine
 
 class HomeViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var searchTextField: UITextField!
+
     let identifier = String(describing: "HomeViewCell")
+    var subcriptions = Set<AnyCancellable>()
     
     var viewModel: HomeViewModel?
     
@@ -24,6 +28,16 @@ class HomeViewController: UIViewController {
         tableView.delegate = self
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+
+        searchTextField.textPublisher
+            .sink(receiveCompletion: { completion in
+                print(completion)
+            }, receiveValue: { [weak self] text in
+                guard let this = self else { return }
+                this.viewModel?.usernameText.send(text)
+                this.tableView.reloadData()
+            })
+            .store(in: &subcriptions)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,14 +48,19 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? HomeViewCell,
+              let viewModel = viewModel
+        else {
             fatalError()
         }
+        let users = viewModel.getUser(with: indexPath)
+        let cellViewModel = HomeViewCellModel(users: users)
+        cell.viewModel = cellViewModel
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return LocalDatabase.users.count
     }
 }
 
