@@ -15,4 +15,4 @@ Với ví dụ ở trên mọi người có thể thấy thời gian cài đặt
 - **options** là tuỳ chọn của *scheduler*
 
 ## 4. Công dụng
-- Giờ chúng ta có thể áp dụng vào chỗ search mà không sợ 
+- Giờ chúng ta có thể áp dụng vào chỗ search mà không sợ tester nhấn button liên tục khiếp app request liên tục ảnh hưởng đến performance của app và quá tải ở server nữa.
