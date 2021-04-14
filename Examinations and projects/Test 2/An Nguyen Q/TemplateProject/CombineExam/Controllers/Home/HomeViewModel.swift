@@ -8,5 +8,5 @@
 import Foundation
 
 final class HomeViewModel {
-    
+    var users: [User] = LocalDatabase.users
 }

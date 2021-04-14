@@ -14,6 +14,10 @@ final class HomeViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+    }
+    
+    func updateUI(_ user: User) {
+        nameLabel.text = user.name
+        addressLabel.text = user.address
     }
 }
