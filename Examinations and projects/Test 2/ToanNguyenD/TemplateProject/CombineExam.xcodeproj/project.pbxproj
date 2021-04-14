@@ -27,6 +27,7 @@
 		74D73E5326234D92003BE284 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D73E5226234D92003BE284 /* StringExt.swift */; };
 		74D73E5726234DBA003BE284 /* SignInError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D73E5626234DBA003BE284 /* SignInError.swift */; };
 		74D73E5B26234E3D003BE284 /* LocalDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D73E5A26234E3D003BE284 /* LocalDatabase.swift */; };
+		E337445C2626D82800E70B72 /* HomeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E337445B2626D82800E70B72 /* HomeCellViewModel.swift */; };
 		E33DBF0D2625A0B100D36101 /* TextFieldExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33DBF0C2625A0B100D36101 /* TextFieldExt.swift */; };
 		E33DBF102625A0BD00D36101 /* ButtonExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33DBF0F2625A0BD00D36101 /* ButtonExt.swift */; };
 /* End PBXBuildFile section */
@@ -54,6 +55,7 @@
 		74D73E5226234D92003BE284 /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 		74D73E5626234DBA003BE284 /* SignInError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInError.swift; sourceTree = "<group>"; };
 		74D73E5A26234E3D003BE284 /* LocalDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDatabase.swift; sourceTree = "<group>"; };
+		E337445B2626D82800E70B72 /* HomeCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCellViewModel.swift; sourceTree = "<group>"; };
 		E33DBF0C2625A0B100D36101 /* TextFieldExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExt.swift; sourceTree = "<group>"; };
 		E33DBF0F2625A0BD00D36101 /* ButtonExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonExt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -147,6 +149,7 @@
 			children = (
 				4E9FDE042622143E006F4EB4 /* HomeViewCell.swift */,
 				4E9FDE052622143E006F4EB4 /* HomeViewCell.xib */,
+				E337445B2626D82800E70B72 /* HomeCellViewModel.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				4E9FDDF7262211F4006F4EB4 /* HomeViewController.swift in Sources */,
 				E33DBF0D2625A0B100D36101 /* TextFieldExt.swift in Sources */,
 				4E9FDDF0262211DC006F4EB4 /* SignInViewController.swift in Sources */,
+				E337445C2626D82800E70B72 /* HomeCellViewModel.swift in Sources */,
 				74D73E5726234DBA003BE284 /* SignInError.swift in Sources */,
 				4E9FDE062622143E006F4EB4 /* HomeViewCell.swift in Sources */,
 				E33DBF102625A0BD00D36101 /* ButtonExt.swift in Sources */,
