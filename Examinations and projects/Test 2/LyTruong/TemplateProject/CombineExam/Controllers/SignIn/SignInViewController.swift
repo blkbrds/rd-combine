@@ -6,6 +6,7 @@
 // aaa
 
 import UIKit
+import Combine
 
 class SignInViewController: UIViewController {
     
@@ -27,6 +28,8 @@ class SignInViewController: UIViewController {
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         UINavigationBar.appearance().shadowImage = UIImage()
+//        guard let viewModel = viewModel else { return }
+//        signInButton.isEnabled = viewModel.isValid
     }
     
     @objc func textFieldDidChange(textField: UITextField) {
@@ -36,6 +39,8 @@ class SignInViewController: UIViewController {
         default:
             viewModel?.password = textField.text ?? ""
         }
+//        guard let viewModel = viewModel else { return }
+//        signInButton.isEnabled = viewModel.isValid
     }
     
     override func viewWillAppear(_ animated: Bool) {

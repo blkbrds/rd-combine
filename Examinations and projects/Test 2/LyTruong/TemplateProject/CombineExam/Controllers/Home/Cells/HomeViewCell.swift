@@ -11,6 +11,18 @@ final class HomeViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
+    
+    var name: String = "" {
+        didSet {
+            nameLabel.text = name
+        }
+    }
+    
+    var address: String = "" {
+        didSet {
+            addressLabel.text = address
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
