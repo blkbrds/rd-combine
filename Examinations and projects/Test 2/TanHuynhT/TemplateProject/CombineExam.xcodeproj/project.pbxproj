@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01575D712626E8100000EAFA /* HomeViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01575D702626E8100000EAFA /* HomeViewCellModel.swift */; };
 		4E9FDDD9262211A9006F4EB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FDDD8262211A9006F4EB4 /* AppDelegate.swift */; };
 		4E9FDDDB262211A9006F4EB4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FDDDA262211A9006F4EB4 /* SceneDelegate.swift */; };
 		4E9FDDDD262211A9006F4EB4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FDDDC262211A9006F4EB4 /* ViewController.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01575D702626E8100000EAFA /* HomeViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCellModel.swift; sourceTree = "<group>"; };
 		4E9FDDD5262211A9006F4EB4 /* CombineExam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CombineExam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E9FDDD8262211A9006F4EB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E9FDDDA262211A9006F4EB4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			children = (
 				4E9FDE042622143E006F4EB4 /* HomeViewCell.swift */,
 				4E9FDE052622143E006F4EB4 /* HomeViewCell.xib */,
+				01575D702626E8100000EAFA /* HomeViewCellModel.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E9FDDF7262211F4006F4EB4 /* HomeViewController.swift in Sources */,
+				01575D712626E8100000EAFA /* HomeViewCellModel.swift in Sources */,
 				4E9FDDF0262211DC006F4EB4 /* SignInViewController.swift in Sources */,
 				74D73E5726234DBA003BE284 /* SignInError.swift in Sources */,
 				4E9FDE062622143E006F4EB4 /* HomeViewCell.swift in Sources */,
