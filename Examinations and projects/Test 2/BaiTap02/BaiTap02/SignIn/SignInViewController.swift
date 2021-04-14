@@ -82,7 +82,7 @@ class SignInViewController: UIViewController {
     private func isValidatePassword(password: String) {
         if password.count < 8 || password.count > 20 {
             print(SignInError.invalidPasswordLength.message)
-            userNameValidate.send(false)
+            passwordValidate.send(false)
         } else {
             passwordValidate.send(true)
         }
