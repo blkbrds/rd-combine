@@ -3,12 +3,17 @@ Debounce là 1 trong 2 operator của nhóm Holding off on events. Sau đây ch�
 ## 1. Khái niệm
  - Debounce là 1 toán tử phát ra giá trị sau khi **lần cuối** upstream Publisher **phát ra sự kiện** với **một khoảng thời gian xác định**. Lý thuyết hơi khô khan chúng ta qua phần biểu đồ để hiểu nó hơn nhé.
 ## 2. Biểu đồ
-<img src=".Research%20documentations/7.%20Sequence%20Operators/readmesource/ExampleDebounce.png">
+![debounce](./ResourseImage/img_debounce.png)
 
-## 3. Công dụng
-## 4. Tham số
+Với ví dụ ở trên mọi người có thể thấy thời gian cài đặt cho debounce là 2s: 
+- Upstream publisher phát A giây thứ **1**, giây thứ **2** phát B rồi không phát gì trong khoảng **2-4** thì debounce phát B ở giây thứ **2 + 2 = 4**
+- Upstream publisher phát C ở giây thứ **5** và sau đó không phát gì nữa thì debounce phát C ở giây thứ **5 + 2 = 7**
 
-### h3
-#### h4
-##### h5
-###### h6
+## 3. Tham số
+![debounce](./ResourseImage/img_func_debounce.png)
+- **for duetime** là thời gian .debounce phải đợi trước khi phát ra dữ liệu có kiểu dữ liệu là: S.SchedulerTimeType.Stride  
+- **scheduler** nơi debounce phát ra giá trị
+- **options** là tuỳ chọn của *scheduler*
+
+## 4. Công dụng
+- Giờ chúng ta có thể áp dụng vào chỗ search mà không sợ 
