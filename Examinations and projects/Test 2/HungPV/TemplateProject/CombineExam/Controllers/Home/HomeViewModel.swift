@@ -18,4 +18,8 @@ final class HomeViewModel {
     func getUser(with indexPath: IndexPath) -> User {
         return filterUsers[indexPath.row]
     }
+
+    func numberOfItemUsers(in section: Int) -> Int {
+        return filterUsers.count
+    }
 }

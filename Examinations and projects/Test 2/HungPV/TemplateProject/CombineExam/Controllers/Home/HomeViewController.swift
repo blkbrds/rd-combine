@@ -62,7 +62,7 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return LocalDatabase.users.count
+        return viewModel.numberOfItemUsers(in: section)
     }
 }
 
