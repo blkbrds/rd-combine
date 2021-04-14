@@ -10,12 +10,12 @@ import Combine
 
 final class HomeViewModel {
 
-    var usernameText: CurrentValueSubject<String, Never> = CurrentValueSubject<String, Never>("")
+    let users = LocalDatabase.users
+    var filterUsers = LocalDatabase.users
 
-    init() {
-    }
+    init() { }
 
     func getUser(with indexPath: IndexPath) -> User {
-        return LocalDatabase.users[indexPath.row]
+        return filterUsers[indexPath.row]
     }
 }

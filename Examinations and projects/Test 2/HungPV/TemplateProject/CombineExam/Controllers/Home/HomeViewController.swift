@@ -16,7 +16,7 @@ class HomeViewController: UIViewController {
     let identifier = String(describing: "HomeViewCell")
     var subcriptions = Set<AnyCancellable>()
     
-    var viewModel: HomeViewModel?
+    var viewModel: HomeViewModel = HomeViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,11 +30,14 @@ class HomeViewController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
 
         searchTextField.textPublisher
+            .dropFirst()
             .sink(receiveCompletion: { completion in
                 print(completion)
             }, receiveValue: { [weak self] text in
                 guard let this = self else { return }
-                this.viewModel?.usernameText.send(text)
+                this.viewModel.filterUsers = text.isEmpty ? this.viewModel.users : this.viewModel.users.filter({ (values) -> Bool in
+                    return values.name.range(of: text, options: .caseInsensitive) != nil
+                })
                 this.tableView.reloadData()
             })
             .store(in: &subcriptions)
@@ -48,8 +51,7 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? HomeViewCell,
-              let viewModel = viewModel
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? HomeViewCell
         else {
             fatalError()
         }
