@@ -4,14 +4,14 @@
 - Toán tử .throttle() là 1 trong 2 operator của nhóm Holding off on events trong Time manipulation operators - Combine, bên cạnh Debounce. 
 
 ## 2. Biểu đồ
-![Debounce](https://github.com/blkbrds/rd-combine/blob/b6fe37d3fd04f36709f78de982b366daf5d6f922/Research%20documentations/6.%20Time%20Manipulations%20Operators/ResourseImage/img_debounce.png)
+![Throttle](https://github.com/blkbrds/rd-combine/blob/8c4de4a6d4364669062f5287aedbf79a675ab0a5/Research%20documentations/6.%20Time%20Manipulations%20Operators/ResourseImage/img_debounce.png)
 Với ví dụ ở hình thì có thể thấy thời gian cài đặt cho .throttle() là 2s và cờ latest = true: 
 - Upstream publisher phát A giây thứ 1 thì throttle ngay lập tức phát A xuống downstream
 - Giây thứ 2 phát B và không phát gì nữa trong khoảng 2-3 thì throttle phát B ở giây thứ 1 + 2 = 3
 - Upstream publisher phát C ở giây thứ 5 thì throttle phát ra ở giây thứ 3+2 = 5o
 
 ## 3. Tham số
-![Debounce](https://github.com/blkbrds/rd-combine/blob/b6fe37d3fd04f36709f78de982b366daf5d6f922/Research%20documentations/6.%20Time%20Manipulations%20Operators/ResourseImage/img_func_debounce.png)
+![Throttle](https://github.com/blkbrds/rd-combine/blob/14620997456088ff072364e20af02e9b8d2e8f34/Research%20documentations/6.%20Time%20Manipulations%20Operators/Throttle/img_func_throttle.png)
 - **for interval** là thời gian .throttle sẽ tìm và phát ra giá trị đầu tiên hoặc cuối cùng với kiểu dữ liệu là: S.SchedulerTimeType.Stride.
 - **scheduler** nơi .throttle phát ra giá trị.
 - **latest** kiểu dữ liệu Bool, lấy giá trị đầu tiên hoặc cuối cùng.
