@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Combine
 
 class SignInViewController: UIViewController {
     
@@ -16,11 +15,7 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     
     var viewModel: SignInViewModel?
-    var subscriptions = Set<AnyCancellable>()
-    let usernamePublisher = PassthroughSubject<String, SignInError>()
-    let passwordPublisher = PassthroughSubject<String, SignInError>()
-    var isValidateUser: Bool = false
-    var isValidatePW: Bool = false
+    var isLoginSuccess: Bool = false
 
 
     override func viewDidLoad() {
@@ -38,22 +33,8 @@ class SignInViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
         signInButton.isEnabled = false
-        
-        usernamePublisher.sink(receiveCompletion: {
-            if $0 == .failure(SignInError.invalidUserName) {
-                print(SignInError.invalidUserName.message)
-            }
-        }, receiveValue: { print("Username", $0) })
-        .store(in: &subscriptions)
-        
-        passwordPublisher.sink(receiveCompletion: {
-            if $0 == .failure(SignInError.invalidPassword) {
-                print(SignInError.invalidUserName.message)
-            }
-        }, receiveValue: { print("Password", $0) })
-        .store(in: &subscriptions)
+        signInButton.alpha = 0.5
     }
-
 
     @IBAction private func signInButtonTouchUpInside(_ sender: UIButton) {
         indicatorView.startAnimating()
@@ -65,52 +46,45 @@ class SignInViewController: UIViewController {
     }
 
     @IBAction func usernameEditingChange(_ sender: UITextField) {
-        if let text = sender.text {
-            validateUsername(text: text)
+        if let text = sender.text, !text.isEmpty {
+            viewModel?.usernamePublisher.send(text)
+            updateUISignButton(viewModel?.isValidateSuccess ?? false)
         }
     }
 
     @IBAction func passwordEditingChange(_ sender: UITextField) {
-    }
-    
-    
-    private func handleSignIn() {
-        let vc = HomeViewController()
-        vc.viewModel = HomeViewModel()
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func validateUsername(text: String) {
-        if text.count >= 2,
-           text.count <= 20, !text.containsEmoji {
-            usernamePublisher.send(text)
-        } else {
-            usernamePublisher.send(completion: .failure(SignInError.invalidUserName))
+        if let text = sender.text, !text.isEmpty {
+            viewModel?.passwordPublisher.send(text)
+            updateUISignButton(viewModel?.isValidateSuccess ?? false)
         }
     }
     
-    func validatePassword(text: String) {
-        if text.count >= 8,
-           text.count <= 20, !text.containsEmoji {
-            usernamePublisher.send(text)
+    private func handleSignIn() {
+        if let username = usernameTextField.text,
+           let password = passwordTextField.text {
+            for user in LocalDatabase.users {
+                checkLoginSuccess(username: username, password: password, userLocal: user)
+            }
+            if !isLoginSuccess {
+                print("Khong dang nhap thanh cong")
+            }
+        }
+    }
+    
+    private func updateUISignButton(_ isActive: Bool) {
+        signInButton.isEnabled = isActive
+        signInButton.alpha = isActive ? 1 : 0.5
+    }
+    
+    private func checkLoginSuccess(username: String, password: String, userLocal: User) {
+        if username == userLocal.name,
+           password == userLocal.password {
+            let vc = HomeViewController()
+            vc.viewModel = HomeViewModel()
+            navigationController?.pushViewController(vc, animated: true)
         } else {
-            usernamePublisher.send(completion: .failure(SignInError.invalidUserName))
+            
         }
     }
 }
 
-extension SignInViewController {
-    enum SignInError: Error {
-        case invalidUserName
-        case invalidPassword
-        
-        var message: String {
-            switch self {
-            case .invalidUserName:
-                return "Username is Invalid"
-            case .invalidPassword:
-                return "Password is Invalid"
-            }
-        }
-    }
-}
