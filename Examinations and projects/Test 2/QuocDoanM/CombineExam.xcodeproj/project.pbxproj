@@ -28,6 +28,7 @@
 		74D73E5726234DBA003BE284 /* SignInError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D73E5626234DBA003BE284 /* SignInError.swift */; };
 		74D73E5B26234E3D003BE284 /* LocalDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D73E5A26234E3D003BE284 /* LocalDatabase.swift */; };
 		FCEF21582626CD000058B11D /* TextFieldExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEF21572626CD000058B11D /* TextFieldExt.swift */; };
+		FCEF215B2626ED9F0058B11D /* HomeViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEF215A2626ED9F0058B11D /* HomeViewCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		74D73E5626234DBA003BE284 /* SignInError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInError.swift; sourceTree = "<group>"; };
 		74D73E5A26234E3D003BE284 /* LocalDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDatabase.swift; sourceTree = "<group>"; };
 		FCEF21572626CD000058B11D /* TextFieldExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExt.swift; sourceTree = "<group>"; };
+		FCEF215A2626ED9F0058B11D /* HomeViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 			children = (
 				4E9FDE042622143E006F4EB4 /* HomeViewCell.swift */,
 				4E9FDE052622143E006F4EB4 /* HomeViewCell.xib */,
+				FCEF215A2626ED9F0058B11D /* HomeViewCellViewModel.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E9FDDF7262211F4006F4EB4 /* HomeViewController.swift in Sources */,
+				FCEF215B2626ED9F0058B11D /* HomeViewCellViewModel.swift in Sources */,
 				FCEF21582626CD000058B11D /* TextFieldExt.swift in Sources */,
 				4E9FDDF0262211DC006F4EB4 /* SignInViewController.swift in Sources */,
 				74D73E5726234DBA003BE284 /* SignInError.swift in Sources */,
