@@ -11,12 +11,12 @@ import Combine
 class HomeViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
-    @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet private weak var searchTextField: UITextField!
+    
+    var viewModel: HomeViewModel?
     
     private let identifier = String(describing: "HomeViewCell")
     private var subscriptions = Set<AnyCancellable>()
-    
-    var viewModel: HomeViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()

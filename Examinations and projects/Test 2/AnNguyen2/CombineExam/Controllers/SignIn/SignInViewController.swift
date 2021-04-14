@@ -10,10 +10,10 @@ import Combine
 
 class SignInViewController: UIViewController {
     
-    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
-    @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet private weak var indicatorView: UIActivityIndicatorView!
+    @IBOutlet private weak var usernameTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var signInButton: UIButton!
     
     private var subscriptions = Set<AnyCancellable>()
     var viewModel: SignInViewModel = SignInViewModel()
@@ -37,7 +37,7 @@ class SignInViewController: UIViewController {
     }
 
     private func configPublishers() {
-        bindingData()
+        bindingViewModel()
         handleErrors()
         
         signInButton.tapPublisher
@@ -54,7 +54,7 @@ class SignInViewController: UIViewController {
             .store(in: &subscriptions)
     }
     
-    private func bindingData() {
+    private func bindingViewModel() {
         usernameTextField.textPublisher
             .assign(to: \.username.value, on: viewModel)
             .store(in: &subscriptions)
