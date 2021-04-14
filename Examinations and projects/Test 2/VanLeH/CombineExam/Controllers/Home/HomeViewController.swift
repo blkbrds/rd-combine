@@ -35,7 +35,7 @@ class HomeViewController: UIViewController {
     }
 
     private func binding() {
-        viewModel.didSearch
+        viewModel.users
             .sink { [weak self] _ in
                 self?.tableView.reloadData()
             }
@@ -60,7 +60,7 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.users.count
+        return viewModel.users.value.count
     }
 }
 
