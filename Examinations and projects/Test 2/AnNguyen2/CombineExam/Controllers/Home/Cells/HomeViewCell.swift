@@ -11,9 +11,20 @@ final class HomeViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
+    
+    var user: User? {
+        didSet {
+            updateView()
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        updateView()
+    }
+    
+    private func updateView() {
+        nameLabel.text = user?.name
+        addressLabel.text = user?.address
     }
 }
