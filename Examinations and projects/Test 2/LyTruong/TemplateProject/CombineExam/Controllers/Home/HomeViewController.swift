@@ -37,23 +37,26 @@ class HomeViewController: UIViewController {
     
     func listener() {
        let pub = NotificationCenter.default.publisher(for: UITextField.textDidChangeNotification, object: searchTextField)
-//            pub
-//                .map {
-//                    (($0.object as! UITextField).text ?? "")
-//                }
-//                .debounce(for: .milliseconds(500), scheduler: RunLoop.main)
-//                .sink { (noti) in
-//                    self.searchText(searchText: noti)
-//            }.store(in: &sub)
+            pub
+                .map {
+                    (($0.object as! UITextField).text ?? "")
+                }
+                .debounce(for: .milliseconds(500), scheduler: RunLoop.main)
+                .sink { (noti) in
+                    self.searchText(searchText: noti)
+            }.store(in: &sub)
         
-        pub.sink { (notification) in
-            guard let searchTextField = (notification.object as? UITextField) else { return }
-            self.searchText(searchText: searchTextField.text!)
-        }.store(in: &sub)
+//        pub.sink { (notification) in
+//            guard let searchTextField = (notification.object as? UITextField) else { return }
+//            self.searchText(searchText: searchTextField.text!)
+//        }.store(in: &sub)
     }
     
     func searchText(searchText: String) {
         searchUserDatas = LocalDatabase.users.filter({(($0.name ).localizedCaseInsensitiveContains(searchText))})
+        if searchUserDatas.count == 0 {
+            searchUserDatas = LocalDatabase.users
+        }
         tableView.reloadData()
     }
 }
