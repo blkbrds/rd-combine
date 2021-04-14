@@ -9,8 +9,8 @@ import Foundation
 import Combine
 
 final class SignInViewModel: ObservableObject {
-    @Published var userName: String = ""
-    @Published var passWord: String = ""
+    @Published var userName: String?
+    @Published var passWord: String?
     @Published var isLoading = false
 
     let validationResult = PassthroughSubject<Void, Error>()
@@ -27,7 +27,7 @@ final class SignInViewModel: ObservableObject {
 
     func validateLogin() {
         isLoading = true
-        loginValidator.validateLogins(userName: userName, password: passWord) { [weak self] result in
+        loginValidator.validateLogins(userName: userName ?? "", password: passWord ?? "") { [weak self] result in
             guard let this = self else { return }
             this.isLoading = false
             switch result {

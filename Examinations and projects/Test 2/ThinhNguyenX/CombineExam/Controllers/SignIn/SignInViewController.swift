@@ -16,7 +16,7 @@ class SignInViewController: UIViewController {
     @IBOutlet private weak var userNameTextField: UITextField!
     @IBOutlet private weak var pwTextField: UITextField!
     
-    var viewModel: SignInViewModel?
+    var viewModel = SignInViewModel()
     private var subscriptions = Set<AnyCancellable>()
 
     override func viewDidLoad() {
@@ -29,6 +29,8 @@ class SignInViewController: UIViewController {
         UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         UINavigationBar.appearance().shadowImage = UIImage()
 
+        bindingToView()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,20 +39,52 @@ class SignInViewController: UIViewController {
     }
 
 
-    private func setupBindings() {
+    private func bindingToView() {
+        // username
+        viewModel.$userName
+            .assign(to: \.text, on: userNameTextField)
+            .store(in: &subscriptions)
+
+        // password
+        viewModel.$passWord
+            .assign(to: \.text, on: pwTextField)
+            .store(in: &subscriptions)
+
+        // indicator
+        viewModel.$isLoading
+            .sink(receiveValue: { isLoading in
+                if isLoading {
+                    self.indicatorView.startAnimating()
+                } else {
+                    self.indicatorView.stopAnimating()
+                }
+            })
+            .store(in: &subscriptions)
+
+        viewModel.isInputValid
+    }
+
+    private func bindingToViewModel() {
         // usernameTextField
         userNameTextField.publisher
-            .assign(to: \.user, on: viewModel)
+            .assign(to: \.userName, on: viewModel)
+            .store(in: &subscriptions)
+
+        // passwordTextField
+        pwTextField.publisher
+            .assign(to: \.passWord, on: viewModel)
             .store(in: &subscriptions)
     }
 
+
     @IBAction private func signInButtonTouchUpInside(_ sender: UIButton) {
-        indicatorView.startAnimating()
-        indicatorView.isHidden = false
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.indicatorView.stopAnimating()
-            self.handleSignIn()
-        }
+
+//        indicatorView.startAnimating()
+//        indicatorView.isHidden = false
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//            self.indicatorView.stopAnimating()
+//            self.handleSignIn()
+//        }
     }
     
     private func handleSignIn() {
@@ -60,10 +94,12 @@ class SignInViewController: UIViewController {
     }
 }
 
-extension SignInViewController: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-
-
-        return true
-    }
+extension UITextField {
+  var publisher: AnyPublisher<String?, Never> {
+    NotificationCenter.default
+      .publisher(for: UITextField.textDidChangeNotification, object: self)
+      .compactMap { $0.object as? UITextField? }
+      .map { $0?.text }
+      .eraseToAnyPublisher()
+  }
 }
