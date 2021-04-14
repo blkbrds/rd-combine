@@ -17,7 +17,7 @@ enum SignInError: Error {
     var message: String {
         switch self {
         case .invalidUsernameLength:
-            return "Username chỉ được chứa từ 6 đến 20 ký tự"
+            return "Username chỉ được chứa từ 2 đến 20 ký tự"
         case .invalidUsername:
             return "Username không được phép chứa emoji"
         case .invalidPasswordLength:
