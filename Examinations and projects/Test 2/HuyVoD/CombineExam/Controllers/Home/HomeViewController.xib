@@ -40,6 +40,9 @@
                                     <rect key="frame" x="60" y="0.0" width="306" height="36"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <action selector="searchTextFieldEdittingChanged:" destination="-1" eventType="editingChanged" id="fvi-Zd-NWB"/>
+                                    </connections>
                                 </textField>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>

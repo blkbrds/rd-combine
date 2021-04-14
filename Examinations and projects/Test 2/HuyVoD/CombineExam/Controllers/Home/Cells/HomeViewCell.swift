@@ -6,14 +6,17 @@
 //
 
 import UIKit
+import Combine
 
 final class HomeViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
+    
+    var user: User? {
+        didSet {
+            nameLabel.text = user?.name
+            addressLabel.text = user?.address
+        }
     }
 }

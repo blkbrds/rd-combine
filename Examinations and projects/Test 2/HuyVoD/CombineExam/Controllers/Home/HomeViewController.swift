@@ -6,13 +6,18 @@
 //
 
 import UIKit
+import Combine
 
 class HomeViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
+    
+    
     let identifier = String(describing: "HomeViewCell")
     
     var viewModel: HomeViewModel?
+    
+    private var subscription = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,24 +29,36 @@ class HomeViewController: UIViewController {
         tableView.delegate = self
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        configSubscription()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
+    @IBAction func searchTextFieldEdittingChanged(_ sender: UITextField) {
+        viewModel?.searchKey.send(sender.text ?? "")
+    }
+    
+    private func configSubscription() {
+        viewModel?.listUser.sink(receiveValue: { [weak self] _ in
+            self?.tableView.reloadData()
+        }).store(in: &subscription)
     }
 }
 
 extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? HomeViewCell else {
             fatalError()
         }
+        cell.user = viewModel?.listUser.value[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return viewModel?.listUser.value.count ?? 0
     }
 }
 
