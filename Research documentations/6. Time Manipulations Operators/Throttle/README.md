@@ -4,7 +4,7 @@
 - Toán tử .throttle() là 1 trong 2 operator của nhóm Holding off on events trong Time manipulation operators - Combine, bên cạnh Debounce. 
 
 ## 2. Biểu đồ
-![Throttle](https://github.com/blkbrds/rd-combine/blob/8c4de4a6d4364669062f5287aedbf79a675ab0a5/Research%20documentations/6.%20Time%20Manipulations%20Operators/ResourseImage/img_debounce.png)
+![Throttle](https://github.com/blkbrds/rd-combine/blob/b3bd4fd3a7c8ad4c3bf1e193f1269d9372437170/Research%20documentations/6.%20Time%20Manipulations%20Operators/Throttle/img_throttle.png)
 Với ví dụ ở hình thì có thể thấy thời gian cài đặt cho .throttle() là 2s và cờ latest = true: 
 - Upstream publisher phát A giây thứ 1 thì throttle ngay lập tức phát A xuống downstream
 - Giây thứ 2 phát B và không phát gì nữa trong khoảng 2-3 thì throttle phát B ở giây thứ 1 + 2 = 3
