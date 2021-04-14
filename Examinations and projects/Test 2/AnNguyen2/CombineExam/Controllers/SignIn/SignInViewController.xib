@@ -47,9 +47,6 @@
                                     <color key="backgroundColor" systemColor="systemTealColor"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" title="Sign In"/>
-                                    <connections>
-                                        <action selector="signInButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="IwQ-8H-m2W"/>
-                                    </connections>
                                 </button>
                             </subviews>
                         </stackView>

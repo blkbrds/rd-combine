@@ -7,27 +7,40 @@
 
 import Combine
 
+enum Completion: Equatable {
+    case suscess
+    case failure(SignInError)
+}
+
 final class SignInViewModel {
-    var username: String = ""
-    var password: String = ""
+    var username = CurrentValueSubject<String, Never>("")
+    var password = CurrentValueSubject<String, Never>("")
     
-    var inValidUsername: SignInError? {
-        if username.count < 2 || username.count >= 20 {
-            return SignInError.invalidUsernameLength
-        } else if username.containsEmoji {
-            return SignInError.invalidUsername
-        }
-        return nil
+    var validNamePublisher: AnyPublisher<Completion, Never> {
+        username
+            .map({ value -> Completion in
+                if value.count < 2 || value.count >= 20 {
+                    return Completion.failure(.invalidUsernameLength)
+                } else if value.containsEmoji {
+                    return Completion.failure(.invalidUsername)
+                }
+                return Completion.suscess
+            })
+            .eraseToAnyPublisher()
     }
     
-    var validatedPassword: SignInError? {
-        if password.count < 8 || password.count >= 20 {
-            return SignInError.invalidPasswordLength
-        }
-        return nil
+    var validPasswordPublisher: AnyPublisher<Completion, Never> {
+        password
+            .map({ value -> Completion in
+                if value.count < 8 || value.count >= 20 {
+                    return Completion.failure(.invalidPasswordLength)
+                }
+                return Completion.suscess
+            })
+            .eraseToAnyPublisher()
     }
     
-    var checkValidUser: Bool {
-        LocalDatabase.users.contains(where: { $0.name == username && $0.password == password })
+    var isValidUser: Bool {
+        LocalDatabase.users.contains(where: { $0.name == username.value && $0.password == password.value })
     }
 }

@@ -19,6 +19,7 @@ extension UITextField {
     var textPublisher: AnyPublisher<String, Never> {
         UIControl.ControlPublisher(self, event: .editingChanged)
             .map({ self.text ?? "" })
+            .removeDuplicates()
             .eraseToAnyPublisher()
     }
 }

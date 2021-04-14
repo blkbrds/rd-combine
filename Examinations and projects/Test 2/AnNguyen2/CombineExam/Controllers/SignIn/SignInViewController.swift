@@ -28,8 +28,7 @@ class SignInViewController: UIViewController {
         UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         UINavigationBar.appearance().shadowImage = UIImage()
         
-        bindingData()
-        handleErrors()
+        configPublishers()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,49 +36,53 @@ class SignInViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
-    @IBAction private func signInButtonTouchUpInside(_ sender: UIButton) {
-        indicatorView.startAnimating()
-        indicatorView.isHidden = false
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.indicatorView.stopAnimating()
-            self.handleSignIn()
-        }
+    private func configPublishers() {
+        bindingData()
+        handleErrors()
+        
+        signInButton.tapPublisher
+            .debounce(for: .milliseconds(300), scheduler: DispatchQueue.main)
+            .sink(receiveValue: { [weak self] in
+                guard let this = self, this.indicatorView.isHidden else { return }
+                this.indicatorView.startAnimating()
+                this.indicatorView.isHidden = false
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    this.indicatorView.stopAnimating()
+                    this.handleSignIn()
+                }
+            })
+            .store(in: &subscriptions)
     }
     
     private func bindingData() {
         usernameTextField.textPublisher
-            .assign(to: \.username, on: viewModel)
+            .assign(to: \.username.value, on: viewModel)
             .store(in: &subscriptions)
         
         passwordTextField.textPublisher
-            .assign(to: \.password, on: viewModel)
+            .assign(to: \.password.value, on: viewModel)
             .store(in: &subscriptions)
-                    
-        usernameTextField.textPublisher
-            .combineLatest(passwordTextField.textPublisher)
-            .map({ [weak self] _ in
-                    self?.viewModel.inValidUsername == nil && self?.viewModel.validatedPassword == nil
-            })
+        
+        viewModel.validNamePublisher
+            .combineLatest(viewModel.validPasswordPublisher)
+            .map({ $0.0 == .suscess && $0.1 == .suscess })
             .assign(to: \.isEnabled, on: signInButton)
             .store(in: &subscriptions)
     }
     
     private func handleErrors() {
-        passwordTextField.textPublisher
-            .merge(with: usernameTextField.textPublisher)
-            .sink(receiveValue: { [weak self] _ in
-                if let error = self?.viewModel.validatedPassword {
-                    print(error.message)
-                }
-                if let error = self?.viewModel.inValidUsername {
-                    print(error.message)
-                }
-            })
-            .store(in: &subscriptions)
+        viewModel.validNamePublisher
+            .merge(with: viewModel.validPasswordPublisher)
+            .sink { (completion) in
+            if case .failure(let error) = completion {
+                print(error.message)
+            }
+        }
+        .store(in: &subscriptions)
     }
     
     private func handleSignIn() {
-        if viewModel.checkValidUser {
+        if viewModel.isValidUser {
             let vc = HomeViewController()
             vc.viewModel = HomeViewModel()
             navigationController?.pushViewController(vc, animated: true)
