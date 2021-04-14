@@ -15,9 +15,9 @@ final class SignInViewModel: ObservableObject {
 
     let validationResult = PassthroughSubject<Void, Error>()
 
-    private(set) lazy var isInputValid = Publishers.CombineLatest($userName, $passWord)
-        .map { ($0.count > 2 && $0.count < 20) && ($1.count > 8 && $1.count < 20) }
-        .eraseToAnyPublisher()
+    //private(set) lazy var isInputValid = Publishers.CombineLatest($userName, $passWord)
+      //  .map { ($0.count > 2 && $0.count < 20) && ($1.count > 8 && $1.count < 20) }
+      //  .eraseToAnyPublisher()
 
     private let loginValidator: LoginValidatorProtocol
 

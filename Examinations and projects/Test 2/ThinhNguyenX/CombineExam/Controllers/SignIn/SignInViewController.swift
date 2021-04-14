@@ -61,7 +61,6 @@ class SignInViewController: UIViewController {
             })
             .store(in: &subscriptions)
 
-        viewModel.isInputValid
     }
 
     private func bindingToViewModel() {
