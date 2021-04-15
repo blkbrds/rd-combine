@@ -15,19 +15,31 @@ final class SignInViewModel {
     @Published var isLoading = false
     
     private(set) lazy var isInputValid = Publishers.CombineLatest($username, $password)
-        .map { (username, password) -> SignInError? in
-            if username.count < 2 || username.count > 20 {
-                return .invalidUsernameLength
-            } else if username.containsEmoji {
-                return .invalidUsername
+        .change()
+        .map({ output -> ValidateField in
+            if output.old?.0 != output.new.0 {
+                return .userName(output.new.0)
+            } else {
+                return .password(output.new.1)
             }
-            
-            if password.count < 8 || password.count > 20 {
-                return .invalidPasswordLength
+        })
+        .map({ valid -> SignInError? in
+            switch valid {
+            case .userName(let text):
+                if text.count < 2 || text.count > 20 {
+                    return .invalidUsernameLength
+                } else if text.containsEmoji {
+                    return .invalidUsername
+                }
+            case .password(let text):
+                if (text.count < 8 || text.count > 20) && !text.isEmpty {
+                    return .invalidPasswordLength
+                }
             }
             return nil
-        }
+        })
         .eraseToAnyPublisher()
+
     var stores: Set<AnyCancellable> = []
 
     var users: [User]
@@ -45,5 +57,27 @@ extension SignInViewModel {
             self.isLoading = false
             completion()
         }
+    }
+    
+    enum ValidateField {
+        case userName(String)
+        case password(String)
+    }
+}
+
+struct Change<Value> {
+    var old: Value?
+    var new: Value
+}
+
+extension Publisher {
+    func change() -> Publishers.Map<Publishers.Scan<Self, (Optional<Self.Output>, Optional<Self.Output>)>, Change<Self.Output>> {
+        return self
+            .scan((Output?.none, Output?.none)) { (state, new) in
+                (state.1, .some(new))
+            }
+            .map { (old, new) in
+                Change(old: old, new: new!)
+            }
     }
 }
