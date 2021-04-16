@@ -27,6 +27,7 @@
 		74D73E5326234D92003BE284 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D73E5226234D92003BE284 /* StringExt.swift */; };
 		74D73E5726234DBA003BE284 /* SignInError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D73E5626234DBA003BE284 /* SignInError.swift */; };
 		74D73E5B26234E3D003BE284 /* LocalDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D73E5A26234E3D003BE284 /* LocalDatabase.swift */; };
+		F334E38B2626E91C00294749 /* HomeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F334E38A2626E91C00294749 /* HomeCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		74D73E5226234D92003BE284 /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 		74D73E5626234DBA003BE284 /* SignInError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInError.swift; sourceTree = "<group>"; };
 		74D73E5A26234E3D003BE284 /* LocalDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDatabase.swift; sourceTree = "<group>"; };
+		F334E38A2626E91C00294749 /* HomeCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 			children = (
 				4E9FDE042622143E006F4EB4 /* HomeViewCell.swift */,
 				4E9FDE052622143E006F4EB4 /* HomeViewCell.xib */,
+				F334E38A2626E91C00294749 /* HomeCellViewModel.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				4E9FDDDD262211A9006F4EB4 /* ViewController.swift in Sources */,
 				74D73E5326234D92003BE284 /* StringExt.swift in Sources */,
 				74D73E5B26234E3D003BE284 /* LocalDatabase.swift in Sources */,
+				F334E38B2626E91C00294749 /* HomeCellViewModel.swift in Sources */,
 				4E9FDE0C2622186D006F4EB4 /* User.swift in Sources */,
 				4EBB3C0F262356F70028A21C /* HomeViewModel.swift in Sources */,
 				4EBB3C0C262356DA0028A21C /* SignInViewModel.swift in Sources */,
