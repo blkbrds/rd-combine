@@ -21,7 +21,7 @@ Khoan đã... nghe sao giống với collect ở nhóm **Transforming Operators*
 * Trả về:
 Một publisher thu thập các phần tử theo chiến lược mình đã cho và phát ra các mảng
 
-###### Các chiến lược:
+#### Các chiến lược:
 Chính là các `case` của `enum` dưới đây
 `enum TimeGroupingStrategy<Context> where Context : Scheduler`
 Bao gồm:
