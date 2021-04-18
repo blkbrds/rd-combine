@@ -22,8 +22,10 @@ Khoan đã... nghe sao giống với collect ở nhóm **Transforming Operators*
 Một publisher thu thập các phần tử theo chiến lược mình đã cho và phát ra các mảng
 
 #### Các chiến lược:
-Chính là các `case` của `enum` dưới đây
+Chính là các `case` của `enum` dưới đây:
+
 `enum TimeGroupingStrategy<Context> where Context : Scheduler`
+
 Bao gồm:
 1. `byTime(Context, Context.SchedulerTimeType.Stride)`
 > Hiểu nôm na là: Sau 1 khoảng thời gian x thì operator sẽ thu thập tất cả các phần tử mà upsstream publisher đã phát rồi tạo thành 1 mảng và “emit”
@@ -47,7 +49,7 @@ Sau đây sẽ là một phần rất thú vị, đó là:
 ### 3. Phân biệt collect (Transforming Operators) và collect (Time Manipulations Operators)
 Trước khi đi vào phân biệt thì mình muốn nhắc các bạn nhớ một điểu là ở Transforming Operators có **2 toán tử collect** là `collect()` và `collect(_ count:)`. Vậy nên ở đây chúng ta sẽ phân biệt 3 thằng `collect()`, `collect(_ count:)` và `collect(_:options:)`
 
-* Về mặt công dụng của 3 toán tử thì cơ bản là giống nhau. Output đầu ra khi các giá trị từ upstream publisher đi qua đều là mảng giá trị. Đối với collecy() là chỉ 1 mảng, đối với 2 toán tử còn lại là 1 hoặc nhiều mảng tùy trường hợp.
+* Về mặt công dụng của 3 toán tử thì cơ bản là giống nhau. Output đầu ra khi các giá trị từ upstream publisher đi qua đều là mảng giá trị. Đối với ***collect()*** là chỉ 1 mảng, đối với 2 toán tử còn lại là 1 hoặc nhiều mảng tùy trường hợp.
 
 * Về mặt tham số truyền vào thì:
     * ***collect()*** không có tham số
