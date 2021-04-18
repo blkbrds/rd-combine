@@ -34,6 +34,7 @@ Là 1 closure trả về kiểu Failure, có thể nil. Mặc định là nil n�
 Nếu có truyền thì Failure sẽ được trả về trong closure gửi về subscriber như 1 thông báo cho lý do bị dừng lại
 
 ### Biểu đồ:
+(https://user-images.githubusercontent.com/67259297/115152740-93350580-a09c-11eb-826a-56dc46edf16a.png)
 - Ví dụ ở trên chúng ta có thể hiểu được: Sau 2 giây theo quy định nếu upstream không phát giá trị gì thì downstream nhận được Error.
 # References
 - [Combine by Raywernderlich](https://www.raywenderlich.com/books/combine-asynchronous-programming-with-swift/v2.0)
