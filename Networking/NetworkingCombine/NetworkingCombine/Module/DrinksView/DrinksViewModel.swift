@@ -10,18 +10,13 @@ import Combine
 
 final class DrinksViewModel: ObservableObject {
     private var subscriptions = Set<AnyCancellable>()
-    private var searchText = PassthroughSubject<String, Never>()
     private var isValid = PassthroughSubject<String, Never>()
     
-    @Published var text = "" {
-        didSet {
-            searchText.send(text)
-        }
-    }
+    @Published var searchText = ""
     @Published var drinks: [Cocktail] = []
     
     init() {
-        searchText
+        $searchText
             .debounce(for: .milliseconds(300), scheduler: DispatchQueue.main)
             .map({ $0.trimmingCharacters(in: .whitespacesAndNewlines) })
             .removeDuplicates()

@@ -13,7 +13,7 @@ struct DrinksView: View {
     
     var body: some View {
         VStack {
-            TextField("Enter somethings...", text: $viewModel.text)
+            TextField("Enter somethings...", text: $viewModel.searchText)
                 .padding(.top, 20)
                 .padding(.horizontal, 10)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
