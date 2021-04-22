@@ -10,7 +10,6 @@ import Combine
 
 final class DrinksViewModel: ObservableObject {
     private var subscriptions = Set<AnyCancellable>()
-    private var isValid = PassthroughSubject<String, Never>()
     
     @Published var searchText = ""
     @Published var drinks: [Cocktail] = []
