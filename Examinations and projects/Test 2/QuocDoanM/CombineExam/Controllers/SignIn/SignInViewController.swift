@@ -16,10 +16,9 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     
     var viewModel: SignInViewModel = SignInViewModel()
-    private var subscriptions = Set<AnyCancellable>()
-
-    private var isValidateUserName: Bool = false
-    private var isValidatePassword: Bool = false
+    private var stores = Set<AnyCancellable>()
+    var usernameSubsciber: AnyCancellable?
+    var passwordSubsciber: AnyCancellable?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,28 +39,31 @@ class SignInViewController: UIViewController {
     }
 
     private func setupBindings() {
+
         userNameTextField.textPublisher
             .receive(on: RunLoop.main)
             .assign(to: \.userName, on: viewModel)
-            .store(in: &subscriptions)
+            .store(in: &stores)
 
         passwordTextField.textPublisher
             .receive(on: RunLoop.main)
             .assign(to: \.password, on: viewModel)
-            .store(in: &subscriptions)
+            .store(in: &stores)
 
-        viewModel.readyToSubmit
-            .map { $0 != nil}
+        viewModel.readyToSignIn
             .receive(on: RunLoop.main)
-            .sink(receiveValue: { isEnable in
-                self.signInButton.isEnabled = isEnable
+            .sink(receiveValue: { [weak self] isEnable in
+                guard let this = self else { return }
+                this.signInButton.isEnabled = isEnable
             })
-            .store(in: &subscriptions)
+            .store(in: &stores)
+
     }
 
     @IBAction private func signInButtonTouchUpInside(_ sender: UIButton) {
-        viewModel.enableSignInButton(userNameTextField.text ?? "", passwordTextField.text ?? "") { isAvailable in
-            isAvailable ? self.handleSignIn() : print("Loi")
+        viewModel.login(viewModel.userName, viewModel.password) { [weak self] success in
+            guard let this = self else { return }
+            success ? this.handleSignIn() : print("Đăng nhập không thành công")
         }
     }
     

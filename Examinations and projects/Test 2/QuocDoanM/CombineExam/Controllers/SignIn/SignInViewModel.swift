@@ -9,70 +9,35 @@ import Foundation
 import Combine
 
 final class SignInViewModel {
+
     @Published var userName: String = ""
     @Published var password: String = ""
-    private var usersAvailable: [User] = LocalDatabase.users
 
-    var validatedUsername: AnyPublisher<String?, Never> {
+    var usersAvailable: [User] = LocalDatabase.users
+
+    var validateUserName: AnyPublisher<SignInError, Never> {
         return $userName
-            .flatMap { username in
-                return Future { promise in
-                    self.usernameAvailable(username) { available, messageError  in
-                        promise(.success(available ? username : messageError))
-                    }
-                }
-            }
+            .map { (2...20) ~= $0.count ? .none : $0.containsEmoji ? .invalidUsername : .invalidUsernameLength }
             .eraseToAnyPublisher()
     }
 
-    var validatedPassword: AnyPublisher<String?, Never> {
-      return $password
-        .flatMap { password in
-          return Future { promise in
-            self.passwordAvailable(password) { available, msgError in
-              promise(.success(available ? password : msgError))
-            }
-          }
-      }
-      .eraseToAnyPublisher()
-    }
-
-    var readyToSubmit: AnyPublisher<(String, String)?, Never> {
-        return Publishers.CombineLatest(validatedUsername, validatedPassword)
-            .map { name, pass in
-                guard let name = name, let pass = pass else {
-                    return nil
-                }
-                return (name, pass)
-            }
+    var validatePassword: AnyPublisher<SignInError, Never> {
+        return $password
+            .removeDuplicates()
+            .map { (8...20) ~= $0.count ? .none : .invalidPasswordLength }
             .eraseToAnyPublisher()
     }
 
-    func enableSignInButton(_ userName: String, _ password: String, completion: @escaping (Bool) -> ()) {
+    var readyToSignIn: AnyPublisher<Bool, Never> {
+        return Publishers.CombineLatest(validateUserName, validatePassword)
+            .map { $0 == .none && $1 == .none }
+            .eraseToAnyPublisher()
+    }
+
+    func login(_ userName: String, _ password: String, completion: @escaping (Bool) -> ()) {
         DispatchQueue.main.async {
             completion(self.usersAvailable.contains(where: { userName == $0.name && password == $0.password }))
         }
     }
 
-    func usernameAvailable(_ username: String, completion: @escaping (Bool, String?) -> ()) -> () {
-      DispatchQueue.main .async {
-        let isValid = ((2...20) ~= username.count && !username.containsEmoji)
-        if isValid {
-            completion(isValid, nil)
-        } else {
-            if !username.containsEmoji {
-                completion(false, SignInError.invalidUsername.message)
-            }
-            if (2...20) ~= username.count {
-                completion(false, SignInError.invalidUsernameLength.message)
-            }
-        }
-      }
-    }
-
-    func passwordAvailable(_ username: String, completion: @escaping (Bool, String?) -> ()) -> () {
-      DispatchQueue.main .async {
-        completion((8...20) ~= username.count, ((8...20) ~= username.count) ? nil : SignInError.invalidPasswordLength.message)
-      }
-    }
 }

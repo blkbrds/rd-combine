@@ -13,6 +13,7 @@ enum SignInError: Error {
     case invalidUsername
     case invalidPasswordLength
     case unknown
+    case none
 
     var message: String {
         switch self {
@@ -24,6 +25,8 @@ enum SignInError: Error {
             return "Password chỉ được chứa từ 8 đến 20 ký tự"
         case .unknown:
             return "Lỗi không xác định"
+        case .none:
+            return ""
         }
     }
 }
