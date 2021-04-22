@@ -50,12 +50,16 @@ class SignInViewController: UIViewController {
             .assign(to: \.password, on: viewModel)
             .store(in: &stores)
 
-        viewModel.readyToSignIn
+        viewModel.validateUserName
             .receive(on: RunLoop.main)
-            .sink(receiveValue: { [weak self] isEnable in
+            .combineLatest(viewModel.validatePassword)
+            .sink { [weak self] userNameValidType, pwValidType in
                 guard let this = self else { return }
-                this.signInButton.isEnabled = isEnable
-            })
+                this.signInButton.isEnabled = userNameValidType == pwValidType
+                if userNameValidType != pwValidType {
+                    print(userNameValidType.message, pwValidType.message)
+                }
+            }
             .store(in: &stores)
 
     }

@@ -23,14 +23,7 @@ final class SignInViewModel {
 
     var validatePassword: AnyPublisher<SignInError, Never> {
         return $password
-            .removeDuplicates()
             .map { (8...20) ~= $0.count ? .none : .invalidPasswordLength }
-            .eraseToAnyPublisher()
-    }
-
-    var readyToSignIn: AnyPublisher<Bool, Never> {
-        return Publishers.CombineLatest(validateUserName, validatePassword)
-            .map { $0 == .none && $1 == .none }
             .eraseToAnyPublisher()
     }
 
