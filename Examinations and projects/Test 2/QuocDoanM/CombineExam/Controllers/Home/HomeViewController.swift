@@ -9,15 +9,20 @@ import UIKit
 import Combine
 
 class HomeViewController: UIViewController {
+
+    typealias DataSource = UITableViewDiffableDataSource<String, User>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<String, User>
     
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
     
     let identifier = String(describing: "HomeViewCell")
-    
+    private var diffableDataSource: UITableViewDiffableDataSource<User, Never>!
     var viewModel: HomeViewModel = HomeViewModel()
+    private var dataSource: DataSource!
+    
     var publisher = PassthroughSubject<String, Never>()
-    private var subscriptions = Set<AnyCancellable>()
+    private var stores: Set<AnyCancellable> = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,56 +30,36 @@ class HomeViewController: UIViewController {
         
         let nib = UINib(nibName: identifier, bundle: Bundle.main)
         tableView.register(nib, forCellReuseIdentifier: identifier)
-        tableView.dataSource = self
-        tableView.delegate = self
-        searchTextField.delegate = self
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-        searchUser()
+
+        dataSource = DataSource(tableView: tableView, cellProvider: { (tableView, indexPath, user) -> UITableViewCell? in
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: self.identifier, for: indexPath) as? HomeViewCell else { return UITableViewCell() }
+            cell.viewModel = HomeViewCellViewModel(user: user)
+            return cell
+        })
+
+        setupBindings()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: false)
     }
 
-    func searchUser() {
-        publisher
-            .sink(receiveValue: { value in
-                self.viewModel.keyword = value
-                self.viewModel.searchList.removeAll()
-                self.viewModel.users.forEach { user in
-                    if user.name.lowercased().contains(value.lowercased()) {
-                        self.viewModel.searchList.append(user)
-                    }
-                }
-                self.tableView.reloadData()
-            })
-            .store(in: &subscriptions)
-    }
-}
+    private func setupBindings() {
+        searchTextField.textPublisher
+            .receive(on: RunLoop.main)
+            .assign(to: \.keyword, on: viewModel)
+            .store(in: &stores)
 
-extension HomeViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? HomeViewCell else {
-            fatalError()
-        }
-        cell.viewModel = viewModel.getCellViewModel(at: indexPath)
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfItem()
-    }
-}
-
-extension HomeViewController: UITableViewDelegate {
-    
-}
-
-extension HomeViewController: UITextFieldDelegate {
-
-    func textFieldDidChangeSelection(_ textField: UITextField) {
-        publisher.send(textField.text ?? "")
+        viewModel.$searchList
+            .receive(on: DispatchQueue.main)
+            .sink { user in
+                var snapshot = Snapshot()
+                snapshot.appendSections(["section1"])
+                snapshot.appendItems(user, toSection: "section1")
+                self.dataSource.apply(snapshot, animatingDifferences: true, completion: nil)
+            }
+            .store(in: &stores)
     }
 }

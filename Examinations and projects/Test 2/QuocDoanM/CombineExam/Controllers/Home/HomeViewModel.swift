@@ -10,15 +10,30 @@ import Combine
 
 final class HomeViewModel {
 
+    @Published var searchList: [User] = []
+    @Published var keyword: String = ""
+
     var users: [User] = LocalDatabase.users
-    var searchList: [User] = []
-    var keyword: String = ""
+    var resultPublisher: AnyCancellable?
+    private var stores = Set<AnyCancellable>()
+
+    init() {
+        resultPublisher = $keyword
+            .receive(on: RunLoop.main)
+            .sink(receiveValue: { keyword in
+                if !keyword.isEmpty {
+                    self.searchList = self.users.filter { $0.name.lowercased().contains(keyword.lowercased()) }
+                } else {
+                    self.searchList = self.users
+                }
+            })
+    }
 
     func numberOfItem() -> Int {
-        return keyword.isEmpty ? users.count : searchList.count
+        return searchList.count
     }
 
     func getCellViewModel(at indexPath: IndexPath) -> HomeViewCellViewModel {
-        return keyword.isEmpty ? HomeViewCellViewModel(user: users[indexPath.row]) : HomeViewCellViewModel(user: searchList[indexPath.row])
+        return HomeViewCellViewModel(user: searchList[indexPath.row])
     }
 }
