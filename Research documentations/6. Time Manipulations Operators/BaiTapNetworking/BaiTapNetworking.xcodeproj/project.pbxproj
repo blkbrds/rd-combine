@@ -1,0 +1,577 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3E3CEB242631046700D8D80D /* Province.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3CEB232631046700D8D80D /* Province.swift */; };
+		3E3CEB2B263135BB00D8D80D /* ProvinceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3CEB2A263135BB00D8D80D /* ProvinceService.swift */; };
+		3E3CEB2D263135D300D8D80D /* ProvinceNetworkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3CEB2C263135D300D8D80D /* ProvinceNetworkable.swift */; };
+		3E3CEB2F263135EA00D8D80D /* ProvinceNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3CEB2E263135EA00D8D80D /* ProvinceNetworkManager.swift */; };
+		3E3CEB312631366500D8D80D /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3CEB302631366500D8D80D /* TargetType.swift */; };
+		3E3CEB332631369900D8D80D /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3CEB322631369900D8D80D /* Method.swift */; };
+		3E3CEB3526315EEE00D8D80D /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3CEB3426315EEE00D8D80D /* Provider.swift */; };
+		3E3CEB372631606600D8D80D /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3CEB362631606600D8D80D /* Error.swift */; };
+		3E3CEB3B263173E600D8D80D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3CEB39263173E600D8D80D /* HomeViewController.swift */; };
+		3E3CEB3C263173E600D8D80D /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E3CEB3A263173E600D8D80D /* HomeViewController.xib */; };
+		3E3CEB3E2631740100D8D80D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3CEB3D2631740100D8D80D /* HomeViewModel.swift */; };
+		3E3CEB4226317B7600D8D80D /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3CEB4026317B7600D8D80D /* HomeViewCell.swift */; };
+		3E3CEB4326317B7600D8D80D /* HomeViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E3CEB4126317B7600D8D80D /* HomeViewCell.xib */; };
+		3E3CEB4526317B8700D8D80D /* HomeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3CEB4426317B8700D8D80D /* HomeCellViewModel.swift */; };
+		3E4100D2262C6E480001A280 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4100D1262C6E480001A280 /* AppDelegate.swift */; };
+		3E4100D4262C6E480001A280 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4100D3262C6E480001A280 /* SceneDelegate.swift */; };
+		3E4100DB262C6E4F0001A280 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E4100DA262C6E4F0001A280 /* Assets.xcassets */; };
+		3E4100EF262D23340001A280 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4100ED262D23340001A280 /* WelcomeViewController.swift */; };
+		3E4100F0262D23340001A280 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E4100EE262D23340001A280 /* WelcomeViewController.xib */; };
+		3E4100F7262D23FE0001A280 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4100F6262D23FE0001A280 /* User.swift */; };
+		3E4100F9262D242E0001A280 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4100F8262D242E0001A280 /* WelcomeViewModel.swift */; };
+		5DA3A2BCC0E997622D0D3899 /* Pods_BaiTapNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 792C85406AA935D10EF5DB6E /* Pods_BaiTapNetworking.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3E3CEB232631046700D8D80D /* Province.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Province.swift; sourceTree = "<group>"; };
+		3E3CEB2A263135BB00D8D80D /* ProvinceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvinceService.swift; sourceTree = "<group>"; };
+		3E3CEB2C263135D300D8D80D /* ProvinceNetworkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvinceNetworkable.swift; sourceTree = "<group>"; };
+		3E3CEB2E263135EA00D8D80D /* ProvinceNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvinceNetworkManager.swift; sourceTree = "<group>"; };
+		3E3CEB302631366500D8D80D /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
+		3E3CEB322631369900D8D80D /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
+		3E3CEB3426315EEE00D8D80D /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		3E3CEB362631606600D8D80D /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		3E3CEB39263173E600D8D80D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		3E3CEB3A263173E600D8D80D /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		3E3CEB3D2631740100D8D80D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		3E3CEB4026317B7600D8D80D /* HomeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
+		3E3CEB4126317B7600D8D80D /* HomeViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewCell.xib; sourceTree = "<group>"; };
+		3E3CEB4426317B8700D8D80D /* HomeCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCellViewModel.swift; sourceTree = "<group>"; };
+		3E4100CE262C6E480001A280 /* BaiTapNetworking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaiTapNetworking.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E4100D1262C6E480001A280 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3E4100D3262C6E480001A280 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		3E4100DA262C6E4F0001A280 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3E4100DF262C6E4F0001A280 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E4100ED262D23340001A280 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		3E4100EE262D23340001A280 /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
+		3E4100F6262D23FE0001A280 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3E4100F8262D242E0001A280 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
+		792C85406AA935D10EF5DB6E /* Pods_BaiTapNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BaiTapNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFD559925F686A9EA574F18A /* Pods-BaiTapNetworking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaiTapNetworking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BaiTapNetworking/Pods-BaiTapNetworking.debug.xcconfig"; sourceTree = "<group>"; };
+		F1071C367861E0FDF550325F /* Pods-BaiTapNetworking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaiTapNetworking.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaiTapNetworking/Pods-BaiTapNetworking.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3E4100CB262C6E480001A280 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DA3A2BCC0E997622D0D3899 /* Pods_BaiTapNetworking.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3E3CEB28263135A000D8D80D /* Province */ = {
+			isa = PBXGroup;
+			children = (
+				3E3CEB2A263135BB00D8D80D /* ProvinceService.swift */,
+				3E3CEB2C263135D300D8D80D /* ProvinceNetworkable.swift */,
+				3E3CEB2E263135EA00D8D80D /* ProvinceNetworkManager.swift */,
+			);
+			path = Province;
+			sourceTree = "<group>";
+		};
+		3E3CEB29263135A900D8D80D /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				3E3CEB302631366500D8D80D /* TargetType.swift */,
+				3E3CEB322631369900D8D80D /* Method.swift */,
+				3E3CEB3426315EEE00D8D80D /* Provider.swift */,
+				3E3CEB362631606600D8D80D /* Error.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		3E3CEB38263173D200D8D80D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				3E3CEB3F26317B4A00D8D80D /* Cells */,
+				3E3CEB39263173E600D8D80D /* HomeViewController.swift */,
+				3E3CEB3A263173E600D8D80D /* HomeViewController.xib */,
+				3E3CEB3D2631740100D8D80D /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		3E3CEB3F26317B4A00D8D80D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3E3CEB4026317B7600D8D80D /* HomeViewCell.swift */,
+				3E3CEB4126317B7600D8D80D /* HomeViewCell.xib */,
+				3E3CEB4426317B8700D8D80D /* HomeCellViewModel.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		3E4100C5262C6E480001A280 = {
+			isa = PBXGroup;
+			children = (
+				3E4100D0262C6E480001A280 /* BaiTapNetworking */,
+				3E4100CF262C6E480001A280 /* Products */,
+				4D6CDC6CEDCEDEE96EFA48CD /* Pods */,
+				A02E74CDA16E80745ED758EA /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		3E4100CF262C6E480001A280 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3E4100CE262C6E480001A280 /* BaiTapNetworking.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3E4100D0262C6E480001A280 /* BaiTapNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				3E4100F3262D23610001A280 /* Resources */,
+				3E4100F2262D23520001A280 /* Exts */,
+				3E4100F1262D234B0001A280 /* Views */,
+				3E4100EA262C719A0001A280 /* Controllers */,
+				3E4100E9262C71920001A280 /* Define */,
+				3E4100E8262C71640001A280 /* AppDelegate */,
+				3E4100E7262C6FD80001A280 /* Model */,
+				3E4100E5262C6F840001A280 /* Network */,
+				3E4100DA262C6E4F0001A280 /* Assets.xcassets */,
+				3E4100DF262C6E4F0001A280 /* Info.plist */,
+			);
+			path = BaiTapNetworking;
+			sourceTree = "<group>";
+		};
+		3E4100E5262C6F840001A280 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				3E3CEB29263135A900D8D80D /* Core */,
+				3E3CEB28263135A000D8D80D /* Province */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		3E4100E7262C6FD80001A280 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3E4100F4262D23E70001A280 /* Entities */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3E4100E8262C71640001A280 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				3E4100D3262C6E480001A280 /* SceneDelegate.swift */,
+				3E4100D1262C6E480001A280 /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		3E4100E9262C71920001A280 /* Define */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Define;
+			sourceTree = "<group>";
+		};
+		3E4100EA262C719A0001A280 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3E3CEB38263173D200D8D80D /* Home */,
+				3E4100EC262D22FE0001A280 /* Base */,
+				3E4100EB262D22F10001A280 /* WelcomeViewController */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3E4100EB262D22F10001A280 /* WelcomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3E4100ED262D23340001A280 /* WelcomeViewController.swift */,
+				3E4100EE262D23340001A280 /* WelcomeViewController.xib */,
+				3E4100F8262D242E0001A280 /* WelcomeViewModel.swift */,
+			);
+			path = WelcomeViewController;
+			sourceTree = "<group>";
+		};
+		3E4100EC262D22FE0001A280 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		3E4100F1262D234B0001A280 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3E4100F2262D23520001A280 /* Exts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Exts;
+			sourceTree = "<group>";
+		};
+		3E4100F3262D23610001A280 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3E4100F4262D23E70001A280 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				3E4100F6262D23FE0001A280 /* User.swift */,
+				3E3CEB232631046700D8D80D /* Province.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		4D6CDC6CEDCEDEE96EFA48CD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EFD559925F686A9EA574F18A /* Pods-BaiTapNetworking.debug.xcconfig */,
+				F1071C367861E0FDF550325F /* Pods-BaiTapNetworking.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A02E74CDA16E80745ED758EA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				792C85406AA935D10EF5DB6E /* Pods_BaiTapNetworking.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3E4100CD262C6E480001A280 /* BaiTapNetworking */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3E4100E2262C6E4F0001A280 /* Build configuration list for PBXNativeTarget "BaiTapNetworking" */;
+			buildPhases = (
+				18DE5064FECA1DF871125C13 /* [CP] Check Pods Manifest.lock */,
+				3E4100CA262C6E480001A280 /* Sources */,
+				3E4100CB262C6E480001A280 /* Frameworks */,
+				3E4100CC262C6E480001A280 /* Resources */,
+				515B432A543AB56D9A4E66C4 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BaiTapNetworking;
+			productName = BaiTapNetworking;
+			productReference = 3E4100CE262C6E480001A280 /* BaiTapNetworking.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3E4100C6262C6E480001A280 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1170;
+				LastUpgradeCheck = 1170;
+				ORGANIZATIONNAME = "Trin Nguyen Xuan";
+				TargetAttributes = {
+					3E4100CD262C6E480001A280 = {
+						CreatedOnToolsVersion = 11.7;
+					};
+				};
+			};
+			buildConfigurationList = 3E4100C9262C6E480001A280 /* Build configuration list for PBXProject "BaiTapNetworking" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3E4100C5262C6E480001A280;
+			productRefGroup = 3E4100CF262C6E480001A280 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3E4100CD262C6E480001A280 /* BaiTapNetworking */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3E4100CC262C6E480001A280 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E4100DB262C6E4F0001A280 /* Assets.xcassets in Resources */,
+				3E3CEB4326317B7600D8D80D /* HomeViewCell.xib in Resources */,
+				3E4100F0262D23340001A280 /* WelcomeViewController.xib in Resources */,
+				3E3CEB3C263173E600D8D80D /* HomeViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		18DE5064FECA1DF871125C13 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BaiTapNetworking-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		515B432A543AB56D9A4E66C4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BaiTapNetworking/Pods-BaiTapNetworking-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BaiTapNetworking/Pods-BaiTapNetworking-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3E4100CA262C6E480001A280 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E4100F7262D23FE0001A280 /* User.swift in Sources */,
+				3E4100F9262D242E0001A280 /* WelcomeViewModel.swift in Sources */,
+				3E4100EF262D23340001A280 /* WelcomeViewController.swift in Sources */,
+				3E3CEB4526317B8700D8D80D /* HomeCellViewModel.swift in Sources */,
+				3E3CEB3E2631740100D8D80D /* HomeViewModel.swift in Sources */,
+				3E3CEB242631046700D8D80D /* Province.swift in Sources */,
+				3E3CEB3B263173E600D8D80D /* HomeViewController.swift in Sources */,
+				3E4100D2262C6E480001A280 /* AppDelegate.swift in Sources */,
+				3E3CEB2F263135EA00D8D80D /* ProvinceNetworkManager.swift in Sources */,
+				3E4100D4262C6E480001A280 /* SceneDelegate.swift in Sources */,
+				3E3CEB332631369900D8D80D /* Method.swift in Sources */,
+				3E3CEB3526315EEE00D8D80D /* Provider.swift in Sources */,
+				3E3CEB2D263135D300D8D80D /* ProvinceNetworkable.swift in Sources */,
+				3E3CEB312631366500D8D80D /* TargetType.swift in Sources */,
+				3E3CEB4226317B7600D8D80D /* HomeViewCell.swift in Sources */,
+				3E3CEB372631606600D8D80D /* Error.swift in Sources */,
+				3E3CEB2B263135BB00D8D80D /* ProvinceService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3E4100E0262C6E4F0001A280 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3E4100E1262C6E4F0001A280 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3E4100E3262C6E4F0001A280 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFD559925F686A9EA574F18A /* Pods-BaiTapNetworking.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = BaiTapNetworking/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = asiantech.vn.BaiTapNetworking;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3E4100E4262C6E4F0001A280 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1071C367861E0FDF550325F /* Pods-BaiTapNetworking.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = BaiTapNetworking/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = asiantech.vn.BaiTapNetworking;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3E4100C9262C6E480001A280 /* Build configuration list for PBXProject "BaiTapNetworking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E4100E0262C6E4F0001A280 /* Debug */,
+				3E4100E1262C6E4F0001A280 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3E4100E2262C6E4F0001A280 /* Build configuration list for PBXNativeTarget "BaiTapNetworking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E4100E3262C6E4F0001A280 /* Debug */,
+				3E4100E4262C6E4F0001A280 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3E4100C6262C6E480001A280 /* Project object */;
+}
