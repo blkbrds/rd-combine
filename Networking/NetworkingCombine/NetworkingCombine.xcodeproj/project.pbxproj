@@ -45,6 +45,9 @@
 		B5BF1A2825F8D6F600DC42F1 /* TrendingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BF1A2725F8D6F500DC42F1 /* TrendingViewModel.swift */; };
 		B5F6530226244F0000BB1CAC /* DrinkCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F6530126244F0000BB1CAC /* DrinkCellView.swift */; };
 		B5FC009325F4792600104C9D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FC009225F4792600104C9D /* Colors.swift */; };
+		EB02E8DB2626123E00232A16 /* CocktailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB02E8DA2626123E00232A16 /* CocktailService.swift */; };
+		EB02E8DE262613BA00232A16 /* CocktailNetworkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB02E8DD262613BA00232A16 /* CocktailNetworkable.swift */; };
+		EBFA4A662627344700CA5D25 /* CocktailNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFA4A652627344700CA5D25 /* CocktailNetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +95,9 @@
 		B5FC009225F4792600104C9D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		B84F02F9AE0E2E3088070E9C /* Pods-NetworkingCombine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkingCombine.debug.xcconfig"; path = "Target Support Files/Pods-NetworkingCombine/Pods-NetworkingCombine.debug.xcconfig"; sourceTree = "<group>"; };
 		D3F6757BFC456FB8B6A07740 /* Pods-List-NavigationDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-List-NavigationDemo.debug.xcconfig"; path = "Target Support Files/Pods-List-NavigationDemo/Pods-List-NavigationDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		EB02E8DA2626123E00232A16 /* CocktailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailService.swift; sourceTree = "<group>"; };
+		EB02E8DD262613BA00232A16 /* CocktailNetworkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailNetworkable.swift; sourceTree = "<group>"; };
+		EBFA4A652627344700CA5D25 /* CocktailNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailNetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +172,7 @@
 		0EFE1FED25F1FE910026EC2D /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				EB02E8D92626122800232A16 /* Cocktail */,
 				4EE143B1262534530040BE4B /* Restaurant */,
 				0EFE201D25F204460026EC2D /* Core */,
 			);
@@ -356,6 +363,16 @@
 			path = Defines;
 			sourceTree = "<group>";
 		};
+		EB02E8D92626122800232A16 /* Cocktail */ = {
+			isa = PBXGroup;
+			children = (
+				EB02E8DA2626123E00232A16 /* CocktailService.swift */,
+				EB02E8DD262613BA00232A16 /* CocktailNetworkable.swift */,
+				EBFA4A652627344700CA5D25 /* CocktailNetworkManager.swift */,
+			);
+			path = Cocktail;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -471,6 +488,7 @@
 			files = (
 				0E037952260061A000EAB901 /* PagerView.swift in Sources */,
 				B5F6530226244F0000BB1CAC /* DrinkCellView.swift in Sources */,
+				EBFA4A662627344700CA5D25 /* CocktailNetworkManager.swift in Sources */,
 				B56AC72225F772B8003E2873 /* HomeSearchView.swift in Sources */,
 				4EE143AB262534270040BE4B /* Provider.swift in Sources */,
 				B56AC70E25F7725A003E2873 /* TabBarView.swift in Sources */,
@@ -486,12 +504,14 @@
 				0EFE1FE325F1E8960026EC2D /* Restaurant.swift in Sources */,
 				0EFE202925F20A980026EC2D /* Error.swift in Sources */,
 				B56AC72825F772DD003E2873 /* FavoritesView.swift in Sources */,
+				EB02E8DE262613BA00232A16 /* CocktailNetworkable.swift in Sources */,
 				B56AC6F425F7714E003E2873 /* TabBar.swift in Sources */,
 				0EFE202225F2047F0026EC2D /* TargetType.swift in Sources */,
 				0E03795526008EB000EAB901 /* TrendingCellViewModel.swift in Sources */,
 				B54C7C8225F0D8E900AB8FE9 /* AppDelegate.swift in Sources */,
 				B533DA67262432C000436593 /* DrinksViewModel.swift in Sources */,
 				33DD428225F3D48A00A2C75E /* TrendingCell.swift in Sources */,
+				EB02E8DB2626123E00232A16 /* CocktailService.swift in Sources */,
 				B56AC71A25F77296003E2873 /* HomeView.swift in Sources */,
 				B54C7C8425F0D8E900AB8FE9 /* SceneDelegate.swift in Sources */,
 				0EE7B20C25F5FD11005D3D28 /* PullToRefresh.swift in Sources */,
@@ -572,7 +592,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -627,7 +647,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -648,6 +668,7 @@
 				DEVELOPMENT_TEAM = SG8WKWH7TV;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = NetworkingCombine/Supports/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -670,6 +691,7 @@
 				DEVELOPMENT_TEAM = SG8WKWH7TV;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = NetworkingCombine/Supports/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -13,7 +13,7 @@ struct DrinkCellView: View {
     
     var body: some View {
         HStack(alignment: .top) {
-            AnimatedImage(url: URL(string: drink.imageURL), options: [.progressiveLoad, .delayPlaceholder])
+            AnimatedImage(url: URL(string: drink.imageURL ?? ""), options: [.progressiveLoad, .delayPlaceholder])
                 .resizable()
                 .placeholder(UIImage(named: "default-thumbnail"))
                 .indicator(.activity)
@@ -23,7 +23,7 @@ struct DrinkCellView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 10))
             
             VStack(alignment: .leading,spacing: 6) {
-                Text(drink.nameTitle)
+                Text(drink.nameTitle ?? "")
                     .bold()
                     .lineLimit(1)
                 
@@ -37,7 +37,7 @@ struct DrinkCellView: View {
                 }
                 .padding(.bottom, 20)
                 
-                Text(drink.instructions)
+                Text(drink.instructions ?? "")
                     .font(.system(size: 11, weight: .light, design: .default))
                     .lineLimit(3)
             }

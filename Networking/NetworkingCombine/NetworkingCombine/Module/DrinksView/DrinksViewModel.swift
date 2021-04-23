@@ -9,6 +9,10 @@ import SwiftUI
 import Combine
 
 final class DrinksViewModel: ObservableObject {
+
+    // Network
+    private let cocktailNetworkManager = CocktailNetworkManager()
+
     private var subscriptions = Set<AnyCancellable>()
     
     @Published var searchText = ""
@@ -31,6 +35,11 @@ final class DrinksViewModel: ObservableObject {
     }
     
     func searchForDrink(with text: String) {
-        
+        cocktailNetworkManager.getCocktails(name: text)
+            .sink { error in
+                print(error)
+            } receiveValue: { value in
+                self.drinks = value.data ?? []
+            }.store(in: &subscriptions)
     }
 }
