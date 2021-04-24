@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="CombineTest1" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outletCollection property="userNameLabelCollection" destination="T0i-Cg-X8L" collectionClass="NSMutableArray" id="Npd-VL-Tfa"/>
+                <outletCollection property="userNameLabelCollection" destination="NhS-gE-8qe" collectionClass="NSMutableArray" id="K12-Jl-BFj"/>
+                <outletCollection property="userNameLabelCollection" destination="ntP-BQ-x1Q" collectionClass="NSMutableArray" id="bxd-Rc-UOI"/>
+                <outletCollection property="userNameLabelCollection" destination="dOI-jO-RNo" collectionClass="NSMutableArray" id="OVN-iX-Yct"/>
+                <outletCollection property="addressLabelCollection" destination="83m-S0-0cV" collectionClass="NSMutableArray" id="Ume-ga-aqC"/>
+                <outletCollection property="addressLabelCollection" destination="QB7-ug-n4D" collectionClass="NSMutableArray" id="KTr-gB-ETu"/>
+                <outletCollection property="addressLabelCollection" destination="FfJ-aG-6kx" collectionClass="NSMutableArray" id="mlT-gt-lV9"/>
+                <outletCollection property="addressLabelCollection" destination="qAc-ia-UFt" collectionClass="NSMutableArray" id="CWw-70-Ii6"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nYn-iW-212">
+                    <rect key="frame" x="0.0" y="44" width="207" height="448"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NdO-rH-gIK">
+                            <rect key="frame" x="52" y="31.5" width="103.5" height="100.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="NdO-rH-gIK" secondAttribute="height" id="OmK-lQ-2DZ"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cristiano Ronaldo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T0i-Cg-X8L">
+                            <rect key="frame" x="20.5" y="153.5" width="166.5" height="24"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                            <color key="textColor" systemColor="systemRedColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Madeira, Portugal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83m-S0-0cV">
+                            <rect key="frame" x="36" y="197.5" width="135" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" systemColor="systemRedColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z52-AA-Cbe">
+                            <rect key="frame" x="52" y="238.5" width="103" height="30"/>
+                            <color key="backgroundColor" name="AccentColor"/>
+                            <state key="normal" title="Edit (Delagate)">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="editButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="fQY-qx-VlS"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="NdO-rH-gIK" firstAttribute="centerX" secondItem="nYn-iW-212" secondAttribute="centerX" id="2Wo-hW-6R2"/>
+                        <constraint firstItem="z52-AA-Cbe" firstAttribute="top" secondItem="83m-S0-0cV" secondAttribute="bottom" constant="20" id="63g-Rd-PYU"/>
+                        <constraint firstItem="z52-AA-Cbe" firstAttribute="centerX" secondItem="nYn-iW-212" secondAttribute="centerX" id="BRv-mO-KWJ"/>
+                        <constraint firstItem="83m-S0-0cV" firstAttribute="centerX" secondItem="nYn-iW-212" secondAttribute="centerX" id="M9W-Br-84o"/>
+                        <constraint firstItem="T0i-Cg-X8L" firstAttribute="top" secondItem="NdO-rH-gIK" secondAttribute="bottom" constant="20" id="YAd-dd-ANb"/>
+                        <constraint firstItem="T0i-Cg-X8L" firstAttribute="centerX" secondItem="nYn-iW-212" secondAttribute="centerX" id="a4T-XD-AmQ"/>
+                        <constraint firstItem="NdO-rH-gIK" firstAttribute="top" secondItem="nYn-iW-212" secondAttribute="top" constant="30" id="dyz-ZL-aHr"/>
+                        <constraint firstItem="NdO-rH-gIK" firstAttribute="width" secondItem="nYn-iW-212" secondAttribute="width" multiplier="1:2" id="kYh-qj-Nf7"/>
+                        <constraint firstItem="83m-S0-0cV" firstAttribute="top" secondItem="T0i-Cg-X8L" secondAttribute="bottom" constant="20" id="lBa-EH-g0J"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9L3-UF-IwH">
+                    <rect key="frame" x="207" y="44" width="207" height="448"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="e43-WO-p91">
+                            <rect key="frame" x="52" y="31.5" width="103.5" height="100.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="e43-WO-p91" secondAttribute="height" id="NSN-II-NJl"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cristiano Ronaldo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NhS-gE-8qe">
+                            <rect key="frame" x="20.5" y="153.5" width="166.5" height="24"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                            <color key="textColor" systemColor="systemRedColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Madeira, Portugal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QB7-ug-n4D">
+                            <rect key="frame" x="36" y="197.5" width="135" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" systemColor="systemRedColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hq3-2t-C9j">
+                            <rect key="frame" x="56.5" y="238.5" width="94" height="30"/>
+                            <color key="backgroundColor" name="AccentColor"/>
+                            <state key="normal" title="Edit (Closure)">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="editButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="8bu-0R-eb7"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="NhS-gE-8qe" firstAttribute="centerX" secondItem="9L3-UF-IwH" secondAttribute="centerX" id="24h-W6-xVm"/>
+                        <constraint firstItem="hq3-2t-C9j" firstAttribute="top" secondItem="QB7-ug-n4D" secondAttribute="bottom" constant="20" id="BOm-ai-VNY"/>
+                        <constraint firstItem="e43-WO-p91" firstAttribute="top" secondItem="9L3-UF-IwH" secondAttribute="top" constant="30" id="Blw-zG-GfL"/>
+                        <constraint firstItem="QB7-ug-n4D" firstAttribute="top" secondItem="NhS-gE-8qe" secondAttribute="bottom" constant="20" id="HWR-jb-Sqf"/>
+                        <constraint firstItem="NhS-gE-8qe" firstAttribute="top" secondItem="e43-WO-p91" secondAttribute="bottom" constant="20" id="d00-Vc-NxL"/>
+                        <constraint firstItem="e43-WO-p91" firstAttribute="width" secondItem="9L3-UF-IwH" secondAttribute="width" multiplier="1:2" id="dXh-UD-MGy"/>
+                        <constraint firstItem="hq3-2t-C9j" firstAttribute="centerX" secondItem="9L3-UF-IwH" secondAttribute="centerX" id="jQM-P7-c6l"/>
+                        <constraint firstItem="QB7-ug-n4D" firstAttribute="centerX" secondItem="9L3-UF-IwH" secondAttribute="centerX" id="qsT-5S-31U"/>
+                        <constraint firstItem="e43-WO-p91" firstAttribute="centerX" secondItem="9L3-UF-IwH" secondAttribute="centerX" id="vGo-Pz-OG3"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gND-VX-UtF">
+                    <rect key="frame" x="0.0" y="492" width="207" height="370"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="30w-fp-c9r">
+                            <rect key="frame" x="52" y="16.5" width="103.5" height="100.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="30w-fp-c9r" secondAttribute="height" id="u4P-Un-9RZ"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cristiano Ronaldo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntP-BQ-x1Q">
+                            <rect key="frame" x="20.5" y="138.5" width="166.5" height="24"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                            <color key="textColor" systemColor="systemRedColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Madeira, Portugal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FfJ-aG-6kx">
+                            <rect key="frame" x="36" y="182.5" width="135" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" systemColor="systemRedColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XwR-Yb-jlb">
+                            <rect key="frame" x="43" y="223.5" width="121" height="30"/>
+                            <color key="backgroundColor" name="AccentColor"/>
+                            <state key="normal" title="Edit (Notification)">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="editButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="LCe-Nw-wrk"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="30w-fp-c9r" firstAttribute="top" secondItem="gND-VX-UtF" secondAttribute="top" constant="15" id="33G-h7-cdJ"/>
+                        <constraint firstItem="30w-fp-c9r" firstAttribute="centerX" secondItem="gND-VX-UtF" secondAttribute="centerX" id="BVT-ag-27d"/>
+                        <constraint firstItem="XwR-Yb-jlb" firstAttribute="top" secondItem="FfJ-aG-6kx" secondAttribute="bottom" constant="20" id="Bab-eq-c2L"/>
+                        <constraint firstItem="XwR-Yb-jlb" firstAttribute="centerX" secondItem="gND-VX-UtF" secondAttribute="centerX" id="OOm-2a-f8W"/>
+                        <constraint firstItem="30w-fp-c9r" firstAttribute="width" secondItem="gND-VX-UtF" secondAttribute="width" multiplier="1:2" id="Pav-OB-8Vd"/>
+                        <constraint firstItem="ntP-BQ-x1Q" firstAttribute="centerX" secondItem="gND-VX-UtF" secondAttribute="centerX" id="WSH-xm-aSF"/>
+                        <constraint firstItem="FfJ-aG-6kx" firstAttribute="centerX" secondItem="gND-VX-UtF" secondAttribute="centerX" id="inO-SC-LAE"/>
+                        <constraint firstItem="ntP-BQ-x1Q" firstAttribute="top" secondItem="30w-fp-c9r" secondAttribute="bottom" constant="20" id="qHD-iA-91N"/>
+                        <constraint firstItem="FfJ-aG-6kx" firstAttribute="top" secondItem="ntP-BQ-x1Q" secondAttribute="bottom" constant="20" id="tiL-Jq-z0T"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yH1-1Y-fQa">
+                    <rect key="frame" x="207" y="492" width="207" height="370"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5hm-xp-zZo">
+                            <rect key="frame" x="52" y="16.5" width="103.5" height="100.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="5hm-xp-zZo" secondAttribute="height" id="xUh-bI-TyK"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cristiano Ronaldo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOI-jO-RNo">
+                            <rect key="frame" x="20.5" y="138.5" width="166.5" height="24"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                            <color key="textColor" systemColor="systemRedColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Madeira, Portugal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAc-ia-UFt">
+                            <rect key="frame" x="36" y="182.5" width="135" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" systemColor="systemRedColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pEX-SW-fd7">
+                            <rect key="frame" x="52" y="223.5" width="103" height="30"/>
+                            <color key="backgroundColor" name="AccentColor"/>
+                            <state key="normal" title="Edit (Combine)">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="editButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="ZLS-wQ-gms"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="pEX-SW-fd7" firstAttribute="top" secondItem="qAc-ia-UFt" secondAttribute="bottom" constant="20" id="CxY-73-3sX"/>
+                        <constraint firstItem="5hm-xp-zZo" firstAttribute="width" secondItem="yH1-1Y-fQa" secondAttribute="width" multiplier="1:2" id="D2d-pc-AKM"/>
+                        <constraint firstItem="dOI-jO-RNo" firstAttribute="centerX" secondItem="yH1-1Y-fQa" secondAttribute="centerX" id="E2p-kK-pg1"/>
+                        <constraint firstItem="qAc-ia-UFt" firstAttribute="top" secondItem="dOI-jO-RNo" secondAttribute="bottom" constant="20" id="Rdc-Z9-w7z"/>
+                        <constraint firstItem="dOI-jO-RNo" firstAttribute="top" secondItem="5hm-xp-zZo" secondAttribute="bottom" constant="20" id="ZjJ-j8-A3g"/>
+                        <constraint firstItem="5hm-xp-zZo" firstAttribute="top" secondItem="yH1-1Y-fQa" secondAttribute="top" constant="15" id="drM-MD-bjZ"/>
+                        <constraint firstItem="qAc-ia-UFt" firstAttribute="centerX" secondItem="yH1-1Y-fQa" secondAttribute="centerX" id="iSN-Yf-4lT"/>
+                        <constraint firstItem="pEX-SW-fd7" firstAttribute="centerX" secondItem="yH1-1Y-fQa" secondAttribute="centerX" id="uyH-L1-2CA"/>
+                        <constraint firstItem="5hm-xp-zZo" firstAttribute="centerX" secondItem="yH1-1Y-fQa" secondAttribute="centerX" id="vdP-nZ-rbG"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="gND-VX-UtF" firstAttribute="top" secondItem="nYn-iW-212" secondAttribute="bottom" id="3SW-pX-uyQ"/>
+                <constraint firstItem="9L3-UF-IwH" firstAttribute="width" secondItem="nYn-iW-212" secondAttribute="width" id="Ale-AY-xMy"/>
+                <constraint firstItem="9L3-UF-IwH" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="OUl-9z-AaM"/>
+                <constraint firstItem="yH1-1Y-fQa" firstAttribute="top" secondItem="9L3-UF-IwH" secondAttribute="bottom" id="R62-Xz-qUT"/>
+                <constraint firstItem="nYn-iW-212" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="R9G-YF-yAH"/>
+                <constraint firstItem="gND-VX-UtF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="WMW-LT-chI"/>
+                <constraint firstItem="nYn-iW-212" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="YyJ-Ep-drF"/>
+                <constraint firstItem="nYn-iW-212" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="1:2" id="b4y-b1-B35"/>
+                <constraint firstItem="gND-VX-UtF" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="1:2" id="bsU-fo-qXf"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="yH1-1Y-fQa" secondAttribute="trailing" id="gb6-Li-1pF"/>
+                <constraint firstItem="yH1-1Y-fQa" firstAttribute="leading" secondItem="gND-VX-UtF" secondAttribute="trailing" id="kyC-0y-9vh"/>
+                <constraint firstItem="9L3-UF-IwH" firstAttribute="leading" secondItem="nYn-iW-212" secondAttribute="trailing" id="nqg-Bj-kaD"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="yH1-1Y-fQa" secondAttribute="bottom" id="nyE-o1-EiZ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9L3-UF-IwH" secondAttribute="trailing" id="pJy-PN-Ndi"/>
+                <constraint firstItem="9L3-UF-IwH" firstAttribute="height" secondItem="nYn-iW-212" secondAttribute="height" id="qxv-EX-Hfs"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="gND-VX-UtF" secondAttribute="bottom" id="y2S-g4-Loq"/>
+                <constraint firstItem="nYn-iW-212" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="1:2" id="zOf-je-uzn"/>
+            </constraints>
+            <point key="canvasLocation" x="18.840579710144929" y="92.410714285714278"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
