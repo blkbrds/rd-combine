@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="CombineTest1" customModuleProvider="target">
+            <connections>
+                <outlet property="closureInfoView" destination="VLc-Bl-1HS" id="6ut-OK-Fle"/>
+                <outlet property="combineInfoView" destination="fqi-r4-hSJ" id="etl-MC-A7a"/>
+                <outlet property="delegateInfoView" destination="aYE-U7-DtV" id="dfx-vr-im5"/>
+                <outlet property="notificationInfoView" destination="dcC-V4-veC" id="8qi-a7-GmO"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ZDp-zd-bLv">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="MOQ-US-ktj">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="409"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aYE-U7-DtV" customClass="InfoView" customModule="CombineTest1" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="207" height="409"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VLc-Bl-1HS" customClass="InfoView" customModule="CombineTest1" customModuleProvider="target">
+                                    <rect key="frame" x="207" y="0.0" width="207" height="409"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                </view>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="5X2-l5-Tbi">
+                            <rect key="frame" x="0.0" y="409" width="414" height="409"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dcC-V4-veC" customClass="InfoView" customModule="CombineTest1" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="207" height="409"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fqi-r4-hSJ" customClass="InfoView" customModule="CombineTest1" customModuleProvider="target">
+                                    <rect key="frame" x="207" y="0.0" width="207" height="409"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                </view>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="ZDp-zd-bLv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="7Pc-d4-aVZ"/>
+                <constraint firstItem="ZDp-zd-bLv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="FfY-4M-NBR"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZDp-zd-bLv" secondAttribute="trailing" id="mZ6-7h-Ero"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ZDp-zd-bLv" secondAttribute="bottom" id="nao-j5-0Ma"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="141" y="126"/>
+        </view>
+    </objects>
+</document>
