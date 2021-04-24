@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Test1Combine" customModuleProvider="target">
+            <connections>
+                <outlet property="closureView" destination="5Ce-bt-0AV" id="faN-P9-TDt"/>
+                <outlet property="combineView" destination="EVp-Of-j2o" id="s8w-4V-1VA"/>
+                <outlet property="delegateView" destination="pCe-Hs-aHW" id="DRG-DD-pel"/>
+                <outlet property="notificationView" destination="f4Z-yB-pai" id="KZu-YR-pQu"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pCe-Hs-aHW" customClass="UserInfoView" customModule="Test1Combine" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="207" height="368"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Ce-bt-0AV" customClass="UserInfoView" customModule="Test1Combine" customModuleProvider="target">
+                    <rect key="frame" x="207" y="0.0" width="207" height="368"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EVp-Of-j2o" customClass="UserInfoView" customModule="Test1Combine" customModuleProvider="target">
+                    <rect key="frame" x="207" y="368" width="207" height="368"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f4Z-yB-pai" customClass="UserInfoView" customModule="Test1Combine" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="368" width="207" height="368"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="EVp-Of-j2o" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="8zw-Ej-fPY"/>
+                <constraint firstItem="5Ce-bt-0AV" firstAttribute="width" secondItem="pCe-Hs-aHW" secondAttribute="width" id="B8g-A4-rfi"/>
+                <constraint firstItem="EVp-Of-j2o" firstAttribute="leading" secondItem="f4Z-yB-pai" secondAttribute="trailing" id="Dqh-yU-kgZ"/>
+                <constraint firstItem="pCe-Hs-aHW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="LcS-g5-HEy"/>
+                <constraint firstItem="5Ce-bt-0AV" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="PsA-5g-gfB"/>
+                <constraint firstItem="f4Z-yB-pai" firstAttribute="width" secondItem="pCe-Hs-aHW" secondAttribute="width" id="QF7-Xa-FfJ"/>
+                <constraint firstItem="EVp-Of-j2o" firstAttribute="height" secondItem="f4Z-yB-pai" secondAttribute="height" id="V1s-Dg-DiS"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5Ce-bt-0AV" secondAttribute="trailing" id="WeK-GS-SRr"/>
+                <constraint firstItem="f4Z-yB-pai" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="aFe-ki-hIa"/>
+                <constraint firstItem="pCe-Hs-aHW" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="cUR-To-aDN"/>
+                <constraint firstItem="EVp-Of-j2o" firstAttribute="width" secondItem="f4Z-yB-pai" secondAttribute="width" id="czB-2A-urI"/>
+                <constraint firstItem="pCe-Hs-aHW" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="1:2" id="fdR-mr-9k7"/>
+                <constraint firstItem="f4Z-yB-pai" firstAttribute="height" secondItem="pCe-Hs-aHW" secondAttribute="height" id="qVy-yV-CDB"/>
+                <constraint firstItem="5Ce-bt-0AV" firstAttribute="leading" secondItem="pCe-Hs-aHW" secondAttribute="trailing" id="sCF-ay-dA0"/>
+                <constraint firstItem="pCe-Hs-aHW" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="1:2" id="tGQ-pH-TIm"/>
+                <constraint firstItem="f4Z-yB-pai" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="uAn-1P-Iuv"/>
+                <constraint firstItem="5Ce-bt-0AV" firstAttribute="height" secondItem="pCe-Hs-aHW" secondAttribute="height" id="uSh-zv-RQ2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="EVp-Of-j2o" secondAttribute="bottom" id="unt-0n-lxb"/>
+            </constraints>
+            <point key="canvasLocation" x="-6" y="104"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
