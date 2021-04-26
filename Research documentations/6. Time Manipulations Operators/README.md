@@ -24,7 +24,7 @@ Timing Out là việc chấm dứt việc phát ra giá trị nếu upstream pub
     Ý nghĩa: Thực thi khi publisher timeout
 
 ### Biểu đồ:
-https://user-images.githubusercontent.com/67259297/115152740-93350580-a09c-11eb-826a-56dc46edf16a.png
+https://user-images.githubusercontent.com/67259297/116021905-5b692780-a673-11eb-9b22-591942030136.png
 - Ví dụ ở trên chúng ta có thể hiểu được: Sau 2 giây theo quy định nếu upstream không phát giá trị gì thì downstream nhận được Error.
 # References
 - [Combine by Raywernderlich](https://www.raywenderlich.com/books/combine-asynchronous-programming-with-swift/v2.0)
