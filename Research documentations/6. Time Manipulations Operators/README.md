@@ -4,6 +4,35 @@ R&D - iOS - Combine
 
 # Contents
 
+## 1. Timing Out
+Timing Out là việc chấm dứt việc phát ra giá trị nếu upstream publisher không phát ra  gì trong thời gian quy định
+- Tham số
+`timeout(_:scheduler:options:customError:)`
+- interval:
+    Kiểu dữ liệu: `Scheduler.SchedulerTimeType.Stride`
+    Ý nghĩa:  khoảng thời gian tối đa cho phép upstream publisher có thể đi qua mà không phát ra giá trị
+
+- scheduler:
+    Kiểu dữ liệu: `Scheduler`
+    Ý nghĩa: Nơi phát ra giá trị
+- options:
+    Kiểu dữ liệu: `Scheduler.SchedulerOptions?`
+    Ý nghĩa: Tuỳ chọn của scheduler phát giá trị
+
+- customError:
+    Kiểu dữ liệu: `(() -> Failure)?`
+    Ý nghĩa: Thực thi khi publisher timeout
+
+### Biểu đồ:
+https://user-images.githubusercontent.com/67259297/116021905-5b692780-a673-11eb-9b22-591942030136.png
+- Ví dụ ở trên chúng ta có thể hiểu được: Sau 2 giây theo quy định nếu upstream không phát giá trị gì thì downstream nhận được Error.
+# References
+- [Combine by Raywernderlich](https://www.raywenderlich.com/books/combine-asynchronous-programming-with-swift/v2.0)
+- [FxStudio](https://fxstudio.dev/category/code/combine/)
+
+# License
+Xem [License](https://github.com/blkbrds/rd-combine/blob/main/LICENSE) để biết thêm thông tin chi tiết.
+
 ## 2. Collect
 ### 1. Công dụng
 Trước khi đi sâu vào phân tích về operator này thì mình muốn tóm tắt lại công dụng của nó:
