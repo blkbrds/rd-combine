@@ -7,6 +7,8 @@
 
 import Foundation
 
-enum APIError: Error {
+enum APIError: Error, Identifiable {
+    var id: String { UUID().uuidString }
+    
     case invalidServerResponse
 }

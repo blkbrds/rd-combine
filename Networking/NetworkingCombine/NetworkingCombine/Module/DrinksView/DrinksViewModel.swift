@@ -12,11 +12,12 @@ final class DrinksViewModel: ObservableObject {
 
     // Network
     private let cocktailNetworkManager = CocktailNetworkManager()
-
     private var subscriptions = Set<AnyCancellable>()
     
     @Published var searchText = ""
     @Published var drinks: [Cocktail] = []
+    @Published var isLoading: Bool = false
+    @Published var error: APIError?
     
     init() {
         $searchText
@@ -35,11 +36,17 @@ final class DrinksViewModel: ObservableObject {
     }
     
     func searchForDrink(with text: String) {
+        isLoading = true
         cocktailNetworkManager.getCocktails(name: text)
             .sink { error in
-                print(error)
+                self.isLoading = false
+                if case .failure(let error) = error {
+                    self.error = error as? APIError
+                }
             } receiveValue: { value in
                 self.drinks = value.data ?? []
-            }.store(in: &subscriptions)
+            }
+
+            .store(in: &subscriptions)
     }
 }

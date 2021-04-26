@@ -53,10 +53,7 @@ extension RequestPublisher {
     }
     
     func decode<D: Decodable>(_ type: D.Type, using decoder: JSONDecoder = JSONDecoder()) -> AnyPublisher<D, Error> {   
-        let publisher = map {
-            print("AAAAA \($0.data)")
-            return $0.data
-        }
+        let publisher = map { return $0.data }
             .decode(type: D.self, decoder: decoder)
             .print()
             .eraseToAnyPublisher()
