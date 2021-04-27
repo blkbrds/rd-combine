@@ -262,7 +262,7 @@ Là kết quả trước được trả về bởi closure nextPartialResult.
 -  nextPartialResult: 
 Là một closure có thể trả về lỗi hoặc không, closure cung cấp cho ta 2 tham số là giá trị được closure trả về trước đó và giá trị tiếp theo được phát từ upstream publisher.
 
-## Lý thuyết chỉ có nhiêu đó ta có thể tham khảo một số demo phía dưới để xem hắn hoạt động như thế nào:
+## Lý thuyết chỉ có nhiêu đó ta có thể tham khảo một số demo phía dưới để xem nó hoạt động như thế nào:
 
 ### 5.1. scan <a name="scan"></a> 
 
@@ -311,7 +311,7 @@ Cái `extension` này để formater ra theo số mệnh giá tiền cho nhanh t
 ``` swift
 var subscriptions = Set<AnyCancellable>()
 let typeOfMoneys = [500_000, 200_000, 100_000, 50_000, 20_000, 10_000, 5_000, 2_000, 1_000]
-    .sorted(by: { $0 > $1 })
+    .sorted(by: { $0 > $1 })        // [1]
     .publisher
 
 var output: [(Int, String)] = []    // Là số tờ của từng mệnh giá cần thối lại cho khách hàng
@@ -332,7 +332,7 @@ typeOfMoneys
         print(" \(value)", terminator: " ")
     }.store(in: &subscriptions)
 ```
-- Đầu tiên để đưa lại ít tờ tiền cho khách hàng nhất thì phải sắp xếp mệnh giá từ cao xuống thấp.
+- Đầu tiên để đưa lại ít tờ tiền cho khách hàng nhất thì phải sắp xếp mệnh giá từ cao xuống thấp bằng cách gọi hàm ` .sorted(by: { $0 > $1 }) `  ở  `[1]`.
 - Giá trị khởi tạo ban đầu chính là số tiền phải thối lại cho khách hàng = input - bill
 - Closure lúc này sẽ trả về số tiền còn lại phải đưa cho khách hàng.
 - Nếu số tiền còn lại phải thối bé hơn mệnh giá của tiền (được nhânh từ publisher) thì sẽ trả về số tiền còn lại lúc trước được closure trả về. Còn nếu không thì sẽ lưu vào mảng output số tờ và mệnh giá tiền. Tiếp tục cần trả về số tiền còn lại sau khi trừ đi số tiền đã lưu.
