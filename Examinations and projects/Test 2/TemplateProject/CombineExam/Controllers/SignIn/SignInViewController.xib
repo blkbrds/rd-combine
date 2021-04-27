@@ -11,7 +11,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignInViewController" customModule="CombineExam" customModuleProvider="target">
             <connections>
                 <outlet property="indicatorView" destination="Ja1-xK-WQg" id="5tB-lf-3YI"/>
+                <outlet property="pwTextField" destination="6jt-qW-pZC" id="hV6-1Y-nf9"/>
                 <outlet property="signInButton" destination="sYt-ff-hEG" id="vsO-K0-C8B"/>
+                <outlet property="userNameTextField" destination="HMb-7A-klu" id="hAq-gS-Ipq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -39,14 +41,11 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" keyboardType="alphabet" secureTextEntry="YES" textContentType="password"/>
                                 </textField>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sYt-ff-hEG">
+                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sYt-ff-hEG">
                                     <rect key="frame" x="0.0" y="150" width="374" height="45"/>
                                     <color key="backgroundColor" systemColor="systemTealColor"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" title="Sign In"/>
-                                    <connections>
-                                        <action selector="signInButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="IwQ-8H-m2W"/>
-                                    </connections>
                                 </button>
                             </subviews>
                         </stackView>
@@ -65,7 +64,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Ja1-xK-WQg">
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Ja1-xK-WQg">
                     <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
                 </activityIndicatorView>
             </subviews>

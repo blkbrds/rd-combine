@@ -19,6 +19,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = UINavigationController(rootViewController: vc)
         self.window = window
         window.makeKeyAndVisible()
+    }  
+ 
+    func changeRoot() {
+        let vc = HomeViewController()
+        vc.viewModel = HomeViewModel()
+        window?.rootViewController = UINavigationController(rootViewController: vc)
+        window?.makeKeyAndVisible()
     }
 }
 
