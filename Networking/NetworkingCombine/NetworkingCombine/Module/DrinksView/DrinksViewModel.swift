@@ -21,32 +21,30 @@ final class DrinksViewModel: ObservableObject {
     
     init() {
         $searchText
+            .dropFirst()
             .debounce(for: .milliseconds(300), scheduler: DispatchQueue.main)
             .map({ $0.trimmingCharacters(in: .whitespacesAndNewlines) })
             .removeDuplicates()
-            .sink(receiveCompletion: {
-                print("receiveCompletion", $0)
-            }, receiveValue: { [weak self] text in
-                if !text.isEmpty {
-                    self?.searchForDrink(with: text)
-                    print("receiveValue", text)
+            .print("DrinksViewModel")
+            .flatMap(maxPublishers: .max(1), { text -> AnyPublisher<CocktailNetworkManager.DrinkResponseData, Never> in
+                let emptyDataPublisher = Just(CocktailNetworkManager.DrinkResponseData.init()).eraseToAnyPublisher()
+                if text.isEmpty {
+                    return emptyDataPublisher
                 }
+                self.isLoading = true
+                let publisher = self.cocktailNetworkManager.getCocktails(name: text)
+                    .catch({ (error) -> AnyPublisher<CocktailNetworkManager.DrinkResponseData, Never> in
+                        self.error = APIError.unknow(error.localizedDescription)
+                        return emptyDataPublisher
+                    })
+                    .eraseToAnyPublisher()
+                
+                return publisher
             })
-            .store(in: &subscriptions)
-    }
-    
-    func searchForDrink(with text: String) {
-        isLoading = true
-        cocktailNetworkManager.getCocktails(name: text)
-            .sink { error in
+            .sink(receiveValue: { value in
                 self.isLoading = false
-                if case .failure(let error) = error {
-                    self.error = error as? APIError
-                }
-            } receiveValue: { value in
                 self.drinks = value.data ?? []
-            }
-
+            })
             .store(in: &subscriptions)
     }
 }

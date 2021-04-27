@@ -11,4 +11,5 @@ enum APIError: Error, Identifiable {
     var id: String { UUID().uuidString }
     
     case invalidServerResponse
+    case unknow(String)
 }
