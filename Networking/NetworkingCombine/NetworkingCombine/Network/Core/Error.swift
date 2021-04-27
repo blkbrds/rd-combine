@@ -7,9 +7,24 @@
 
 import Foundation
 
-enum APIError: Error, Identifiable {
+enum APIError: Error, LocalizedError, Identifiable {
     var id: String { UUID().uuidString }
+
+    case unknown
+    case badRequest
+    case maintenance
+    case network(from: URLError)
     
-    case invalidServerResponse
-    case unknow(String)
+    var errorDescription: String? {
+        switch self {
+        case .unknown:
+            return "Unknown error"
+        case .badRequest:
+            return "Bad request"
+        case .maintenance:
+            return "Server is maintenance"
+        case .network(let from):
+            return from.localizedDescription
+        }
+    }
 }

@@ -15,18 +15,19 @@ protocol ProviderType: AnyObject {
 
 typealias RequestPublisher = AnyPublisher<URLSession.DataTaskPublisher.Output, Error>
 
-
 class Provider<Target: TargetType>: ProviderType {
     
     func request(target: Target) -> RequestPublisher {
         if let rq = target.getRequest() {
             let publisher: RequestPublisher = URLSession.shared.dataTaskPublisher(for: rq)
-                .mapError({ $0 })
+                .mapError({ error -> APIError in
+                    .network(from: error)
+                })
                 .receive(on: DispatchQueue.main)
                 .eraseToAnyPublisher()
             return publisher
         } else {
-            let publisher: RequestPublisher = Fail<URLSession.DataTaskPublisher.Output, Error>(error: APIError.invalidServerResponse)
+            let publisher: RequestPublisher = Fail<URLSession.DataTaskPublisher.Output, Error>(error: APIError.unknown)
                 .eraseToAnyPublisher()
             return publisher
         }
@@ -45,12 +46,13 @@ extension RequestPublisher {
             case 200...299:
                 return output
             case 400...600:
-                throw APIError.invalidServerResponse
+                throw APIError.badRequest
             default:
-                throw APIError.invalidServerResponse
+                throw APIError.unknown
             }
-        }.eraseToAnyPublisher()
-        return publisher   
+        }
+        .eraseToAnyPublisher()
+        return publisher
     }
     
     func decode<D: Decodable>(_ type: D.Type, using decoder: JSONDecoder = JSONDecoder()) -> AnyPublisher<D, Error> {   
@@ -69,7 +71,7 @@ class MockProviderClient<Target: TargetType>: Provider<Target> {
 //            let output : URLSession.DataTaskPublisher.Output = (target.sampleData, URLResponse())
 //            promise(.success(output))
             
-            promise(.failure(APIError.invalidServerResponse))
+            promise(.failure(APIError.unknown))
         }.eraseToAnyPublisher()
     }
 }

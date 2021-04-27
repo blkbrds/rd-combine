@@ -24,7 +24,7 @@ extension CocktailService: TargetType {
     }
     
     var sampleData: Data {
-        Data.init(forResouce: "Posts", ofType: "json")
+        Data.init(forResouce: "Cocktails", ofType: "json")
     }
 
     var method: HTTPMethod {

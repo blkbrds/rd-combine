@@ -20,8 +20,8 @@
 		33DD428225F3D48A00A2C75E /* TrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DD428125F3D48A00A2C75E /* TrendingCell.swift */; };
 		33DD428625F3E0C400A2C75E /* MostPopularCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DD428525F3E0C400A2C75E /* MostPopularCell.swift */; };
 		4E7B1D5C2637AB7300E591CA /* NetworkingCombineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7B1D5B2637AB7300E591CA /* NetworkingCombineTests.swift */; };
-		4E7B1D722637BA4400E591CA /* Posts.json in Resources */ = {isa = PBXBuildFile; fileRef = 4E7B1D712637BA4400E591CA /* Posts.json */; };
-		4E7B1D772637BA8A00E591CA /* Posts.json in Resources */ = {isa = PBXBuildFile; fileRef = 4E7B1D712637BA4400E591CA /* Posts.json */; };
+		4E7B1D722637BA4400E591CA /* Cocktails.json in Resources */ = {isa = PBXBuildFile; fileRef = 4E7B1D712637BA4400E591CA /* Cocktails.json */; };
+		4E7B1D772637BA8A00E591CA /* Cocktails.json in Resources */ = {isa = PBXBuildFile; fileRef = 4E7B1D712637BA4400E591CA /* Cocktails.json */; };
 		4EE143AB262534270040BE4B /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE143AA262534270040BE4B /* Provider.swift */; };
 		4EE143B3262534650040BE4B /* RestaurantNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE143B2262534650040BE4B /* RestaurantNetworkManager.swift */; };
 		6AE567E42623E95200E50042 /* Cocktail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE567E32623E95200E50042 /* Cocktail.swift */; };
@@ -78,7 +78,7 @@
 		4E7B1D592637AB7300E591CA /* NetworkingCombineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkingCombineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E7B1D5B2637AB7300E591CA /* NetworkingCombineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingCombineTests.swift; sourceTree = "<group>"; };
 		4E7B1D5D2637AB7300E591CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4E7B1D712637BA4400E591CA /* Posts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Posts.json; sourceTree = "<group>"; };
+		4E7B1D712637BA4400E591CA /* Cocktails.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Cocktails.json; sourceTree = "<group>"; };
 		4EE143AA262534270040BE4B /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		4EE143B2262534650040BE4B /* RestaurantNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantNetworkManager.swift; sourceTree = "<group>"; };
 		5C290F56A88290AA8F2DB97A /* Pods-NetworkingCombine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkingCombine.release.xcconfig"; path = "Target Support Files/Pods-NetworkingCombine/Pods-NetworkingCombine.release.xcconfig"; sourceTree = "<group>"; };
@@ -240,7 +240,7 @@
 		4E7B1D702637BA4400E591CA /* FakeData */ = {
 			isa = PBXGroup;
 			children = (
-				4E7B1D712637BA4400E591CA /* Posts.json */,
+				4E7B1D712637BA4400E591CA /* Cocktails.json */,
 			);
 			path = FakeData;
 			sourceTree = "<group>";
@@ -499,7 +499,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E7B1D722637BA4400E591CA /* Posts.json in Resources */,
+				4E7B1D722637BA4400E591CA /* Cocktails.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,7 +508,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B54C7C8E25F0D8EB00AB8FE9 /* LaunchScreen.storyboard in Resources */,
-				4E7B1D772637BA8A00E591CA /* Posts.json in Resources */,
+				4E7B1D772637BA8A00E591CA /* Cocktails.json in Resources */,
 				B54C7C8825F0D8EB00AB8FE9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

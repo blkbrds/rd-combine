@@ -14,8 +14,7 @@ struct CocktailNetworkManager: CocktailNetworkable {
     func getCocktails(name: String) -> AnyPublisher<DrinkResponseData, Error> {
         return provider.request(target: .getCocktail(name: name))
             .catchAPIError()
-            .decode(DrinkResponseData.self)
-        
+            .decode(DrinkResponseData.self)   
     }
 }
 

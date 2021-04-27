@@ -35,7 +35,7 @@ final class DrinksViewModel: ObservableObject {
                 self.isLoading = true
                 return self.cocktailNetworkManager.getCocktails(name: text)
                     .catch({ (error) -> AnyPublisher<DrinkResponseData, Never> in
-                        self.error = APIError.unknow(error.localizedDescription)
+                        self.error = error as? APIError
                         return emptyDataPublisher
                     })
                     .eraseToAnyPublisher()
