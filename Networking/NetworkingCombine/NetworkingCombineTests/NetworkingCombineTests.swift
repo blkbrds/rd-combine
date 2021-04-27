@@ -23,7 +23,7 @@ class NetworkingCombineTests: XCTestCase {
 
     }
 
-    func testExample() throws {
+    func testCase400() throws {
         let networkManager: CocktailNetworkManager = CocktailNetworkManager(provider: MockProviderClient<CocktailService>())
         _ = networkManager.getCocktails(name: "A")
             .sink { completion in
