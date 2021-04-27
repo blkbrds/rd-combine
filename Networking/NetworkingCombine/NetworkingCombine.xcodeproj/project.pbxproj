@@ -19,6 +19,9 @@
 		12029EBA9B578E406C17611C /* Pods_NetworkingCombine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 603866ECE5E0B0B7EABEDAC6 /* Pods_NetworkingCombine.framework */; };
 		33DD428225F3D48A00A2C75E /* TrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DD428125F3D48A00A2C75E /* TrendingCell.swift */; };
 		33DD428625F3E0C400A2C75E /* MostPopularCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DD428525F3E0C400A2C75E /* MostPopularCell.swift */; };
+		4E7B1D5C2637AB7300E591CA /* NetworkingCombineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7B1D5B2637AB7300E591CA /* NetworkingCombineTests.swift */; };
+		4E7B1D722637BA4400E591CA /* Posts.json in Resources */ = {isa = PBXBuildFile; fileRef = 4E7B1D712637BA4400E591CA /* Posts.json */; };
+		4E7B1D772637BA8A00E591CA /* Posts.json in Resources */ = {isa = PBXBuildFile; fileRef = 4E7B1D712637BA4400E591CA /* Posts.json */; };
 		4EE143AB262534270040BE4B /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE143AA262534270040BE4B /* Provider.swift */; };
 		4EE143B3262534650040BE4B /* RestaurantNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE143B2262534650040BE4B /* RestaurantNetworkManager.swift */; };
 		6AE567E42623E95200E50042 /* Cocktail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE567E32623E95200E50042 /* Cocktail.swift */; };
@@ -50,6 +53,16 @@
 		EBFA4A662627344700CA5D25 /* CocktailNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFA4A652627344700CA5D25 /* CocktailNetworkManager.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		4E7B1D5E2637AB7300E591CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B54C7C7625F0D8E900AB8FE9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B54C7C7D25F0D8E900AB8FE9;
+			remoteInfo = NetworkingCombine;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		0E037951260061A000EAB901 /* PagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerView.swift; sourceTree = "<group>"; };
 		0E03795426008EB000EAB901 /* TrendingCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCellViewModel.swift; sourceTree = "<group>"; };
@@ -62,6 +75,10 @@
 		0EFE202825F20A980026EC2D /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		33DD428125F3D48A00A2C75E /* TrendingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCell.swift; sourceTree = "<group>"; };
 		33DD428525F3E0C400A2C75E /* MostPopularCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularCell.swift; sourceTree = "<group>"; };
+		4E7B1D592637AB7300E591CA /* NetworkingCombineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkingCombineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E7B1D5B2637AB7300E591CA /* NetworkingCombineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingCombineTests.swift; sourceTree = "<group>"; };
+		4E7B1D5D2637AB7300E591CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E7B1D712637BA4400E591CA /* Posts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Posts.json; sourceTree = "<group>"; };
 		4EE143AA262534270040BE4B /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		4EE143B2262534650040BE4B /* RestaurantNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantNetworkManager.swift; sourceTree = "<group>"; };
 		5C290F56A88290AA8F2DB97A /* Pods-NetworkingCombine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkingCombine.release.xcconfig"; path = "Target Support Files/Pods-NetworkingCombine/Pods-NetworkingCombine.release.xcconfig"; sourceTree = "<group>"; };
@@ -101,6 +118,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4E7B1D562637AB7300E591CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B54C7C7B25F0D8E900AB8FE9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -203,6 +227,24 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		4E7B1D5A2637AB7300E591CA /* NetworkingCombineTests */ = {
+			isa = PBXGroup;
+			children = (
+				4E7B1D702637BA4400E591CA /* FakeData */,
+				4E7B1D5B2637AB7300E591CA /* NetworkingCombineTests.swift */,
+				4E7B1D5D2637AB7300E591CA /* Info.plist */,
+			);
+			path = NetworkingCombineTests;
+			sourceTree = "<group>";
+		};
+		4E7B1D702637BA4400E591CA /* FakeData */ = {
+			isa = PBXGroup;
+			children = (
+				4E7B1D712637BA4400E591CA /* Posts.json */,
+			);
+			path = FakeData;
+			sourceTree = "<group>";
+		};
 		4EE143B1262534530040BE4B /* Restaurant */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				B54C7C8025F0D8E900AB8FE9 /* NetworkingCombine */,
+				4E7B1D5A2637AB7300E591CA /* NetworkingCombineTests */,
 				B54C7C7F25F0D8E900AB8FE9 /* Products */,
 				A761492DBACF47A8059AE48F /* Pods */,
 				AA758E2199A48575F6B75D89 /* Frameworks */,
@@ -246,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				B54C7C7E25F0D8E900AB8FE9 /* NetworkingCombine.app */,
+				4E7B1D592637AB7300E591CA /* NetworkingCombineTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -376,6 +420,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4E7B1D582637AB7300E591CA /* NetworkingCombineTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4E7B1D622637AB7300E591CA /* Build configuration list for PBXNativeTarget "NetworkingCombineTests" */;
+			buildPhases = (
+				4E7B1D552637AB7300E591CA /* Sources */,
+				4E7B1D562637AB7300E591CA /* Frameworks */,
+				4E7B1D572637AB7300E591CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4E7B1D5F2637AB7300E591CA /* PBXTargetDependency */,
+			);
+			name = NetworkingCombineTests;
+			productName = NetworkingCombineTests;
+			productReference = 4E7B1D592637AB7300E591CA /* NetworkingCombineTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		B54C7C7D25F0D8E900AB8FE9 /* NetworkingCombine */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B54C7C9225F0D8EB00AB8FE9 /* Build configuration list for PBXNativeTarget "NetworkingCombine" */;
@@ -404,6 +466,10 @@
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
+					4E7B1D582637AB7300E591CA = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = B54C7C7D25F0D8E900AB8FE9;
+					};
 					B54C7C7D25F0D8E900AB8FE9 = {
 						CreatedOnToolsVersion = 12.4;
 					};
@@ -423,16 +489,26 @@
 			projectRoot = "";
 			targets = (
 				B54C7C7D25F0D8E900AB8FE9 /* NetworkingCombine */,
+				4E7B1D582637AB7300E591CA /* NetworkingCombineTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4E7B1D572637AB7300E591CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E7B1D722637BA4400E591CA /* Posts.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B54C7C7C25F0D8E900AB8FE9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B54C7C8E25F0D8EB00AB8FE9 /* LaunchScreen.storyboard in Resources */,
+				4E7B1D772637BA8A00E591CA /* Posts.json in Resources */,
 				B54C7C8825F0D8EB00AB8FE9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -482,6 +558,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4E7B1D552637AB7300E591CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E7B1D5C2637AB7300E591CA /* NetworkingCombineTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B54C7C7A25F0D8E900AB8FE9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -529,6 +613,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		4E7B1D5F2637AB7300E591CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B54C7C7D25F0D8E900AB8FE9 /* NetworkingCombine */;
+			targetProxy = 4E7B1D5E2637AB7300E591CA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		B54C7C8C25F0D8EB00AB8FE9 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -541,6 +633,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4E7B1D602637AB7300E591CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EKZA327T6Q;
+				INFOPLIST_FILE = NetworkingCombineTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = justin.nguyen.NetworkingCombineTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NetworkingCombine.app/NetworkingCombine";
+			};
+			name = Debug;
+		};
+		4E7B1D612637AB7300E591CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EKZA327T6Q;
+				INFOPLIST_FILE = NetworkingCombineTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = justin.nguyen.NetworkingCombineTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NetworkingCombine.app/NetworkingCombine";
+			};
+			name = Release;
+		};
 		B54C7C9025F0D8EB00AB8FE9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -706,6 +840,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4E7B1D622637AB7300E591CA /* Build configuration list for PBXNativeTarget "NetworkingCombineTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E7B1D602637AB7300E591CA /* Debug */,
+				4E7B1D612637AB7300E591CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B54C7C7925F0D8E900AB8FE9 /* Build configuration list for PBXProject "NetworkingCombine" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

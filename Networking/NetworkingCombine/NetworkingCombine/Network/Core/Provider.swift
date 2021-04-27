@@ -15,7 +15,8 @@ protocol ProviderType: AnyObject {
 
 typealias RequestPublisher = AnyPublisher<URLSession.DataTaskPublisher.Output, Error>
 
-final class Provider<Target: TargetType>: ProviderType {
+
+class Provider<Target: TargetType>: ProviderType {
     
     func request(target: Target) -> RequestPublisher {
         if let rq = target.getRequest() {
@@ -61,5 +62,17 @@ extension RequestPublisher {
             .print()
             .eraseToAnyPublisher()
         return publisher
+    }
+}
+
+class MockProviderClient<Target: TargetType>: Provider<Target> {
+
+    override func request(target: Target) -> RequestPublisher {
+        Future<URLSession.DataTaskPublisher.Output, Error> { promise in
+//            let output : URLSession.DataTaskPublisher.Output = (target.sampleData, URLResponse())
+//            promise(.success(output))
+            
+            promise(.failure(APIError.invalidServerResponse))
+        }.eraseToAnyPublisher()
     }
 }

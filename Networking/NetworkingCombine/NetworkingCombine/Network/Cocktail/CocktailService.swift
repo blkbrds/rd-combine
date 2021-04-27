@@ -23,7 +23,9 @@ extension CocktailService: TargetType {
         }
     }
     
-    var sampleData: Data { Data() }
+    var sampleData: Data {
+        Data.init(forResouce: "Posts", ofType: "json")
+    }
 
     var method: HTTPMethod {
         switch self {
@@ -44,5 +46,18 @@ extension CocktailService: TargetType {
         case .getCocktail:
             return nil
         }
+    }
+}
+
+extension Data {
+
+    init(forResouce name: String?, ofType ext: String?) {
+        @objc class TestClass: NSObject { }
+        let bundle = Bundle.init(for: TestClass.self)
+        guard let path = bundle.path(forResource: name, ofType: ext),
+            let data = try? Data(contentsOf: URL(fileURLWithPath: path)) else {
+            fatalError("fatalError")
+        }
+        self = data
     }
 }

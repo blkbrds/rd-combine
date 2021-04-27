@@ -7,7 +7,7 @@
 
 import Combine
 
-final class CocktailNetworkManager: CocktailNetworkable {
+struct CocktailNetworkManager: CocktailNetworkable {
 
     var provider: Provider<CocktailService> = Provider<CocktailService>()
 
