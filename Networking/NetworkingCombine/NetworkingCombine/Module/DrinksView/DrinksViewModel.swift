@@ -12,34 +12,39 @@ final class DrinksViewModel: ObservableObject {
 
     // Network
     private let cocktailNetworkManager = CocktailNetworkManager()
-
     private var subscriptions = Set<AnyCancellable>()
     
     @Published var searchText = ""
     @Published var drinks: [Cocktail] = []
+    @Published var isLoading: Bool = false
+    @Published var error: APIError?
     
     init() {
+        typealias DrinkResponseData = CocktailNetworkManager.DrinkResponseData
         $searchText
+            .dropFirst()
             .debounce(for: .milliseconds(300), scheduler: DispatchQueue.main)
             .map({ $0.trimmingCharacters(in: .whitespacesAndNewlines) })
             .removeDuplicates()
-            .sink(receiveCompletion: {
-                print("receiveCompletion", $0)
-            }, receiveValue: { [weak self] text in
-                if !text.isEmpty {
-                    self?.searchForDrink(with: text)
-                    print("receiveValue", text)
+            .print("DrinksViewModel")
+            .flatMap({ text -> AnyPublisher<DrinkResponseData, Never> in
+                let emptyDataPublisher = Just(DrinkResponseData.init()).eraseToAnyPublisher()
+                if text.isEmpty {
+                    return emptyDataPublisher
                 }
+                self.isLoading = true
+                return self.cocktailNetworkManager.getCocktails(name: text)
+                    .catch({ (error) -> AnyPublisher<DrinkResponseData, Never> in
+                        self.error = APIError.unknow(error.localizedDescription)
+                        return emptyDataPublisher
+                    })
+                    .eraseToAnyPublisher()
+            })
+            .map({ $0.data ?? [] })
+            .sink(receiveValue: { drinks in
+                self.isLoading = false
+                self.drinks = drinks
             })
             .store(in: &subscriptions)
-    }
-    
-    func searchForDrink(with text: String) {
-        cocktailNetworkManager.getCocktails(name: text)
-            .sink { error in
-                print(error)
-            } receiveValue: { value in
-                self.drinks = value.data ?? []
-            }.store(in: &subscriptions)
     }
 }

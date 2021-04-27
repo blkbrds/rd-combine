@@ -8,6 +8,20 @@
 import SwiftUI
 import Combine
 
+struct ActivityIndicator: UIViewRepresentable {
+
+    @Binding var isAnimating: Bool
+    let style: UIActivityIndicatorView.Style
+
+    func makeUIView(context: UIViewRepresentableContext<ActivityIndicator>) -> UIActivityIndicatorView {
+        return UIActivityIndicatorView(style: style)
+    }
+
+    func updateUIView(_ uiView: UIActivityIndicatorView, context: UIViewRepresentableContext<ActivityIndicator>) {
+        isAnimating ? uiView.startAnimating() : uiView.stopAnimating()
+    }
+}
+
 struct DrinksView: View {
     @StateObject private var viewModel = DrinksViewModel()
     
@@ -18,8 +32,18 @@ struct DrinksView: View {
                 .padding(.horizontal, 10)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             
-            List(viewModel.drinks) { drink in
-                DrinkCellView(drink: drink)
+            ZStack {
+                List(viewModel.drinks) { drink in
+                    DrinkCellView(drink: drink)
+                }
+                
+                if viewModel.isLoading {
+                    ActivityIndicator(isAnimating: .constant(true), style: .large)
+                        .frame(width: 70, height: 70)
+                        .background(Color.white)
+                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                        .shadow(color: Color.gray, radius: 3, x: 0, y: 0)
+                }
             }
         }
         .background(
@@ -28,6 +52,9 @@ struct DrinksView: View {
                 .aspectRatio(contentMode: .fill)
                 .ignoresSafeArea()
         )
+        .alert(item: $viewModel.error, content: { error in
+            Alert(title: Text("Error"), message: Text(error.localizedDescription), dismissButton: .default(Text("OK")))
+        })
     }
 }
 
