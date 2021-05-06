@@ -28,14 +28,14 @@ class HomeViewController: UIViewController {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         
-        searchPublisher.sink { value in
-            self.viewModel.users = LocalDatabase.users
-            self.viewModel.users = self.viewModel.users.filter { user in
-                user.name.uppercased().contains(value.uppercased())
-            }
-            self.tableView.reloadData()
+        getListDrinks()
+        searchPublisher.debounce(for: .seconds(0.3), scheduler: DispatchQueue.main)
+            .share()
+            .sink { value in
+            self.getListDrinks(value)
         }.store(in: &subscriptions)
     }
+
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: false)
@@ -45,9 +45,22 @@ class HomeViewController: UIViewController {
         if let text = sender.text, !text.isEmpty {
             searchPublisher.send(text)
         } else {
-            viewModel.users = LocalDatabase.users
-            tableView.reloadData()
+            searchPublisher.send("")
         }
+    }
+    
+    private func getListDrinks(_ search: String = "") {
+        viewModel.getListDrinks(search)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .failure(let error):
+                    print(error.localizedDescription)
+                case .finished: break
+                }
+            }, receiveValue: { _ in
+                self.tableView.reloadData()
+            })
+            .store(in: &subscriptions)
     }
 }
 
@@ -57,12 +70,12 @@ extension HomeViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? HomeViewCell else {
             fatalError()
         }
-        cell.updateUI(viewModel.users[indexPath.row])
+        cell.updateUI(viewModel.drinks[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.users.count
+        return viewModel.drinks.count
     }
 }
 

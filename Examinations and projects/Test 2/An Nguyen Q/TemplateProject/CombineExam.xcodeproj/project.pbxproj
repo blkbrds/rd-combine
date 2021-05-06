@@ -27,6 +27,9 @@
 		74D73E5326234D92003BE284 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D73E5226234D92003BE284 /* StringExt.swift */; };
 		74D73E5726234DBA003BE284 /* SignInError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D73E5626234DBA003BE284 /* SignInError.swift */; };
 		74D73E5B26234E3D003BE284 /* LocalDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D73E5A26234E3D003BE284 /* LocalDatabase.swift */; };
+		D16893D92639406200AC3045 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16893D82639406200AC3045 /* Drink.swift */; };
+		D16893DE2639412600AC3045 /* APIManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16893DD2639412600AC3045 /* APIManagement.swift */; };
+		D16893E2263941F100AC3045 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16893E1263941F100AC3045 /* APIError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +55,9 @@
 		74D73E5226234D92003BE284 /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 		74D73E5626234DBA003BE284 /* SignInError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInError.swift; sourceTree = "<group>"; };
 		74D73E5A26234E3D003BE284 /* LocalDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDatabase.swift; sourceTree = "<group>"; };
+		D16893D82639406200AC3045 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
+		D16893DD2639412600AC3045 /* APIManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagement.swift; sourceTree = "<group>"; };
+		D16893E1263941F100AC3045 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +90,7 @@
 		4E9FDDD7262211A9006F4EB4 /* CombineExam */ = {
 			isa = PBXGroup;
 			children = (
+				D16893DB263940F800AC3045 /* Management */,
 				74D73E5126234D83003BE284 /* Utils */,
 				4E9FDE0A26221865006F4EB4 /* Models */,
 				4E9FDDED262211B8006F4EB4 /* Controllers */,
@@ -151,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				4E9FDE0B2622186D006F4EB4 /* User.swift */,
+				D16893D82639406200AC3045 /* Drink.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -163,6 +171,23 @@
 				74D73E5A26234E3D003BE284 /* LocalDatabase.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		D16893DB263940F800AC3045 /* Management */ = {
+			isa = PBXGroup;
+			children = (
+				D16893DC2639410500AC3045 /* API */,
+			);
+			path = Management;
+			sourceTree = "<group>";
+		};
+		D16893DC2639410500AC3045 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				D16893DD2639412600AC3045 /* APIManagement.swift */,
+				D16893E1263941F100AC3045 /* APIError.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,6 +276,9 @@
 				4EBB3C0C262356DA0028A21C /* SignInViewModel.swift in Sources */,
 				4E9FDDFE26221201006F4EB4 /* DetailViewController.swift in Sources */,
 				4E9FDDD9262211A9006F4EB4 /* AppDelegate.swift in Sources */,
+				D16893DE2639412600AC3045 /* APIManagement.swift in Sources */,
+				D16893E2263941F100AC3045 /* APIError.swift in Sources */,
+				D16893D92639406200AC3045 /* Drink.swift in Sources */,
 				4E9FDDDB262211A9006F4EB4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

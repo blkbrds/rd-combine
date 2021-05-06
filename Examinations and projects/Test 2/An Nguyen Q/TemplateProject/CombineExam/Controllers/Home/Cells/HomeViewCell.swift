@@ -16,8 +16,8 @@ final class HomeViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    func updateUI(_ user: User) {
-        nameLabel.text = user.name
-        addressLabel.text = user.address
+    func updateUI(_ drink: Drink) {
+        nameLabel.text = drink.strDrink
+        addressLabel.text = drink.strCategory
     }
 }
