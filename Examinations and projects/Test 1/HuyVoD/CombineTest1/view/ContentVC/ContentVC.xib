@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContentVC" customModule="CombineTest1" customModuleProvider="target">
+            <connections>
+                <outlet property="closureView" destination="k1R-5A-SMO" id="YlK-f1-R0M"/>
+                <outlet property="combineView" destination="KZS-t8-2WD" id="CBc-BD-UPd"/>
+                <outlet property="delegateView" destination="6PW-xG-nNw" id="Slo-gE-eaP"/>
+                <outlet property="notificationView" destination="XWg-uq-32f" id="mMK-SM-9SB"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1xx-fu-kzB">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="mi3-1m-8jt">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="333.5"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6PW-xG-nNw" userLabel="Delegate View" customClass="DetailView" customModule="CombineTest1" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="187.5" height="333.5"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k1R-5A-SMO" userLabel="Closure View" customClass="DetailView" customModule="CombineTest1" customModuleProvider="target">
+                                    <rect key="frame" x="187.5" y="0.0" width="187.5" height="333.5"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1wS-eS-SkT">
+                            <rect key="frame" x="0.0" y="333.5" width="375" height="333.5"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XWg-uq-32f" userLabel="Notification View" customClass="DetailView" customModule="CombineTest1" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="187.5" height="333.5"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KZS-t8-2WD" userLabel="Combine View" customClass="DetailView" customModule="CombineTest1" customModuleProvider="target">
+                                    <rect key="frame" x="187.5" y="0.0" width="187.5" height="333.5"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="1xx-fu-kzB" secondAttribute="bottom" id="0F3-gQ-hr3"/>
+                <constraint firstItem="1xx-fu-kzB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="BAF-2P-gDd"/>
+                <constraint firstItem="1xx-fu-kzB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="I8h-Zn-zii"/>
+                <constraint firstAttribute="trailing" secondItem="1xx-fu-kzB" secondAttribute="trailing" id="qao-Oz-yKI"/>
+            </constraints>
+            <point key="canvasLocation" x="-48" y="85"/>
+        </view>
+    </objects>
+</document>
