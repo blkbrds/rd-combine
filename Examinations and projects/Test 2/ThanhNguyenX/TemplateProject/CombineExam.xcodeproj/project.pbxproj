@@ -28,6 +28,8 @@
 		74D73E5726234DBA003BE284 /* SignInError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D73E5626234DBA003BE284 /* SignInError.swift */; };
 		74D73E5B26234E3D003BE284 /* LocalDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D73E5A26234E3D003BE284 /* LocalDatabase.swift */; };
 		E303346E2626DD9C0007A424 /* HomeViewCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E303346D2626DD9C0007A424 /* HomeViewCellVM.swift */; };
+		E3CA9A66264386C40014F2E7 /* Cocktail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CA9A65264386C40014F2E7 /* Cocktail.swift */; };
+		E3CA9A9226439AD30014F2E7 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CA9A9126439AD30014F2E7 /* APIError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		74D73E5626234DBA003BE284 /* SignInError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInError.swift; sourceTree = "<group>"; };
 		74D73E5A26234E3D003BE284 /* LocalDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDatabase.swift; sourceTree = "<group>"; };
 		E303346D2626DD9C0007A424 /* HomeViewCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCellVM.swift; sourceTree = "<group>"; };
+		E3CA9A65264386C40014F2E7 /* Cocktail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cocktail.swift; sourceTree = "<group>"; };
+		E3CA9A9126439AD30014F2E7 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				4E9FDE0B2622186D006F4EB4 /* User.swift */,
+				E3CA9A65264386C40014F2E7 /* Cocktail.swift */,
+				E3CA9A9126439AD30014F2E7 /* APIError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -250,10 +256,12 @@
 				4E9FDDDD262211A9006F4EB4 /* ViewController.swift in Sources */,
 				74D73E5326234D92003BE284 /* StringExt.swift in Sources */,
 				74D73E5B26234E3D003BE284 /* LocalDatabase.swift in Sources */,
+				E3CA9A66264386C40014F2E7 /* Cocktail.swift in Sources */,
 				4E9FDE0C2622186D006F4EB4 /* User.swift in Sources */,
 				4EBB3C0F262356F70028A21C /* HomeViewModel.swift in Sources */,
 				4EBB3C0C262356DA0028A21C /* SignInViewModel.swift in Sources */,
 				4E9FDDFE26221201006F4EB4 /* DetailViewController.swift in Sources */,
+				E3CA9A9226439AD30014F2E7 /* APIError.swift in Sources */,
 				4E9FDDD9262211A9006F4EB4 /* AppDelegate.swift in Sources */,
 				4E9FDDDB262211A9006F4EB4 /* SceneDelegate.swift in Sources */,
 			);

@@ -22,23 +22,22 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Home"
-        
         let nib = UINib(nibName: identifier, bundle: Bundle.main)
         tableView.register(nib, forCellReuseIdentifier: identifier)
         tableView.dataSource = self
         tableView.delegate = self
         searchTextField.delegate = self
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-
+        getAPI()
         searchSubject
             .sink { completion in
                 print(completion)
             } receiveValue: { searchText in
-                self.viewModel.filteredUser = searchText.isEmpty ? self.viewModel.users : self.viewModel.users.filter({ (user) -> Bool in
-                    user.name.range(of: searchText, options: .caseInsensitive) != nil
-                })
-
-                self.tableView.reloadData()
+//                self.viewModel.filteredUser = searchText.isEmpty ? self.viewModel.users : self.viewModel.users.filter({ (user) -> Bool in
+//                    user.nameTitle.range(of: searchText, options: .caseInsensitive) != nil
+//                })
+//                self.tableView.reloadData()
+                self.getAPI(searchText: searchText)
                 print(searchText)
             }
             .store(in: &subscriptions)
@@ -46,6 +45,22 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+
+    private func getAPI(searchText: String = "") {
+        viewModel.getAPI(searchText: searchText)
+            .sink { completion in
+                switch completion {
+                case .failure(let error):
+                    print("ERROR:", error.localizedDescription)
+                case .finished: break
+                }
+            } receiveValue: { _ in
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+            .store(in: &subscriptions)
     }
 }
 
@@ -55,8 +70,8 @@ extension HomeViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? HomeViewCell else {
             fatalError()
         }
-        cell.viewModel = HomeViewCellVM(name: viewModel.filteredUser[indexPath.row].name,
-                                        address: viewModel.filteredUser[indexPath.row].address)
+        cell.viewModel = HomeViewCellVM(name: viewModel.filteredUser[indexPath.row].nameTitle,
+                                        address: viewModel.filteredUser[indexPath.row].instructions)
         return cell
     }
     
