@@ -10,74 +10,53 @@ import Combine
 
 
 final class SignInViewModel {
-    
-    @Published var userName = ""
-    @Published var passWord = ""
-    
-    let user = LocalDatabase()
-    let usernameMessagePublisher = PassthroughSubject<String, Never>()
-    let passwordMessagePublisher = PassthroughSubject<String, Never>()
-    
-    var validatedUsername: AnyPublisher<String?, Never> {
-        return $userName
-            .map { name in
-                
-                guard name.count != 0 else {
-                    
-                    self.usernameMessagePublisher.send("\(SignInError.invalidUsername)")
-                    return nil
-                }
-                
-                guard name.count < 3  || name.count > 20 else {
-                    
-                    self.usernameMessagePublisher.send("\(SignInError.invalidUsernameLength)")
-                    return nil
-                }
-                
-                guard name.containsEmoji else {
-                    self.usernameMessagePublisher.send("\(SignInError.invalidUsername)")
-                    return nil
-                }
-                self.usernameMessagePublisher.send("")
-                return name
-        }
-        .eraseToAnyPublisher()
+    let checkData = PassthroughSubject<Bool, Never>()
+    let userName = CurrentValueSubject<String, Never>("")
+    let passWord = CurrentValueSubject<String, Never>("12345678")
+    let validLogin = PassthroughSubject<(SignInError?, SignInError?), Never>()
+    private var subscriptions = Set<AnyCancellable>()
+
+    init() {
+        userName
+            .sink { [weak self] _ in
+                guard let this = self else { return }
+                this.validLogin.send((this.validationUserName(), this.validationPassword()))
+            }
+            .store(in: &subscriptions)
+
+        passWord
+            .sink { [weak self] _ in
+                guard let this = self else { return }
+                this.validLogin.send((this.validationUserName(), this.validationPassword()))
+            }
+            .store(in: &subscriptions)
     }
-    
-    var validatedPassword: AnyPublisher<String?, Never> {
-        
-        return $passWord
-            .receive(on: RunLoop.main)
-            .map { pass in
-                
-                guard pass.count != 0 else {
-                    self.passwordMessagePublisher.send("\(SignInError.invalidPasswordLength)")
-                    return nil
-                }
-                
-                guard pass.count < 8  || pass.count > 20 else {
-                    
-                    self.usernameMessagePublisher.send("\(SignInError.invalidPasswordLength)")
-                    return nil
-                }
-                
-                self.passwordMessagePublisher.send("\(SignInError.unknown)")
-                
-                return pass
-        }
-        .eraseToAnyPublisher()
+
+    // MARK: - Public functions
+    func checkUserName() {
+        let account = LocalDatabase.users.first(where: { $0.name == userName.value })
+        checkData.send(account != nil)
     }
-    
-    var readyToSubmit: AnyPublisher<(String, String)?, Never> {
-        
-        return Publishers.CombineLatest(validatedUsername, validatedPassword)
-            .map { name, pass in
-                
-                guard let  name = name, let pass = pass else {
-                    return nil
-                }
-                return (name, pass)
+
+    // MARK: - Private functions
+    private func validationUserName() -> SignInError? {
+        let value = userName.value
+        guard value.count > 1 && value.count <= 20 else {
+            return .invalidUsernameLength
         }
-        .eraseToAnyPublisher()
+
+        guard !value.containsEmoji else {
+            return .invalidUsername
+        }
+
+        return nil
+    }
+
+    private func validationPassword() -> SignInError? {
+        let value = passWord.value
+        guard value.count > 7 && value.count <= 20 else {
+            return .invalidPasswordLength
+        }
+        return nil
     }
 }

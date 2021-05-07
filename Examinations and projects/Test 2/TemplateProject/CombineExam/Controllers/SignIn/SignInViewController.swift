@@ -9,20 +9,18 @@ import UIKit
 import Combine
 
 class SignInViewController: UIViewController {
-    
-    @IBOutlet weak var btnLogin: UIButton!
+
+    //MARK: - IBOutlet
     @IBOutlet weak var passWordTextField: UITextField!
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     @IBOutlet weak var signInButton: UIButton!
-    @IBOutlet weak var lblUsernameMessage: UILabel!
-    @IBOutlet weak var lblPasswordMessage: UILabel!
-    
-    var viewModel: SignInViewModel?
-    var usernameSubsciber: AnyCancellable?
-    var passwordSubsciber: AnyCancellable?
-    private var cancellableSet: Set<AnyCancellable> = []
-    
+
+    // MARK: - Properties
+    var viewModel:SignInViewModel = SignInViewModel()
+    var subscriptions = Set<AnyCancellable>()
+
+    //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         UINavigationBar.appearance().prefersLargeTitles = true
@@ -32,7 +30,7 @@ class SignInViewController: UIViewController {
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         UINavigationBar.appearance().shadowImage = UIImage()
-        self.initialization()
+        setupPublisher()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,14 +38,51 @@ class SignInViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
+    private func setupPublisher() {
+        [userNameTextField, passWordTextField].forEach { ($0?.addTarget(self,action: #selector(inputTextField(textField:)), for: .editingChanged))
+        }
+        viewModel.validLogin
+            .sink { value in
+
+                if let userNameError = value.0 {
+                    print(userNameError.message)
+                    return
+                }
+                if let passwordError = value.1 {
+                    print(passwordError.message)
+                    return
+                }
+            }
+            .store(in: &subscriptions)
+
+        viewModel.checkData
+            .sink { data in
+                guard data else {
+                    print("Tai khoan khong co")
+                    return
+                }
+                print("dang nhap thanh cong")
+                self.indicatorView.startAnimating()
+                self.indicatorView.isHidden = false
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self.indicatorView.stopAnimating()
+                    self.handleSignIn()
+                }
+            }
+            .store(in: &subscriptions)
+    }
+
+    @objc func inputTextField(textField: UITextField) {
+        switch textField {
+        case userNameTextField:
+            viewModel.userName.send(textField.value)
+        default:
+            viewModel.passWord.send(textField.value)
+        }
+    }
 
     @IBAction private func signInButtonTouchUpInside(_ sender: UIButton) {
-        indicatorView.startAnimating()
-        indicatorView.isHidden = false
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.indicatorView.stopAnimating()
-            self.handleSignIn()
-        }
+        handleSignIn()
     }
     
     private func handleSignIn() {
@@ -57,52 +92,9 @@ class SignInViewController: UIViewController {
     }
 }
 
-extension SignInViewController {
-    fileprivate func initialization() {
-        
-        
-        let username = viewModel?.usernameMessagePublisher
-            .receive(on: RunLoop.main)
-            .sink { [weak self] (str) in
-                
-                guard let `self` = self else {
-                    return
-                }
-                
-                self.lblUsernameMessage.text = str
-        }
-        usernameSubsciber = AnyCancellable(username!)
-        
-        let password = viewModel?.passwordMessagePublisher
-            .receive(on: RunLoop.main)
-            .sink { [weak self] (str) in
-                
-                guard let `self` = self else {
-                    return
-                }
-                
-                self.lblPasswordMessage.text = str
-        }
-        passwordSubsciber = AnyCancellable(password!)
-        
-        viewModel?.readyToSubmit
-            .map { $0 != nil}
-            .receive(on: RunLoop.main)
-            .sink(receiveValue: { (isEnable) in
-                if isEnable {
-                    self.btnLogin.backgroundColor = .systemGreen
-                } else {
-                    self.btnLogin.backgroundColor = .red
-                }
-                self.btnLogin.isEnabled = isEnable
-            })
-            .store(in: &cancellableSet)
-    }
-}
-
-extension SignInViewController {
-    
-    @IBAction func btnSubmitClicked(_ sender: UIButton) {
-        print("thu dang nhap")
+extension UITextField {
+    var value: String {
+        guard let string = self.text else { return "" }
+        return string
     }
 }
