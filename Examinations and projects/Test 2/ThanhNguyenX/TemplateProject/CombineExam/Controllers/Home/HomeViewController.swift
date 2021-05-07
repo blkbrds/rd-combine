@@ -12,6 +12,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var searchTextField: UITextField!
+    @IBOutlet private weak var indicatorView: UIActivityIndicatorView!
 
     let identifier = String(describing: "HomeViewCell")
     
@@ -48,8 +49,13 @@ class HomeViewController: UIViewController {
     }
 
     private func getAPI(searchText: String = "") {
+        indicatorView.startAnimating()
+        indicatorView.isHidden = false
         viewModel.getAPI(searchText: searchText)
             .sink { completion in
+                DispatchQueue.main.async {
+                    self.indicatorView.stopAnimating()
+                }
                 switch completion {
                 case .failure(let error):
                     print("ERROR:", error.localizedDescription)
@@ -57,6 +63,7 @@ class HomeViewController: UIViewController {
                 }
             } receiveValue: { _ in
                 DispatchQueue.main.async {
+                    self.indicatorView.stopAnimating()
                     self.tableView.reloadData()
                 }
             }

@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="CombineExam" customModuleProvider="target">
             <connections>
+                <outlet property="indicatorView" destination="BJI-k5-ff9" id="6X3-Br-KlU"/>
                 <outlet property="searchTextField" destination="VpF-Lm-M3v" id="wbA-RA-EYa"/>
                 <outlet property="tableView" destination="ZQW-rV-9H3" id="CYR-R1-Gdg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -64,16 +65,21 @@
                         <constraint firstAttribute="bottom" secondItem="Cv5-sD-uQt" secondAttribute="bottom" constant="8" id="uCR-3i-o9m"/>
                     </constraints>
                 </view>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="BJI-k5-ff9">
+                    <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="BJI-k5-ff9" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="XF8-mP-7Oh"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ZQW-rV-9H3" secondAttribute="bottom" id="Y3M-nU-kz6"/>
                 <constraint firstItem="ext-1T-rr7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="cLH-gz-XYI"/>
                 <constraint firstItem="ZQW-rV-9H3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="g38-3t-uma"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZQW-rV-9H3" secondAttribute="trailing" id="g8f-jv-N9I"/>
                 <constraint firstItem="ZQW-rV-9H3" firstAttribute="top" secondItem="ext-1T-rr7" secondAttribute="bottom" id="iNo-E9-lPL"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ext-1T-rr7" secondAttribute="trailing" id="tfW-wt-paf"/>
+                <constraint firstItem="BJI-k5-ff9" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="voH-hG-9IC"/>
                 <constraint firstItem="ext-1T-rr7" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="zAE-Tw-uMa"/>
             </constraints>
             <point key="canvasLocation" x="-136.23188405797103" y="89.732142857142847"/>
