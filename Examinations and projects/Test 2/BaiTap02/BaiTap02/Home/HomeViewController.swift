@@ -13,10 +13,11 @@ class HomeViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var searchTextField: UITextField!
+    @IBOutlet private weak var indicatorView: UIActivityIndicatorView!
 
     let identifier = String(describing: "HomeViewCell")
 
-    var viewModel: HomeViewModel?
+    var viewModel: HomeViewModel = HomeViewModel()
     var subcripstions = Set<AnyCancellable>()
     var inputPublisher = PassthroughSubject<String,Never>()
 
@@ -30,50 +31,44 @@ class HomeViewController: UIViewController {
         tableView.delegate = self
 
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-        searchName()
+
+        searchTextField.publisher
+            .compactMap{ $0 }
+            .assign(to: \.searchText, on: viewModel)
+            .store(in: &subcripstions)
+        viewModel.filterPublisher
+            .sink { [weak self] _ in
+                self?.isLoading()
+        }
+        .store(in: &subcripstions)
+    }
+
+    func isLoading() {
+        indicatorView.startAnimating()
+        indicatorView.isHidden = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.tableView.reloadData()
+            self.indicatorView.stopAnimating()
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: false)
-    }
-
-    @IBAction func searchEditingChanged(_ sender: Any) {
-        guard let searchText = searchTextField.text else { return }
-        inputPublisher.send(searchText)
-        tableView.reloadData()
-    }
-
-    func searchName() {
-        guard let viewModel = viewModel else { return }
-        inputPublisher.sink(receiveCompletion: { completion in
-            print(completion)
-        }) { (value) in
-            viewModel.filterPublisher.map { user in
-                user.filter { user in
-                    user.name.lowercased().hasPrefix(value.lowercased())
-                }
-            }
-            .sink { user in
-                viewModel.resultList = user
-            }
-        }
-        .store(in: &subcripstions)
     }
 }
 
 extension HomeViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? HomeViewCell, let viewModel = viewModel else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? HomeViewCell else {
             fatalError()
         }
-        cell.viewModel = viewModel.viewModelForCell(indexPath: indexPath)
+        cell.bindView(to: viewModel, indexPath: indexPath)
         return cell
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let viewModel = viewModel else { return 0 }
-        return viewModel.resultList.count
+        return viewModel.filterPublisher.value.count
     }
 }
 

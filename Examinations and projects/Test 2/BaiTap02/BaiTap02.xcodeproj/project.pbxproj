@@ -12,7 +12,10 @@
 		3E322A6326269AEB00B25B03 /* HomeViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E322A6126269AEB00B25B03 /* HomeViewCell.xib */; };
 		3E322A6726269B6600B25B03 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E322A6526269B6600B25B03 /* DetailsViewController.swift */; };
 		3E322A6826269B6600B25B03 /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E322A6626269B6600B25B03 /* DetailsViewController.xib */; };
-		3E322A6C2626C54500B25B03 /* HomeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E322A6B2626C54500B25B03 /* HomeCellViewModel.swift */; };
+		3E35F5232644D601003264D2 /* UIImageViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E35F5222644D601003264D2 /* UIImageViewExt.swift */; };
+		3E35F52626452412003264D2 /* CocktailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E35F52526452412003264D2 /* CocktailService.swift */; };
+		3E3EC3BC2627DE7A00AF002D /* TextFieldExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3EC3BB2627DE7A00AF002D /* TextFieldExt.swift */; };
+		3E3F87142643D380003612D3 /* Cocktail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3F87132643D380003612D3 /* Cocktail.swift */; };
 		3EF1F1252625944600D247DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF1F1242625944600D247DB /* AppDelegate.swift */; };
 		3EF1F1272625944600D247DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF1F1262625944600D247DB /* SceneDelegate.swift */; };
 		3EF1F1292625944600D247DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF1F1282625944600D247DB /* ViewController.swift */; };
@@ -34,7 +37,10 @@
 		3E322A6126269AEB00B25B03 /* HomeViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewCell.xib; sourceTree = "<group>"; };
 		3E322A6526269B6600B25B03 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		3E322A6626269B6600B25B03 /* DetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
-		3E322A6B2626C54500B25B03 /* HomeCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCellViewModel.swift; sourceTree = "<group>"; };
+		3E35F5222644D601003264D2 /* UIImageViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExt.swift; sourceTree = "<group>"; };
+		3E35F52526452412003264D2 /* CocktailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailService.swift; sourceTree = "<group>"; };
+		3E3EC3BB2627DE7A00AF002D /* TextFieldExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExt.swift; sourceTree = "<group>"; };
+		3E3F87132643D380003612D3 /* Cocktail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cocktail.swift; sourceTree = "<group>"; };
 		3EF1F1212625944600D247DB /* BaiTap02.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaiTap02.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EF1F1242625944600D247DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EF1F1262625944600D247DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,7 +74,6 @@
 			children = (
 				3E322A6026269AEB00B25B03 /* HomeViewCell.swift */,
 				3E322A6126269AEB00B25B03 /* HomeViewCell.xib */,
-				3E322A6B2626C54500B25B03 /* HomeCellViewModel.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -80,6 +85,14 @@
 				3E322A6626269B6600B25B03 /* DetailsViewController.xib */,
 			);
 			path = Details;
+			sourceTree = "<group>";
+		};
+		3E35F524264523F2003264D2 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3E35F52526452412003264D2 /* CocktailService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		3EF1F1182625944600D247DB = {
@@ -101,6 +114,7 @@
 		3EF1F1232625944600D247DB /* BaiTap02 */ = {
 			isa = PBXGroup;
 			children = (
+				3E35F524264523F2003264D2 /* Service */,
 				3E322A6426269B4600B25B03 /* Details */,
 				3EF1F14F262597CB00D247DB /* Models */,
 				3EF1F1482625979000D247DB /* Utils */,
@@ -142,6 +156,8 @@
 				3EF1F149262597A300D247DB /* StringExt.swift */,
 				3EF1F14B262597B400D247DB /* SignInError.swift */,
 				3EF1F14D262597C200D247DB /* LocalDatabase.swift */,
+				3E3EC3BB2627DE7A00AF002D /* TextFieldExt.swift */,
+				3E35F5222644D601003264D2 /* UIImageViewExt.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -150,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				3EF1F150262597E000D247DB /* User.swift */,
+				3E3F87132643D380003612D3 /* Cocktail.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -230,12 +247,15 @@
 				3EF1F14E262597C200D247DB /* LocalDatabase.swift in Sources */,
 				3E322A5E26269A9800B25B03 /* HomeViewModel.swift in Sources */,
 				3EF1F1422625953B00D247DB /* HomeViewController.swift in Sources */,
+				3E3F87142643D380003612D3 /* Cocktail.swift in Sources */,
 				3EF1F13E2625952B00D247DB /* SignInViewController.swift in Sources */,
 				3EF1F1472625965000D247DB /* SignInViewModel.swift in Sources */,
 				3E322A6226269AEB00B25B03 /* HomeViewCell.swift in Sources */,
 				3EF1F14A262597A300D247DB /* StringExt.swift in Sources */,
-				3E322A6C2626C54500B25B03 /* HomeCellViewModel.swift in Sources */,
+				3E3EC3BC2627DE7A00AF002D /* TextFieldExt.swift in Sources */,
 				3EF1F1292625944600D247DB /* ViewController.swift in Sources */,
+				3E35F52626452412003264D2 /* CocktailService.swift in Sources */,
+				3E35F5232644D601003264D2 /* UIImageViewExt.swift in Sources */,
 				3EF1F1252625944600D247DB /* AppDelegate.swift in Sources */,
 				3EF1F14C262597B400D247DB /* SignInError.swift in Sources */,
 				3EF1F151262597E000D247DB /* User.swift in Sources */,

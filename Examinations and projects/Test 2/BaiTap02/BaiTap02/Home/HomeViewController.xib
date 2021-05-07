@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="BaiTap02" customModuleProvider="target">
             <connections>
+                <outlet property="indicatorView" destination="xDz-Rx-eRG" id="rZU-vy-2td"/>
                 <outlet property="searchTextField" destination="VpF-Lm-M3v" id="dc8-YU-CeG"/>
                 <outlet property="tableView" destination="ZQW-rV-9H3" id="CYR-R1-Gdg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="rFQ-ET-dDL"/>
@@ -39,9 +40,6 @@
                                     <rect key="frame" x="60" y="0.0" width="306" height="36"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
-                                    <connections>
-                                        <action selector="searchEditingChanged:" destination="-1" eventType="editingChanged" id="3Iy-FQ-7vd"/>
-                                    </connections>
                                 </textField>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -65,14 +63,23 @@
                         <constraint firstAttribute="bottom" secondItem="Cv5-sD-uQt" secondAttribute="bottom" constant="8" id="uCR-3i-o9m"/>
                     </constraints>
                 </view>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="xDz-Rx-eRG">
+                    <rect key="frame" x="182" y="423" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="Z51-8P-BdC"/>
+                        <constraint firstAttribute="height" constant="50" id="wwX-0t-Vi8"/>
+                    </constraints>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
+                <constraint firstItem="xDz-Rx-eRG" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4cn-wL-aRc"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ZQW-rV-9H3" secondAttribute="bottom" id="Y3M-nU-kz6"/>
                 <constraint firstItem="ext-1T-rr7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="cLH-gz-XYI"/>
                 <constraint firstItem="ZQW-rV-9H3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="g38-3t-uma"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZQW-rV-9H3" secondAttribute="trailing" id="g8f-jv-N9I"/>
                 <constraint firstItem="ZQW-rV-9H3" firstAttribute="top" secondItem="ext-1T-rr7" secondAttribute="bottom" id="iNo-E9-lPL"/>
+                <constraint firstItem="xDz-Rx-eRG" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="tYI-iH-ZDi"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ext-1T-rr7" secondAttribute="trailing" id="tfW-wt-paf"/>
                 <constraint firstItem="ext-1T-rr7" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="zAE-Tw-uMa"/>
             </constraints>

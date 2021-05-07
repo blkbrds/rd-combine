@@ -7,25 +7,24 @@
 //
 
 import UIKit
+import Combine
 
 final class HomeViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet var supermanImageView: UIImageView!
 
-    var viewModel: HomeCellViewModel? {
-        didSet {
-            updateView()
-        }
-    }
+    var subscriptions = Set<AnyCancellable>()
 
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
-    func updateView() {
-        guard let viewModel = viewModel else { return }
-        nameLabel.text = viewModel.name
-        addressLabel.text = viewModel.address
+    func bindView(to viewModel: HomeViewModel, indexPath: IndexPath) {
+        let cocktail = viewModel.filterPublisher.value
+        nameLabel.text = cocktail[indexPath.row].nameTitle
+        addressLabel.text = cocktail[indexPath.row].instructions
+        supermanImageView.download(from: cocktail[indexPath.row].imageURL)
     }
 }

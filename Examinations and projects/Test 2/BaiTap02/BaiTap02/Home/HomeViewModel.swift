@@ -10,16 +10,28 @@ import Combine
 import Foundation
 
 final class HomeViewModel {
-    var filterPublisher = CurrentValueSubject<[User],Never>(LocalDatabase.users)
-    var resultList: [User] = []
+    var filterPublisher = CurrentValueSubject<[Cocktail],Never>([])
+    @Published var searchText: String?
+    var subscriptions = Set<AnyCancellable>()
+    let cocktailService: CocktailService = CocktailService()
 
-    init(resultList: [User]) {
-        self.resultList = resultList
+    init() {
+        $searchText
+            .dropFirst()
+            .sink { value in
+                self.getDetailsCocktail(searchText: value ?? "")
+        }
+        .store(in: &subscriptions)
     }
 
-    func viewModelForCell(indexPath: IndexPath) -> HomeCellViewModel? {
-        let name: String = resultList[indexPath.row].name
-        let address: String = resultList[indexPath.row].address
-        return HomeCellViewModel(name: name, address: address)
+    func getDetailsCocktail(searchText: String) {
+        cocktailService.getCocktailByName(searchText: searchText)
+            .sink(receiveCompletion: { completion in
+                print(completion)
+            }) { value in
+                self.filterPublisher.value = value.data ?? []
+        }.store(in: &subscriptions)
     }
 }
+
+

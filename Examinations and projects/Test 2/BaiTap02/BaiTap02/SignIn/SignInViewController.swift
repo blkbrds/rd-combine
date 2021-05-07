@@ -62,9 +62,14 @@ class SignInViewController: UIViewController {
     }
 
     @IBAction func signInTouchUpInside(_ sender: Any) {
-        LocalDatabase.users.contains(where: { user -> Bool in
-            user.name == self.userNameTextField.text && user.password == self.passwordTextField.text
-        }) ? self.handleSignIn() : print("Đăng nhập không thành công")
+        indicatorView.startAnimating()
+        indicatorView.isHidden = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.indicatorView.stopAnimating()
+            LocalDatabase.users.contains(where: { user -> Bool in
+                user.name == self.userNameTextField.text && user.password == self.passwordTextField.text
+            }) ? self.handleSignIn() : print("Đăng nhập không thành công")
+        }
     }
 
     private func isValidateUserName(userName: String) {
@@ -90,7 +95,7 @@ class SignInViewController: UIViewController {
 
     private func handleSignIn() {
         let vc = HomeViewController()
-        vc.viewModel = HomeViewModel(resultList: LocalDatabase.users)
+        vc.viewModel = HomeViewModel()
         navigationController?.pushViewController(vc, animated: true)
     }
 }
