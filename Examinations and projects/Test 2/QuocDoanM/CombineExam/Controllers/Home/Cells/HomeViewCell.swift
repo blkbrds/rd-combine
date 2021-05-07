@@ -24,7 +24,7 @@ final class HomeViewCell: UITableViewCell {
 
     func updateUI() {
         guard let viewModel = viewModel else { return }
-        nameLabel.text = viewModel.user.name
-        addressLabel.text = viewModel.user.address
+        nameLabel.text = viewModel.cocktail.name
+        addressLabel.text = viewModel.cocktail.instructions
     }
 }
