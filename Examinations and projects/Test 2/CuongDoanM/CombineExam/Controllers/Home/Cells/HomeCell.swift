@@ -6,17 +6,19 @@
 //
 
 import UIKit
-import Combine
+import SDWebImage
 
 final class HomeCell: UITableViewCell {
-    
-    private var subscriptions: Set<AnyCancellable> = []
-    
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var addressLabel: UILabel!
+        
+    @IBOutlet private weak var drinkLabel: UILabel!
+    @IBOutlet private weak var instructionsLabel: UILabel!
+    @IBOutlet private weak var modifiedLabel: UILabel!
+    @IBOutlet private weak var thumbImageView: UIImageView!
 
-    func updateUI(user: User) {
-        nameLabel.text = user.name
-        addressLabel.text = user.address
+    func update(drink: Drink) {
+        drinkLabel.text = drink.drink
+        instructionsLabel.text = drink.instructions
+        modifiedLabel.text = drink.modified?.toString(withFormat: .date)
+        thumbImageView.sd_setImage(with: URL(string: drink.thumb.orEmpty))
     }
 }
