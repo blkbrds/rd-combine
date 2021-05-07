@@ -10,7 +10,7 @@ import UIKit
 final class HomeViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var tagsLabel: UILabel!
 
     var viewModel: HomeCellViewModel? {
         didSet {
@@ -20,16 +20,16 @@ final class HomeViewCell: UITableViewCell {
 
     private func updateUI() {
         nameLabel.text = viewModel?.name
-        addressLabel.text = viewModel?.address
+        tagsLabel.text = viewModel?.tags
     }
 }
 
 final class HomeCellViewModel {
     var name: String
-    var address: String
+    var tags: String?
 
-    init(name: String, address: String) {
+    init(name: String, tags: String?) {
         self.name = name
-        self.address = address
+        self.tags = tags
     }
 }

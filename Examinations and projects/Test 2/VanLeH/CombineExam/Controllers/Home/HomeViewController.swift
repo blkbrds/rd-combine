@@ -8,9 +8,11 @@
 import UIKit
 import Combine
 
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var errorLabel: UILabel!
+
     let identifier = String(describing: "HomeViewCell")
     
     var viewModel: HomeViewModel = HomeViewModel()
@@ -35,10 +37,20 @@ class HomeViewController: UIViewController {
     }
 
     private func binding() {
-        viewModel.users
+        viewModel.drinks
             .sink { [weak self] _ in
                 self?.tableView.reloadData()
             }
+            .store(in: &subscriptions)
+
+        viewModel.searchFailed
+            .map { $0 == nil }
+            .assign(to: \.isHidden, on: errorLabel)
+            .store(in: &subscriptions)
+
+        viewModel.searchFailed
+            .map { $0 != nil }
+            .assign(to: \.isHidden, on: tableView)
             .store(in: &subscriptions)
     }
 
@@ -60,7 +72,7 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.users.value.count
+        return viewModel.drinks.value.count
     }
 }
 

@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="91" id="KGk-i7-Jjw" customClass="HomeViewCell" customModule="CombineExam" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" indentationWidth="10" rowHeight="91" id="KGk-i7-Jjw" customClass="HomeViewCell" customModule="CombineExam" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="345" height="91"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="345" height="91"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -35,7 +34,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aaV-dL-NZq">
-                                <rect key="frame" x="81" y="27" width="220" height="17"/>
+                                <rect key="frame" x="81" y="27" width="220" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -45,13 +44,13 @@
                         <constraints>
                             <constraint firstItem="aaV-dL-NZq" firstAttribute="leading" secondItem="VHG-T2-5qi" secondAttribute="trailing" constant="10" id="3ed-7c-ztM"/>
                             <constraint firstAttribute="bottom" secondItem="VHG-T2-5qi" secondAttribute="bottom" id="5Sa-dR-9Ug"/>
+                            <constraint firstItem="aaV-dL-NZq" firstAttribute="bottom" secondItem="VHG-T2-5qi" secondAttribute="bottom" id="DSr-cB-NYR"/>
                             <constraint firstItem="ztv-cr-sSa" firstAttribute="top" secondItem="TrU-HN-O6A" secondAttribute="top" id="Iqa-TN-tQe"/>
                             <constraint firstAttribute="trailing" secondItem="aaV-dL-NZq" secondAttribute="trailing" constant="20" id="SVk-ZG-cnQ"/>
                             <constraint firstAttribute="trailing" secondItem="ztv-cr-sSa" secondAttribute="trailing" constant="20" id="Vzx-iT-4OK"/>
                             <constraint firstItem="aaV-dL-NZq" firstAttribute="top" secondItem="ztv-cr-sSa" secondAttribute="bottom" constant="6" id="ZpK-eG-ylU"/>
                             <constraint firstItem="VHG-T2-5qi" firstAttribute="leading" secondItem="TrU-HN-O6A" secondAttribute="leading" id="g3Z-qa-Qh2"/>
                             <constraint firstItem="VHG-T2-5qi" firstAttribute="top" secondItem="TrU-HN-O6A" secondAttribute="top" id="j5L-p8-rob"/>
-                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="aaV-dL-NZq" secondAttribute="bottom" constant="8" id="pQq-vB-gKw"/>
                             <constraint firstItem="ztv-cr-sSa" firstAttribute="leading" secondItem="VHG-T2-5qi" secondAttribute="trailing" constant="10" id="x1G-bP-Yx4"/>
                         </constraints>
                     </view>
@@ -63,10 +62,9 @@
                     <constraint firstItem="TrU-HN-O6A" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="qOp-sJ-7Du"/>
                 </constraints>
             </tableViewCellContentView>
-            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="addressLabel" destination="aaV-dL-NZq" id="oq9-Fh-g6V"/>
                 <outlet property="nameLabel" destination="ztv-cr-sSa" id="fX1-w5-Jki"/>
+                <outlet property="tagsLabel" destination="aaV-dL-NZq" id="oq9-Fh-g6V"/>
             </connections>
             <point key="canvasLocation" x="-118.11594202898551" y="105.46875"/>
         </tableViewCell>

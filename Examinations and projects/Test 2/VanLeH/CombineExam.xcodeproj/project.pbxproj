@@ -24,6 +24,9 @@
 		4E9FDE0C2622186D006F4EB4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FDE0B2622186D006F4EB4 /* User.swift */; };
 		4EBB3C0C262356DA0028A21C /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB3C0B262356DA0028A21C /* SignInViewModel.swift */; };
 		4EBB3C0F262356F70028A21C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB3C0E262356F70028A21C /* HomeViewModel.swift */; };
+		74C17E092644EC9D0089E632 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C17E082644EC9D0089E632 /* Drink.swift */; };
+		74C17E0D264500610089E632 /* URLExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C17E0C264500610089E632 /* URLExt.swift */; };
+		74C17E0F26451C820089E632 /* ClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C17E0E26451C820089E632 /* ClientError.swift */; };
 		74D73E5326234D92003BE284 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D73E5226234D92003BE284 /* StringExt.swift */; };
 		74D73E5726234DBA003BE284 /* SignInError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D73E5626234DBA003BE284 /* SignInError.swift */; };
 		74D73E5B26234E3D003BE284 /* LocalDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D73E5A26234E3D003BE284 /* LocalDatabase.swift */; };
@@ -49,6 +52,9 @@
 		4E9FDE0B2622186D006F4EB4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4EBB3C0B262356DA0028A21C /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		4EBB3C0E262356F70028A21C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		74C17E082644EC9D0089E632 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
+		74C17E0C264500610089E632 /* URLExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExt.swift; sourceTree = "<group>"; };
+		74C17E0E26451C820089E632 /* ClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientError.swift; sourceTree = "<group>"; };
 		74D73E5226234D92003BE284 /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 		74D73E5626234DBA003BE284 /* SignInError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInError.swift; sourceTree = "<group>"; };
 		74D73E5A26234E3D003BE284 /* LocalDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDatabase.swift; sourceTree = "<group>"; };
@@ -151,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				4E9FDE0B2622186D006F4EB4 /* User.swift */,
+				74C17E082644EC9D0089E632 /* Drink.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -161,6 +168,8 @@
 				74D73E5226234D92003BE284 /* StringExt.swift */,
 				74D73E5626234DBA003BE284 /* SignInError.swift */,
 				74D73E5A26234E3D003BE284 /* LocalDatabase.swift */,
+				74C17E0C264500610089E632 /* URLExt.swift */,
+				74C17E0E26451C820089E632 /* ClientError.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -239,10 +248,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74C17E0D264500610089E632 /* URLExt.swift in Sources */,
 				4E9FDDF7262211F4006F4EB4 /* HomeViewController.swift in Sources */,
 				4E9FDDF0262211DC006F4EB4 /* SignInViewController.swift in Sources */,
 				74D73E5726234DBA003BE284 /* SignInError.swift in Sources */,
 				4E9FDE062622143E006F4EB4 /* HomeViewCell.swift in Sources */,
+				74C17E0F26451C820089E632 /* ClientError.swift in Sources */,
 				4E9FDDDD262211A9006F4EB4 /* ViewController.swift in Sources */,
 				74D73E5326234D92003BE284 /* StringExt.swift in Sources */,
 				74D73E5B26234E3D003BE284 /* LocalDatabase.swift in Sources */,
@@ -251,6 +262,7 @@
 				4EBB3C0C262356DA0028A21C /* SignInViewModel.swift in Sources */,
 				4E9FDDFE26221201006F4EB4 /* DetailViewController.swift in Sources */,
 				4E9FDDD9262211A9006F4EB4 /* AppDelegate.swift in Sources */,
+				74C17E092644EC9D0089E632 /* Drink.swift in Sources */,
 				4E9FDDDB262211A9006F4EB4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

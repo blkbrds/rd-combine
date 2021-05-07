@@ -10,30 +10,43 @@ import Combine
 
 final class HomeViewModel {
 
-    var users: CurrentValueSubject<[User], Never> = .init([])
-    var inputtedTextSubject: PassthroughSubject = PassthroughSubject<String?, Never>()
-    var didSearch: PassthroughSubject = PassthroughSubject<Void, Never>()
+    var drinks: CurrentValueSubject<[Drink], Never> = .init([])
+    var inputtedTextSubject: PassthroughSubject<String?, Never> = .init()
+    var searchFailed: PassthroughSubject<Error?, Never> = .init()
     private var subscriptions = [AnyCancellable]()
 
     init() {
-        users.send(LocalDatabase.users)
-
         inputtedTextSubject
             .replaceNil(with: "")
-            .map { keyword in
-                guard !keyword.isEmpty else {
-                    return LocalDatabase.users
-                }
-                return LocalDatabase.users.filter { $0.name.lowercased().contains(keyword) }
+            .sink { keyword in
+                self.search(keyword: keyword)
             }
-            .assign(to: \.users.value, on: self)
             .store(in: &subscriptions)
     }
 
+    func search(keyword: String) {
+        guard let url = URL(string: "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=\(keyword)") else {
+            searchFailed.send(ClientError.unableToCreateRequest)
+            return
+        }
+        url
+            .requestApi(Drinks.self)
+            .sink(receiveCompletion: {
+                if case .failure(let error) = $0 {
+                    self.searchFailed.send(error)
+                }
+            }, receiveValue: {
+                self.drinks.send($0.drinks)
+                self.searchFailed.send(nil)
+            })
+            .store(in: &subscriptions)
+
+    }
+
     func viewModelForCell(at indexPath: IndexPath) -> HomeCellViewModel? {
-        guard indexPath.row < users.value.count else { return nil }
-        let user = users.value[indexPath.row]
-        let vm = HomeCellViewModel(name: user.name, address: user.address)
+        guard indexPath.row < drinks.value.count else { return nil }
+        let drink = drinks.value[indexPath.row]
+        let vm = HomeCellViewModel(name: drink.name, tags: drink.tags)
         return vm
     }
 }
