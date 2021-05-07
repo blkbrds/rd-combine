@@ -12,6 +12,7 @@ final class HomeViewModel {
     var users: [Cocktail] = []
     var filteredUser: [Cocktail] = []
     var cancellables: Set<AnyCancellable> = []
+    let path: String = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s="
 
     func numberOfItems(inSection section: Int) -> Int {
         return self.filteredUser.count
@@ -24,7 +25,7 @@ final class HomeViewModel {
             guard let self = self else {
                 return resolve(.failure(.unknown))
             }
-            guard let url = URL(string: "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=\(trimmedString)") else {
+            guard let url = URL(string: self.path + trimmedString) else {
                 return resolve(.failure(.maintenance))
             }
             let cocktail = URLSession.shared.dataTaskPublisher(for: url)
