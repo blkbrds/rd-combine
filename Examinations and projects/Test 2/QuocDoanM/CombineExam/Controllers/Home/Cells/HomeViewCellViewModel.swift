@@ -8,9 +8,9 @@
 import Foundation
 
 final class HomeViewCellViewModel {
-    var user: User
+    var cocktail: Cocktail
 
-    init(user: User) {
-        self.user = user
+    init(cocktail: Cocktail) {
+        self.cocktail = cocktail
     }
 }
