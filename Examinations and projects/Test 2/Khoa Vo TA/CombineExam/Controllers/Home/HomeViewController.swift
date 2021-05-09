@@ -46,11 +46,10 @@ final class HomeViewController: UIViewController {
             .debounce(for: 0.3, scheduler: RunLoop.main)
             .assign(to: \.keyword, on: viewModel)
             .store(in: &subscriptions)
-        
-        viewModel.users.sink { [weak self] users in
+        viewModel.cocktails.sink(receiveValue: { [weak self] _ in
             guard let this = self else { return }
-            this.reloadData()
-        }.store(in: &subscriptions)
+            this.tableView.reloadData()
+        }).store(in: &subscriptions)
     }
     
     private func reloadData() {
@@ -65,7 +64,7 @@ extension HomeViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? HomeViewCell else {
             fatalError()
         }
-        cell.viewModel = viewModel.viewModelForItem(at: indexPath)
+        cell.bindView(to: viewModel, indexPath: indexPath)
         return cell
     }
     

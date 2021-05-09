@@ -11,29 +11,34 @@ import Combine
 final class HomeViewModel {
     
     // MARK: - Properties
-    private(set) var users: CurrentValueSubject = CurrentValueSubject<[User], Never>([])
-    
+    var cocktails = CurrentValueSubject<[Cocktail], Never>([])
     @Published var keyword: String?
     
     var subscriptions = Set<AnyCancellable>()
     
     init() {
-        $keyword.map({ keyword -> [User] in
-            guard let keyword = keyword else { return [] }
-            return LocalDatabase.users.filter { $0.name.lowercased().contains(keyword.lowercased()) }
-        }).sink(receiveValue: { [weak self] users in
-            guard let this = self else { return }
-            this.users.send(users)
-        }).store(in: &subscriptions)
+        $keyword
+            .dropFirst()
+            .sink(receiveValue: { [weak self] keyword in
+                guard let this = self else { return }
+                this.getCocktails(byName: keyword ?? "")
+            }).store(in: &subscriptions)
     }
     
     // MARK: - Public
     func numberOfItems() -> Int {
-        return users.value.count
+        return cocktails.value.count
     }
 
-    func viewModelForItem(at indexPath: IndexPath) -> HomeViewCellViewModel {
-        let item = users.value[indexPath.row]
-        return HomeViewCellViewModel(name: item.name, address: item.address)
+    func getCocktails(byName name: String) {
+        guard let keyword = keyword else { return }
+        let service: CocktailService = CocktailService()
+        service.getCocktails(byName: keyword)
+            .sink(receiveCompletion: { completion in
+                print(completion)
+            }, receiveValue: { [weak self] results in
+                guard let this = self else { return }
+                this.cocktails.value = results.drinks ?? []
+            }).store(in: &subscriptions)
     }
 }

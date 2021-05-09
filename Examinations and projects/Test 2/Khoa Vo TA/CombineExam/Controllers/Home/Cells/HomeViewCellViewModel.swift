@@ -10,11 +10,9 @@ import Foundation
 final class HomeViewCellViewModel {
     
     // MARK: - Properties
-    private(set) var name: String = ""
-    private(set) var address: String = ""
+    private(set) var cocktail: Cocktail?
     
-    init(name: String = "", address: String = "") {
-        self.name = name
-        self.address = address
+    init(name: String = "", address: String = "", imageURL: String = "") {
+        
     }
 }

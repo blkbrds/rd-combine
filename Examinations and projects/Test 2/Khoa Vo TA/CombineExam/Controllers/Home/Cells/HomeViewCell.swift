@@ -10,24 +10,22 @@ import UIKit
 final class HomeViewCell: UITableViewCell {
     
     // MARK: - IBOutlets
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var addressLabel: UILabel!
+    @IBOutlet private weak var cockTailImageView: UIImageView!
     
     // MARK: - Properties
-    var viewModel = HomeViewCellViewModel() {
-        didSet {
-            updateView()
-        }
-    }
     
     // MARK: - Life cycle
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    // MARK: - Private
-    private func updateView() {
-        nameLabel.text = viewModel.name
-        addressLabel.text = viewModel.address
+    // MARK: - Public
+    func bindView(to viewModel: HomeViewModel, indexPath: IndexPath) {
+        let cocktail = viewModel.cocktails.value
+        nameLabel.text = cocktail[indexPath.row].strDrink
+        addressLabel.text = cocktail[indexPath.row].strInstructions
+        cockTailImageView.download(from: cocktail[indexPath.row].strDrinkThumb)
     }
 }
