@@ -12,4 +12,10 @@ class HomeViewCell: UITableViewCell {
 
     // MARK: - IBOutlets
     @IBOutlet weak var nameLabel: UILabel!
+
+    // MARK: - Functions
+    func bindView(to viewModel: HomeViewModel, indexPath: IndexPath) {
+        let province = viewModel.provinceSubject.value
+        nameLabel.text = province[indexPath.row].name
+    }
 }

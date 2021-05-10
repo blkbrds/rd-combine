@@ -18,11 +18,29 @@ final class HomeViewModel {
 
     // MARK: - Functions
     func getNameProvince() {
-        provinceNetWorkManager.getName()
+        guard let url = URL(string: "https://thongtindoanhnghiep.co/api/city") else {
+            fatalError("Invalid URL")
+        }
+        URLSession.shared.dataTaskPublisher(for: url)
+            .map { $0.data }
+            .decode(type: ProvinceResponseData.self, decoder: JSONDecoder())
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
             .sink(receiveCompletion: { error in
                 print(error)
             }, receiveValue: { value in
                 self.provinceSubject.value = value.data ?? []
             }).store(in: &subscriptions)
+    }
+}
+
+extension HomeViewModel {
+
+    struct ProvinceResponseData: Codable {
+        var data: [Province]?
+
+        enum CodingKeys: String, CodingKey {
+            case data = "LtsItem"
+        }
     }
 }

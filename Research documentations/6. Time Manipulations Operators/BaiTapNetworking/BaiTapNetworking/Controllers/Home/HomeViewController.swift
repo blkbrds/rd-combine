@@ -46,8 +46,7 @@ extension HomeViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? HomeViewCell else {
             fatalError()
         }
-        let province = viewModel.provinceSubject.value[indexPath.row]
-        cell.nameLabel.text = province.name
+        cell.bindView(to: viewModel, indexPath: indexPath)
         return cell
     }
 
