@@ -27,6 +27,8 @@
 		74D73E5326234D92003BE284 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D73E5226234D92003BE284 /* StringExt.swift */; };
 		74D73E5726234DBA003BE284 /* SignInError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D73E5626234DBA003BE284 /* SignInError.swift */; };
 		74D73E5B26234E3D003BE284 /* LocalDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D73E5A26234E3D003BE284 /* LocalDatabase.swift */; };
+		C76571222653A97D000A6EC7 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76571212653A97D000A6EC7 /* Drink.swift */; };
+		C76571252653AC26000A6EC7 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76571242653AC26000A6EC7 /* Networking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		74D73E5226234D92003BE284 /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 		74D73E5626234DBA003BE284 /* SignInError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInError.swift; sourceTree = "<group>"; };
 		74D73E5A26234E3D003BE284 /* LocalDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDatabase.swift; sourceTree = "<group>"; };
+		C76571212653A97D000A6EC7 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
+		C76571242653AC26000A6EC7 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,7 @@
 				4E9FDDE1262211AA006F4EB4 /* Assets.xcassets */,
 				4E9FDDE3262211AA006F4EB4 /* LaunchScreen.storyboard */,
 				4E9FDDE6262211AA006F4EB4 /* Info.plist */,
+				C76571242653AC26000A6EC7 /* Networking.swift */,
 			);
 			path = CombineExam;
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				4E9FDE0B2622186D006F4EB4 /* User.swift */,
+				C76571212653A97D000A6EC7 /* Drink.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -245,12 +251,14 @@
 				4E9FDE062622143E006F4EB4 /* HomeViewCell.swift in Sources */,
 				4E9FDDDD262211A9006F4EB4 /* ViewController.swift in Sources */,
 				74D73E5326234D92003BE284 /* StringExt.swift in Sources */,
+				C76571252653AC26000A6EC7 /* Networking.swift in Sources */,
 				74D73E5B26234E3D003BE284 /* LocalDatabase.swift in Sources */,
 				4E9FDE0C2622186D006F4EB4 /* User.swift in Sources */,
 				4EBB3C0F262356F70028A21C /* HomeViewModel.swift in Sources */,
 				4EBB3C0C262356DA0028A21C /* SignInViewModel.swift in Sources */,
 				4E9FDDFE26221201006F4EB4 /* DetailViewController.swift in Sources */,
 				4E9FDDD9262211A9006F4EB4 /* AppDelegate.swift in Sources */,
+				C76571222653A97D000A6EC7 /* Drink.swift in Sources */,
 				4E9FDDDB262211A9006F4EB4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
