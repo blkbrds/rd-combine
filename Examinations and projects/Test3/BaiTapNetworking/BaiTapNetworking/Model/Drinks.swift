@@ -8,10 +8,10 @@
 import Foundation
 import Combine
 struct Drinks: Decodable {
-    let strAlcoholic: String?
+    let strDrink: String?
 
     static var placehoder: Drinks {
-        return Drinks (strAlcoholic: nil)
+        return Drinks (strDrink: nil)
     }
 }
 

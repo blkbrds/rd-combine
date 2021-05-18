@@ -7,24 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		975BA8462645D5C4000A71B1 /* CoktaiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975BA8452645D5C4000A71B1 /* CoktaiViewController.swift */; };
 		975DB7DC2644F2E4008FAF8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975DB7DB2644F2E4008FAF8B /* AppDelegate.swift */; };
 		975DB7DE2644F2E4008FAF8B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975DB7DD2644F2E4008FAF8B /* SceneDelegate.swift */; };
-		975DB7E02644F2E4008FAF8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975DB7DF2644F2E4008FAF8B /* ViewController.swift */; };
 		975DB7E32644F2E4008FAF8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 975DB7E12644F2E4008FAF8B /* Main.storyboard */; };
 		975DB7E52644F2EA008FAF8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 975DB7E42644F2EA008FAF8B /* Assets.xcassets */; };
 		975DB7E82644F2EA008FAF8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 975DB7E62644F2EA008FAF8B /* LaunchScreen.storyboard */; };
 		975DB7F42644F3E6008FAF8B /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975DB7F32644F3E6008FAF8B /* Api.swift */; };
 		975DB7F726450039008FAF8B /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975DB7F626450039008FAF8B /* Networking.swift */; };
 		975DB7FB26450095008FAF8B /* Drinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975DB7FA26450095008FAF8B /* Drinks.swift */; };
+		97C1BB5A265350940078A575 /* CockTaiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C1BB58265350940078A575 /* CockTaiVC.swift */; };
+		97C1BB5B265350940078A575 /* CockTaiVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97C1BB59265350940078A575 /* CockTaiVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		975BA8452645D5C4000A71B1 /* CoktaiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoktaiViewController.swift; sourceTree = "<group>"; };
 		975DB7D82644F2E4008FAF8B /* BaiTapNetworking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaiTapNetworking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		975DB7DB2644F2E4008FAF8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		975DB7DD2644F2E4008FAF8B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		975DB7DF2644F2E4008FAF8B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		975DB7E22644F2E4008FAF8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		975DB7E42644F2EA008FAF8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		975DB7E72644F2EA008FAF8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -32,6 +30,8 @@
 		975DB7F32644F3E6008FAF8B /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		975DB7F626450039008FAF8B /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		975DB7FA26450095008FAF8B /* Drinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drinks.swift; sourceTree = "<group>"; };
+		97C1BB58265350940078A575 /* CockTaiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CockTaiVC.swift; sourceTree = "<group>"; };
+		97C1BB59265350940078A575 /* CockTaiVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CockTaiVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,12 +69,12 @@
 				975DB7F12644F3C5008FAF8B /* Webservices */,
 				975DB7DB2644F2E4008FAF8B /* AppDelegate.swift */,
 				975DB7DD2644F2E4008FAF8B /* SceneDelegate.swift */,
-				975DB7DF2644F2E4008FAF8B /* ViewController.swift */,
-				975BA8452645D5C4000A71B1 /* CoktaiViewController.swift */,
 				975DB7E12644F2E4008FAF8B /* Main.storyboard */,
 				975DB7E42644F2EA008FAF8B /* Assets.xcassets */,
 				975DB7E62644F2EA008FAF8B /* LaunchScreen.storyboard */,
 				975DB7E92644F2EA008FAF8B /* Info.plist */,
+				97C1BB58265350940078A575 /* CockTaiVC.swift */,
+				97C1BB59265350940078A575 /* CockTaiVC.xib */,
 			);
 			path = BaiTapNetworking;
 			sourceTree = "<group>";
@@ -161,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				975DB7E82644F2EA008FAF8B /* LaunchScreen.storyboard in Resources */,
+				97C1BB5B265350940078A575 /* CockTaiVC.xib in Resources */,
 				975DB7E52644F2EA008FAF8B /* Assets.xcassets in Resources */,
 				975DB7E32644F2E4008FAF8B /* Main.storyboard in Resources */,
 			);
@@ -173,12 +174,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				975DB7E02644F2E4008FAF8B /* ViewController.swift in Sources */,
+				97C1BB5A265350940078A575 /* CockTaiVC.swift in Sources */,
 				975DB7F726450039008FAF8B /* Networking.swift in Sources */,
 				975DB7DC2644F2E4008FAF8B /* AppDelegate.swift in Sources */,
 				975DB7F42644F3E6008FAF8B /* Api.swift in Sources */,
 				975DB7FB26450095008FAF8B /* Drinks.swift in Sources */,
-				975BA8462645D5C4000A71B1 /* CoktaiViewController.swift in Sources */,
 				975DB7DE2644F2E4008FAF8B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
