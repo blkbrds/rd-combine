@@ -19,4 +19,11 @@ final class HomeViewCell: UITableViewCell {
             addressLabel.text = user?.address
         }
     }
+    
+    var drink: Drink? {
+        didSet {
+            nameLabel.text = drink?.strGlass
+            addressLabel.text = drink?.strTags
+        }
+    }
 }

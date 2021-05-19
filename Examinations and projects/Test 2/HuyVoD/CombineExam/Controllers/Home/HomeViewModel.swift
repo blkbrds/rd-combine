@@ -10,20 +10,31 @@ import Combine
 
 final class HomeViewModel {
     
+    let drinks: CurrentValueSubject<[Drink], Never> = CurrentValueSubject<[Drink], Never>([])
     let searchKey: CurrentValueSubject<String, Never> = CurrentValueSubject<String, Never>("")
-    let listUser: CurrentValueSubject<[User], Never> = CurrentValueSubject<[User], Never>(LocalDatabase.users)
-    
     var subscription = Set<AnyCancellable>()
     
     init() {
-        searchKey.sink { [weak self] (key) in
-            guard let this = self else { return }
-            if key.isEmpty {
-                this.listUser.send(LocalDatabase.users)
-            } else {
-                this.listUser.send(LocalDatabase.users.filter { $0.name.contains(key) })
-            }
-            }.store(in: &subscription)
+        searchKey.throttle(for: 1, scheduler: RunLoop.main, latest: true).sink { (key) in
+            self.getCooktail(key: key).sink { (completion) in
+                print(completion)
+            } receiveValue: { (value) in
+                self.drinks.send(value.drinks)
+            }.store(in: &self.subscription)
+        }.store(in: &subscription)
     }
-    
+        
+    func getCooktail(key: String) -> AnyPublisher<DrinksRespone, Error> {
+        guard let url = URL(string: "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=\(key)") else {
+            fatalError("Invalid URL")
+        }
+        return URLSession.shared.dataTaskPublisher(for: url)
+            .map {
+                print($0.data)
+                return $0.data
+            }
+            .decode(type: DrinksRespone.self, decoder: JSONDecoder())
+            .receive(on: RunLoop.main)
+            .eraseToAnyPublisher()
+    }
 }

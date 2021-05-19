@@ -17,7 +17,7 @@ class HomeViewController: UIViewController {
     
     var viewModel: HomeViewModel?
     
-    private var subscription = Set<AnyCancellable>()
+    private var subscriptions = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,9 +41,9 @@ class HomeViewController: UIViewController {
     }
     
     private func configSubscription() {
-        viewModel?.listUser.sink(receiveValue: { [weak self] _ in
+        viewModel?.drinks.sink(receiveValue: { [weak self] _ in
             self?.tableView.reloadData()
-        }).store(in: &subscription)
+        }).store(in: &subscriptions)
     }
 }
 
@@ -53,12 +53,12 @@ extension HomeViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? HomeViewCell else {
             fatalError()
         }
-        cell.user = viewModel?.listUser.value[indexPath.row]
+        cell.drink = viewModel?.drinks.value[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.listUser.value.count ?? 0
+        return viewModel?.drinks.value.count ?? 0
     }
 }
 
