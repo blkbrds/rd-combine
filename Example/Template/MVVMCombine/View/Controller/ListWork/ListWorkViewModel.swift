@@ -27,10 +27,11 @@ final class ListWorkViewModel: ViewModelType {
     // Publisher
     private(set) var works: CurrentValueSubject<[Work], Never> = .init([])
 
-    // ViewModelType conforminf
+    // ViewModelType conforming
     private(set) var isLoading: CurrentValueSubject<Bool, Never> = .init(false)
     private(set) var subscriptions: Set<AnyCancellable> = []
 
+    // MARK: - Initialize
     init(type: Type) {
         typeId = type.id
         title = type.label
@@ -45,6 +46,7 @@ final class ListWorkViewModel: ViewModelType {
             .store(in: &subscriptions)
     }
 
+    // MARK: - Public functions
     func performGetListWork() {
         isLoading.send(true)
         APIType.getListWork(typeId: typeId, currentPage: 0)
