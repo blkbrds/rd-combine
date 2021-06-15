@@ -4,7 +4,7 @@ R&D - iOS - Combine
 
 ### Mô hình MVVM kết hợp Combine:
 - Sơ đồ hoạt động của MVVM:
-[MVVM]()
+[MVVM](https://github.com/blkbrds/rd-combine/blob/5b257eb225e05756754f9d4a46ced8da45283537/Example/images/MVVM.png)
 - Theo như sơ đồ trên, có thể sử dụng Combine ở các tác vụ:
 + View gửi action cho Controller: thông thường ở đây chúng ta sẽ sử dụng IBAction / delegate pattern thì bây giờ có thể thay thế bằng publisher.
 + View Model tương tác với API / DB: API thay vì dùng callback (closure) / notify (NotificationCenter) thì sẽ sử dụng cơ chế *emit* của publisher, còn view model chỉ cần thực hiện việc đăng ký lắng nghe đến publisher này.
