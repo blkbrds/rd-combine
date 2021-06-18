@@ -34,7 +34,7 @@ class NetworkingCombineTests: XCTestCase {
                     XCTFail(error.localizedDescription)
                 }
             } receiveValue: { (value) in
-                XCTAssertEqual(value.data?.count, 2)
+                XCTAssertEqual(value.data?.count, 25)
             }
     }
 

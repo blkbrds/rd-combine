@@ -47,10 +47,7 @@ struct DrinksView: View {
             }
         }
         .background(
-            Image("Image")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .ignoresSafeArea()
+            Color.red
         )
         .alert(item: $viewModel.error, content: { error in
             Alert(title: Text("Error"), message: Text(error.localizedDescription), dismissButton: .default(Text("OK")))

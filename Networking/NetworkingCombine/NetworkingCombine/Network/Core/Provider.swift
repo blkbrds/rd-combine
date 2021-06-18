@@ -68,10 +68,10 @@ class MockProviderClient<Target: TargetType>: Provider<Target> {
 
     override func request(target: Target) -> RequestPublisher {
         Future<URLSession.DataTaskPublisher.Output, Error> { promise in
-//            let output : URLSession.DataTaskPublisher.Output = (target.sampleData, URLResponse())
-//            promise(.success(output))
+            let output : URLSession.DataTaskPublisher.Output = (target.sampleData, URLResponse())
+            promise(.success(output))
             
-            promise(.failure(APIError.unknown))
+//            promise(.failure(APIError.unknown))
         }.eraseToAnyPublisher()
     }
 }

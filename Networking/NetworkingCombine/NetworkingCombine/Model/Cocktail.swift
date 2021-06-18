@@ -22,12 +22,4 @@ final class Cocktail: Codable, Identifiable {
     }
     
     init() { }
-
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        id = try? container.decode(String.self, forKey: .id)
-        nameTitle = try? container.decode(String.self, forKey: .nameTitle)
-        imageURL = try? container.decode(String.self, forKey: .imageURL)
-        instructions = try? container.decode(String.self, forKey: .instructions)
-    }
 }
