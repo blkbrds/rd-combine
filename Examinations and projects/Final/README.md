@@ -2,9 +2,10 @@
 R&amp;D - iOS - Combine
 
 ## Đề bài
-**Tạo 1 project đảm bảo các yêu cầu sau:**
+### **Tạo 1 project đảm bảo các yêu cầu sau:**
 
-1. Yêu cầu về màn hình:
+#### 1. Yêu cầu về màn hình:
+
 No | Screen | Required
 ---- | -------- | ---------
 1 | Register | x
@@ -16,7 +17,9 @@ No | Screen | Required
 7 | Profile |
 8 | Edit profile |
 
-2. Yêu cầu về các kỹ thuật có áp dụng combine:
+
+#### 2. Yêu cầu về các kỹ thuật có áp dụng combine:
+
 No | Technique | Required
 ---- | ----------- | ---------
 1 | Validate | x
@@ -31,6 +34,7 @@ No | Technique | Required
 10 | Binding 2 way (views and view model) | x
 11 | Interact with local database |
 12 | Unit test |
+
 
 *Lưu ý:*
 - Ý tưởng về UI, API tự do
