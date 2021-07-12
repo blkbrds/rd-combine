@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D134393F2697E9F9004AB25F /* LoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D134393E2697E9F9004AB25F /* LoginError.swift */; };
+		D13439412697EA98004AB25F /* StringExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13439402697EA98004AB25F /* StringExts.swift */; };
+		D13439452697F9E8004AB25F /* UITextFieldExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13439442697F9E8004AB25F /* UITextFieldExts.swift */; };
 		D1B34A2E2695626300DB8C2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B34A2D2695626300DB8C2A /* AppDelegate.swift */; };
 		D1B34A302695626300DB8C2A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B34A2F2695626300DB8C2A /* SceneDelegate.swift */; };
 		D1B34A372695626600DB8C2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1B34A362695626600DB8C2A /* Assets.xcassets */; };
@@ -21,6 +24,7 @@
 		D1B34A9826958BF800DB8C2A /* MusicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B34A9626958BF800DB8C2A /* MusicListViewController.swift */; };
 		D1B34A9926958BF800DB8C2A /* MusicListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1B34A9726958BF800DB8C2A /* MusicListViewController.xib */; };
 		D1B34AA126958C1200DB8C2A /* MusicListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B34AA026958C1200DB8C2A /* MusicListViewModel.swift */; };
+		D1B40659269BEB5B004DB6C6 /* UIButtonExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B40658269BEB5B004DB6C6 /* UIButtonExts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +45,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D134393E2697E9F9004AB25F /* LoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginError.swift; sourceTree = "<group>"; };
+		D13439402697EA98004AB25F /* StringExts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExts.swift; sourceTree = "<group>"; };
+		D13439442697F9E8004AB25F /* UITextFieldExts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExts.swift; sourceTree = "<group>"; };
 		D1B34A2A2695626300DB8C2A /* FinalProject_Combine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject_Combine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1B34A2D2695626300DB8C2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1B34A2F2695626300DB8C2A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +68,7 @@
 		D1B34A9626958BF800DB8C2A /* MusicListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListViewController.swift; sourceTree = "<group>"; };
 		D1B34A9726958BF800DB8C2A /* MusicListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicListViewController.xib; sourceTree = "<group>"; };
 		D1B34AA026958C1200DB8C2A /* MusicListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListViewModel.swift; sourceTree = "<group>"; };
+		D1B40658269BEB5B004DB6C6 /* UIButtonExts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +96,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D134393D2697E995004AB25F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				D134393E2697E9F9004AB25F /* LoginError.swift */,
+				D13439402697EA98004AB25F /* StringExts.swift */,
+				D13439442697F9E8004AB25F /* UITextFieldExts.swift */,
+				D1B40658269BEB5B004DB6C6 /* UIButtonExts.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		D1B34A212695626300DB8C2A = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				D1B34A66269562A900DB8C2A /* AppDelegate */,
+				D134393D2697E995004AB25F /* Common */,
 				D1B34A85269563D000DB8C2A /* Manager */,
 				D1B34A6A269562C900DB8C2A /* Models */,
 				D1B34A732695630100DB8C2A /* View */,
@@ -334,13 +354,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1B34A782695637900DB8C2A /* LoginViewController.swift in Sources */,
+				D13439452697F9E8004AB25F /* UITextFieldExts.swift in Sources */,
 				D1B34A2E2695626300DB8C2A /* AppDelegate.swift in Sources */,
 				D1B34A302695626300DB8C2A /* SceneDelegate.swift in Sources */,
 				D1B34A812695639800DB8C2A /* LoginViewModel.swift in Sources */,
 				D1B34AA126958C1200DB8C2A /* MusicListViewModel.swift in Sources */,
 				D1B34A88269563ED00DB8C2A /* ApiManager.swift in Sources */,
+				D13439412697EA98004AB25F /* StringExts.swift in Sources */,
 				D1B34A6C269562E100DB8C2A /* Music.swift in Sources */,
 				D1B34A9826958BF800DB8C2A /* MusicListViewController.swift in Sources */,
+				D134393F2697E9F9004AB25F /* LoginError.swift in Sources */,
+				D1B40659269BEB5B004DB6C6 /* UIButtonExts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
