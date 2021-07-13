@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-enum Completion {
+enum Completion: Equatable {
     case success
     case failure(LoginError)
 }
@@ -30,7 +30,21 @@ final class LoginViewModel {
             }
             .eraseToAnyPublisher()
     }
-    
+//
+//    var isUsernameValidate: AnyPublisher<Bool, Never> {
+//        username
+//            .compactMap { value in
+//                if value.count < 6 || value.count > 18 {
+//                    return false
+//                }
+//                if value.containsEmoji {
+//                    return false
+//                }
+//                return true
+//            }
+//            .eraseToAnyPublisher()
+//    }
+//
     var validatePasswordPublisher: AnyPublisher<Completion, Never> {
         password
             .map { value -> Completion in
@@ -44,7 +58,4 @@ final class LoginViewModel {
             }
             .eraseToAnyPublisher()
     }
-    
-    @Published var isValid: Bool = false
-    
 }
