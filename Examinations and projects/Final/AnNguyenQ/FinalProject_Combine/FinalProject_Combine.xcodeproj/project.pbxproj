@@ -24,6 +24,10 @@
 		D1B34A9926958BF800DB8C2A /* MusicListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1B34A9726958BF800DB8C2A /* MusicListViewController.xib */; };
 		D1B34AA126958C1200DB8C2A /* MusicListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B34AA026958C1200DB8C2A /* MusicListViewModel.swift */; };
 		D1B4065B269C012C004DB6C6 /* UIControlExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4065A269C012B004DB6C6 /* UIControlExts.swift */; };
+		D1B40660269D7B9B004DB6C6 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4065E269D7B9B004DB6C6 /* RegisterViewController.swift */; };
+		D1B40661269D7B9B004DB6C6 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1B4065F269D7B9B004DB6C6 /* RegisterViewController.xib */; };
+		D1B40663269D7BAB004DB6C6 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B40662269D7BAB004DB6C6 /* RegisterViewModel.swift */; };
+		D1B40665269E9404004DB6C6 /* UITextFieldExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B40664269E9404004DB6C6 /* UITextFieldExts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +71,10 @@
 		D1B34A9726958BF800DB8C2A /* MusicListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicListViewController.xib; sourceTree = "<group>"; };
 		D1B34AA026958C1200DB8C2A /* MusicListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListViewModel.swift; sourceTree = "<group>"; };
 		D1B4065A269C012B004DB6C6 /* UIControlExts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControlExts.swift; sourceTree = "<group>"; };
+		D1B4065E269D7B9B004DB6C6 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		D1B4065F269D7B9B004DB6C6 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		D1B40662269D7BAB004DB6C6 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		D1B40664269E9404004DB6C6 /* UITextFieldExts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +108,7 @@
 				D134393E2697E9F9004AB25F /* LoginError.swift */,
 				D13439402697EA98004AB25F /* StringExts.swift */,
 				D1B4065A269C012B004DB6C6 /* UIControlExts.swift */,
+				D1B40664269E9404004DB6C6 /* UITextFieldExts.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -177,6 +186,7 @@
 		D1B34A732695630100DB8C2A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D1B4065D269D7B78004DB6C6 /* Register */,
 				D1B34A9526958BDE00DB8C2A /* MusicList */,
 				D1B34A752695636100DB8C2A /* Login */,
 			);
@@ -217,6 +227,16 @@
 				D1B34AA026958C1200DB8C2A /* MusicListViewModel.swift */,
 			);
 			path = MusicList;
+			sourceTree = "<group>";
+		};
+		D1B4065D269D7B78004DB6C6 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				D1B4065E269D7B9B004DB6C6 /* RegisterViewController.swift */,
+				D1B4065F269D7B9B004DB6C6 /* RegisterViewController.xib */,
+				D1B40662269D7BAB004DB6C6 /* RegisterViewModel.swift */,
+			);
+			path = Register;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1B34A9926958BF800DB8C2A /* MusicListViewController.xib in Resources */,
+				D1B40661269D7B9B004DB6C6 /* RegisterViewController.xib in Resources */,
 				D1B34A3A2695626600DB8C2A /* LaunchScreen.storyboard in Resources */,
 				D1B34A372695626600DB8C2A /* Assets.xcassets in Resources */,
 				D1B34A792695637900DB8C2A /* LoginViewController.xib in Resources */,
@@ -353,10 +374,13 @@
 				D1B34A782695637900DB8C2A /* LoginViewController.swift in Sources */,
 				D1B34A2E2695626300DB8C2A /* AppDelegate.swift in Sources */,
 				D1B34A302695626300DB8C2A /* SceneDelegate.swift in Sources */,
+				D1B40660269D7B9B004DB6C6 /* RegisterViewController.swift in Sources */,
 				D1B34A812695639800DB8C2A /* LoginViewModel.swift in Sources */,
 				D1B34AA126958C1200DB8C2A /* MusicListViewModel.swift in Sources */,
 				D1B34A88269563ED00DB8C2A /* ApiManager.swift in Sources */,
 				D1B4065B269C012C004DB6C6 /* UIControlExts.swift in Sources */,
+				D1B40663269D7BAB004DB6C6 /* RegisterViewModel.swift in Sources */,
+				D1B40665269E9404004DB6C6 /* UITextFieldExts.swift in Sources */,
 				D13439412697EA98004AB25F /* StringExts.swift in Sources */,
 				D1B34A6C269562E100DB8C2A /* Music.swift in Sources */,
 				D1B34A9826958BF800DB8C2A /* MusicListViewController.swift in Sources */,
@@ -534,7 +558,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "supernova-tech.FinalProject-Combine";
+				PRODUCT_BUNDLE_IDENTIFIER = "an.nguyen.FinalProject-Combine";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -552,7 +576,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "supernova-tech.FinalProject-Combine";
+				PRODUCT_BUNDLE_IDENTIFIER = "an.nguyen.FinalProject-Combine";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

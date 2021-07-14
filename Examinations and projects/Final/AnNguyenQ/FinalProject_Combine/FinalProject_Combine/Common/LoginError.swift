@@ -11,6 +11,7 @@ enum LoginError: Error {
     case invalidUsernameLength
     case invalidUsername
     case invalidPasswordLength
+    case confirmPasswordNotCorrect
     case unknown
 
     var message: String {
@@ -23,6 +24,8 @@ enum LoginError: Error {
             return "Password can only contain from 6 to 18 characters"
         case .unknown:
             return "Unknown Error"
+        case .confirmPasswordNotCorrect:
+            return "Password and confirm password are not the same"
         }
     }
 }

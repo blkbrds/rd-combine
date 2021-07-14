@@ -1,26 +1,22 @@
 //
-//  LoginViewModel.swift
+//  RegisterViewModel.swift
 //  FinalProject_Combine
 //
-//  Created by An Nguyen Q. VN.Danang on 7/7/21.
+//  Created by An Nguyen Q. VN.Danang on 7/13/21.
 //
 
 import Foundation
 import Combine
 
-enum Completion: Equatable {
-    case success
-    case failure(LoginError)
-}
-
-final class LoginViewModel {
+final class RegisterViewModel {
     var username: CurrentValueSubject<String, Never> = CurrentValueSubject<String, Never>("")
     var password: CurrentValueSubject<String, Never> = CurrentValueSubject<String, Never>("")
-    
+    var confirmPassword: CurrentValueSubject<String, Never> = CurrentValueSubject<String, Never>("")
+
     var validateUserNamePublisher: AnyPublisher<Completion, Never> {
         username
             .map { value -> Completion in
-                if value.count < 6 || value.count > 18 {
+                if value.count < 6 {
                     return Completion.failure(LoginError.invalidUsernameLength)
                 }
                 if value.containsEmoji {
@@ -43,5 +39,17 @@ final class LoginViewModel {
                 return Completion.success
             }
             .eraseToAnyPublisher()
+    }
+    
+    var validateConfirmPasswordPublisher: AnyPublisher<Completion, Never> {
+        password
+            .combineLatest(confirmPassword) { pw, confirmPW -> Completion in
+                if pw != confirmPW {
+                    return Completion.failure(LoginError.confirmPasswordNotCorrect)
+                }
+                return Completion.success
+            }
+            .eraseToAnyPublisher()
+            
     }
 }

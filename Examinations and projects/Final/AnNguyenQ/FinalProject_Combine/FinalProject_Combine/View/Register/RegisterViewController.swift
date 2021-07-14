@@ -1,48 +1,57 @@
 //
-//  LoginViewController.swift
+//  RegisterViewController.swift
 //  FinalProject_Combine
 //
-//  Created by An Nguyen Q. VN.Danang on 7/7/21.
+//  Created by An Nguyen Q. VN.Danang on 7/13/21.
 //
 
 import UIKit
 import Combine
 
-final class LoginViewController: UIViewController {
-    @IBOutlet private weak var userNameTextField: UITextField!
+final class RegisterViewController: UIViewController {
+
+    // MARK: - IBOutlets
+    @IBOutlet private weak var usernameTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var confirmPasswordTextField: UITextField!
     @IBOutlet private weak var validateUsernameLabel: UILabel!
     @IBOutlet private weak var validatePasswordLabel: UILabel!
-    @IBOutlet private weak var loginButton: UIButton!
+    @IBOutlet private weak var validateConfirmPasswordLabel: UILabel!
     @IBOutlet private weak var registerButton: UIButton!
+    @IBOutlet private weak var loginButton: UIButton!
     
-    var viewModel: LoginViewModel = LoginViewModel()
+    // MARK: - Properties
+    let viewModel = RegisterViewModel()
     private var subscriptions = Set<AnyCancellable>()
 
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Login"
+        title = "Register"
         // Do any additional setup after loading the view.
         configUI()
         bindingViewModel()
     }
     
     private func configUI() {
-        loginButton.isEnabled = false
-        loginButton.alpha = 0.5
-        loginButton.layer.borderWidth = 1
-        loginButton.layer.cornerRadius = 10
-        loginButton.layer.borderColor = UIColor.clear.cgColor
+        registerButton.isEnabled = false
+        registerButton.alpha = 0.5
+        registerButton.layer.borderWidth = 1
+        registerButton.layer.cornerRadius = 10
+        registerButton.layer.borderColor = UIColor.clear.cgColor
         
         validateUsernameLabel.textColor = .red
         validateUsernameLabel.font = UIFont.systemFont(ofSize: 12)
         
         validatePasswordLabel.textColor = .red
         validatePasswordLabel.font = UIFont.systemFont(ofSize: 12)
+        
+        validateConfirmPasswordLabel.textColor = .red
+        validateConfirmPasswordLabel.font = UIFont.systemFont(ofSize: 12)
     }
     
     private func bindingViewModel() {
-        userNameTextField.publisher(for: .editingChanged)
+        usernameTextField.publisher(for: .editingChanged)
             .receive(on: DispatchQueue.main)
             .compactMap({ $0.text ?? "" })
             .assign(to: \.username.value, on: viewModel)
@@ -52,22 +61,29 @@ final class LoginViewController: UIViewController {
             .map({ _ in self.passwordTextField.text ?? "" })
             .assign(to: \.password.value, on: viewModel)
             .store(in: &subscriptions)
+        
+        confirmPasswordTextField.publisher(for: .editingChanged)
+            .compactMap({ $0.text })
+            .assign(to: \.confirmPassword.value, on: viewModel)
+            .store(in: &subscriptions)
 
         validate()
         
-        loginButton.publisher(for: .touchUpInside)
+        registerButton.publisher(for: .touchUpInside)
             .sink { button in
 //                self.validateUsernameLabel.isHidden = self.viewModel.username.value.isEmpty
 //                self.validatePasswordLabel.isHidden = self.viewModel.password.value.isEmpty
             }
             .store(in: &subscriptions)
 //        loginButton.sendActions(for: .touchUpInside)
-        
+        loginButton.publisher(for: .touchUpInside)
+            .sink { _ in
+                self.navigationController?.popViewController(animated: true)
+            }
+            .store(in: &subscriptions)
     }
     
-    @IBAction func registerButtonTouchUpInside(_ sender: UIButton) {
-        let vc = RegisterViewController()
-        navigationController?.pushViewController(vc, animated: true)
+    @IBAction func loginButtonTouchUpInside(_ sender: UIButton) {
     }
     
     private func validate() {
@@ -113,19 +129,40 @@ final class LoginViewController: UIViewController {
             }
             .store(in: &subscriptions)
         
+        // validate password
+        viewModel.validateConfirmPasswordPublisher
+            .receive(on: DispatchQueue.main)
+            .dropFirst()
+            .sink { completion in
+                print("=====>Completed:", completion)
+            } receiveValue: { [weak self] completionConfirmPassword in
+                guard let this = self else { return }
+                
+                switch completionConfirmPassword {
+                case .success:
+                    print("Value password: success")
+                    break
+                case .failure(let error):
+                    print("=====>error password:", error.message)
+                    this.validateConfirmPasswordLabel.text = error.message
+                }
+                this.validateConfirmPasswordLabel.isHidden = completionConfirmPassword == .success
+            }
+            .store(in: &subscriptions)
+        
         // enable login button
         viewModel.validateUserNamePublisher
             .receive(on: DispatchQueue.main)
             .dropFirst()
-            .combineLatest(viewModel.validatePasswordPublisher)
+            .combineLatest(viewModel.validatePasswordPublisher, viewModel.validateConfirmPasswordPublisher)
             .sink { completion in
                 print("=====>Completed:", completion)
-            } receiveValue: { [weak self] completionUsername, completionPassword in
+            } receiveValue: { [weak self] completionUsername, completionPassword, completionConfirmPassword in
                 guard let this = self else { return }
-                let isValidateSuccess = completionUsername == .success && completionPassword == .success
+                let isValidateSuccess = completionUsername == .success && completionPassword == .success && completionConfirmPassword == .success
                 
-                this.loginButton.isEnabled = isValidateSuccess
-                this.loginButton.alpha = isValidateSuccess ? 1 : 0.5
+                this.registerButton.isEnabled = isValidateSuccess
+                this.registerButton.alpha = isValidateSuccess ? 1 : 0.5
             }
             .store(in: &subscriptions)
     }

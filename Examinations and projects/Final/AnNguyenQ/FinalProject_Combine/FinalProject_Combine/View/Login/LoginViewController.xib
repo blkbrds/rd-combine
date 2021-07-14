@@ -114,6 +114,7 @@
             <constraints>
                 <constraint firstItem="E1f-cy-f5U" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="80" id="1Hd-B9-5Im"/>
                 <constraint firstItem="2wy-HO-8ON" firstAttribute="top" secondItem="oe8-m0-jJO" secondAttribute="bottom" constant="30" id="1LM-Wu-qqN"/>
+                <constraint firstItem="oe8-m0-jJO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="5CP-Ky-COi"/>
                 <constraint firstItem="oe8-m0-jJO" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Avi-Nw-crQ"/>
                 <constraint firstItem="oe8-m0-jJO" firstAttribute="top" secondItem="E1f-cy-f5U" secondAttribute="bottom" constant="30" id="Eiq-8H-wsC"/>
                 <constraint firstItem="E1f-cy-f5U" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="LYB-Hc-71k"/>
