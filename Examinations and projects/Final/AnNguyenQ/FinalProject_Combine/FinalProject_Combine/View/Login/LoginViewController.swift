@@ -7,8 +7,10 @@
 
 import UIKit
 import Combine
+import FirebaseAuth
 
 final class LoginViewController: UIViewController {
+    // MARK: - IBOutlets
     @IBOutlet private weak var userNameTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var validateUsernameLabel: UILabel!
@@ -16,9 +18,11 @@ final class LoginViewController: UIViewController {
     @IBOutlet private weak var loginButton: UIButton!
     @IBOutlet private weak var registerButton: UIButton!
     
+    // MARK: - Properties
     var viewModel: LoginViewModel = LoginViewModel()
     private var subscriptions = Set<AnyCancellable>()
 
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Login"
@@ -27,6 +31,7 @@ final class LoginViewController: UIViewController {
         bindingViewModel()
     }
     
+    // MARK: - Private funcs
     private func configUI() {
         loginButton.isEnabled = false
         loginButton.alpha = 0.5
@@ -44,12 +49,12 @@ final class LoginViewController: UIViewController {
     private func bindingViewModel() {
         userNameTextField.publisher(for: .editingChanged)
             .receive(on: DispatchQueue.main)
-            .compactMap({ $0.text ?? "" })
+            .compactMap({ $0.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "" })
             .assign(to: \.username.value, on: viewModel)
             .store(in: &subscriptions)
 
         passwordTextField.publisher(for: .editingChanged)
-            .map({ _ in self.passwordTextField.text ?? "" })
+            .compactMap({ $0.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "" })
             .assign(to: \.password.value, on: viewModel)
             .store(in: &subscriptions)
 
@@ -57,12 +62,10 @@ final class LoginViewController: UIViewController {
         
         loginButton.publisher(for: .touchUpInside)
             .sink { button in
-//                self.validateUsernameLabel.isHidden = self.viewModel.username.value.isEmpty
-//                self.validatePasswordLabel.isHidden = self.viewModel.password.value.isEmpty
+                self.loginUser()
             }
             .store(in: &subscriptions)
 //        loginButton.sendActions(for: .touchUpInside)
-        
     }
     
     @IBAction func registerButtonTouchUpInside(_ sender: UIButton) {
@@ -128,5 +131,19 @@ final class LoginViewController: UIViewController {
                 this.loginButton.alpha = isValidateSuccess ? 1 : 0.5
             }
             .store(in: &subscriptions)
+    }
+    
+    private func loginUser() {
+        Auth.auth().signIn(withEmail: viewModel.username.value, password: viewModel.password.value) { [weak self] result, error in
+            guard let this = self else { return }
+            if let error = error {
+                this.showError(error.localizedDescription)
+                return
+            }
+            
+            if let sceneDelegate = self?.view.window?.windowScene?.delegate as? SceneDelegate {
+                sceneDelegate.changeRoot()
+            }
+        }
     }
 }

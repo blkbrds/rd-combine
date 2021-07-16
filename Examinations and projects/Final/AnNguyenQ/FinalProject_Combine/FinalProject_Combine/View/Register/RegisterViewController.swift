@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import FirebaseAuth
 
 final class RegisterViewController: UIViewController {
 
@@ -33,6 +34,7 @@ final class RegisterViewController: UIViewController {
         bindingViewModel()
     }
     
+    // MARK: - Private func
     private func configUI() {
         registerButton.isEnabled = false
         registerButton.alpha = 0.5
@@ -53,37 +55,33 @@ final class RegisterViewController: UIViewController {
     private func bindingViewModel() {
         usernameTextField.publisher(for: .editingChanged)
             .receive(on: DispatchQueue.main)
-            .compactMap({ $0.text ?? "" })
+            .map({ $0.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "" })
             .assign(to: \.username.value, on: viewModel)
             .store(in: &subscriptions)
 
         passwordTextField.publisher(for: .editingChanged)
-            .map({ _ in self.passwordTextField.text ?? "" })
+            .map({ $0.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "" })
             .assign(to: \.password.value, on: viewModel)
             .store(in: &subscriptions)
         
         confirmPasswordTextField.publisher(for: .editingChanged)
-            .compactMap({ $0.text })
+            .compactMap({ $0.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "" })
             .assign(to: \.confirmPassword.value, on: viewModel)
             .store(in: &subscriptions)
 
         validate()
         
         registerButton.publisher(for: .touchUpInside)
-            .sink { button in
-//                self.validateUsernameLabel.isHidden = self.viewModel.username.value.isEmpty
-//                self.validatePasswordLabel.isHidden = self.viewModel.password.value.isEmpty
+            .sink { _ in
+                self.registerUser()
             }
             .store(in: &subscriptions)
-//        loginButton.sendActions(for: .touchUpInside)
+
         loginButton.publisher(for: .touchUpInside)
             .sink { _ in
                 self.navigationController?.popViewController(animated: true)
             }
             .store(in: &subscriptions)
-    }
-    
-    @IBAction func loginButtonTouchUpInside(_ sender: UIButton) {
     }
     
     private func validate() {
@@ -165,5 +163,19 @@ final class RegisterViewController: UIViewController {
                 this.registerButton.alpha = isValidateSuccess ? 1 : 0.5
             }
             .store(in: &subscriptions)
+    }
+    
+    private func registerUser() {
+        Auth.auth().createUser(withEmail: viewModel.username.value, password: viewModel.password.value) { [weak self] result, err in
+            guard let this = self else { return }
+            if let error = err {
+                this.showError(error.localizedDescription)
+                return
+            }
+            
+            if let sceneDelegate = self?.view.window?.windowScene?.delegate as? SceneDelegate {
+                sceneDelegate.changeRoot()
+            }
+        }
     }
 }

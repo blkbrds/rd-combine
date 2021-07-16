@@ -16,12 +16,10 @@ final class RegisterViewModel {
     var validateUserNamePublisher: AnyPublisher<Completion, Never> {
         username
             .map { value -> Completion in
-                if value.count < 6 {
-                    return Completion.failure(LoginError.invalidUsernameLength)
+                if !value.isValidEmail {
+                    return Completion.failure(LoginError.wrongFormatEmail)
                 }
-                if value.containsEmoji {
-                    return Completion.failure(LoginError.invalidUsername)
-                }
+
                 return Completion.success
             }
             .eraseToAnyPublisher()
@@ -31,11 +29,9 @@ final class RegisterViewModel {
         password
             .map { value -> Completion in
                 if value.count < 6 || value.count > 18 {
-                    return Completion.failure(LoginError.invalidUsernameLength)
+                    return Completion.failure(LoginError.invalidPasswordLength)
                 }
-                if value.containsEmoji {
-                    return Completion.failure(LoginError.invalidUsername)
-                }
+                
                 return Completion.success
             }
             .eraseToAnyPublisher()

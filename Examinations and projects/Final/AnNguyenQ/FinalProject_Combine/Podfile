@@ -17,6 +17,7 @@ target 'FinalProject_Combine' do
   end
 
   # Firebase
+  pod 'Firebase'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
 
