@@ -44,6 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         switch type {
         case .home:
             let navi = UINavigationController(rootViewController: homeVC)
+            homeVC.viewModel = HomeViewModel()
             window?.rootViewController = navi
         default:
             let navi = UINavigationController(rootViewController: signInVC)
