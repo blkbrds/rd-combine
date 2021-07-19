@@ -11,19 +11,44 @@ import CoreData
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    // MARK: - Enums
+    enum RootType {
+        case signin
+        case tutorial
+        case home
+        case tabbar
+    }
+
+    // MARK: - Singleton
+    static let shared: AppDelegate = {
+        guard let shared = UIApplication.shared.delegate as? AppDelegate else {
+            fatalError("Cannot cast `UIApplication.shared.delegate` to `AppDelegate`.")
+        }
+        return shared
+    }()
+
+    // MARK: - Properties
+    var window: UIWindow?
+    let homeVC = HomeVC()
+    let signInVC = SignInVC()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
+        configNavi()
+        configWindow()
+        
         return true
     }
 
-    // MARK: UISceneSession Lifecycle
-
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
-    }
-
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
+    // MARK: Public Functions
+    func setRoot(type: RootType) {
+        switch type {
+        case .home:
+            let navi = UINavigationController(rootViewController: homeVC)
+            window?.rootViewController = navi
+        default:
+            let navi = UINavigationController(rootViewController: signInVC)
+            window?.rootViewController = navi
+        }
     }
 
     // MARK: - Core Data stack
@@ -51,6 +76,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
 }
 
+// MARK: - Private function
+extension AppDelegate {
+
+    private func configWindow() {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.backgroundColor = .white
+        window?.makeKeyAndVisible()
+        if #available(iOS 13.0, *) {
+            window?.overrideUserInterfaceStyle = .light
+        }
+        setRoot(type: .signin)
+    }
+
+    private func configNavi() {
+        UINavigationBar.appearance().prefersLargeTitles = true
+        UINavigationBar.appearance().barTintColor = #colorLiteral(red: 0.6034153104, green: 0.6034298539, blue: 0.6034219861, alpha: 0.2)
+        UINavigationBar.appearance().tintColor = #colorLiteral(red: 0.6034153104, green: 0.6034298539, blue: 0.6034219861, alpha: 0.2)
+        UINavigationBar.appearance().backgroundColor = #colorLiteral(red: 0.6034153104, green: 0.6034298539, blue: 0.6034219861, alpha: 0.2)
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        UINavigationBar.appearance().shadowImage = UIImage()
+    }
+}
