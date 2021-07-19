@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		189B3A1AA806D227D1954946 /* Pods_CocktailChoose_CocktailChooseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB9B90DD99BDA40860B3E8D2 /* Pods_CocktailChoose_CocktailChooseUITests.framework */; };
+		883CDA339C7C7E09C1EB800E /* Pods_CocktailChoose.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94AEA593E75A5DFE0DAC9378 /* Pods_CocktailChoose.framework */; };
+		AB26060A7A6C65FF9AB2D318 /* Pods_CocktailChooseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30470B5166288B0B69FACC28 /* Pods_CocktailChooseTests.framework */; };
 		E336C65926A584650021AD38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E336C65826A584650021AD38 /* AppDelegate.swift */; };
 		E336C65B26A584650021AD38 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E336C65A26A584650021AD38 /* SceneDelegate.swift */; };
 		E336C66226A5846D0021AD38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E336C66126A5846D0021AD38 /* Assets.xcassets */; };
@@ -35,6 +38,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		09BFB07B12975CEE8D2E9407 /* Pods-CocktailChoose.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocktailChoose.release.xcconfig"; path = "Target Support Files/Pods-CocktailChoose/Pods-CocktailChoose.release.xcconfig"; sourceTree = "<group>"; };
+		15B2B7DB0D654026ED85714C /* Pods-CocktailChoose-CocktailChooseUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocktailChoose-CocktailChooseUITests.debug.xcconfig"; path = "Target Support Files/Pods-CocktailChoose-CocktailChooseUITests/Pods-CocktailChoose-CocktailChooseUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2E8C824801612B6A05C5AA46 /* Pods-CocktailChoose.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocktailChoose.debug.xcconfig"; path = "Target Support Files/Pods-CocktailChoose/Pods-CocktailChoose.debug.xcconfig"; sourceTree = "<group>"; };
+		30470B5166288B0B69FACC28 /* Pods_CocktailChooseTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CocktailChooseTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		68D807490B149380D18A0601 /* Pods-CocktailChooseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocktailChooseTests.release.xcconfig"; path = "Target Support Files/Pods-CocktailChooseTests/Pods-CocktailChooseTests.release.xcconfig"; sourceTree = "<group>"; };
+		7AE806D45034A08DB9775D00 /* Pods-CocktailChoose-CocktailChooseUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocktailChoose-CocktailChooseUITests.release.xcconfig"; path = "Target Support Files/Pods-CocktailChoose-CocktailChooseUITests/Pods-CocktailChoose-CocktailChooseUITests.release.xcconfig"; sourceTree = "<group>"; };
+		94AEA593E75A5DFE0DAC9378 /* Pods_CocktailChoose.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CocktailChoose.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB9B90DD99BDA40860B3E8D2 /* Pods_CocktailChoose_CocktailChooseUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CocktailChoose_CocktailChooseUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E336C65526A584650021AD38 /* CocktailChoose.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocktailChoose.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E336C65826A584650021AD38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E336C65A26A584650021AD38 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +58,7 @@
 		E336C67926A5846E0021AD38 /* CocktailChooseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailChooseUITests.swift; sourceTree = "<group>"; };
 		E336C68826A5859D0021AD38 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		E336C68926A5859D0021AD38 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		FD3548899497912C676C8EB3 /* Pods-CocktailChooseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocktailChooseTests.debug.xcconfig"; path = "Target Support Files/Pods-CocktailChooseTests/Pods-CocktailChooseTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				883CDA339C7C7E09C1EB800E /* Pods_CocktailChoose.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB26060A7A6C65FF9AB2D318 /* Pods_CocktailChooseTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +82,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				189B3A1AA806D227D1954946 /* Pods_CocktailChoose_CocktailChooseUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A00B476C24E9CB39C8A032BA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				94AEA593E75A5DFE0DAC9378 /* Pods_CocktailChoose.framework */,
+				DB9B90DD99BDA40860B3E8D2 /* Pods_CocktailChoose_CocktailChooseUITests.framework */,
+				30470B5166288B0B69FACC28 /* Pods_CocktailChooseTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E336C64C26A584650021AD38 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +106,8 @@
 				E336C66E26A5846E0021AD38 /* CocktailChooseTests */,
 				E336C67826A5846E0021AD38 /* CocktailChooseUITests */,
 				E336C65626A584650021AD38 /* Products */,
+				FF8E6BC2592A62952A463415 /* Pods */,
+				A00B476C24E9CB39C8A032BA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -140,6 +167,20 @@
 			path = Register;
 			sourceTree = "<group>";
 		};
+		FF8E6BC2592A62952A463415 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2E8C824801612B6A05C5AA46 /* Pods-CocktailChoose.debug.xcconfig */,
+				09BFB07B12975CEE8D2E9407 /* Pods-CocktailChoose.release.xcconfig */,
+				15B2B7DB0D654026ED85714C /* Pods-CocktailChoose-CocktailChooseUITests.debug.xcconfig */,
+				7AE806D45034A08DB9775D00 /* Pods-CocktailChoose-CocktailChooseUITests.release.xcconfig */,
+				FD3548899497912C676C8EB3 /* Pods-CocktailChooseTests.debug.xcconfig */,
+				68D807490B149380D18A0601 /* Pods-CocktailChooseTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +188,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E336C67D26A5846E0021AD38 /* Build configuration list for PBXNativeTarget "CocktailChoose" */;
 			buildPhases = (
+				F5C5588143E87A568DB5C503 /* [CP] Check Pods Manifest.lock */,
 				E336C65126A584650021AD38 /* Sources */,
 				E336C65226A584650021AD38 /* Frameworks */,
 				E336C65326A584650021AD38 /* Resources */,
+				B875CB4F986731EE99CB09D3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -164,6 +207,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E336C68026A5846E0021AD38 /* Build configuration list for PBXNativeTarget "CocktailChooseTests" */;
 			buildPhases = (
+				530B695D7485488851225D15 /* [CP] Check Pods Manifest.lock */,
 				E336C66726A5846E0021AD38 /* Sources */,
 				E336C66826A5846E0021AD38 /* Frameworks */,
 				E336C66926A5846E0021AD38 /* Resources */,
@@ -182,9 +226,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E336C68326A5846E0021AD38 /* Build configuration list for PBXNativeTarget "CocktailChooseUITests" */;
 			buildPhases = (
+				3710C1FD9D15E6CAED413A6B /* [CP] Check Pods Manifest.lock */,
 				E336C67126A5846E0021AD38 /* Sources */,
 				E336C67226A5846E0021AD38 /* Frameworks */,
 				E336C67326A5846E0021AD38 /* Resources */,
+				FF970D04E51C89CEF0FF50A7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -220,7 +266,7 @@
 				};
 			};
 			buildConfigurationList = E336C65026A584650021AD38 /* Build configuration list for PBXProject "CocktailChoose" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -265,6 +311,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3710C1FD9D15E6CAED413A6B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CocktailChoose-CocktailChooseUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		530B695D7485488851225D15 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CocktailChooseTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B875CB4F986731EE99CB09D3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CocktailChoose/Pods-CocktailChoose-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CocktailChoose/Pods-CocktailChoose-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CocktailChoose/Pods-CocktailChoose-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F5C5588143E87A568DB5C503 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CocktailChoose-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF970D04E51C89CEF0FF50A7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CocktailChoose-CocktailChooseUITests/Pods-CocktailChoose-CocktailChooseUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CocktailChoose-CocktailChooseUITests/Pods-CocktailChoose-CocktailChooseUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CocktailChoose-CocktailChooseUITests/Pods-CocktailChoose-CocktailChooseUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E336C65126A584650021AD38 /* Sources */ = {
@@ -438,6 +587,7 @@
 		};
 		E336C67E26A5846E0021AD38 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E8C824801612B6A05C5AA46 /* Pods-CocktailChoose.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -467,6 +617,7 @@
 		};
 		E336C67F26A5846E0021AD38 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09BFB07B12975CEE8D2E9407 /* Pods-CocktailChoose.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -496,6 +647,7 @@
 		};
 		E336C68126A5846E0021AD38 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD3548899497912C676C8EB3 /* Pods-CocktailChooseTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -520,6 +672,7 @@
 		};
 		E336C68226A5846E0021AD38 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68D807490B149380D18A0601 /* Pods-CocktailChooseTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -544,6 +697,7 @@
 		};
 		E336C68426A5846E0021AD38 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15B2B7DB0D654026ED85714C /* Pods-CocktailChoose-CocktailChooseUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -566,6 +720,7 @@
 		};
 		E336C68526A5846E0021AD38 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7AE806D45034A08DB9775D00 /* Pods-CocktailChoose-CocktailChooseUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
