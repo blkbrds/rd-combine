@@ -1,0 +1,26 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '13.0'
+inhibit_all_warnings!
+use_frameworks!
+install! 'cocoapods', :deterministic_uuids => false
+
+workspace 'FinalCombine.xcworkspace'
+
+target 'FinalCombine' do
+    project 'FinalCombine'
+
+    # Account
+    pod 'GoogleSignIn', '~> 5.0'
+
+    # Network
+    pod 'Alamofire', '~> 4.7' # Elegant HTTP Networking in Swift.
+    pod 'AlamofireNetworkActivityIndicator', '~> 2.3' # Controls the visibility of the network activity indicator on iOS using Alamofire.
+    pod 'ObjectMapper'
+    pod 'SDWebImage', '~> 5.0'
+
+    # Utils
+    pod 'SwiftLint', '0.27' # A tool to enforce Swift style and conventions.
+    pod 'SVProgressHUD', '~> 2.2'
+    pod 'MVVM-Swift', '1.1.0' # MVVM Architect for iOS Application.
+    pod 'RealmSwift', '~> 4.0'
+end
