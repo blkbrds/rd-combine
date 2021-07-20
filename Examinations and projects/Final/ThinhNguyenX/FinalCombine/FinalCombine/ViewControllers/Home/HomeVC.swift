@@ -20,7 +20,8 @@ final class HomeVC: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var searchTextField: UITextField!
-
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
+    
     // MARK: - Properties
     var viewModel: HomeViewModel!
     private var dataSource: DataSource!
@@ -51,6 +52,12 @@ final class HomeVC: UIViewController {
             cell?.vm = HomeViewCellVM(cook: cook)
             return cell
         })
+        
+        viewModel.$isLoading
+            .map({ !$0 })
+            .print()
+            .assign(to: \.isHidden, on: indicatorView)
+            .store(in: &viewModel.stores)
 
         viewModel?.$cooks
             .receive(on: DispatchQueue.main)
@@ -61,6 +68,11 @@ final class HomeVC: UIViewController {
                 self.dataSource.apply(snapShot, animatingDifferences: true, completion: nil)
             })
             .store(in: &viewModel.stores)
+        
+        searchTextField.publisher(for: .editingChanged)
+            .compactMap { $0.text }
+            .assign(to: \.searchKeyword, on: viewModel)
+            .store(in: &viewModel.stores)
     }
 
     // MARK: - IBActions
@@ -69,5 +81,8 @@ final class HomeVC: UIViewController {
 
 // MARK: - UITableViewDelegate
 extension HomeVC: UITableViewDelegate {
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = DetailVC()
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }

@@ -7,6 +7,9 @@
 
 import UIKit
 import CoreData
+import SVProgressHUD
+
+typealias HUD = SVProgressHUD
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {

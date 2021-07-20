@@ -41,4 +41,20 @@ final class HomeViewModel {
                 print(this.cooks)
             }).store(in: &stores)
     }
+
+    func getApiSearch() {
+        isLoading = true
+        $searchKeyword.debounce(for: .seconds(0.2), scheduler: DispatchQueue.main)
+            .share()
+            .sink(receiveCompletion: { [weak self] completion in
+                guard let this = self else { return }
+                if case .failure(let error) = completion {
+                    this.error.value = error
+                }
+            }, receiveValue: { [weak self] value in
+                guard let this = self else { return }
+                print("----KEYWORD----", this.searchKeyword)
+                this.getCookings(type: .lists(this.searchKeyword))
+            }).store(in: &stores)
+    }
 }
