@@ -17,6 +17,7 @@ final class LoginViewController: UIViewController {
     @IBOutlet private weak var validatePasswordLabel: UILabel!
     @IBOutlet private weak var loginButton: UIButton!
     @IBOutlet private weak var registerButton: UIButton!
+    @IBOutlet private weak var indicator: UIActivityIndicatorView!
     
     // MARK: - Properties
     var viewModel: LoginViewModel = LoginViewModel()
@@ -44,6 +45,7 @@ final class LoginViewController: UIViewController {
         
         validatePasswordLabel.textColor = .red
         validatePasswordLabel.font = UIFont.systemFont(ofSize: 12)
+        indicator.isHidden = true
     }
     
     private func bindingViewModel() {
@@ -62,6 +64,8 @@ final class LoginViewController: UIViewController {
         
         loginButton.publisher(for: .touchUpInside)
             .sink { button in
+                self.indicator.isHidden = false
+                self.indicator.startAnimating()
                 self.loginUser()
             }
             .store(in: &subscriptions)
@@ -136,6 +140,8 @@ final class LoginViewController: UIViewController {
     private func loginUser() {
         Auth.auth().signIn(withEmail: viewModel.username.value, password: viewModel.password.value) { [weak self] result, error in
             guard let this = self else { return }
+            this.indicator.isHidden = true
+            this.indicator.stopAnimating()
             if let error = error {
                 this.showError(error.localizedDescription)
                 return

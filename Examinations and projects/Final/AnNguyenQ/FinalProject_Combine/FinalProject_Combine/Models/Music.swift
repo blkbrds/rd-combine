@@ -5,7 +5,18 @@
 //  Created by An Nguyen Q. VN.Danang on 7/7/21.
 //
 
+struct Music: Codable {
+    var name: String
+    var id: String
+    var artistName: String
+    var artworkUrl100: String
+}
 
-struct Music {
-    // code
+struct MusicResults: Codable {
+    var results: [Music]
+    var updated: String
+}
+
+struct FeedResults: Codable {
+    var feed: MusicResults
 }

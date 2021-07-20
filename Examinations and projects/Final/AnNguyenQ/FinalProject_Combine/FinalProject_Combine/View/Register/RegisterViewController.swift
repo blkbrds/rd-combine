@@ -20,6 +20,7 @@ final class RegisterViewController: UIViewController {
     @IBOutlet private weak var validateConfirmPasswordLabel: UILabel!
     @IBOutlet private weak var registerButton: UIButton!
     @IBOutlet private weak var loginButton: UIButton!
+    @IBOutlet private weak var indicator: UIActivityIndicatorView!
     
     // MARK: - Properties
     let viewModel = RegisterViewModel()
@@ -50,6 +51,7 @@ final class RegisterViewController: UIViewController {
         
         validateConfirmPasswordLabel.textColor = .red
         validateConfirmPasswordLabel.font = UIFont.systemFont(ofSize: 12)
+        indicator.isHidden = true
     }
     
     private func bindingViewModel() {
@@ -73,6 +75,8 @@ final class RegisterViewController: UIViewController {
         
         registerButton.publisher(for: .touchUpInside)
             .sink { _ in
+                self.indicator.isHidden = false
+                self.indicator.startAnimating()
                 self.registerUser()
             }
             .store(in: &subscriptions)
@@ -168,6 +172,8 @@ final class RegisterViewController: UIViewController {
     private func registerUser() {
         Auth.auth().createUser(withEmail: viewModel.username.value, password: viewModel.password.value) { [weak self] result, err in
             guard let this = self else { return }
+            this.indicator.isHidden = true
+            this.indicator.stopAnimating()
             if let error = err {
                 this.showError(error.localizedDescription)
                 return

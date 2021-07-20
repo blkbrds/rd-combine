@@ -13,6 +13,13 @@
 		D12D688E26A12600009C4163 /* ViewControllerExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12D688D26A12600009C4163 /* ViewControllerExts.swift */; };
 		D134393F2697E9F9004AB25F /* EnumError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D134393E2697E9F9004AB25F /* EnumError.swift */; };
 		D13439412697EA98004AB25F /* StringExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13439402697EA98004AB25F /* StringExts.swift */; };
+		D154CC6126A5314D0099715D /* MusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D154CC5F26A5314D0099715D /* MusicTableViewCell.swift */; };
+		D154CC6226A5314D0099715D /* MusicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D154CC6026A5314D0099715D /* MusicTableViewCell.xib */; };
+		D154CC6426A562C10099715D /* MusicTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D154CC6326A562C10099715D /* MusicTableViewCellModel.swift */; };
+		D154CC6626A567EC0099715D /* UIImageViewExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D154CC6526A567EC0099715D /* UIImageViewExts.swift */; };
+		D154CC6826A573B60099715D /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D154CC6726A573B60099715D /* APIError.swift */; };
+		D154CC6D26A5867E0099715D /* LoadmoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D154CC6B26A5867E0099715D /* LoadmoreTableViewCell.swift */; };
+		D154CC6E26A5867E0099715D /* LoadmoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D154CC6C26A5867E0099715D /* LoadmoreTableViewCell.xib */; };
 		D1B34A2E2695626300DB8C2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B34A2D2695626300DB8C2A /* AppDelegate.swift */; };
 		D1B34A302695626300DB8C2A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B34A2F2695626300DB8C2A /* SceneDelegate.swift */; };
 		D1B34A372695626600DB8C2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1B34A362695626600DB8C2A /* Assets.xcassets */; };
@@ -64,6 +71,13 @@
 		D12D688D26A12600009C4163 /* ViewControllerExts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExts.swift; sourceTree = "<group>"; };
 		D134393E2697E9F9004AB25F /* EnumError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumError.swift; sourceTree = "<group>"; };
 		D13439402697EA98004AB25F /* StringExts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExts.swift; sourceTree = "<group>"; };
+		D154CC5F26A5314D0099715D /* MusicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTableViewCell.swift; sourceTree = "<group>"; };
+		D154CC6026A5314D0099715D /* MusicTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicTableViewCell.xib; sourceTree = "<group>"; };
+		D154CC6326A562C10099715D /* MusicTableViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTableViewCellModel.swift; sourceTree = "<group>"; };
+		D154CC6526A567EC0099715D /* UIImageViewExts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExts.swift; sourceTree = "<group>"; };
+		D154CC6726A573B60099715D /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		D154CC6B26A5867E0099715D /* LoadmoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadmoreTableViewCell.swift; sourceTree = "<group>"; };
+		D154CC6C26A5867E0099715D /* LoadmoreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadmoreTableViewCell.xib; sourceTree = "<group>"; };
 		D1B34A2A2695626300DB8C2A /* FinalProject_Combine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject_Combine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1B34A2D2695626300DB8C2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1B34A2F2695626300DB8C2A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,8 +166,37 @@
 				D1B4065A269C012B004DB6C6 /* UIControlExts.swift */,
 				D1B40664269E9404004DB6C6 /* UITextFieldExts.swift */,
 				D12D688D26A12600009C4163 /* ViewControllerExts.swift */,
+				D154CC6526A567EC0099715D /* UIImageViewExts.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		D154CC5E26A531280099715D /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				D154CC6A26A586690099715D /* LoadmoreCell */,
+				D154CC6926A5864D0099715D /* MusicCell */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		D154CC6926A5864D0099715D /* MusicCell */ = {
+			isa = PBXGroup;
+			children = (
+				D154CC5F26A5314D0099715D /* MusicTableViewCell.swift */,
+				D154CC6026A5314D0099715D /* MusicTableViewCell.xib */,
+				D154CC6326A562C10099715D /* MusicTableViewCellModel.swift */,
+			);
+			path = MusicCell;
+			sourceTree = "<group>";
+		};
+		D154CC6A26A586690099715D /* LoadmoreCell */ = {
+			isa = PBXGroup;
+			children = (
+				D154CC6B26A5867E0099715D /* LoadmoreTableViewCell.swift */,
+				D154CC6C26A5867E0099715D /* LoadmoreTableViewCell.xib */,
+			);
+			path = LoadmoreCell;
 			sourceTree = "<group>";
 		};
 		D1B34A212695626300DB8C2A = {
@@ -261,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				D1B34A87269563ED00DB8C2A /* ApiManager.swift */,
+				D154CC6726A573B60099715D /* APIError.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -268,6 +312,7 @@
 		D1B34A9526958BDE00DB8C2A /* MusicList */ = {
 			isa = PBXGroup;
 			children = (
+				D154CC5E26A531280099715D /* cells */,
 				D1B34A9626958BF800DB8C2A /* MusicListViewController.swift */,
 				D1B34A9726958BF800DB8C2A /* MusicListViewController.xib */,
 				D1B34AA026958C1200DB8C2A /* MusicListViewModel.swift */,
@@ -393,7 +438,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D154CC6E26A5867E0099715D /* LoadmoreTableViewCell.xib in Resources */,
 				D1B34A9926958BF800DB8C2A /* MusicListViewController.xib in Resources */,
+				D154CC6226A5314D0099715D /* MusicTableViewCell.xib in Resources */,
 				D1B40661269D7B9B004DB6C6 /* RegisterViewController.xib in Resources */,
 				D1B34A3A2695626600DB8C2A /* LaunchScreen.storyboard in Resources */,
 				D1B34A372695626600DB8C2A /* Assets.xcassets in Resources */,
@@ -526,14 +573,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D154CC6D26A5867E0099715D /* LoadmoreTableViewCell.swift in Sources */,
 				D1B34A782695637900DB8C2A /* LoginViewController.swift in Sources */,
 				D1B34A2E2695626300DB8C2A /* AppDelegate.swift in Sources */,
 				D1B34A302695626300DB8C2A /* SceneDelegate.swift in Sources */,
 				D1B40660269D7B9B004DB6C6 /* RegisterViewController.swift in Sources */,
 				D1B34A812695639800DB8C2A /* LoginViewModel.swift in Sources */,
 				D1B34AA126958C1200DB8C2A /* MusicListViewModel.swift in Sources */,
+				D154CC6426A562C10099715D /* MusicTableViewCellModel.swift in Sources */,
 				D1B34A88269563ED00DB8C2A /* ApiManager.swift in Sources */,
+				D154CC6826A573B60099715D /* APIError.swift in Sources */,
+				D154CC6126A5314D0099715D /* MusicTableViewCell.swift in Sources */,
 				D1B4065B269C012C004DB6C6 /* UIControlExts.swift in Sources */,
+				D154CC6626A567EC0099715D /* UIImageViewExts.swift in Sources */,
 				D1B40663269D7BAB004DB6C6 /* RegisterViewModel.swift in Sources */,
 				D1B40665269E9404004DB6C6 /* UITextFieldExts.swift in Sources */,
 				D13439412697EA98004AB25F /* StringExts.swift in Sources */,

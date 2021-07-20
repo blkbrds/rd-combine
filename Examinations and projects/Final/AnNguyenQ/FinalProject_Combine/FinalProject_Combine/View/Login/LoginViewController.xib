@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="FinalProject_Combine" customModuleProvider="target">
             <connections>
+                <outlet property="indicator" destination="QMM-xw-RKU" id="zdY-MJ-115"/>
                 <outlet property="loginButton" destination="2wy-HO-8ON" id="iD0-kO-bP7"/>
                 <outlet property="passwordTextField" destination="8hG-Gx-3jv" id="6iW-Ul-FBW"/>
                 <outlet property="registerButton" destination="Hhq-lA-H11" id="SLM-VA-A5n"/>
@@ -108,6 +109,13 @@
                         <action selector="registerButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="zfo-9G-0eN"/>
                     </connections>
                 </button>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="QMM-xw-RKU">
+                    <rect key="frame" x="172" y="204" width="70" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="ds2-9m-FOa"/>
+                        <constraint firstAttribute="width" secondItem="QMM-xw-RKU" secondAttribute="height" multiplier="1:1" id="siq-rs-Qhk"/>
+                    </constraints>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -116,7 +124,9 @@
                 <constraint firstItem="2wy-HO-8ON" firstAttribute="top" secondItem="oe8-m0-jJO" secondAttribute="bottom" constant="30" id="1LM-Wu-qqN"/>
                 <constraint firstItem="oe8-m0-jJO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="5CP-Ky-COi"/>
                 <constraint firstItem="oe8-m0-jJO" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Avi-Nw-crQ"/>
+                <constraint firstItem="QMM-xw-RKU" firstAttribute="top" secondItem="E1f-cy-f5U" secondAttribute="bottom" constant="20" id="CZV-j8-GJe"/>
                 <constraint firstItem="oe8-m0-jJO" firstAttribute="top" secondItem="E1f-cy-f5U" secondAttribute="bottom" constant="30" id="Eiq-8H-wsC"/>
+                <constraint firstItem="QMM-xw-RKU" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="IPm-PJ-Xng"/>
                 <constraint firstItem="E1f-cy-f5U" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="LYB-Hc-71k"/>
                 <constraint firstItem="SNV-xR-EXz" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="3/4" id="Ohh-JX-uio"/>
                 <constraint firstItem="Hhq-lA-H11" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="WKp-2t-Lft"/>

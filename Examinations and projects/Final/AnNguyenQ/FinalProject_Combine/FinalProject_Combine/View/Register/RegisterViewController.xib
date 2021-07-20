@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController" customModule="FinalProject_Combine" customModuleProvider="target">
             <connections>
                 <outlet property="confirmPasswordTextField" destination="dNx-Iq-9vm" id="O9K-di-sJl"/>
+                <outlet property="indicator" destination="Fbk-BL-Kx7" id="VlK-xS-1cf"/>
                 <outlet property="loginButton" destination="bXM-b8-Xsq" id="VEE-cr-X8k"/>
                 <outlet property="passwordTextField" destination="jjl-Qg-Lbx" id="Qe9-1Z-2AM"/>
                 <outlet property="registerButton" destination="Od1-UH-ndl" id="CnU-1W-vCN"/>
@@ -119,16 +120,25 @@
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                     <state key="normal" title="Login"/>
                 </button>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Fbk-BL-Kx7">
+                    <rect key="frame" x="172" y="204" width="70" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="CwX-mg-cum"/>
+                        <constraint firstAttribute="width" secondItem="Fbk-BL-Kx7" secondAttribute="height" multiplier="1:1" id="KrU-H6-PsJ"/>
+                    </constraints>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="teA-yc-JYU" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="07w-Dm-9yo"/>
                 <constraint firstItem="Od1-UH-ndl" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="28s-Ig-Q6R"/>
+                <constraint firstItem="Fbk-BL-Kx7" firstAttribute="top" secondItem="teA-yc-JYU" secondAttribute="bottom" constant="20" id="DRn-zQ-FKY"/>
                 <constraint firstItem="teA-yc-JYU" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="80" id="EtL-lM-LdX"/>
                 <constraint firstItem="Cbx-cd-ZNK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="Kdw-AS-aRm"/>
                 <constraint firstItem="bXM-b8-Xsq" firstAttribute="top" secondItem="Od1-UH-ndl" secondAttribute="bottom" constant="30" id="OLU-Cx-uVz"/>
                 <constraint firstItem="Cbx-cd-ZNK" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="3/4" id="Pad-4W-YZn"/>
+                <constraint firstItem="Fbk-BL-Kx7" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Qc6-RU-sOs"/>
                 <constraint firstItem="Cbx-cd-ZNK" firstAttribute="top" secondItem="teA-yc-JYU" secondAttribute="bottom" constant="30" id="V0f-hl-BD3"/>
                 <constraint firstItem="Od1-UH-ndl" firstAttribute="top" secondItem="Cbx-cd-ZNK" secondAttribute="bottom" constant="30" id="jCI-jN-B5l"/>
                 <constraint firstItem="Od1-UH-ndl" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="nXk-PD-6Sj"/>

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -26,7 +27,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func changeRoot() {
-        let rootVC = MusicListViewController()
+        var rootVC = UIViewController()
+
+        if Auth.auth().currentUser != nil {
+            rootVC = MusicListViewController()
+        } else {
+            rootVC = LoginViewController()
+        }
         let rootNC = UINavigationController(rootViewController: rootVC)
         window?.rootViewController = rootNC
         window?.makeKeyAndVisible()
