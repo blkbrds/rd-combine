@@ -18,6 +18,19 @@
 		E336C67A26A5846E0021AD38 /* CocktailChooseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E336C67926A5846E0021AD38 /* CocktailChooseUITests.swift */; };
 		E336C68A26A5859D0021AD38 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E336C68826A5859D0021AD38 /* RegisterViewController.swift */; };
 		E336C68B26A5859D0021AD38 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E336C68926A5859D0021AD38 /* RegisterViewController.xib */; };
+		E336C68F26A6B4FF0021AD38 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E336C68D26A6B4FF0021AD38 /* LoginViewController.swift */; };
+		E336C69026A6B4FF0021AD38 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E336C68E26A6B4FF0021AD38 /* LoginViewController.xib */; };
+		E336C69226A6B51D0021AD38 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E336C69126A6B51D0021AD38 /* LoginViewModel.swift */; };
+		E336C69426A6B5360021AD38 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E336C69326A6B5360021AD38 /* RegisterViewModel.swift */; };
+		E336C69826A6B5660021AD38 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E336C69626A6B5650021AD38 /* HomeViewController.swift */; };
+		E336C69926A6B5660021AD38 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E336C69726A6B5650021AD38 /* HomeViewController.xib */; };
+		E336C69B26A6B57D0021AD38 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E336C69A26A6B57D0021AD38 /* HomeViewModel.swift */; };
+		E336C69F26A6B5E60021AD38 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E336C69D26A6B5E60021AD38 /* DetailViewController.swift */; };
+		E336C6A026A6B5E60021AD38 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E336C69E26A6B5E60021AD38 /* DetailViewController.xib */; };
+		E336C6A226A6B6180021AD38 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E336C6A126A6B6180021AD38 /* DetailViewModel.swift */; };
+		E336C6A626A6B79E0021AD38 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E336C6A426A6B79E0021AD38 /* SearchViewController.swift */; };
+		E336C6A726A6B79E0021AD38 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E336C6A526A6B79E0021AD38 /* SearchViewController.xib */; };
+		E336C6A926A6B7BC0021AD38 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E336C6A826A6B7BC0021AD38 /* SearchViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +71,19 @@
 		E336C67926A5846E0021AD38 /* CocktailChooseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailChooseUITests.swift; sourceTree = "<group>"; };
 		E336C68826A5859D0021AD38 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		E336C68926A5859D0021AD38 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		E336C68D26A6B4FF0021AD38 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E336C68E26A6B4FF0021AD38 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		E336C69126A6B51D0021AD38 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		E336C69326A6B5360021AD38 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		E336C69626A6B5650021AD38 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E336C69726A6B5650021AD38 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		E336C69A26A6B57D0021AD38 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		E336C69D26A6B5E60021AD38 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		E336C69E26A6B5E60021AD38 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		E336C6A126A6B6180021AD38 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		E336C6A426A6B79E0021AD38 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		E336C6A526A6B79E0021AD38 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		E336C6A826A6B7BC0021AD38 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		FD3548899497912C676C8EB3 /* Pods-CocktailChooseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocktailChooseTests.debug.xcconfig"; path = "Target Support Files/Pods-CocktailChooseTests/Pods-CocktailChooseTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,6 +179,10 @@
 		E336C68626A585750021AD38 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				E336C6A326A6B6350021AD38 /* Search */,
+				E336C69C26A6B5D10021AD38 /* Detail */,
+				E336C69526A6B5490021AD38 /* Home */,
+				E336C68C26A6B4DC0021AD38 /* Login */,
 				E336C68726A585800021AD38 /* Register */,
 			);
 			path = Screen;
@@ -163,8 +193,49 @@
 			children = (
 				E336C68826A5859D0021AD38 /* RegisterViewController.swift */,
 				E336C68926A5859D0021AD38 /* RegisterViewController.xib */,
+				E336C69326A6B5360021AD38 /* RegisterViewModel.swift */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		E336C68C26A6B4DC0021AD38 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E336C68D26A6B4FF0021AD38 /* LoginViewController.swift */,
+				E336C68E26A6B4FF0021AD38 /* LoginViewController.xib */,
+				E336C69126A6B51D0021AD38 /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		E336C69526A6B5490021AD38 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E336C69626A6B5650021AD38 /* HomeViewController.swift */,
+				E336C69726A6B5650021AD38 /* HomeViewController.xib */,
+				E336C69A26A6B57D0021AD38 /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E336C69C26A6B5D10021AD38 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				E336C69D26A6B5E60021AD38 /* DetailViewController.swift */,
+				E336C69E26A6B5E60021AD38 /* DetailViewController.xib */,
+				E336C6A126A6B6180021AD38 /* DetailViewModel.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		E336C6A326A6B6350021AD38 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				E336C6A426A6B79E0021AD38 /* SearchViewController.swift */,
+				E336C6A526A6B79E0021AD38 /* SearchViewController.xib */,
+				E336C6A826A6B7BC0021AD38 /* SearchViewModel.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		FF8E6BC2592A62952A463415 /* Pods */ = {
@@ -177,7 +248,6 @@
 				FD3548899497912C676C8EB3 /* Pods-CocktailChooseTests.debug.xcconfig */,
 				68D807490B149380D18A0601 /* Pods-CocktailChooseTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -290,9 +360,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E336C69026A6B4FF0021AD38 /* LoginViewController.xib in Resources */,
+				E336C6A026A6B5E60021AD38 /* DetailViewController.xib in Resources */,
 				E336C66526A5846D0021AD38 /* LaunchScreen.storyboard in Resources */,
+				E336C69926A6B5660021AD38 /* HomeViewController.xib in Resources */,
 				E336C66226A5846D0021AD38 /* Assets.xcassets in Resources */,
 				E336C68B26A5859D0021AD38 /* RegisterViewController.xib in Resources */,
+				E336C6A726A6B79E0021AD38 /* SearchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,8 +494,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E336C69F26A6B5E60021AD38 /* DetailViewController.swift in Sources */,
+				E336C6A626A6B79E0021AD38 /* SearchViewController.swift in Sources */,
+				E336C68F26A6B4FF0021AD38 /* LoginViewController.swift in Sources */,
+				E336C69426A6B5360021AD38 /* RegisterViewModel.swift in Sources */,
+				E336C6A226A6B6180021AD38 /* DetailViewModel.swift in Sources */,
 				E336C68A26A5859D0021AD38 /* RegisterViewController.swift in Sources */,
+				E336C6A926A6B7BC0021AD38 /* SearchViewModel.swift in Sources */,
+				E336C69B26A6B57D0021AD38 /* HomeViewModel.swift in Sources */,
 				E336C65926A584650021AD38 /* AppDelegate.swift in Sources */,
+				E336C69226A6B51D0021AD38 /* LoginViewModel.swift in Sources */,
+				E336C69826A6B5660021AD38 /* HomeViewController.swift in Sources */,
 				E336C65B26A584650021AD38 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
