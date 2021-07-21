@@ -31,7 +31,7 @@ final class MusicListViewController: UIViewController {
         
         configTableView()
         bindingCombine()
-        getMusicList(viewModel.limit)
+        getMusicList(viewModel.limited)
     }
     
     // MARK: - Private funcs
@@ -118,10 +118,17 @@ extension MusicListViewController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "loadmoreCell", for: indexPath) as? LoadmoreTableViewCell else {
                 return UITableViewCell()
             }
+            cell.subscriptions.removeAll()
+            cell.loadmorePublisher?
+                .sink(receiveValue: { _ in
+                    self.viewModel.limited += 10
+                    print("====> limited:", self.viewModel.limited)
+                    self.getMusicList(self.viewModel.limited)
+                })
+                .store(in: &cell.subscriptions)
             return cell
         }
     }
-    
 }
 
 // MARK: - UISearchBarDelegate

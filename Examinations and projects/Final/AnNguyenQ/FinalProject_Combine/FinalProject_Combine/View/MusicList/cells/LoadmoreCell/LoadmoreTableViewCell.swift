@@ -6,15 +6,21 @@
 //
 
 import UIKit
+import Combine
 
 class LoadmoreTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var loadMoreButton: UIButton!
     
+    var loadmorePublisher: UIControlPublisher<UIButton>?
+    var subscriptions = Set<AnyCancellable>()
+    var limited: Int = 10
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         configUI()
+        bindingCombine()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -29,4 +35,7 @@ class LoadmoreTableViewCell: UITableViewCell {
         loadMoreButton.layer.borderColor = UIColor.clear.cgColor
     }
     
+    func bindingCombine() {
+        loadmorePublisher = loadMoreButton.publisher(for: .touchUpInside)
+    }
 }

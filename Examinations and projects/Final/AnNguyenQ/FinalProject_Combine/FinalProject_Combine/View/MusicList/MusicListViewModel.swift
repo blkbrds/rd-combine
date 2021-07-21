@@ -20,7 +20,7 @@ final class MusicListViewModel {
     private var api = ApiManager()
     private var subscriptions = Set<AnyCancellable>()
     var musicCells: [MusicCells] = []
-    @Published var limit: Int = 10
+    var limited: Int = 10
     var isSearch: Bool = false
     
     
