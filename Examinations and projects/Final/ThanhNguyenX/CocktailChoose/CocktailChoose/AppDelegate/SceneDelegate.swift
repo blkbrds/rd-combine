@@ -9,7 +9,37 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
+    enum RootType {
+        case register
+        case login
+//        case home
+//        case detail
+    }
+
+    static let shared: SceneDelegate = {
+        guard let shared = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else {
+            fatalError("Cannot cast `UIApplication.shared.connectedScenes.first?.delegate` to `SceneDelegate`.")
+        }
+        return shared
+    }()
+
     var window: UIWindow?
+
+    func setRoot(type: RootType) {
+        switch type {
+        case .login:
+            let vc = RegisterViewController()
+            vc.viewModel = RegisterViewModel(screenType: .login)
+            let navi = UINavigationController(rootViewController: vc)
+            window?.rootViewController = navi
+        case .register:
+            let vc = RegisterViewController()
+            vc.viewModel = RegisterViewModel(screenType: .register)
+            let navi = UINavigationController(rootViewController: vc)
+            window?.rootViewController = navi
+        }
+        window?.makeKeyAndVisible()
+    }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -17,10 +47,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
-        let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = RegisterViewController()
-        self.window = window
-        window.makeKeyAndVisible()
+        window = UIWindow(windowScene: windowScene)
+        setRoot(type: .login)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SearchViewController: UIViewController {
+final class SearchViewController: ViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
