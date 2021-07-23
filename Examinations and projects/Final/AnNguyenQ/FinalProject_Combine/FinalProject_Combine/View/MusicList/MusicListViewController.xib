@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MusicListViewController" customModule="FinalProject_Combine" customModuleProvider="target">
             <connections>
+                <outlet property="indicator" destination="9wa-wN-svJ" id="XiY-C0-51f"/>
                 <outlet property="searchBar" destination="MiQ-zC-ZeB" id="TIA-Wk-s7V"/>
                 <outlet property="tableView" destination="oGj-Kz-lvR" id="CBx-Lz-UkC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -29,12 +30,21 @@
                         <textInputTraits key="textInputTraits"/>
                     </searchBar>
                 </tableView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="9wa-wN-svJ">
+                    <rect key="frame" x="172" y="413" width="70" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="9wa-wN-svJ" secondAttribute="height" multiplier="1:1" id="8dQ-Sg-5SP"/>
+                        <constraint firstAttribute="height" constant="70" id="HEc-4U-bRk"/>
+                    </constraints>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="oGj-Kz-lvR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="46F-cm-mAP"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="oGj-Kz-lvR" secondAttribute="trailing" id="91E-zu-F1g"/>
+                <constraint firstItem="9wa-wN-svJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Fed-lh-0uy"/>
+                <constraint firstItem="9wa-wN-svJ" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="LKg-LZ-i6c"/>
                 <constraint firstItem="oGj-Kz-lvR" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="YI8-GR-f4n"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="oGj-Kz-lvR" secondAttribute="bottom" id="vlm-Fb-6Rp"/>
             </constraints>

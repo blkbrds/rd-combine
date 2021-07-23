@@ -14,6 +14,7 @@ final class MusicListViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var searchBar: UISearchBar!
+    @IBOutlet private weak var indicator: UIActivityIndicatorView!
     
     // MARK: - Properties
     let viewModel = MusicListViewModel()
@@ -29,6 +30,7 @@ final class MusicListViewController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "User", style: .plain, target: self, action: #selector(goToDetailUser))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logout))
         
+        configUI()
         configTableView()
         bindingCombine()
         getMusicList(viewModel.limited)
@@ -60,7 +62,14 @@ final class MusicListViewController: UIViewController {
             .store(in: &subscriptions)
     }
     
+    private func configUI() {
+        indicator.isHidden = true
+    }
+    
     private func getMusicList(_ limit: Int) {
+        indicator.isHidden = false
+        indicator.startAnimating()
+        
         viewModel.getMusicList(limit)
             .sink(receiveCompletion: { completion in
                 switch completion {
@@ -72,6 +81,8 @@ final class MusicListViewController: UIViewController {
                 
             }, receiveValue: { _ in
                 self.tableView.reloadData()
+                self.indicator.isHidden = true
+                self.indicator.stopAnimating()
             })
             .store(in: &subscriptions)
     }
@@ -82,12 +93,16 @@ final class MusicListViewController: UIViewController {
     }
     
     @objc private func logout() {
+        indicator.isHidden = false
+        indicator.startAnimating()
         do {
             try Auth.auth().signOut()
             if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate {
                 sceneDelegate.changeRoot()
             }
         } catch {
+            indicator.isHidden = true
+            indicator.stopAnimating()
             showError(error.localizedDescription)
         }
     }
