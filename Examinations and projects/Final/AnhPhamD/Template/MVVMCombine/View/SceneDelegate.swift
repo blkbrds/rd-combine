@@ -29,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func configWindow() {
-        let vc = ListTypeViewController()
+        let vc = HomeViewController()
         let navi = UINavigationController(rootViewController: vc)
         window?.rootViewController = navi
         window?.backgroundColor = .white

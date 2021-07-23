@@ -13,7 +13,8 @@ DISPLAY_NAME = [DEV]MVVMCombine
 
 PRODUCT_BUNDLE_IDENTIFIER = vn.ml.mvvmombine.dev
 
-BASE_URL = https:\/\/api.crossref.org
+//BASE_URL = https:\/\/api.crossref.org
+BASE_URL = https:\/\/www.thecocktaildb.com\/api\/json\/v1\/1
 
 API_VERSION = v1
 

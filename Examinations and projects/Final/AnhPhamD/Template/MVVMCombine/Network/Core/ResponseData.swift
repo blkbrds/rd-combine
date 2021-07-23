@@ -55,24 +55,27 @@ Example JSON to be used:
 
 struct ResponseData<T: Decodable>: Decodable {
 
-    var status: String
-    var messageType: String
-    var messageVersion: String
-    var message: T
+//    var status: String
+//    var messageType: String
+//    var messageVersion: String
+//    var message: T
+    var drinks: T
 
     enum CodingKeys: String, CodingKey {
-        case status
-        case messageType = "message_type"
-        case messageVersion = "message_version"
-        case message
+//        case status
+//        case messageType = "message_type"
+//        case messageVersion = "message_version"
+//        case message
+        case drinks
     }
 
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        status = try container.decodeIfPresent(String.self, forKey: .status).content
-        messageType = try container.decodeIfPresent(String.self, forKey: .messageType).content
-        messageVersion = try container.decodeIfPresent(String.self, forKey: .messageVersion).content
-        message = try container.decode(T.self, forKey: .message)
+//        status = try container.decodeIfPresent(String.self, forKey: .status).content
+//        messageType = try container.decodeIfPresent(String.self, forKey: .messageType).content
+//        messageVersion = try container.decodeIfPresent(String.self, forKey: .messageVersion).content
+//        message = try container.decode(T.self, forKey: .message)
+        drinks = try container.decode(T.self, forKey: .drinks)
     }
 }
 
