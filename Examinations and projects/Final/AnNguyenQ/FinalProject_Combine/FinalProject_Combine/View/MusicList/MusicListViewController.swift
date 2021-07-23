@@ -47,8 +47,8 @@ final class MusicListViewController: UIViewController {
     
     private func bindingCombine() {
         searchPublisher
-            .debounce(for: .seconds(0.3), scheduler: DispatchQueue.main)
-            .share()
+//            .debounce(for: .seconds(0.3), scheduler: DispatchQueue.main)
+//            .share()
             .sink { [weak self] val in
                 guard let this = self else { return }
                 if val.isEmpty {
@@ -111,6 +111,10 @@ final class MusicListViewController: UIViewController {
 // MARK: - UITableViewDelegate
 extension MusicListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let music = viewModel.musicsList[indexPath.row]
+        let vc = MusicDetailViewController()
+        vc.viewModel = MusicDetailViewModel(music: music)
+        navigationController?.pushViewController(vc, animated: true)
         print("Click here")
     }
 }

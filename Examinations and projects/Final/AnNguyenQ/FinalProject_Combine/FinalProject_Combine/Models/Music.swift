@@ -10,6 +10,7 @@ struct Music: Codable {
     var id: String
     var artistName: String
     var artworkUrl100: String
+    var url: String
 }
 
 struct MusicResults: Codable {

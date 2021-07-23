@@ -39,6 +39,7 @@ final class LoginViewController: UIViewController {
         loginButton.layer.borderWidth = 1
         loginButton.layer.cornerRadius = 10
         loginButton.layer.borderColor = UIColor.clear.cgColor
+        registerButton.underline()
         
         validateUsernameLabel.textColor = .red
         validateUsernameLabel.font = UIFont.systemFont(ofSize: 12)

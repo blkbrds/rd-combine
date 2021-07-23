@@ -52,6 +52,8 @@ final class RegisterViewController: UIViewController {
         validateConfirmPasswordLabel.textColor = .red
         validateConfirmPasswordLabel.font = UIFont.systemFont(ofSize: 12)
         indicator.isHidden = true
+        
+        loginButton.underline()
     }
     
     private func bindingViewModel() {
