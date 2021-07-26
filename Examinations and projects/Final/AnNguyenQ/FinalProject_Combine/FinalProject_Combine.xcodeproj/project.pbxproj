@@ -24,6 +24,9 @@
 		D166DEDF26AA716E0053DC6F /* MusicDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D166DEDD26AA716E0053DC6F /* MusicDetailViewController.xib */; };
 		D166DEE126AA71800053DC6F /* MusicDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D166DEE026AA717F0053DC6F /* MusicDetailViewModel.swift */; };
 		D166DEE326AA84950053DC6F /* UIButtonExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D166DEE226AA84950053DC6F /* UIButtonExts.swift */; };
+		D166DEE726AAB1120053DC6F /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D166DEE526AAB1120053DC6F /* UserDetailViewController.swift */; };
+		D166DEE826AAB1120053DC6F /* UserDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D166DEE626AAB1120053DC6F /* UserDetailViewController.xib */; };
+		D166DEEA26AAB1220053DC6F /* UserDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D166DEE926AAB1220053DC6F /* UserDetailViewModel.swift */; };
 		D1B34A2E2695626300DB8C2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B34A2D2695626300DB8C2A /* AppDelegate.swift */; };
 		D1B34A302695626300DB8C2A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B34A2F2695626300DB8C2A /* SceneDelegate.swift */; };
 		D1B34A372695626600DB8C2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1B34A362695626600DB8C2A /* Assets.xcassets */; };
@@ -86,6 +89,9 @@
 		D166DEDD26AA716E0053DC6F /* MusicDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicDetailViewController.xib; sourceTree = "<group>"; };
 		D166DEE026AA717F0053DC6F /* MusicDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDetailViewModel.swift; sourceTree = "<group>"; };
 		D166DEE226AA84950053DC6F /* UIButtonExts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExts.swift; sourceTree = "<group>"; };
+		D166DEE526AAB1120053DC6F /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
+		D166DEE626AAB1120053DC6F /* UserDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDetailViewController.xib; sourceTree = "<group>"; };
+		D166DEE926AAB1220053DC6F /* UserDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewModel.swift; sourceTree = "<group>"; };
 		D1B34A2A2695626300DB8C2A /* FinalProject_Combine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject_Combine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1B34A2D2695626300DB8C2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1B34A2F2695626300DB8C2A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -218,6 +224,16 @@
 			path = MusicDetail;
 			sourceTree = "<group>";
 		};
+		D166DEE426AAB0FA0053DC6F /* UserDetail */ = {
+			isa = PBXGroup;
+			children = (
+				D166DEE526AAB1120053DC6F /* UserDetailViewController.swift */,
+				D166DEE626AAB1120053DC6F /* UserDetailViewController.xib */,
+				D166DEE926AAB1220053DC6F /* UserDetailViewModel.swift */,
+			);
+			path = UserDetail;
+			sourceTree = "<group>";
+		};
 		D1B34A212695626300DB8C2A = {
 			isa = PBXGroup;
 			children = (
@@ -294,6 +310,7 @@
 		D1B34A732695630100DB8C2A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D166DEE426AAB0FA0053DC6F /* UserDetail */,
 				D1B4065D269D7B78004DB6C6 /* Register */,
 				D1B34A9526958BDE00DB8C2A /* MusicList */,
 				D166DEDB26AA71430053DC6F /* MusicDetail */,
@@ -464,6 +481,7 @@
 				D1B40661269D7B9B004DB6C6 /* RegisterViewController.xib in Resources */,
 				D1B34A3A2695626600DB8C2A /* LaunchScreen.storyboard in Resources */,
 				D166DEDF26AA716E0053DC6F /* MusicDetailViewController.xib in Resources */,
+				D166DEE826AAB1120053DC6F /* UserDetailViewController.xib in Resources */,
 				D1B34A372695626600DB8C2A /* Assets.xcassets in Resources */,
 				D1B34A792695637900DB8C2A /* LoginViewController.xib in Resources */,
 				D1B40667269E986B004DB6C6 /* GoogleService-Info.plist in Resources */,
@@ -596,6 +614,7 @@
 			files = (
 				D154CC6D26A5867E0099715D /* LoadmoreTableViewCell.swift in Sources */,
 				D1B34A782695637900DB8C2A /* LoginViewController.swift in Sources */,
+				D166DEE726AAB1120053DC6F /* UserDetailViewController.swift in Sources */,
 				D1B34A2E2695626300DB8C2A /* AppDelegate.swift in Sources */,
 				D166DEDE26AA716E0053DC6F /* MusicDetailViewController.swift in Sources */,
 				D1B34A302695626300DB8C2A /* SceneDelegate.swift in Sources */,
@@ -615,6 +634,7 @@
 				D13439412697EA98004AB25F /* StringExts.swift in Sources */,
 				D1B34A6C269562E100DB8C2A /* Music.swift in Sources */,
 				D1B34A9826958BF800DB8C2A /* MusicListViewController.swift in Sources */,
+				D166DEEA26AAB1220053DC6F /* UserDetailViewModel.swift in Sources */,
 				D12D688E26A12600009C4163 /* ViewControllerExts.swift in Sources */,
 				D134393F2697E9F9004AB25F /* EnumError.swift in Sources */,
 			);

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MusicTableViewCell: UITableViewCell {
+final class MusicTableViewCell: UITableViewCell {
 
     // MARK: - IBOutlets
     @IBOutlet weak var musicImageView: UIImageView!

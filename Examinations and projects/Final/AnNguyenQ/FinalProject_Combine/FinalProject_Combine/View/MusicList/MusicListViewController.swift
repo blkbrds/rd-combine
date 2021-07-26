@@ -89,7 +89,8 @@ final class MusicListViewController: UIViewController {
     
     // MARK: - Objc
     @objc private func goToDetailUser() {
-        print("Hello")
+        let vc = UserDetailViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc private func logout() {
@@ -115,7 +116,6 @@ extension MusicListViewController: UITableViewDelegate {
         let vc = MusicDetailViewController()
         vc.viewModel = MusicDetailViewModel(music: music)
         navigationController?.pushViewController(vc, animated: true)
-        print("Click here")
     }
 }
 

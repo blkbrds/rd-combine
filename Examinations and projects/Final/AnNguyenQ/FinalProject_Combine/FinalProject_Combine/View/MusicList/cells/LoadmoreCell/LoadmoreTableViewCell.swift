@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class LoadmoreTableViewCell: UITableViewCell {
+final class LoadmoreTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var loadMoreButton: UIButton!
     
