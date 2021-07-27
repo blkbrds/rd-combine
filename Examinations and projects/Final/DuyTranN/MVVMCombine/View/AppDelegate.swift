@@ -25,8 +25,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        configRoot()
         configIQKeyBoardManager()
         return true
+    }
+
+    private func configRoot() {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        window?.backgroundColor = .white
+        window?.rootViewController = SignInViewController()
     }
 
     private func configIQKeyBoardManager() {
