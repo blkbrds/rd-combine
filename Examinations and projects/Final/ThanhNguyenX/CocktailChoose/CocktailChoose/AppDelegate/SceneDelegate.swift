@@ -12,7 +12,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     enum RootType {
         case register
         case login
-//        case home
+        case home
 //        case detail
     }
 
@@ -28,13 +28,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func setRoot(type: RootType) {
         switch type {
         case .login:
-            let vc = RegisterViewController()
+            let vc: RegisterViewController = RegisterViewController()
             vc.viewModel = RegisterViewModel(screenType: .login)
             let navi = UINavigationController(rootViewController: vc)
             window?.rootViewController = navi
         case .register:
-            let vc = RegisterViewController()
+            let vc: RegisterViewController = RegisterViewController()
             vc.viewModel = RegisterViewModel(screenType: .register)
+            let navi = UINavigationController(rootViewController: vc)
+            window?.rootViewController = navi
+        case .home:
+            let vc: HomeViewController = HomeViewController()
             let navi = UINavigationController(rootViewController: vc)
             window?.rootViewController = navi
         }
@@ -48,7 +52,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         window = UIWindow(windowScene: windowScene)
-        setRoot(type: .login)
+        setRoot(type: .home)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

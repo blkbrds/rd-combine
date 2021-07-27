@@ -28,7 +28,7 @@ enum LoginError {
     }
 }
 
-final class RegisterViewModel {
+final class RegisterViewModel: ViewModel {
     enum ScreenType {
         case login
         case register
@@ -57,11 +57,11 @@ final class RegisterViewModel {
     @Published var username: String?
     @Published var password: String?
 
-    var subscriptions = Set<AnyCancellable>()
     var isInfoValid: AnyPublisher<Bool, Never>?
     var isLoading = CurrentValueSubject<Bool, Never>(false)
 
     init(screenType: ScreenType) {
+        super.init()
         state.send(.initial(screenType))
         state
             .sink { [weak self] state in

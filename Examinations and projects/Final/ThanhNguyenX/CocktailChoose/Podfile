@@ -6,7 +6,6 @@ target 'CocktailChoose' do
   use_frameworks!
 
   # Pods for CocktailChoose
-  pod 'Kingfisher', '~> 6.3.0'
   pod 'SwiftyUserDefaults', '~> 4.0'
 
   target 'CocktailChooseTests' do

@@ -22,7 +22,7 @@ final class Drinks: Codable, Identifiable {
     }
 }
 
-final class Cocktail: Codable, Identifiable {
+struct Cocktail: Codable, Identifiable, Hashable {
     var id: String = ""
     var nameTitle: String = ""
     var imageURL: String = ""
