@@ -7,6 +7,11 @@
 
 import Foundation
 
-final class DetailViewModel {
+final class DetailViewModel: ViewModel {
 
+    var cocktail: Cocktail?
+
+    init(cocktail: Cocktail? = nil) {
+        self.cocktail = cocktail
+    }
 }
