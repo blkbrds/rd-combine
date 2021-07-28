@@ -66,6 +66,19 @@ final class RegisterViewController: ViewController {
         loginScreenPublisher
             .assign(to: \.isHidden, on: registerScreenButton)
             .store(in: &subscriptions)
+
+        viewModel.state
+            .sink { [weak self] state in
+                guard let self = self else { return }
+                switch state {
+                case .loginSuccess:
+                    SceneDelegate.shared.setRoot(type: .home)
+                case .validateFailed(let error):
+                    _ = self.alert(title: "Validate Failed", message: error.message)
+                default: break
+                }
+            }
+            .store(in: &subscriptions)
     }
 
     override func bindingToViewModel() {

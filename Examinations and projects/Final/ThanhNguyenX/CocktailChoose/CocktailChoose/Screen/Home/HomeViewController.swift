@@ -82,11 +82,10 @@ final class HomeViewController: ViewController {
     private func configTableView() {
         tableView.register(HomeTableCell.self)
         tableView.delegate = self
-//        tableView.dataSource = self
 
         dataSource = DataSource(tableView: tableView, cellProvider: { (tableView, indexPath, value) -> UITableViewCell? in
             let cell = tableView.dequeue(HomeTableCell.self)
-            cell.viewModel = HomeTableCellVM(name: "", address: "", imageURL: value.imageURL)
+            cell.viewModel = HomeTableCellVM(title: value.nameTitle, description: value.instructions, imageURL: value.imageURL)
             return cell
         })
 
@@ -102,19 +101,10 @@ final class HomeViewController: ViewController {
     }
 }
 
-extension HomeViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfItems(inSection: section)
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeue(HomeTableCell.self)
-        return cell
-    }
-}
-
 extension HomeViewController: UITableViewDelegate {
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 extension HomeViewController: UISearchResultsUpdating {

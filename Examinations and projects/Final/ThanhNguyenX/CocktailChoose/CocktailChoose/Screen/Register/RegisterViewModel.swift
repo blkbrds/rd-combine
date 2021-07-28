@@ -9,21 +9,21 @@ import Foundation
 import Combine
 
 enum LoginError {
-    case accountName
     case username
+    case usernameIncorrect
     case password
-    case confirmedPassword
+    case passwordIncorrect
 
     var message: String {
         switch self {
-        case .accountName:
-            return "App.Texts.incorrectAccountName"
         case .username:
             return "Username is error"
+        case .usernameIncorrect:
+            return "Username is incorrect"
         case .password:
             return "Password is error"
-        case .confirmedPassword:
-            return "Confirm password is not same password"
+        case .passwordIncorrect:
+            return "Password is incorrect"
         }
     }
 }
@@ -39,13 +39,13 @@ final class RegisterViewModel: ViewModel {
         case registered
         case failed(Error)
         case validateFailed(LoginError)
+        case loginSuccess
     }
 
     enum Action {
         case login
         case register
         case validate
-//        case getUserStatus
     }
 
     // MARK: - Properties
@@ -101,6 +101,7 @@ final class RegisterViewModel: ViewModel {
         case .failed:
             isLoading.send(false)
         case .validateFailed: break
+        case .loginSuccess: break
         }
     }
 
@@ -117,10 +118,8 @@ final class RegisterViewModel: ViewModel {
             case .login:
                 guard let username = username, let password = password else { return }
                 if !username.isUsernameInput() {
-                    print("User name error")
                     state.send(.validateFailed(.username))
                 } else if !password.isPasswordRegEx() {
-                    print("Pass word error")
                     state.send(.validateFailed(.password))
                 } else {
                     self.action.send(.login)
@@ -129,9 +128,7 @@ final class RegisterViewModel: ViewModel {
                 guard let username = username, let password = password else { return }
                 if !username.isUsernameInput() {
                     state.send(.validateFailed(.username))
-                    print("User name error")
                 } else if !password.isPasswordRegEx() {
-                    print("Pass word error")
                     state.send(.validateFailed(.password))
                 } else {
                     self.action.send(.register)
@@ -141,10 +138,14 @@ final class RegisterViewModel: ViewModel {
     }
 
     private func login(username: String, password: String) {
-        if let _ = ud[.userRegistered]?.first(where: { $0.username == username && $0.password == password }) {
-            print("Login success")
+        if let account = ud[.userRegistered]?.first(where: { $0.username == username }) {
+            if account.password == password {
+                state.send(.loginSuccess)
+            } else {
+                state.send(.validateFailed(.passwordIncorrect))
+            }
         } else {
-            print("User name of password error")
+            state.send(.validateFailed(.usernameIncorrect))
         }
     }
 

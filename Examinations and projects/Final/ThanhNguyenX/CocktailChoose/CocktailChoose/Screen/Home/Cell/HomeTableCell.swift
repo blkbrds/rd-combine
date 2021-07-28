@@ -11,6 +11,8 @@ import Combine
 final class HomeTableCell: UITableViewCell {
 
     @IBOutlet private weak var cellImageView: UIImageView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
 
     var viewModel: HomeTableCellVM? {
         didSet {
@@ -32,8 +34,7 @@ final class HomeTableCell: UITableViewCell {
     private func updateUI() {
         guard let viewModel: HomeTableCellVM = viewModel else { return }
         cellImageView.setImage(viewModel.imageURL)?.store(in: &subscriptions)
-        print("AAA", viewModel.imageURL)
-//        nameLabel.text = viewModel.name
-//        addressLabel.text = viewModel.address
+        titleLabel.text = viewModel.title
+        descriptionLabel.text = viewModel.description
     }
 }

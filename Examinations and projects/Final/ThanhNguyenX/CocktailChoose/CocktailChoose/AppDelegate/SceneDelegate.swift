@@ -52,7 +52,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         window = UIWindow(windowScene: windowScene)
-        setRoot(type: .home)
+        setRoot(type: .login)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
