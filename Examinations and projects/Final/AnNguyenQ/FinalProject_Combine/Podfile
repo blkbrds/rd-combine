@@ -1,0 +1,24 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'FinalProject_Combine' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for FinalProject_Combine
+
+  target 'FinalProject_CombineTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'FinalProject_CombineUITests' do
+    # Pods for testing
+  end
+
+  # Firebase
+  pod 'Firebase'
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+
+end
