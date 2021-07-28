@@ -21,6 +21,11 @@ final class RegisterViewController: ViewController {
         super.viewDidLoad()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        clearText()
+    }
+
     private func configScreen(screenType: RegisterViewModel.ScreenType) {
         if screenType == .login {
             title = "Login"
@@ -31,6 +36,11 @@ final class RegisterViewController: ViewController {
             registerButton.setTitle("Register", for: .normal)
             registerScreenButton.isHidden = true
         }
+    }
+
+    private func clearText() {
+        usernameTextField.text = ""
+        pwTextField.text = ""
     }
 
     override func configUI() {
@@ -72,9 +82,17 @@ final class RegisterViewController: ViewController {
                 guard let self = self else { return }
                 switch state {
                 case .loginSuccess:
-                    SceneDelegate.shared.setRoot(type: .home)
+                    let vc: HomeViewController = HomeViewController()
+                    self.navigationController?.pushViewController(vc, animated: true)
                 case .validateFailed(let error):
                     _ = self.alert(title: "Validate Failed", message: error.message)
+                case .registerSuccess:
+                    let alertPublisher = self.alert(title: "", message: "Register success")
+                    alertPublisher.sink { _ in
+                        self.clearText()
+                        self.viewModel.state.send(.initial(.login))
+                    }
+                    .store(in: &self.subscriptions)
                 default: break
                 }
             }

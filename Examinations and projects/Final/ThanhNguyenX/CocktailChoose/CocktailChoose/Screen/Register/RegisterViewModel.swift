@@ -13,6 +13,7 @@ enum LoginError {
     case usernameIncorrect
     case password
     case passwordIncorrect
+    case usernameAlreadyExists
 
     var message: String {
         switch self {
@@ -24,6 +25,8 @@ enum LoginError {
             return "Password is error"
         case .passwordIncorrect:
             return "Password is incorrect"
+        case .usernameAlreadyExists:
+            return "Username already exists"
         }
     }
 }
@@ -40,6 +43,7 @@ final class RegisterViewModel: ViewModel {
         case failed(Error)
         case validateFailed(LoginError)
         case loginSuccess
+        case registerSuccess
     }
 
     enum Action {
@@ -62,6 +66,9 @@ final class RegisterViewModel: ViewModel {
 
     init(screenType: ScreenType) {
         super.init()
+        ud[.userRegistered]?.forEach({ user in
+            print("❤️❤️❤️", ud[.userRegistered]?.count ?? 0, user.username ?? "", user.password ?? "")
+        })
         state.send(.initial(screenType))
         state
             .sink { [weak self] state in
@@ -100,8 +107,7 @@ final class RegisterViewModel: ViewModel {
             isLoading.send(false)
         case .failed:
             isLoading.send(false)
-        case .validateFailed: break
-        case .loginSuccess: break
+        default: break
         }
     }
 
@@ -150,7 +156,11 @@ final class RegisterViewModel: ViewModel {
     }
 
     private func register(username: String, password: String) {
-        ud[.userRegistered]?.append(User(username: username, password: password))
-        print("Register success")
+        if let _ = ud[.userRegistered]?.first(where: { $0.username == username }) {
+            state.send(.validateFailed(.usernameAlreadyExists))
+        } else {
+            ud[.userRegistered]?.append(User(username: username, password: password))
+            state.send(.registerSuccess)
+        }
     }
 }
