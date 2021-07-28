@@ -1,0 +1,38 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '13.0'
+
+# ignore all warnings from all pods
+inhibit_all_warnings!
+use_frameworks!
+
+def app_pods
+
+  # Utils
+  pod 'Alamofire', '5.4.3'
+
+  # UI
+  pod 'NVActivityIndicatorView', '5.1.1'
+  pod 'IQKeyboardManagerSwift', '6.5.6'
+
+  # Tool to enforce Swift style and conventions
+#  pod 'SwiftLint', '0.43.0'
+
+end
+
+target 'MVVMCombine' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+  app_pods
+
+  # Pods for MVVMCombine
+
+  target 'MVVMCombineTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'MVVMCombineUITests' do
+    # Pods for testing
+  end
+
+end

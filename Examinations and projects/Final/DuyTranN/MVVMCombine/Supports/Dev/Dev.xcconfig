@@ -1,0 +1,24 @@
+//
+//  Dev.xcconfig
+//  MVVMCombine
+//
+//  Created by MBA0242P on 4/23/21.
+//  Copyright © 2021 Monstar Lab VietNam Co., Ltd. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+DISPLAY_NAME = [DEV]MVVMCombine
+
+PRODUCT_BUNDLE_IDENTIFIER = vn.ml.mvvmombine.dev
+
+BASE_URL = https:\/\/newsapi.org
+
+API_VERSION = v1
+
+API_KEY =
+
+X_RATE_LIMIT_LIMIT = 100
+
+X_RATE_LIMIT_INTERVAL = 1s
