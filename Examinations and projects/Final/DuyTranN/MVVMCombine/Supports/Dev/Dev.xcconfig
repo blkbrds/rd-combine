@@ -13,7 +13,7 @@ DISPLAY_NAME = [DEV]MVVMCombine
 
 PRODUCT_BUNDLE_IDENTIFIER = vn.ml.mvvmombine.dev
 
-BASE_URL = https:\/\/api.crossref.org
+BASE_URL = https:\/\/newsapi.org
 
 API_VERSION = v1
 

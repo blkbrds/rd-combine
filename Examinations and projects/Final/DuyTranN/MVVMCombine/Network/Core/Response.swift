@@ -59,4 +59,11 @@ extension ErasedDataResponsePublisher {
             .map { $0.message }
             .eraseToAnyPublisher()
     }
+
+    func newsResponse<T: Decodable>(_ type: T.Type) -> AnyPublisher<T, Error> {
+        return self
+            .tryMapHTTPResponse()
+            .decode(type: T.self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
+    }
 }

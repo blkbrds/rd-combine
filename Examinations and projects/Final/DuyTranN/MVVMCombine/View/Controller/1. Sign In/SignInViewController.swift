@@ -41,9 +41,7 @@ extension SignInViewController {
 
     // MARK: - Private functions
     private func handleSignIn() {
-//        let vc = HomeViewController()
-//        vc.viewModel = HomeViewModel()
-//        navigationController?.pushViewController(vc, animated: true)
+        AppDelegate.shared.changeRoot(to: .listNews)
     }
 
     private func configUI() {

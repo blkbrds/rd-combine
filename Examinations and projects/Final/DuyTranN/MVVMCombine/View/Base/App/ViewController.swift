@@ -26,6 +26,11 @@ class ViewController: UIViewController, ViewControllerType {
         setupData()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: Colors.lightBlue]
+    }
+
     deinit {
         notificationCenter.removeObserver(self)
     }
@@ -44,8 +49,11 @@ class ViewController: UIViewController, ViewControllerType {
         - Config table view
         - Setup navigation...
      **/
+
     internal func setupUI() {
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: Colors.lightBlue]
+
         view.removeMultiTouch()
 
         // Config indicator view

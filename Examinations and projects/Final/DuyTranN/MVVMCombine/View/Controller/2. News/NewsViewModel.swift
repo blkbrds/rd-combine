@@ -1,5 +1,5 @@
 //
-//  ListTypeViewModel.swift
+//  NewsViewModel.swift
 //  MVVMCombine
 //
 //  Created by Van Le H. on 6/12/21.
@@ -8,12 +8,13 @@
 
 import Foundation
 import Combine
+import UIKit.UIColor
 
-final class ListTypeViewModel: ViewModelType {
+final class NewsViewModel: ViewModelType {
 
     // MARK: - Properties
     // API Result
-    @Published private(set) var apiResult: APIResult<TypeList> = .none
+    @Published private(set) var apiResult: APIResult<ArticlesResponse<[Article]>> = .none
 
     // ViewModelType conforming
     private(set) var isLoading: CurrentValueSubject<Bool, Never> = .init(false)
@@ -22,7 +23,7 @@ final class ListTypeViewModel: ViewModelType {
     // MARK: - Public functions
     func performGetListType() {
         isLoading.send(true)
-        APIType.getListType()
+        APIType.getListArticles()
             .transformToAPIResult()
             .handleEvents(receiveOutput: { [weak self ] _ in
                 guard let this = self else { return }
@@ -30,5 +31,13 @@ final class ListTypeViewModel: ViewModelType {
             })
             .assign(to: \.apiResult, on: self)
             .store(in: &subscriptions)
+    }
+
+    func itemBackgroundColor(at indexPath: IndexPath) -> UIColor {
+        if indexPath.row % 2 == 0 {
+            return Colors.lightBlue
+        } else {
+            return Colors.lightGreen
+        }
     }
 }

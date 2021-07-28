@@ -29,12 +29,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         configIQKeyBoardManager()
         return true
     }
+}
 
+// MARK: - Extension AppDelegate
+extension AppDelegate {
+
+    enum RootType {
+        case listNews
+    }
+
+    // MARK: - Public functions
+    func changeRoot(to root: RootType) {
+        switch root {
+        case .listNews:
+            let vc = NewsViewController()
+            window?.rootViewController = UINavigationController(rootViewController: vc)
+        }
+    }
+
+    // MARK: - Private functions
     private func configRoot() {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.backgroundColor = .white
-        window?.rootViewController = SignInViewController()
+//        window?.rootViewController = SignInViewController()
+        window?.rootViewController = UINavigationController(rootViewController: NewsViewController())
     }
 
     private func configIQKeyBoardManager() {

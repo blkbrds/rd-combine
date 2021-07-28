@@ -16,11 +16,12 @@ final class NetworkingController {
     static var shared = NetworkingController()
 
     static var defaultHeaders: [String: String] {
-        return ["User-Agent": "mailto:van.le@monstar-lab.com",
-                "Content-Type": "application/json",
-                "X-Rate-Limit-Limit": AppConfiguration.infoForKey(.limit).content,
-                "X-Rate-Limit-Interval": AppConfiguration.infoForKey(.interval).content
-        ]
+        return ["Content-Type": "application/json"]
+//        return ["User-Agent": "mailto:van.le@monstar-lab.com",
+//                "Content-Type": "application/json",
+//                "X-Rate-Limit-Limit": AppConfiguration.infoForKey(.limit).content,
+//                "X-Rate-Limit-Interval": AppConfiguration.infoForKey(.interval).content
+//        ]
     }
     private init() { }
 

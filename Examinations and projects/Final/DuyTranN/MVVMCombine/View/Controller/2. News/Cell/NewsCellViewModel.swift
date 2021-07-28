@@ -1,5 +1,5 @@
 //
-//  WorkCellViewModel.swift
+//  NewsCellViewModel.swift
 //  MVVMCombine
 //
 //  Created by Van Le H. on 6/12/21.
@@ -7,12 +7,14 @@
 //
 
 import Foundation
+import UIKit.UIColor
 
-final class WorkCellViewModel {
+final class NewsCellViewModel {
 
     // MARK: - Properties
     private(set) var title: String
     private(set) var subtitle: String?
+    private(set) var itemBackgroundColor: UIColor = Colors.lightBlue
 
     // MARK: - Init
     init(work: Work) {
@@ -28,5 +30,11 @@ final class WorkCellViewModel {
                 subtitle = publisher
             }
         }
+    }
+
+    init(title: String, subTitle: String, itemBackgroundColor: UIColor) {
+        self.title = title
+        self.subtitle = subTitle
+        self.itemBackgroundColor = itemBackgroundColor
     }
 }

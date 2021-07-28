@@ -23,4 +23,11 @@ final class APIType {
             .response(WorkList.self)
             .eraseToAnyPublisher()
     }
+
+    static func getListArticles() -> AnyPublisher<ArticlesResponse<[Article]>, Error> {
+        return NetworkingController.shared
+            .requestWithTarget(NewsService.articles)
+            .newsResponse(ArticlesResponse<[Article]>.self)
+            .eraseToAnyPublisher()
+    }
 }
