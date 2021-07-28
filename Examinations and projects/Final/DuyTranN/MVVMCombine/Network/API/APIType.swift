@@ -30,4 +30,11 @@ final class APIType {
             .newsResponse(ArticlesResponse<[Article]>.self)
             .eraseToAnyPublisher()
     }
+
+    static func getSearchArticles(by keyword: String) -> AnyPublisher<ArticlesResponse<[Article]>, Error> {
+        return NetworkingController.shared
+            .requestWithTarget(NewsService.searchArticles(keyword: keyword))
+            .newsResponse(ArticlesResponse<[Article]>.self)
+            .eraseToAnyPublisher()
+    }
 }

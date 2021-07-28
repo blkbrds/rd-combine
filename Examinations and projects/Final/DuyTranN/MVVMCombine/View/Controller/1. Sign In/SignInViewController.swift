@@ -30,6 +30,11 @@ final class SignInViewController: ViewController {
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+
     // MARK: - IBActions
     @IBAction private func signInButtonTouchUpInside(_ sender: UIButton) {
         viewModel.tappedSignInButton()
@@ -60,14 +65,9 @@ extension SignInViewController {
                          for: .editingChanged)
         })
 
-        /// `Navigation`
-        UINavigationBar.appearance().prefersLargeTitles = true
-        UINavigationBar.appearance().barTintColor = #colorLiteral(red: 0.3564865291, green: 0.7821497917, blue: 0.9799445271, alpha: 1)
-        UINavigationBar.appearance().tintColor = #colorLiteral(red: 0.3564865291, green: 0.7821497917, blue: 0.9799445271, alpha: 1)
-        UINavigationBar.appearance().backgroundColor = #colorLiteral(red: 0.3564865291, green: 0.7821497917, blue: 0.9799445271, alpha: 1)
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
-        UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
-        UINavigationBar.appearance().shadowImage = UIImage()
+        /// `Tap gesture`
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(superViewTapped(_:)))
+        view.addGestureRecognizer(tapGesture)
 
         /// `Button`
         updateSignInButton()
@@ -124,5 +124,13 @@ extension SignInViewController {
         default:
             break
         }
+    }
+
+    @objc private func superViewTapped(_ gesture: UIGestureRecognizer) {
+        [userNameTextField, passwordTextField].forEach({
+            if $0!.isFirstResponder {
+                $0?.resignFirstResponder()
+            }
+        })
     }
 }

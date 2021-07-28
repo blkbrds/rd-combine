@@ -11,6 +11,7 @@ import Alamofire
 
 enum NewsService {
     case articles
+    case searchArticles(keyword: String)
 }
 
 extension NewsService: TargetType {
@@ -21,14 +22,14 @@ extension NewsService: TargetType {
 
     var path: String {
         switch self {
-        case .articles:
-            return "everything?q=Apple&from=2021-07-27&sortBy=popularity&apiKey=0e3aedb5dfc749a99ea88056bcf94082"
+        case .articles, .searchArticles:
+            return "everything"
         }
     }
 
     var method: HTTPMethod {
         switch self {
-        case .articles:
+        case .articles, .searchArticles:
             return .get
         }
     }
@@ -36,13 +37,25 @@ extension NewsService: TargetType {
     var parameters: Parameters? {
         switch self {
         case .articles:
-            return nil
+            return [
+                "q": "Apple",
+                "from": "2021-07-27",
+                "sortBy": "popularity",
+                "apiKey": "0e3aedb5dfc749a99ea88056bcf94082"
+            ]
+        case .searchArticles(let keyword):
+            return [
+                "q": keyword,
+                "from": "2021-07-27",
+                "sortBy": "popularity",
+                "apiKey": "0e3aedb5dfc749a99ea88056bcf94082"
+            ]
         }
     }
 
     var headers: [String: String]? {
         switch self {
-        case .articles:
+        case .articles, .searchArticles:
             return NetworkingController.defaultHeaders
         }
     }

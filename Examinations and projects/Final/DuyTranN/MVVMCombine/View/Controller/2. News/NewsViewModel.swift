@@ -20,10 +20,24 @@ final class NewsViewModel: ViewModelType {
     private(set) var isLoading: CurrentValueSubject<Bool, Never> = .init(false)
     private(set) var subscriptions: Set<AnyCancellable> = []
 
+    var searchInputSubject = CurrentValueSubject<String, Never>("")
+
     // MARK: - Public functions
-    func performGetListType() {
+    func requestGetListArticles() {
         isLoading.send(true)
         APIType.getListArticles()
+            .transformToAPIResult()
+            .handleEvents(receiveOutput: { [weak self ] _ in
+                guard let this = self else { return }
+                this.isLoading.send(false)
+            })
+            .assign(to: \.apiResult, on: self)
+            .store(in: &subscriptions)
+    }
+
+    func requestSearchArticles() {
+        isLoading.send(true)
+        APIType.getSearchArticles(by: searchInputSubject.value)
             .transformToAPIResult()
             .handleEvents(receiveOutput: { [weak self ] _ in
                 guard let this = self else { return }

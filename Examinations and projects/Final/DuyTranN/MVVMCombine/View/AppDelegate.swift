@@ -52,8 +52,7 @@ extension AppDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.backgroundColor = .white
-//        window?.rootViewController = SignInViewController()
-        window?.rootViewController = UINavigationController(rootViewController: NewsViewController())
+        window?.rootViewController = SignInViewController()
     }
 
     private func configIQKeyBoardManager() {

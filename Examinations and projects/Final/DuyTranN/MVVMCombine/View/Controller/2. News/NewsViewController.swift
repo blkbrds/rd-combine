@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Combine
 
 final class NewsViewController: ViewController {
 
@@ -20,6 +21,8 @@ final class NewsViewController: ViewController {
 
     // MARK: - IBOutlets
     @IBOutlet private weak var tableView: TableView!
+    @IBOutlet private weak var searchTextField: UITextField!
+    @IBOutlet private weak var noDataLabel: UILabel!
 
     // MARK: - Properties
     private var dataSource: DataSource!
@@ -37,20 +40,43 @@ final class NewsViewController: ViewController {
     // MARK: - Override functions
     override func setupUI() {
         super.setupUI()
+        /// `Search text field`
+        searchTextField.addTarget(self,
+                                  action: #selector(textFieldEditingChanged(textField:)),
+                                  for: .editingChanged)
+
+        /// `Tap gesture`
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(superViewTapped(_:)))
+        view.addGestureRecognizer(tapGesture)
+
+        /// `Table view`
         configTableView()
     }
 
     override func setupData() {
         super.setupData()
-        viewModel.performGetListType()
+        viewModel.requestGetListArticles()
     }
 
     override func binding() {
         super.binding()
+        /// Search input
+        viewModel.searchInputSubject
+            .debounce(for: .seconds(1), scheduler: RunLoop.main)
+            .dropFirst()
+            .sink(receiveValue: { [weak self] value in
+                guard let this = self, value.isNotEmpty else { return }
+                print("☘️ Begin search with \"\(value)\"")
+                this.viewModel.requestSearchArticles()
+            })
+            .store(in: &subscriptions)
+
+        /// API on first load
         viewModel.$apiResult
             .handle(onSucess: { [weak self] in
                 self?.navigationItem.title = "\($0.totalResults) news"
                 self?.applySnapshot($0.articles)
+                self?.noDataLabel.isHidden = $0.articles.isNotEmpty
             }, onFailure: { [weak self] in
                 self?.alert(error: $0)
             })
@@ -84,14 +110,14 @@ final class NewsViewController: ViewController {
         snapshot.appendItems(data, toSection: .articles)
         dataSource.apply(snapshot, animatingDifferences: true)
     }
-}
 
-// MARK: - UITableViewDelegate
-//extension NewsViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        guard let article = dataSource.itemIdentifier(for: indexPath) else { return }
-//        let vc = ListWorkViewController()
-//        vc.viewModel = ListWorkViewModel(article: article)
-//        navigationController?.pushViewController(vc, animated: true)
-//    }
-//}
+    @objc private func textFieldEditingChanged(textField: UITextField) {
+        viewModel.searchInputSubject.send(textField.value)
+    }
+
+    @objc private func superViewTapped(_ gesture: UIGestureRecognizer) {
+        if searchTextField.isFirstResponder {
+            searchTextField.resignFirstResponder()
+        }
+    }
+}
