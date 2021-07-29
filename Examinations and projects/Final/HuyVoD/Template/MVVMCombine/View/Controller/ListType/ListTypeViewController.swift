@@ -85,7 +85,7 @@ final class ListTypeViewController: ViewController {
 extension ListTypeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let type = dataSource.itemIdentifier(for: indexPath) else { return }
-        let/Users/mbp0053/rd-combine/Examinations and projects/Final/HuyVoD/Template/MVVMCombine/View/Controller/ListWork/ListWorkViewController.swift vc = ListWorkViewController()
+        let vc = ListWorkViewController()
         vc.viewModel = ListWorkViewModel(type: type)
         navigationController?.pushViewController(vc, animated: true)
     }
