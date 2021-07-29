@@ -83,6 +83,8 @@
 		A3E61DBC26749C3D00FB317C /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A3E61DB926749C3D00FB317C /* Release.xcconfig */; };
 		A3E61DBD26749C3D00FB317C /* Staging.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A3E61DBB26749C3D00FB317C /* Staging.xcconfig */; };
 		CE747FE8BB08FE77332F0417 /* Pods_MVVMCombineTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 677708C0E7DB9663BCB0BFD5 /* Pods_MVVMCombineTests.framework */; };
+		CFFD0FCA26B292910017B928 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFD0FC826B292910017B928 /* LoginViewController.swift */; };
+		CFFD0FCB26B292910017B928 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFFD0FC926B292910017B928 /* LoginViewController.xib */; };
 		D23624DBE685F4105DB91604 /* Pods_MVVMCombine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 513684D095EA43CA8C181897 /* Pods_MVVMCombine.framework */; };
 		D53D6703F961716B5AFB5D0C /* Pods_MVVMCombine_MVVMCombineUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 713F68F6268582E758C32376 /* Pods_MVVMCombine_MVVMCombineUITests.framework */; };
 /* End PBXBuildFile section */
@@ -201,6 +203,8 @@
 		A3E61DB926749C3D00FB317C /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		A3E61DBB26749C3D00FB317C /* Staging.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
 		C1431D85136BF77BAF32FCF2 /* Pods-MVVMCombine.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMCombine.staging.xcconfig"; path = "Target Support Files/Pods-MVVMCombine/Pods-MVVMCombine.staging.xcconfig"; sourceTree = "<group>"; };
+		CFFD0FC826B292910017B928 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CFFD0FC926B292910017B928 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +250,7 @@
 		74B30D622674B3D400EB3673 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CFFD0FC726B2927F0017B928 /* LogIn */,
 				74B30D7F2674D94900EB3673 /* ListWork */,
 				74B30D632674B3DE00EB3673 /* ListType */,
 			);
@@ -581,6 +586,15 @@
 			path = Staging;
 			sourceTree = "<group>";
 		};
+		CFFD0FC726B2927F0017B928 /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				CFFD0FC826B292910017B928 /* LoginViewController.swift */,
+				CFFD0FC926B292910017B928 /* LoginViewController.xib */,
+			);
+			path = LogIn;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -691,6 +705,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFFD0FCB26B292910017B928 /* LoginViewController.xib in Resources */,
 				A3E61B672670F31200FB317C /* LaunchScreen.storyboard in Resources */,
 				74B30D832674D9AE00EB3673 /* ListWorkViewController.xib in Resources */,
 				74B30D902674FD1600EB3673 /* WorkCell.xib in Resources */,
@@ -908,6 +923,7 @@
 				A3E61B5B2670F30C00FB317C /* AppDelegate.swift in Sources */,
 				74B30D942675019D00EB3673 /* ListWorkViewModel.swift in Sources */,
 				A3E61CFC2671AF8D00FB317C /* Label.swift in Sources */,
+				CFFD0FCA26B292910017B928 /* LoginViewController.swift in Sources */,
 				A3E61B5D2670F30C00FB317C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
