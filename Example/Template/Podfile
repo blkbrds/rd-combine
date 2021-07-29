@@ -9,6 +9,8 @@ def app_pods
 
   # Utils
   pod 'Alamofire', '5.4.3'
+  pod 'IQKeyboardManagerSwift'
+  pod 'SDWebImage', '~> 5.0'
 
   # UI
   pod 'NVActivityIndicatorView', '5.1.1'

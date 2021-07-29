@@ -7,6 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22162A6726A1BFFD0026ED5C /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22162A6526A1BFFD0026ED5C /* TeamViewController.swift */; };
+		22162A6826A1BFFD0026ED5C /* TeamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22162A6626A1BFFD0026ED5C /* TeamViewController.xib */; };
+		22162A7226A1C02B0026ED5C /* TeamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22162A7026A1C02B0026ED5C /* TeamTableViewCell.swift */; };
+		22162A7326A1C02B0026ED5C /* TeamTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22162A7126A1C02B0026ED5C /* TeamTableViewCell.xib */; };
+		22162A7B26A1C0560026ED5C /* TeamCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22162A7A26A1C0560026ED5C /* TeamCellViewModel.swift */; };
+		22162A8026A1C08F0026ED5C /* TeamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22162A7F26A1C08F0026ED5C /* TeamViewModel.swift */; };
+		22162A8526A1C6930026ED5C /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22162A8426A1C6930026ED5C /* Team.swift */; };
+		22162A8A26A2D1BD0026ED5C /* TeamList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22162A8926A2D1BC0026ED5C /* TeamList.swift */; };
+		2294B46C26B15F1700E3DC48 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2294B46A26B15F1700E3DC48 /* LoginViewController.swift */; };
+		2294B46D26B15F1700E3DC48 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2294B46B26B15F1700E3DC48 /* LoginViewController.xib */; };
+		2294B47526B1604900E3DC48 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2294B47426B1604900E3DC48 /* LoginViewModel.swift */; };
+		22C810E326A9B440007BF2AD /* DetailTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C810E126A9B43F007BF2AD /* DetailTeamViewController.swift */; };
+		22C810E426A9B440007BF2AD /* DetailTeamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22C810E226A9B43F007BF2AD /* DetailTeamViewController.xib */; };
+		22C810EC26A9B4A0007BF2AD /* DetailTeamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C810EB26A9B4A0007BF2AD /* DetailTeamViewModel.swift */; };
+		22FE740626AC0A5F00F0ECE4 /* DesciptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE740426AC0A5F00F0ECE4 /* DesciptionTableViewCell.swift */; };
+		22FE740726AC0A5F00F0ECE4 /* DesciptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FE740526AC0A5F00F0ECE4 /* DesciptionTableViewCell.xib */; };
+		22FE740C26AC0C2800F0ECE4 /* DesciptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE740B26AC0C2800F0ECE4 /* DesciptionViewModel.swift */; };
+		22FE741426AC12FF00F0ECE4 /* StadiumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE741226AC12FF00F0ECE4 /* StadiumTableViewCell.swift */; };
+		22FE741526AC12FF00F0ECE4 /* StadiumTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FE741326AC12FF00F0ECE4 /* StadiumTableViewCell.xib */; };
+		22FE741A26AC136600F0ECE4 /* StadiumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE741926AC136600F0ECE4 /* StadiumViewModel.swift */; };
+		22FE742826AC1C0A00F0ECE4 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE742726AC1C0A00F0ECE4 /* InformationView.swift */; };
+		22FE742D26AC1D1900F0ECE4 /* InformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FE742C26AC1D1900F0ECE4 /* InformationView.xib */; };
+		22FE743226AC1F8100F0ECE4 /* InfomationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE743126AC1F8100F0ECE4 /* InfomationViewModel.swift */; };
 		74B30D55267450DA00EB3673 /* APIResult+APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B30D54267450DA00EB3673 /* APIResult+APIError.swift */; };
 		74B30D57267450FD00EB3673 /* NetworkingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B30D56267450FD00EB3673 /* NetworkingController.swift */; };
 		74B30D592674512200EB3673 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B30D582674512200EB3673 /* Response.swift */; };
@@ -109,6 +132,29 @@
 		1B58E6AE41018B55058B8A05 /* Pods-MVVMCombineTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMCombineTests.release.xcconfig"; path = "Target Support Files/Pods-MVVMCombineTests/Pods-MVVMCombineTests.release.xcconfig"; sourceTree = "<group>"; };
 		1B9F1B74FB95087691D47D90 /* Pods-MVVMCombine-MVVMCombineUITests.dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMCombine-MVVMCombineUITests.dev.xcconfig"; path = "Target Support Files/Pods-MVVMCombine-MVVMCombineUITests/Pods-MVVMCombine-MVVMCombineUITests.dev.xcconfig"; sourceTree = "<group>"; };
 		1C075F933659A9ED09415D9F /* Pods-MVVMCombine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMCombine.release.xcconfig"; path = "Target Support Files/Pods-MVVMCombine/Pods-MVVMCombine.release.xcconfig"; sourceTree = "<group>"; };
+		22162A6526A1BFFD0026ED5C /* TeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewController.swift; sourceTree = "<group>"; };
+		22162A6626A1BFFD0026ED5C /* TeamViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamViewController.xib; sourceTree = "<group>"; };
+		22162A7026A1C02B0026ED5C /* TeamTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamTableViewCell.swift; sourceTree = "<group>"; };
+		22162A7126A1C02B0026ED5C /* TeamTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamTableViewCell.xib; sourceTree = "<group>"; };
+		22162A7A26A1C0560026ED5C /* TeamCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCellViewModel.swift; sourceTree = "<group>"; };
+		22162A7F26A1C08F0026ED5C /* TeamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewModel.swift; sourceTree = "<group>"; };
+		22162A8426A1C6930026ED5C /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		22162A8926A2D1BC0026ED5C /* TeamList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamList.swift; sourceTree = "<group>"; };
+		2294B46A26B15F1700E3DC48 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2294B46B26B15F1700E3DC48 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		2294B47426B1604900E3DC48 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		22C810E126A9B43F007BF2AD /* DetailTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTeamViewController.swift; sourceTree = "<group>"; };
+		22C810E226A9B43F007BF2AD /* DetailTeamViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTeamViewController.xib; sourceTree = "<group>"; };
+		22C810EB26A9B4A0007BF2AD /* DetailTeamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTeamViewModel.swift; sourceTree = "<group>"; };
+		22FE740426AC0A5F00F0ECE4 /* DesciptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesciptionTableViewCell.swift; sourceTree = "<group>"; };
+		22FE740526AC0A5F00F0ECE4 /* DesciptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DesciptionTableViewCell.xib; sourceTree = "<group>"; };
+		22FE740B26AC0C2800F0ECE4 /* DesciptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesciptionViewModel.swift; sourceTree = "<group>"; };
+		22FE741226AC12FF00F0ECE4 /* StadiumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StadiumTableViewCell.swift; sourceTree = "<group>"; };
+		22FE741326AC12FF00F0ECE4 /* StadiumTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StadiumTableViewCell.xib; sourceTree = "<group>"; };
+		22FE741926AC136600F0ECE4 /* StadiumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StadiumViewModel.swift; sourceTree = "<group>"; };
+		22FE742726AC1C0A00F0ECE4 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
+		22FE742C26AC1D1900F0ECE4 /* InformationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InformationView.xib; sourceTree = "<group>"; };
+		22FE743126AC1F8100F0ECE4 /* InfomationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfomationViewModel.swift; sourceTree = "<group>"; };
 		330EFEB4046813DE8E7AA1B4 /* Pods-MVVMCombine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMCombine.debug.xcconfig"; path = "Target Support Files/Pods-MVVMCombine/Pods-MVVMCombine.debug.xcconfig"; sourceTree = "<group>"; };
 		513684D095EA43CA8C181897 /* Pods_MVVMCombine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVMCombine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		677708C0E7DB9663BCB0BFD5 /* Pods_MVVMCombineTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVMCombineTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -231,6 +277,87 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		22162A6426A1BFD10026ED5C /* ListTeam */ = {
+			isa = PBXGroup;
+			children = (
+				22162A6F26A1C0060026ED5C /* cell */,
+				22162A6526A1BFFD0026ED5C /* TeamViewController.swift */,
+				22162A6626A1BFFD0026ED5C /* TeamViewController.xib */,
+				22162A7F26A1C08F0026ED5C /* TeamViewModel.swift */,
+			);
+			path = ListTeam;
+			sourceTree = "<group>";
+		};
+		22162A6F26A1C0060026ED5C /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				22162A7026A1C02B0026ED5C /* TeamTableViewCell.swift */,
+				22162A7126A1C02B0026ED5C /* TeamTableViewCell.xib */,
+				22162A7A26A1C0560026ED5C /* TeamCellViewModel.swift */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		2294B46926B15BB100E3DC48 /* LoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2294B46A26B15F1700E3DC48 /* LoginViewController.swift */,
+				2294B46B26B15F1700E3DC48 /* LoginViewController.xib */,
+				2294B47426B1604900E3DC48 /* LoginViewModel.swift */,
+			);
+			path = LoginViewController;
+			sourceTree = "<group>";
+		};
+		22C810E026A9B40C007BF2AD /* DetailTeam */ = {
+			isa = PBXGroup;
+			children = (
+				22FE73FF26AAC13C00F0ECE4 /* cell */,
+				22C810E126A9B43F007BF2AD /* DetailTeamViewController.swift */,
+				22C810E226A9B43F007BF2AD /* DetailTeamViewController.xib */,
+				22C810EB26A9B4A0007BF2AD /* DetailTeamViewModel.swift */,
+			);
+			path = DetailTeam;
+			sourceTree = "<group>";
+		};
+		22FE73FF26AAC13C00F0ECE4 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				22FE741126AC12DC00F0ECE4 /* stadiumCell */,
+				22FE740326AC0A2F00F0ECE4 /* descriptioncell */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		22FE740326AC0A2F00F0ECE4 /* descriptioncell */ = {
+			isa = PBXGroup;
+			children = (
+				22FE740426AC0A5F00F0ECE4 /* DesciptionTableViewCell.swift */,
+				22FE740526AC0A5F00F0ECE4 /* DesciptionTableViewCell.xib */,
+				22FE740B26AC0C2800F0ECE4 /* DesciptionViewModel.swift */,
+			);
+			path = descriptioncell;
+			sourceTree = "<group>";
+		};
+		22FE741126AC12DC00F0ECE4 /* stadiumCell */ = {
+			isa = PBXGroup;
+			children = (
+				22FE741226AC12FF00F0ECE4 /* StadiumTableViewCell.swift */,
+				22FE741926AC136600F0ECE4 /* StadiumViewModel.swift */,
+				22FE741326AC12FF00F0ECE4 /* StadiumTableViewCell.xib */,
+			);
+			path = stadiumCell;
+			sourceTree = "<group>";
+		};
+		22FE741E26AC1B7E00F0ECE4 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				22FE742726AC1C0A00F0ECE4 /* InformationView.swift */,
+				22FE742C26AC1D1900F0ECE4 /* InformationView.xib */,
+				22FE743126AC1F8100F0ECE4 /* InfomationViewModel.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
 		74B30D53267450B800EB3673 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,6 +373,10 @@
 		74B30D622674B3D400EB3673 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2294B46926B15BB100E3DC48 /* LoginViewController */,
+				22FE741E26AC1B7E00F0ECE4 /* CustomView */,
+				22C810E026A9B40C007BF2AD /* DetailTeam */,
+				22162A6426A1BFD10026ED5C /* ListTeam */,
 				74B30D7F2674D94900EB3673 /* ListWork */,
 				74B30D632674B3DE00EB3673 /* ListType */,
 			);
@@ -515,6 +646,8 @@
 				74B30D5E2674B0A100EB3673 /* TypeList.swift */,
 				74B30D862674DBA100EB3673 /* Work.swift */,
 				74B30D842674DB7600EB3673 /* WorkList.swift */,
+				22162A8926A2D1BC0026ED5C /* TeamList.swift */,
+				22162A8426A1C6930026ED5C /* Team.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -691,14 +824,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2294B46D26B15F1700E3DC48 /* LoginViewController.xib in Resources */,
+				22FE742D26AC1D1900F0ECE4 /* InformationView.xib in Resources */,
 				A3E61B672670F31200FB317C /* LaunchScreen.storyboard in Resources */,
 				74B30D832674D9AE00EB3673 /* ListWorkViewController.xib in Resources */,
 				74B30D902674FD1600EB3673 /* WorkCell.xib in Resources */,
 				A3E61B642670F31200FB317C /* Assets.xcassets in Resources */,
+				22FE740726AC0A5F00F0ECE4 /* DesciptionTableViewCell.xib in Resources */,
 				74B30D672674B42600EB3673 /* ListTypeViewController.xib in Resources */,
+				22162A6826A1BFFD0026ED5C /* TeamViewController.xib in Resources */,
+				22FE741526AC12FF00F0ECE4 /* StadiumTableViewCell.xib in Resources */,
 				A3E61DB426749C2300FB317C /* Dev.xcconfig in Resources */,
 				74B30D7A2674CCAF00EB3673 /* TypeCell.xib in Resources */,
+				22162A7326A1C02B0026ED5C /* TeamTableViewCell.xib in Resources */,
 				A3E61DBD26749C3D00FB317C /* Staging.xcconfig in Resources */,
+				22C810E426A9B440007BF2AD /* DetailTeamViewController.xib in Resources */,
 				A3E61DBC26749C3D00FB317C /* Release.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -855,7 +995,10 @@
 				A3E61D072671AF8D00FB317C /* TableCell.swift in Sources */,
 				74B30D922674FE4C00EB3673 /* WorkCellViewModel.swift in Sources */,
 				A3E61C1B2671AAFD00FB317C /* PaddingLabel.swift in Sources */,
+				22FE743226AC1F8100F0ECE4 /* InfomationViewModel.swift in Sources */,
+				22162A7226A1C02B0026ED5C /* TeamTableViewCell.swift in Sources */,
 				74B30D7C2674CDFF00EB3673 /* TypeCellViewModel.swift in Sources */,
+				22FE741426AC12FF00F0ECE4 /* StadiumTableViewCell.swift in Sources */,
 				A3E61C362671AB3A00FB317C /* UIColorExt.swift in Sources */,
 				A3E61D0A2671AF8D00FB317C /* Button.swift in Sources */,
 				A3E61CFF2671AF8D00FB317C /* StackView.swift in Sources */,
@@ -869,28 +1012,38 @@
 				A3E61C602671ABFB00FB317C /* App.swift in Sources */,
 				74B30D792674CCAF00EB3673 /* TypeCell.swift in Sources */,
 				74B30D8F2674FD1600EB3673 /* WorkCell.swift in Sources */,
+				22162A7B26A1C0560026ED5C /* TeamCellViewModel.swift in Sources */,
 				A3E61C442671AB3A00FB317C /* DateExt.swift in Sources */,
 				A3E61D042671AF8D00FB317C /* TableView.swift in Sources */,
 				A3E61C432671AB3A00FB317C /* Stack+ArrayExt.swift in Sources */,
 				A3E61C342671AB3A00FB317C /* UITableViewExt.swift in Sources */,
+				2294B46C26B15F1700E3DC48 /* LoginViewController.swift in Sources */,
 				A3E61C3D2671AB3A00FB317C /* UIViewControllerExt.swift in Sources */,
 				A3E61C402671AB3A00FB317C /* ErrorExt.swift in Sources */,
 				74B30D6F2674B94B00EB3673 /* ListTypeViewModel.swift in Sources */,
 				74B30D612674B2E100EB3673 /* Type.swift in Sources */,
 				74B30D5B2674514100EB3673 /* ResponseData.swift in Sources */,
+				22FE740626AC0A5F00F0ECE4 /* DesciptionTableViewCell.swift in Sources */,
+				22FE740C26AC0C2800F0ECE4 /* DesciptionViewModel.swift in Sources */,
 				A3E61C382671AB3A00FB317C /* OptionalExt.swift in Sources */,
 				74B30D55267450DA00EB3673 /* APIResult+APIError.swift in Sources */,
+				22FE741A26AC136600F0ECE4 /* StadiumViewModel.swift in Sources */,
 				A3E61C632671ABFB00FB317C /* String.swift in Sources */,
 				A3E61C3C2671AB3A00FB317C /* BundleExt.swift in Sources */,
 				A3E61C612671ABFB00FB317C /* Regression.swift in Sources */,
 				74B30D6D2674B79B00EB3673 /* APIType.swift in Sources */,
+				22162A8026A1C08F0026ED5C /* TeamViewModel.swift in Sources */,
+				22C810EC26A9B4A0007BF2AD /* DetailTeamViewModel.swift in Sources */,
+				22162A8526A1C6930026ED5C /* Team.swift in Sources */,
 				A3E61C372671AB3A00FB317C /* StringExt.swift in Sources */,
 				74B30D5F2674B0A100EB3673 /* TypeList.swift in Sources */,
 				A3E61CBE2671AD9B00FB317C /* Session.swift in Sources */,
 				74B30D872674DBA100EB3673 /* Work.swift in Sources */,
 				74B30D892674DBC200EB3673 /* DateDate.swift in Sources */,
 				A3E61D002671AF8D00FB317C /* PopUpVC.swift in Sources */,
+				22C810E326A9B440007BF2AD /* DetailTeamViewController.swift in Sources */,
 				A3E61C3E2671AB3A00FB317C /* UICollectionViewExt.swift in Sources */,
+				22FE742826AC1C0A00F0ECE4 /* InformationView.swift in Sources */,
 				A3E61C762671AD2800FB317C /* AppConfiguration.swift in Sources */,
 				A3E61B5F2670F30C00FB317C /* ViewController.swift in Sources */,
 				A3E61D2A2671B99400FB317C /* CombineLatestCollectionPublisher.swift in Sources */,
@@ -899,7 +1052,10 @@
 				A3E61C332671AB3900FB317C /* UnicodeScalarExt.swift in Sources */,
 				A3E61CFD2671AF8D00FB317C /* View.swift in Sources */,
 				74B30D57267450FD00EB3673 /* NetworkingController.swift in Sources */,
+				22162A6726A1BFFD0026ED5C /* TeamViewController.swift in Sources */,
+				2294B47526B1604900E3DC48 /* LoginViewModel.swift in Sources */,
 				74B30D8B2674FBB800EB3673 /* Query.swift in Sources */,
+				22162A8A26A2D1BD0026ED5C /* TeamList.swift in Sources */,
 				A3E61C772671AD2800FB317C /* DataManager.swift in Sources */,
 				A3E61C3F2671AB3A00FB317C /* CollectionExt.swift in Sources */,
 				74B30D822674D9AE00EB3673 /* ListWorkViewController.swift in Sources */,

@@ -25,7 +25,7 @@ extension ErasedDataResponsePublisher {
                 var error: NSError!
                 if let data = $0.data,
                     let responseData = try? JSONDecoder().decode(ResponseData<ErrorData>.self, from: data) {
-                    let errorData = responseData.message
+                    let errorData = responseData.team
                     #if DEBUG
                     NSLog("API Error:", errorData.description, errorData.message)
                     for err in errorData.stack {
@@ -56,7 +56,15 @@ extension ErasedDataResponsePublisher {
         return self
             .tryMapHTTPResponse()
             .decode(type: ResponseData<T>.self, decoder: JSONDecoder())
-            .map { $0.message }
+            .map { $0.team }
             .eraseToAnyPublisher()
     }
+
+//    func responseTeam<T: Decodable>(_ type: T.Type) -> AnyPublisher<T, Error> {
+//        return self
+//            .tryMapHTTPResponse()
+//            .decode(type: ResponseTeam<T>.self, decoder: JSONDecoder())
+//            .map { $0.teams }
+//            .eraseToAnyPublisher()
+//    }
 }

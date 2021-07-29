@@ -12,12 +12,18 @@ import Alamofire
 enum TypeService {
     case listType
     case listWork(typeId: String, offset: Int)
+    case listTeam
 }
 
 extension TypeService: TargetType {
     var baseURL: String {
-        guard let baseURLStr = AppConfiguration.infoForKey(.baseURL) else { fatalError() }
-        return baseURLStr / "types"
+        switch self {
+        case .listType, .listWork(typeId: _, offset: _):
+            guard let baseURLStr = AppConfiguration.infoForKey(.baseURL) else { fatalError() }
+            return baseURLStr / "types"
+        case .listTeam:
+            return "https://www.thesportsdb.com/api/v1/json/1"
+        }
     }
 
     var path: String {
@@ -26,19 +32,21 @@ extension TypeService: TargetType {
             return ""
         case .listWork(let typeId, _):
             return "\(typeId)/works"
+        case .listTeam:
+            return "search_all_teams.php?l=English%20Premier%20League"
         }
     }
 
     var method: HTTPMethod {
         switch self {
-        case .listType, .listWork:
+        case .listType, .listWork, .listTeam:
             return .get
         }
     }
 
     var parameters: Parameters? {
         switch self {
-        case .listType:
+        case .listType, .listTeam:
             return nil
         case .listWork(_, let offset):
             return ["offset": "\(offset)"]
@@ -47,7 +55,7 @@ extension TypeService: TargetType {
 
     var headers: [String: String]? {
         switch self {
-        case .listType, .listWork:
+        case .listType, .listWork, .listTeam:
             return NetworkingController.defaultHeaders
         }
     }

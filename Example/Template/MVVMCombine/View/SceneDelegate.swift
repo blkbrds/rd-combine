@@ -29,7 +29,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func configWindow() {
-        let vc = ListTypeViewController()
+//        let vc = ListTypeViewController()
+        let vc = LoginViewController()
+//        let vc = TeamViewController()
         let navi = UINavigationController(rootViewController: vc)
         window?.rootViewController = navi
         window?.backgroundColor = .white

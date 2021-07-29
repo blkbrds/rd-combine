@@ -23,4 +23,12 @@ final class APIType {
             .response(WorkList.self)
             .eraseToAnyPublisher()
     }
+
+    static func getListTeam() -> AnyPublisher<[Team], Error> {
+        return NetworkingController.shared
+            .requestWithTarget(TypeService.listTeam)
+            .response([Team].self)
+            .eraseToAnyPublisher()
+
+    }
 }
