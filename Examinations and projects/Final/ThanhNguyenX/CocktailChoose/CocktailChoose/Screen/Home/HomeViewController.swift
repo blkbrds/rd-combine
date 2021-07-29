@@ -18,9 +18,11 @@ final class HomeViewController: ViewController {
     private let searchController = UISearchController(searchResultsController: nil)
     private let searchSubject = PassthroughSubject<String, Error>()
 
-    typealias DataSource = UITableViewDiffableDataSource<String, Cocktail>
-    typealias Snapshot = NSDiffableDataSourceSnapshot<String, Cocktail>
+
+    typealias DataSource = UITableViewDiffableDataSource<HomeViewModel.Section, Cocktail>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<HomeViewModel.Section, Cocktail>
     private var dataSource: DataSource!
+    private var cellHeights = [IndexPath: CGFloat]()
 
     var viewModel: HomeViewModel = HomeViewModel()
 
@@ -37,8 +39,9 @@ final class HomeViewController: ViewController {
         searchSubject
             .sink { completion in
                 print(completion)
-            } receiveValue: { searchText in
-                self.getAPI(searchText: searchText)
+            } receiveValue: { [weak self] searchText in
+                guard let self = self else { return }
+                self.getAPI(isLoadMore: false, searchText: searchText)
             }
             .store(in: &subscriptions)
     }
@@ -47,23 +50,24 @@ final class HomeViewController: ViewController {
         super.bindingToViewModel()
     }
 
-    private func getAPI(searchText: String = "") {
+    private func getAPI(isLoadMore: Bool = false, searchText: String = "") {
         indicatorView.startAnimating()
         indicatorView.isHidden = false
-        viewModel.getCocktailAPI(searchText: searchText)
+        viewModel.getCocktailAPI(isLoadMore: isLoadMore, searchText: searchText)
             .sink { completion in
                 DispatchQueue.main.async {
                     self.indicatorView.stopAnimating()
                 }
                 switch completion {
                 case .failure(let error):
-                    print("ERROR:", error.localizedDescription)
+                    DispatchQueue.main.async {
+                        _ = self.alert(title: "API Error", message: error.errorDescription ?? "")
+                    }
                 case .finished: break
                 }
             } receiveValue: { _ in
                 DispatchQueue.main.async {
                     self.indicatorView.stopAnimating()
-                    self.tableView.reloadData()
                 }
             }
             .store(in: &subscriptions)
@@ -75,8 +79,6 @@ final class HomeViewController: ViewController {
         searchController.searchBar.placeholder = "Search Cocktail"
         navigationItem.searchController = searchController
         definesPresentationContext = true
-
-        searchController.searchBar.delegate = self
     }
 
     private func configTableView() {
@@ -92,15 +94,20 @@ final class HomeViewController: ViewController {
         viewModel.$filteredUser
             .receive(on: DispatchQueue.main)
             .sink { value in
-                var snapShot = Snapshot()
-                snapShot.appendSections(["section1"])
-                snapShot.appendItems(value, toSection: "section1")
-                self.dataSource.apply(snapShot, animatingDifferences: true, completion: nil)
+                self.updateData(on: value)
             }
             .store(in: &subscriptions)
     }
+
+    private func updateData(on cocktail: [Cocktail]) {
+        var snapshot = Snapshot()
+        snapshot.appendSections([.first])
+        snapshot.appendItems(cocktail)
+        dataSource.apply(snapshot, animatingDifferences: true)
+    }
 }
 
+// MARK: - UITableViewDelegate
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -108,17 +115,32 @@ extension HomeViewController: UITableViewDelegate {
         vc.viewModel = DetailViewModel(cocktail: viewModel.filteredUser[indexPath.row])
         navigationController?.pushViewController(vc, animated: true)
     }
-}
 
-extension HomeViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        let searchBar = searchController.searchBar
-        searchSubject.send(searchBar.text ?? "")
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cellHeights[indexPath] = cell.frame.size.height
+        if let lastVisibleIndexPath = tableView.indexPathsForVisibleRows?.last,
+            lastVisibleIndexPath.row == viewModel.numberOfItems(inSection: indexPath.section) - 1 {
+            if indexPath.row == lastVisibleIndexPath.row,
+               let text = searchController.searchBar.text, text.isEmpty {
+                getAPI(isLoadMore: true)
+            }
+        }
+    }
+
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        if let cellHeight = cellHeights[indexPath] {
+            return cellHeight
+        }
+        return UITableView.automaticDimension
     }
 }
 
-extension HomeViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        searchSubject.send(searchBar.text ?? "")
+// MARK: - UISearchResultsUpdating
+extension HomeViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        guard let text = searchBar.text else { return }
+        print("UISearchResultsUpdating", text)
+        searchSubject.send(text)
     }
 }

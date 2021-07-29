@@ -9,6 +9,11 @@ import Foundation
 import Combine
 
 final class HomeViewModel: ViewModel {
+
+    enum Section {
+        case first
+    }
+
     @Published var users: [Cocktail] = []
     @Published var filteredUser: [Cocktail] = []
     let path: String = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s="
@@ -18,7 +23,7 @@ final class HomeViewModel: ViewModel {
     }
 
     @discardableResult
-    func getCocktailAPI(searchText: String = "") -> Future<Void, APIError> {
+    func getCocktailAPI(isLoadMore: Bool = false, searchText: String = "") -> Future<Void, APIError> {
         let trimmedString = searchText.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil)
         return Future { [weak self] resolve in
             guard let self = self else {
@@ -47,10 +52,19 @@ final class HomeViewModel: ViewModel {
                     }
                 })
                 .sink { completion in
-                    print(completion)
+                    switch completion {
+                    case .finished:
+                        resolve(.success(()))
+                    case .failure(let error):
+                        resolve(.failure(error))
+                    }
                 } receiveValue: { value in
-                    self.users = value.cocktail
-                    self.filteredUser = value.cocktail
+                    if isLoadMore, let newCocktail = value.cocktail {
+                        self.filteredUser += newCocktail
+                    } else if let cocktail = value.cocktail {
+                        self.users = cocktail
+                        self.filteredUser = cocktail
+                    }
                     resolve(.success(()))
                 }
                 .store(in: &self.subscriptions)

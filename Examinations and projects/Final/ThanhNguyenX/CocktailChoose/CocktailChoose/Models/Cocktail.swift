@@ -8,7 +8,7 @@
 import Foundation
 
 final class Drinks: Codable, Identifiable {
-    var cocktail: [Cocktail] = []
+    var cocktail: [Cocktail]? = []
 
     enum CodingKeys: String, CodingKey {
         case cocktail = "drinks"
@@ -22,7 +22,10 @@ final class Drinks: Codable, Identifiable {
     }
 }
 
-struct Cocktail: Codable, Identifiable, Hashable {
+struct Cocktail: Codable, Identifiable {
+
+    let uuid = UUID()
+
     var id: String = ""
     var nameTitle: String = ""
     var imageURL: String = ""
@@ -43,5 +46,19 @@ struct Cocktail: Codable, Identifiable, Hashable {
         nameTitle = try container.decode(String.self, forKey: .nameTitle)
         imageURL = try container.decode(String.self, forKey: .imageURL)
         instructions = try container.decode(String.self, forKey: .instructions)
+    }
+}
+
+extension Cocktail : Hashable {
+    static func ==(lhs: Cocktail, rhs: Cocktail) -> Bool {
+        return lhs.uuid == rhs.uuid
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(uuid)
+        hasher.combine(id)
+        hasher.combine(nameTitle)
+        hasher.combine(imageURL)
+        hasher.combine(instructions)
     }
 }
