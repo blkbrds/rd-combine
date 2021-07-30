@@ -28,6 +28,12 @@ final class RegisterViewController: ViewController {
     }
 
     private func configScreen(screenType: RegisterViewModel.ScreenType) {
+        viewModel.isInfoValid?
+            .sink { [weak self] valid in
+                self?.registerButton.setTitleColor(valid ? .tintColor : .gray, for: .normal)
+            }
+            .store(in: &subscriptions)
+
         if screenType == .login {
             title = "Login"
             registerButton.setTitle("Login", for: .normal)

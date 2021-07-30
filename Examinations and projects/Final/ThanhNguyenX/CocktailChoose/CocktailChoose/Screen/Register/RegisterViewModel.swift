@@ -62,7 +62,6 @@ final class RegisterViewModel: ViewModel {
     @Published var password: String?
 
     var isInfoValid: AnyPublisher<Bool, Never>?
-    var isLoading = CurrentValueSubject<Bool, Never>(false)
 
     init(screenType: ScreenType) {
         super.init()
@@ -89,24 +88,19 @@ final class RegisterViewModel: ViewModel {
             switch screenType {
             case .login:
                 isInfoValid = Publishers.CombineLatest($username, $password)
-                    .map { emailText, passwordText -> Bool in
-                        guard let emailText = emailText, let passwordText = passwordText else { return false }
-                        return !emailText.isEmpty && !passwordText.isEmpty
+                    .map { usernameText, passwordText -> Bool in
+                        guard let usernameText = usernameText, let passwordText = passwordText else { return false }
+                        return !usernameText.isEmpty && !passwordText.isEmpty
                     }
                     .eraseToAnyPublisher()
             case .register:
                 isInfoValid = Publishers.CombineLatest($username, $password)
                     .map { usernameText, passwordText in
-                        guard let usernameText = usernameText,
-                              let passwordText = passwordText else { return false }
+                        guard let usernameText = usernameText, let passwordText = passwordText else { return false }
                         return !usernameText.isEmpty && !passwordText.isEmpty
                     }
                     .eraseToAnyPublisher()
             }
-        case .registered:
-            isLoading.send(false)
-        case .failed:
-            isLoading.send(false)
         default: break
         }
     }
