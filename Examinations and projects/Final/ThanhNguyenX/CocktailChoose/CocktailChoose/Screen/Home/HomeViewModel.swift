@@ -14,7 +14,6 @@ final class HomeViewModel: ViewModel {
         case first
     }
 
-    @Published var users: [Cocktail] = []
     @Published var filteredUser: [Cocktail] = []
     let path: String = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s="
 
@@ -60,9 +59,9 @@ final class HomeViewModel: ViewModel {
                     }
                 } receiveValue: { value in
                     if isLoadMore, let newCocktail = value.cocktail {
+                        // API limited, Fake load more
                         self.filteredUser += newCocktail
                     } else if let cocktail = value.cocktail {
-                        self.users = cocktail
                         self.filteredUser = cocktail
                     }
                     resolve(.success(()))
