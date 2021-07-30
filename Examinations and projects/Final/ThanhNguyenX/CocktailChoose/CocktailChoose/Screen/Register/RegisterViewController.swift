@@ -14,6 +14,7 @@ final class RegisterViewController: ViewController {
     @IBOutlet private weak var pwTextField: UITextField!
     @IBOutlet private weak var registerButton: UIButton!
     @IBOutlet private weak var registerScreenButton: UIButton!
+    @IBOutlet private weak var loginScreenButton: UIButton!
 
     var viewModel = RegisterViewModel(screenType: .login)
 
@@ -35,6 +36,7 @@ final class RegisterViewController: ViewController {
             title = "Register"
             registerButton.setTitle("Register", for: .normal)
             registerScreenButton.isHidden = true
+            loginScreenButton.layer.cornerRadius = loginScreenButton.frame.size.height / 2
         }
     }
 
@@ -77,6 +79,21 @@ final class RegisterViewController: ViewController {
             .assign(to: \.isHidden, on: registerScreenButton)
             .store(in: &subscriptions)
 
+        let registerScreenPublisher = viewModel.state
+            .map({ state -> RegisterViewModel.ScreenType? in
+                if case .initial(let screenType) = state {
+                    return screenType
+                }
+                return nil
+            })
+            .compactMap({ $0 })
+            .map({ $0 == .login })
+            .share()
+
+        registerScreenPublisher
+            .assign(to: \.isHidden, on: loginScreenButton)
+            .store(in: &subscriptions)
+
         viewModel.state
             .sink { [weak self] state in
                 guard let self = self else { return }
@@ -117,21 +134,20 @@ final class RegisterViewController: ViewController {
     override func bindingAction() {
         super.bindingAction()
         registerButton.publisher(for: .touchUpInside)
-            .flatMap({ button -> Just<Void> in
-                return Just(())
-            })
-            .sink(receiveValue: {
+            .sink(receiveValue: { _ in
                 self.viewModel.action.send(.validate)
             })
             .store(in: &subscriptions)
 
         registerScreenButton.publisher(for: .touchUpInside)
-            .flatMap { button -> Just<Void> in
-                return Just(())
-            }
-            .sink(receiveValue: { [weak self] in
-                guard let self = self else { return }
+            .sink(receiveValue: { _ in
                 self.viewModel.state.send(.initial(.register))
+            })
+            .store(in: &subscriptions)
+
+        loginScreenButton.publisher(for: .touchUpInside)
+            .sink(receiveValue: { _ in
+                self.viewModel.state.send(.initial(.login))
             })
             .store(in: &subscriptions)
     }

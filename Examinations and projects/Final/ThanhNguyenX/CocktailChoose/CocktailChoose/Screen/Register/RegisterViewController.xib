@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController" customModule="CocktailChoose" customModuleProvider="target">
             <connections>
+                <outlet property="loginScreenButton" destination="MeY-Ev-nIQ" id="DEb-HY-KL4"/>
                 <outlet property="pwTextField" destination="EZW-U8-dWd" id="dtu-hA-kR8"/>
                 <outlet property="registerButton" destination="3wT-Dk-yh6" id="BbZ-Gr-jFg"/>
                 <outlet property="registerScreenButton" destination="A7i-zU-8Gm" id="T3N-ps-UPO"/>
@@ -83,6 +84,16 @@
                         </button>
                     </subviews>
                 </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MeY-Ev-nIQ">
+                    <rect key="frame" x="329" y="54" width="75" height="39"/>
+                    <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                    <color key="tintColor" systemColor="tintColor"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="  Login  ">
+                        <color key="titleColor" systemColor="tintColor"/>
+                    </state>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -91,7 +102,9 @@
                 <constraint firstItem="a6l-it-RgU" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4fn-tB-UWp"/>
                 <constraint firstItem="mdI-YK-ATe" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Bw6-P4-Uec"/>
                 <constraint firstItem="mdI-YK-ATe" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="EGd-h8-s5K"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MeY-Ev-nIQ" secondAttribute="trailing" constant="10" id="F3W-cR-FrT"/>
                 <constraint firstItem="mdI-YK-ATe" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.3" id="ISR-Vs-YCb"/>
+                <constraint firstItem="MeY-Ev-nIQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="dWQ-WA-NQD"/>
                 <constraint firstItem="a6l-it-RgU" firstAttribute="top" secondItem="mdI-YK-ATe" secondAttribute="bottom" id="wM3-If-PMP"/>
             </constraints>
             <point key="canvasLocation" x="139" y="110"/>
@@ -103,8 +116,14 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
