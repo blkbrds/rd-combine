@@ -19,6 +19,7 @@ class HomeViewController: UIViewController {
     var viewModel: HomeViewModel?
     var sub = Set<AnyCancellable>()
     var searchUserDatas: [User] = []
+    var isLoading = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,11 +40,29 @@ class HomeViewController: UIViewController {
     }
 
     private func setupPublisher() {
-        self.networking.fetchData()
+        self.networking.fetchData(key: "a")
             .sink(receiveCompletion: { completion in
             print(completion)
         }, receiveValue: { (data) in
                 self.drinks = data.drinks
+                self.tableView.reloadData()
+        }).store(in: &sub)
+    }
+    
+    func loadMore() {
+        if !isLoading {
+            isLoading = true
+            loadApi()
+        }
+    }
+    
+    func loadApi() {
+        self.networking.fetchData(key: "b")
+            .sink(receiveCompletion: { completion in
+            print(completion)
+        }, receiveValue: { (data) in
+            self.isLoading = false
+            self.drinks.append(contentsOf: data.drinks)
                 self.tableView.reloadData()
         }).store(in: &sub)
     }
@@ -54,7 +73,7 @@ class HomeViewController: UIViewController {
             .map {
             (($0.object as! UITextField).text ?? "")
         }
-            .debounce(for: .milliseconds(500), scheduler: RunLoop.main)
+            .debounce(for: .milliseconds(400), scheduler: RunLoop.main)
             .sink { (noti) in
             self.searchText(searchText: noti)
         }.store(in: &sub)
@@ -80,6 +99,9 @@ extension HomeViewController: UITableViewDataSource {
         }
         let drink = drinks[indexPath.row]
         cell.data = DrinkData(name: drink.strDrink, thumnailImage: drink.strDrinkThumb, address: drink.strGlass)
+        if indexPath.row == drinks.count - 2 {
+            loadMore()
+        }
         return cell
     }
 

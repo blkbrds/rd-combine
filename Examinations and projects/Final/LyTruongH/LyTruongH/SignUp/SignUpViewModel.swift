@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-final class SignInViewModel {
+final class SignUpViewModel {
     
     // input
     @Published var username: String?

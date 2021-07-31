@@ -19,6 +19,20 @@ final class HomeViewCell: UITableViewCell {
     @IBOutlet weak var drinkImage: UIImageView!
     @IBOutlet weak var addressLabel: UILabel!
     
+    var viewModel: HomeCellViewModel? {
+        didSet {
+            updateUI()
+        }
+    }
+    
+    fileprivate func updateUI() {
+        guard let viewModel = viewModel else { return }
+        nameLabel.text = viewModel.name
+        guard let url = URL(string: viewModel.thumnailUrl) else { return }
+        drinkImage.load(url: url)
+        addressLabel.text = viewModel.description
+    }
+    
     var data: DrinkData? {
         didSet {
             guard let drinkData = data else { return }
@@ -27,22 +41,5 @@ final class HomeViewCell: UITableViewCell {
             drinkImage.load(url: url)
             addressLabel.text = drinkData.address
         }
-    }
-    
-    var name: String = "" {
-        didSet {
-//            nameLabel.text = name
-        }
-    }
-    
-    var address: String = "" {
-        didSet {
-            addressLabel.text = address
-        }
-    }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
     }
 }

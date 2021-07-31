@@ -12,7 +12,7 @@ struct User {
     var id: String = UUID().uuidString
     var name: String
     var address: String
-    var password: String = "12345678"
+    var password: String
 }
 
 protocol UserServiceProtocol {

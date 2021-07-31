@@ -20,8 +20,8 @@ class Networking {
             .eraseToAnyPublisher()
     }
 
-    func fetchData() -> AnyPublisher<Drinks, Error> {
-        guard let url = URL(string: Api.URLs.apiDrink(keySearch: "a")) else {
+    func fetchData(key: String) -> AnyPublisher<Drinks, Error> {
+        guard let url = URL(string: Api.URLs.apiDrink(keySearch: key)) else {
             fatalError("Invalid URL")
         }
         return URLSession.shared.dataTaskPublisher(for: url)
@@ -52,5 +52,13 @@ extension UIImageView {
                 }
             }
         }
+    }
+}
+
+extension UIViewController {
+    func showError(_ errorMessage: String) {
+        let alert = UIAlertController(title: "", message: errorMessage, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }

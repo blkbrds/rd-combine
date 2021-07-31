@@ -8,14 +8,14 @@
 import UIKit
 import Combine
 
-class SignInViewController: UIViewController {
+class SignUpViewController: UIViewController {
 
     @IBOutlet weak var passWordTextField: UITextField!
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
-    @IBOutlet weak var signInButton: UIButton!
-
-    var viewModel = SignInViewModel()
+    @IBOutlet weak var signUpButton: UIButton!
+    
+    var viewModel = SignUpViewModel()
     var cancellables: Set<AnyCancellable> = []
 
     override func viewDidLoad() {
@@ -30,16 +30,16 @@ class SignInViewController: UIViewController {
         UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         UINavigationBar.appearance().shadowImage = UIImage()
         viewModel.isValid?
-            .assign(to: \.isEnabled, on: signInButton)
+            .assign(to: \.isEnabled, on: signUpButton)
             .store(in: &cancellables)
         userNameTextField.publisherCustom
             .debounce(for: .milliseconds(3000), scheduler: RunLoop.main)
             .sink { email in
-            guard let email = email else { return }
-            if !self.viewModel.validateEmail(email) {
-                print("email Wrong")
+                guard let email = email else { return }
+                if !self.viewModel.validateEmail(email) {
+                    print("email Wrong")
+                }
             }
-        }
             .store(in: &cancellables)
     }
 
@@ -68,31 +68,19 @@ class SignInViewController: UIViewController {
     }
 
     @IBAction func signUp(_ sender: Any) {
-        let vc = SignUpViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        indicatorView.startAnimating()
+        indicatorView.isHidden = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.indicatorView.stopAnimating()
+            self.handleSignIn()
+        }
     }
-
+    
     private func handleSignIn() {
         guard let email = userNameTextField.text, let password = passWordTextField.text else { return }
-        let users = LocalDatabase.users
-        for item in users {
-            if item.name == email && item.password == password {
-                let vc = HomeViewController()
-                vc.viewModel = HomeViewModel()
-                navigationController?.pushViewController(vc, animated: true)
-                return
-            }
-        }
-        showError("Email or PassWord wrong")
+        let user = User(name: email, address: "", password: password)
+        LocalDatabase.users.append(user)
+        navigationController?.popToRootViewController(animated: true)
     }
 }
 
-extension UITextField {
-    var publisherCustom: AnyPublisher<String?, Never> {
-        NotificationCenter.default
-            .publisher(for: UITextField.textDidChangeNotification, object: self)
-            .compactMap { $0.object as? UITextField? }
-            .map { $0?.text }
-            .eraseToAnyPublisher()
-    }
-}
