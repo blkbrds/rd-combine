@@ -25,7 +25,7 @@ extension BookService: TargetType {
         case .listBook(key: let key, curentPage: let curentPage):
             return "search/\(key)/\(curentPage)"
         case .newBook:
-            return "anew"
+            return "new"
         case .detailBook(id: let id):
             return "books/\(id)"
         }
