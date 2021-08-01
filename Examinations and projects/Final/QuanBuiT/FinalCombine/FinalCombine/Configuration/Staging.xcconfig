@@ -1,0 +1,7 @@
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+#include "Pods/Target Support Files/Pods-FinalCombine/Pods-FinalCombine.staging.xcconfig"
+
+BUNDLE_IDENTIFIER = com.monstar-lab.ios.template.combine.staging
+SWIFT_ACTIVE_COMPILATION_CONDITIONS = STAGING
+APP_NAME = [STG]FinalCombine
