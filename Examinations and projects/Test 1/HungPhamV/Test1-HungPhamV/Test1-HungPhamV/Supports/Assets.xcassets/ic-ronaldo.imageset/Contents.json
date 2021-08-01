@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic-ronaldo.jpg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

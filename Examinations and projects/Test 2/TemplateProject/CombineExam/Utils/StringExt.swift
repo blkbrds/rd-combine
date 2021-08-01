@@ -6,7 +6,7 @@
 //  Copyright © 2021 ___ORGANIZATIONNAME___ All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension Character {
     /// A simple emoji is one scalar and presented to the user as an Emoji
