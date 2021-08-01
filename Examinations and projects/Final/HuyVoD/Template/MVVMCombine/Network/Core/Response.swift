@@ -23,22 +23,22 @@ extension ErasedDataResponsePublisher {
 
             guard 200...299 ~= response.statusCode else {
                 var error: NSError!
-                if let data = $0.data,
-                    let responseData = try? JSONDecoder().decode(ResponseData<ErrorData>.self, from: data) {
-                    let errorData = responseData.message
-                    #if DEBUG
-                    NSLog("API Error:", errorData.description, errorData.message)
-                    for err in errorData.stack {
-                        NSLog("API Error Stack:", err)
-                    }
-                    #endif
-                    if let message = errorData.cause {
-                        error = NSError(domain: AppConfiguration.infoForKey(.baseURL).content,
-                                      code: response.statusCode,
-                                      userInfo: [NSLocalizedDescriptionKey: message])
-                    } else {
+                if let data = $0.data {
+//                    let responseData = try? JSONDecoder().decode(ResponseData<ErrorData>.self, from: data) {
+//                    let errorData = responseData.message
+//                    #if DEBUG
+//                    NSLog("API Error:", errorData.description, errorData.message)
+//                    for err in errorData.stack {
+//                        NSLog("API Error Stack:", err)
+//                    }
+//                    #endif
+//                    if let message = errorData.cause {
+//                        error = NSError(domain: AppConfiguration.infoForKey(.baseURL).content,
+//                                      code: response.statusCode,
+//                                      userInfo: [NSLocalizedDescriptionKey: message])
+//                    } else {
                         throw APIError.unknown
-                    }
+//                    }
                 } else {
                     throw APIError.unknown
                 }
@@ -55,8 +55,8 @@ extension ErasedDataResponsePublisher {
     func response<T: Decodable>(_ type: T.Type) -> AnyPublisher<T, Error> {
         return self
             .tryMapHTTPResponse()
-            .decode(type: ResponseData<T>.self, decoder: JSONDecoder())
-            .map { $0.message }
+            .decode(type: T.self, decoder: JSONDecoder())
+            .map { $0 }
             .eraseToAnyPublisher()
     }
 }

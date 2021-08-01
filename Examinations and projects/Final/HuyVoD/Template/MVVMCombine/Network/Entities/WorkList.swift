@@ -21,3 +21,23 @@ final class WorkList: Decodable {
         case query
     }
 }
+
+struct BookData: Decodable {
+    var totalresults: String
+    var currentPage: String?
+    var books: [Book]
+    
+    enum CodingKeys: String, CodingKey {
+        case totalresults = "total"
+        case currentPage = "page"
+        case books = "books"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        totalresults = try container.decode(String.self, forKey: .totalresults)
+        books = try container.decode([Book].self, forKey: .books)
+        currentPage = try container.decodeIfPresent(String.self, forKey: .currentPage)
+    }
+
+}

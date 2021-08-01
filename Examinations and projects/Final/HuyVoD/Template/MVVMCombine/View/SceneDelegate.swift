@@ -10,6 +10,8 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     enum RootType {
+        case login
+        case main
     }
 
     static var shared: SceneDelegate {
@@ -29,7 +31,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func configWindow() {
-        let vc = ListTypeViewController()
+        var vc: UIViewController
+        if Session.shared.isLogged {
+            vc = HomeViewController()
+        } else {
+            vc = SignInViewController()
+        }
         let navi = UINavigationController(rootViewController: vc)
         window?.rootViewController = navi
         window?.backgroundColor = .white
@@ -37,5 +44,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func setRoot(type: RootType) {
+        var rootVC: UIViewController
+        switch type {
+        case .login:
+            let vc = SignInViewController()
+            rootVC = UINavigationController(rootViewController: vc)
+        case .main:
+            let vc = HomeViewController()
+            rootVC = UINavigationController(rootViewController: vc)
+        }
+        window?.rootViewController = rootVC
     }
 }

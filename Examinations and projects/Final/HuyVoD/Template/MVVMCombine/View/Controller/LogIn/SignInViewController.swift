@@ -8,85 +8,102 @@
 import UIKit
 import Combine
 
-class SignInViewController: UIViewController {
+final class SignInViewController: ViewController {
     
-    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
-    @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet private weak var indicatorView: UIActivityIndicatorView!
+    @IBOutlet private weak var signInButton: UIButton!
+    @IBOutlet private weak var userNameErrorLabel: UILabel!
+    @IBOutlet private weak var passWordErrorLabel: UILabel!
+    @IBOutlet private weak var userNameTextField: UITextField!
+    @IBOutlet private weak var passWordTextField: UITextField!
+    @IBOutlet private weak var signUpButton: UIButton!
     
     var viewModel: SignInViewModel = SignInViewModel()
-
-    private var subscriptions = [AnyCancellable]()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        UINavigationBar.appearance().prefersLargeTitles = true
-        UINavigationBar.appearance().barTintColor = #colorLiteral(red: 0.3564865291, green: 0.7821497917, blue: 0.9799445271, alpha: 1)
-        UINavigationBar.appearance().tintColor = #colorLiteral(red: 0.3564865291, green: 0.7821497917, blue: 0.9799445271, alpha: 1)
-        UINavigationBar.appearance().backgroundColor = #colorLiteral(red: 0.3564865291, green: 0.7821497917, blue: 0.9799445271, alpha: 1)
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
-        UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
-        UINavigationBar.appearance().shadowImage = UIImage()
-        binding()
+    
+    override func binding() {
+        bindingView()
+        bindingViewModel()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: false)
+    private func bindingView() {
+        signInButton.publisher(for: .touchUpInside).sink { [weak self] (_) in
+            guard let this = self else { return }
+            this.indicatorView.startAnimating()
+            this.indicatorView.isHidden = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                this.indicatorView.stopAnimating()
+                this.handleSignIn()
+            }
+        }.store(in: &subscriptions)
+        
+        signUpButton.publisher(for: .touchUpInside).sink { [weak self] _ in
+            guard let this = self else { return }
+            let vc = SignUpViewController()
+            this.navigationController?.pushViewController(vc, animated: true)
+        }.store(in: &subscriptions)
+        
+        userNameTextField.publisher(for: .editingChanged).sink { [weak self] _ in
+            guard let this = self else { return }
+            this.viewModel.usernameSubject.send(this.userNameTextField.text)
+        }.store(in: &subscriptions)
+        
+        passWordTextField.publisher(for: .editingChanged).sink { [weak self] _ in
+            guard let this = self else { return }
+            this.viewModel.passwordSubject.send(this.passWordTextField.text)
+        }.store(in: &subscriptions)
     }
-
-    private func binding() {
+    
+    private func bindingViewModel() {
         viewModel.usernameError
             .dropFirst()
-            .sink {
-                guard let message = $0?.message else { return }
-                print(message)
+            .sink { [weak self] in
+                guard let message = $0?.message else {
+                    self?.userNameErrorLabel.isHidden = true
+                    return
+                }
+                self?.userNameErrorLabel.isHidden = false
+                self?.userNameErrorLabel.text = message
             }
             .store(in: &subscriptions)
 
         viewModel.passwordError
             .dropFirst()
-            .sink {
-                guard let message = $0?.message else { return }
-                print(message)
+            .sink { [weak self] in
+                guard let message = $0?.message else {
+                    self?.passWordErrorLabel.isHidden = true
+                    return
+                }
+                self?.passWordErrorLabel.isHidden = false
+                self?.passWordErrorLabel.text = message
             }
             .store(in: &subscriptions)
 
         viewModel.usernameError
             .combineLatest(viewModel.passwordError)
-            .dropFirst()
             .sink { _ in } receiveValue: { [weak self] in
-                self?.signInButton.isEnabled = ($0.0 == nil) && ($0.1 == nil)
+                self?.signInButton.isEnabled = ($0.0 == nil)
+                    && ($0.1 == nil)
             }
             .store(in: &subscriptions)
-    }
-
-    @IBAction func usernameTextFieldEditingChanged(_ sender: UITextField) {
-        viewModel.usernameSubject.send(sender.text)
-    }
-    
-    @IBAction func passwordTextFieldEditingChanged(_ sender: UITextField) {
-        viewModel.passwordSubject.send(sender.text)
-    }
-
-    @IBAction private func signInButtonTouchUpInside(_ sender: UIButton) {
-        indicatorView.startAnimating()
-        indicatorView.isHidden = false
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.indicatorView.stopAnimating()
-            self.handleSignIn()
-        }
     }
     
     private func handleSignIn() {
         guard let username = viewModel.usernameSubject.value,
               let password = viewModel.passwordSubject.value,
-              LocalDatabase.users.contains(where: { $0.name == username && $0.password == password })
+              Session.shared.userLogin.contains(User(name: username, password: password))
         else {
-            print("Đăng nhập không thành công")
+            alert(message: "Tên đăng nhập hoặc mật khẩu không chính xác !!!")
             return
         }
-        let vc = HomeViewController()
-        vc.viewModel = HomeViewModel()
-        navigationController?.pushViewController(vc, animated: true)
+        Session.shared.isLogged = true
+        
+        var listUser = Session.shared.userLogin
+        
+        if !listUser.contains(User(name: username, password: password)) {
+            listUser.append(User(name: username, password: password))
+        }
+        
+        Session.shared.userLogin = listUser
+        SceneDelegate.shared.setRoot(type: .main)
     }
 }

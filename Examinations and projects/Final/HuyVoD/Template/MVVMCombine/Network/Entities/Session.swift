@@ -13,6 +13,27 @@ final class Session {
     static let shared = Session()
 
     private init() { }
+    
+    var isLogged: Bool {
+        get {
+            return userDefaults[.isLogged]
+        }
+        set {
+            userDefaults[.isLogged] = newValue
+        }
+    }
+    
+    var userLogin: [User] {
+        get {
+            if userDefaults[.listUsers].isEmpty {
+                userDefaults[.listUsers] = LocalDatabase.users
+            }
+            return userDefaults[.listUsers]
+        }
+        set {
+            userDefaults[.listUsers] = newValue
+        }
+    }
 }
 
 // MARK: - Protocol
