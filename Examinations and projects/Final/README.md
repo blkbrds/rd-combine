@@ -58,7 +58,7 @@ No | Technique | Required
 #### LogIn
  ##### 1. Screen shot
 
-![Login](/Final/Image/login.jpg?raw=true "Login Screen")
+<img src="https://github.com/blkbrds/rd-combine/blob/final/quan_bui_t/Examinations%20and%20projects/Final/Image/login.png" width="200" height="400" />
 
  ##### 2. Validation handle
 
