@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailVC" customModule="FinalCombine" customModuleProvider="target">
             <connections>
+                <outlet property="playVideoView" destination="jjG-9D-wa8" id="oJl-Ig-SWp"/>
+                <outlet property="titleLabel" destination="u64-Ua-S74" id="yR2-p7-V9F"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -34,9 +36,18 @@
                                 <action selector="backButtionTouchUpInSide:" destination="-1" eventType="touchUpInside" id="qzV-O0-2Gf"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u64-Ua-S74">
+                            <rect key="frame" x="47" y="49.5" width="337" height="23"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="u64-Ua-S74" secondAttribute="trailing" constant="30" id="AAJ-tC-gub"/>
+                        <constraint firstItem="u64-Ua-S74" firstAttribute="centerY" secondItem="VX9-SA-2d4" secondAttribute="centerY" id="AlN-G4-STb"/>
+                        <constraint firstItem="u64-Ua-S74" firstAttribute="leading" secondItem="VX9-SA-2d4" secondAttribute="trailing" constant="5" id="BnM-Nc-QCo"/>
                         <constraint firstAttribute="bottom" secondItem="VX9-SA-2d4" secondAttribute="bottom" constant="8" id="h9A-qC-RRo"/>
                         <constraint firstAttribute="height" constant="84" id="tYy-4n-8js"/>
                         <constraint firstItem="VX9-SA-2d4" firstAttribute="leading" secondItem="mNE-Td-DWX" secondAttribute="leading" constant="12" id="wi0-pC-yZr"/>

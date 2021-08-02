@@ -9,10 +9,15 @@ import Foundation
 
 struct User: Hashable {
     var id: String = UUID().uuidString
-    var name: String
-    var address: String
+    var userName: String
+    var address: String = ""
     var password: String = "12345678"
     var image: String? = Dummy.images.shuffled().first
+
+    init(userName: String, password: String) {
+        self.userName = userName
+        self.password = password
+    }
 }
 
 struct Dummy {

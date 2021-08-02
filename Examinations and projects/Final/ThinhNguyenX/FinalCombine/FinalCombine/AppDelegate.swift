@@ -33,7 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Properties
     var window: UIWindow?
     let homeVC = HomeVC()
+    let profileVC = ProfileVC()
     let signInVC = SignInVC()
+    let tabbar = TabBarVC()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         configNavi()
@@ -47,8 +49,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         switch type {
         case .home:
             let navi = UINavigationController(rootViewController: homeVC)
+
             homeVC.viewModel = HomeViewModel()
             window?.rootViewController = navi
+        case .tabbar:
+            window?.rootViewController = tabbar
+
         default:
             let navi = UINavigationController(rootViewController: signInVC)
             window?.rootViewController = navi
@@ -103,5 +109,11 @@ extension AppDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         UINavigationBar.appearance().shadowImage = UIImage()
+    }
+}
+// MARK: - Private function
+extension AppDelegate: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        print("Selected Tab : \(tabBarController.selectedIndex)")
     }
 }

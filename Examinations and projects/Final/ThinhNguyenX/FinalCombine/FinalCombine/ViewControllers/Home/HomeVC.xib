@@ -34,6 +34,7 @@
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="m3f-He-82m">
                                     <rect key="frame" x="16" y="5" width="28" height="26"/>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="m3f-He-82m" secondAttribute="height" id="dPj-uY-0VJ"/>
                                     </constraints>
@@ -42,9 +43,12 @@
                                     <rect key="frame" x="60" y="0.0" width="306" height="36"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <action selector="searchTextFieldEdittingChange:" destination="-1" eventType="editingChanged" id="i6z-rF-NZm"/>
+                                    </connections>
                                 </textField>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" systemColor="systemOrangeColor"/>
                             <constraints>
                                 <constraint firstItem="m3f-He-82m" firstAttribute="leading" secondItem="J6D-iN-3Ev" secondAttribute="leading" constant="16" id="E9j-Sq-o26"/>
                                 <constraint firstAttribute="bottom" secondItem="m3f-He-82m" secondAttribute="bottom" constant="4" id="KHG-L6-4CW"/>
@@ -54,9 +58,14 @@
                                 <constraint firstItem="5hB-p1-qs1" firstAttribute="leading" secondItem="m3f-He-82m" secondAttribute="trailing" constant="16" id="wkr-oI-joK"/>
                                 <constraint firstAttribute="trailing" secondItem="5hB-p1-qs1" secondAttribute="trailing" constant="16" id="zBN-G5-D4g"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="18"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="J6D-iN-3Ev" firstAttribute="top" secondItem="Kmr-th-xcm" secondAttribute="top" constant="8" id="YI2-yf-hOK"/>
                         <constraint firstAttribute="trailing" secondItem="J6D-iN-3Ev" secondAttribute="trailing" constant="16" id="hEk-p4-tgU"/>

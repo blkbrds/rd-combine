@@ -11,6 +11,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignInVC" customModule="FinalCombine" customModuleProvider="target">
             <connections>
+                <outlet property="indicatorView" destination="4Yc-1c-HJ6" id="Re3-ZB-ggO"/>
+                <outlet property="pwTextField" destination="cPC-cN-sel" id="FoZ-ok-7mH"/>
+                <outlet property="registerButton" destination="om0-Gx-O5T" id="81P-fM-QW3"/>
+                <outlet property="signInButton" destination="6py-Lh-Wdf" id="G3g-Ah-wkO"/>
+                <outlet property="userNameTextField" destination="oQE-JU-nzh" id="Li3-Ia-xpt"/>
                 <outlet property="view" destination="LUa-Lz-5VJ" id="pkS-mB-37z"/>
             </connections>
         </placeholder>
@@ -50,9 +55,6 @@
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                     </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="loginTouchUpInSide:" destination="-1" eventType="touchUpInside" id="awV-RF-WVY"/>
-                                    </connections>
                                 </button>
                             </subviews>
                         </stackView>
@@ -92,7 +94,7 @@
                                             <rect key="frame" x="184" y="0.0" width="64" height="25"/>
                                             <state key="normal" title="SIGN UP!"/>
                                             <connections>
-                                                <action selector="signUpTouchUpInSide:" destination="-1" eventType="touchUpInside" id="dnr-hM-vm7"/>
+                                                <action selector="signUpTouchUpInSide:" destination="-1" eventType="touchUpInside" id="otG-VS-4mM"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -106,7 +108,7 @@
                                 <constraint firstItem="CnL-yy-aHj" firstAttribute="centerX" secondItem="TUV-BO-wDd" secondAttribute="centerX" id="hYf-MG-Vzs"/>
                             </constraints>
                         </view>
-                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="hSL-gJ-l35">
+                        <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="hSL-gJ-l35">
                             <rect key="frame" x="102" y="35" width="170" height="60"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zX5-dK-kiN">
@@ -158,6 +160,9 @@
                         <constraint firstItem="TUV-BO-wDd" firstAttribute="top" secondItem="uvh-VR-1wR" secondAttribute="top" id="jUX-0e-Fn8"/>
                     </constraints>
                 </view>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="4Yc-1c-HJ6">
+                    <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="BMP-G3-ap9"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -169,6 +174,8 @@
                 <constraint firstItem="BMP-G3-ap9" firstAttribute="bottom" secondItem="uvh-VR-1wR" secondAttribute="bottom" priority="999" constant="171" id="RkZ-1i-ES7"/>
                 <constraint firstItem="uvh-VR-1wR" firstAttribute="top" secondItem="Jmy-jp-Wg6" secondAttribute="bottom" constant="20" id="aEa-eC-yjU"/>
                 <constraint firstItem="uvh-VR-1wR" firstAttribute="leading" secondItem="Jmy-jp-Wg6" secondAttribute="leading" id="cUs-6A-pGe"/>
+                <constraint firstItem="4Yc-1c-HJ6" firstAttribute="centerX" secondItem="LUa-Lz-5VJ" secondAttribute="centerX" id="hWT-gQ-Lya"/>
+                <constraint firstItem="4Yc-1c-HJ6" firstAttribute="centerY" secondItem="LUa-Lz-5VJ" secondAttribute="centerY" id="leS-qP-5mI"/>
                 <constraint firstItem="Jmy-jp-Wg6" firstAttribute="trailing" secondItem="BMP-G3-ap9" secondAttribute="trailing" constant="-20" id="n8s-iv-Qk5"/>
                 <constraint firstItem="uvh-VR-1wR" firstAttribute="trailing" secondItem="Jmy-jp-Wg6" secondAttribute="trailing" id="uGR-fJ-fcw"/>
                 <constraint firstItem="Jmy-jp-Wg6" firstAttribute="top" secondItem="sKZ-fR-KhJ" secondAttribute="bottom" constant="50" id="zUK-Ky-F1p"/>

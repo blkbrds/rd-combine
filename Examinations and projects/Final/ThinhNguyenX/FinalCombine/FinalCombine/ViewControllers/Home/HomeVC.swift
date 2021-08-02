@@ -68,21 +68,33 @@ final class HomeVC: UIViewController {
                 self.dataSource.apply(snapShot, animatingDifferences: true, completion: nil)
             })
             .store(in: &viewModel.stores)
-        
-        searchTextField.publisher(for: .editingChanged)
-            .compactMap { $0.text }
-            .assign(to: \.searchKeyword, on: viewModel)
-            .store(in: &viewModel.stores)
+
+        viewModel.$searchKeyword
+            .debounce(for: .seconds(0.2), scheduler: DispatchQueue.main)
+            .removeDuplicates()
+            .share()
+            .sink { value in
+                self.viewModel.getCookings(type: .lists(value))
+            }.store(in: &viewModel.stores)
+
     }
 
     // MARK: - IBActions
-
+    @IBAction private func searchTextFieldEdittingChange(_ sender: UITextField) {
+        if let text = sender.text, !text.isEmpty {
+            viewModel.searchKeyword = text
+        } else {
+            viewModel.searchKeyword = ""
+        }
+    }
 }
 
 // MARK: - UITableViewDelegate
 extension HomeVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = viewModel.cooks[indexPath.row]
         let vc = DetailVC()
+        vc.viewModel = DetailViewModel(cook: item)
         navigationController?.pushViewController(vc, animated: true)
     }
 }
