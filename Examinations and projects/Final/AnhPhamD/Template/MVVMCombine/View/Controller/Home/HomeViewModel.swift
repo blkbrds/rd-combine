@@ -15,10 +15,11 @@ final class HomeViewModel: ViewModelType {
     // API Result
     @Published private(set) var apiResult: APIResult<[Drink]> = .none
     @Published private(set) var tagGroups: APIResult<[Category]> = .none
+    var categoryListSubject = CurrentValueSubject<[Category], Never>([])
+    var categoryList: [Category] = []
 
     // ViewModelType conforming
     private(set) var isLoading: CurrentValueSubject<Bool, Never> = .init(false)
-
     private(set) var subscriptions: Set<AnyCancellable> = []
 
     // MARK: - Public functions
@@ -31,6 +32,18 @@ final class HomeViewModel: ViewModelType {
                 this.isLoading.send(false)
             })
             .assign(to: \.apiResult, on: self)
+            .store(in: &subscriptions)
+    }
+
+    func getCategoryList(key: String) {
+        isLoading.send(true)
+        APIType.getCategoryList(key: key)
+            .transformToAPIResult()
+            .handleEvents(receiveOutput: { [weak self] _ in
+                guard let this = self else { return }
+                this.isLoading.send(false)
+            })
+            .assign(to: \.tagGroups, on: self)
             .store(in: &subscriptions)
     }
 }

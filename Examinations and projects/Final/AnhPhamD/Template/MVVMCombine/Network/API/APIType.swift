@@ -30,4 +30,11 @@ final class APIType {
             .response([Drink].self)
             .eraseToAnyPublisher()
     }
+
+    static func getCategoryList(key: String) -> AnyPublisher<[Category], Error> {
+        return NetworkingController.shared
+            .requestWithTarget(TypeService.getTagGroup(key: key))
+            .response([Category].self)
+            .eraseToAnyPublisher()
+    }
 }

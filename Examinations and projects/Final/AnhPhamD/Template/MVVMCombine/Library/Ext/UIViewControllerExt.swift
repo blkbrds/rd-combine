@@ -19,6 +19,12 @@ extension UIViewController {
         return alert(title: "", message: error.localizedDescription, actions: actions)
     }
 
+    func showAlert(error: String) {
+        let alert = UIAlertController(title: "Warning", message: error, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+
     @discardableResult
     func alert(
         title: String = "",
