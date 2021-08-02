@@ -56,7 +56,10 @@ final class StoreDetailViewModel {
             return viewModel
         }
     }
+}
 
+// MARK: - APIs
+extension StoreDetailViewModel {
     func getStoreDetail() {
         API.Store.requestStoreDetail(id: store.id)
             .map { $0 }

@@ -146,6 +146,7 @@ final class RegisterViewController: ViewController {
 
 // MARK: - Private func
 extension RegisterViewController {
+
     private func transitionLogin() {
         SceneDelegate.shared.setRoot(type: .login)
     }

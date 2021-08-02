@@ -68,10 +68,6 @@ extension SearchViewController: UITableViewDelegate {
         return tableView.estimatedRowHeight
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.state.send(.loadMore)
-    }
-
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if tableView.contentOffset.y >= (tableView.contentSize.height - 700) {
             viewModel.state.send(.loadMore)
