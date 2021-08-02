@@ -52,8 +52,9 @@ No | Technique | Required
 
 #### 2. Screen shot các xử lý về kỹ thuật Required kèm từng màn hình.
 
-* Ex: 
+#### Apply template tập đoàn
 
+<img src="https://github.com/blkbrds/rd-combine/blob/final/quan_bui_t/Examinations%20and%20projects/Final/Image/template.png" width="200" height="500" />
 
 #### LogIn
  ##### 1. Screen shot
@@ -62,8 +63,38 @@ No | Technique | Required
 
  ##### 2. Validation handle
 
- <img src="https://user-images.githubusercontent.com/40164938/127115324-87ea8125-79c1-4761-ba18-e42d001777a6.png" width="400" height="200" />
+ <img src="https://user-images.githubusercontent.com/40164938/127115324-87ea8125-79c1-4761-ba18-e42d001777a6.png" width="500" height="200" />
 
+##### 3. Publihser for action, delegate of UIKit components
 
+<img src="https://github.com/blkbrds/rd-combine/blob/final/quan_bui_t/Examinations%20and%20projects/Final/Image/replaceaction.png" width="500" height="200" />
 
+#### Register
+ ##### 1. Screen shot
 
+<img src="https://github.com/blkbrds/rd-combine/blob/final/quan_bui_t/Examinations%20and%20projects/Final/Image/register.png" width="200" height="400" />
+
+#### Home
+ ##### 1. Screen shot
+
+<img src="https://github.com/blkbrds/rd-combine/blob/final/quan_bui_t/Examinations%20and%20projects/Final/Image/home.png" width="200" height="400" />
+
+ ##### 2. Interact with API 
+
+ <img src="https://github.com/blkbrds/rd-combine/blob/final/quan_bui_t/Examinations%20and%20projects/Final/Image/networking.png" width="500" height="200" />
+ 
+ <img src="https://github.com/blkbrds/rd-combine/blob/final/quan_bui_t/Examinations%20and%20projects/Final/Image/api.png" width="500" height="200" />
+
+#### Search
+ ##### 1. Screen shot
+
+<img src="https://github.com/blkbrds/rd-combine/blob/final/quan_bui_t/Examinations%20and%20projects/Final/Image/search.png" width="200" height="400" />
+
+ ##### 2. Search real time    
+
+ <img src="https://github.com/blkbrds/rd-combine/blob/final/quan_bui_t/Examinations%20and%20projects/Final/Image/searchtime.png" width="500" height="200" />
+ 
+ ##### 2. Load more      
+
+ <img src="https://github.com/blkbrds/rd-combine/blob/final/quan_bui_t/Examinations%20and%20projects/Final/Image/loadmore.png" width="500" height="200" />
+ 
