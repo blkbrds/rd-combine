@@ -1,0 +1,45 @@
+source 'https://github.com/CocoaPods/Specs.git'
+inhibit_all_warnings!
+platform :ios, '13.0'
+use_frameworks!
+
+def shared_pods
+  pod 'GoogleAPIClientForREST/YouTube', '~> 1.2.1'
+  pod 'GoogleSignIn'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Database'
+
+  pod 'Alamofire', '5.4.3'
+  pod 'RealmS', '4.0.1'
+
+  pod 'SVProgressHUD', '2.2.5'
+  pod 'SwiftUtils', '4.2.1'
+  pod 'SwiftDate', '4.5.1'
+#  pod 'HanekeSwift', :git => 'https://github.com/AdrianBinDC/HanekeSwift.git', :branch => 'master'
+  pod 'SDWebImage', '~> 5.0'
+end
+
+# Pods for CombineFinalProject
+target 'CombineFinalProject' do
+  shared_pods
+
+  target 'CombineFinalProjectTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'CombineFinalProjectUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+end
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+          config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64';
+          config.build_settings["ONLY_ACTIVE_ARCH"] = "YES";
+        end
+    end
+end
