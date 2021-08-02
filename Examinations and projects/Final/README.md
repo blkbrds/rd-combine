@@ -58,7 +58,7 @@ No | Technique | Required
 #### LogIn
  ##### 1. Screen shot
 
-![Login](https://drive.google.com/file/d/16cH0J-mxIvDBp3X-zWjy03xMomsE_9oY/view?usp=sharing "Login Screen")
+![Login](/Final/Image/login.jpg?raw=true "Login Screen")
 
  ##### 2. Validation handle
 
