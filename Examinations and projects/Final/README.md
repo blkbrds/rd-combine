@@ -58,7 +58,7 @@ No | Technique | Required
 #### LogIn
  ##### 1. Screen shot
 
- <img src="https://user-images.githubusercontent.com/40164938/127113875-28c0bef1-0aec-41ae-bd15-335cdbc208d1.png" width="200" height="400" />
+![Login](https://drive.google.com/file/d/16cH0J-mxIvDBp3X-zWjy03xMomsE_9oY/view?usp=sharing "Login Screen")
 
  ##### 2. Validation handle
 
