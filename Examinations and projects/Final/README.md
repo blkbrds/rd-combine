@@ -46,3 +46,24 @@ No | Technique | Required
 * Đặt tên pull request: **Tên người làm – Final** (ví dụ: Van Le H – Final)
 * Tất cả những issue gặp phải trong quá trình làm thì log vào [đây](https://docs.google.com/spreadsheets/d/14F37KGT6IfMpS4TsdrYenSrSVYKyRIfYqFx00f8xNyQ/edit#gid=0)
 
+###  Yêu cầu về Readme:
+
+#### 1. Screen shot các màn hình required
+
+#### 2. Screen shot các xử lý về kỹ thuật Required kèm từng màn hình.
+
+* Ex: 
+
+
+#### LogIn
+ ##### 1. Screen shot
+
+ <img src="https://user-images.githubusercontent.com/40164938/127113875-28c0bef1-0aec-41ae-bd15-335cdbc208d1.png" width="200" height="400" />
+
+ ##### 2. Validation handle
+
+ <img src="https://user-images.githubusercontent.com/40164938/127115324-87ea8125-79c1-4761-ba18-e42d001777a6.png" width="400" height="200" />
+
+
+
+
