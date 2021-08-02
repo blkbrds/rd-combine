@@ -4,7 +4,7 @@ R&amp;D - iOS - Combine
 #### LogIn
  ##### 1. Screen shot
 
- <img src="https://user-images.githubusercontent.com/54519387/127881879-54c216a3-5af3-41ba-8504-c35406d6e715.png" width="400" height="200" />
+ ![Simulator Screen Shot - iPhone 8 - 2021-08-02 at 21 51 31](https://user-images.githubusercontent.com/54519387/127882669-dbef1c0f-e576-4d20-9498-667b85f998b0.png)
 
  ##### 2. Validation handle
 
