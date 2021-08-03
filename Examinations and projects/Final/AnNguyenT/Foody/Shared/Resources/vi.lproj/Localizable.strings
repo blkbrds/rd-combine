@@ -1,0 +1,23 @@
+/*
+  Localizable.strings
+  Foody
+
+  Created by Hai Nguyen H.P.[3] VN.Danang on 5/26/21.
+  
+*/
+
+/* MARK: - Settings */
+"settings.title" = "Thiết lập";
+"settings.profile" = "Hồ sơ";
+"settings.language" = "Ngôn ngữ";
+"settings.notifications" = "Thông báo";
+"settings.about" = "Về";
+"settings.version" = "Phiên bản";
+"settings.logout" = "Đăng xuất";
+
+/* MARK: - Login */
+"login.title" = "Đăng nhập";
+"login.username" = "Tài khoản";
+"login.password" = "Mật khẩu";
+"login.login" = "Đăng nhập";
+
