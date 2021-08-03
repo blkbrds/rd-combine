@@ -15,8 +15,8 @@ final class HomeViewModel: ViewModelType {
     // API Result
     @Published private(set) var apiResult: APIResult<[Drink]> = .none
     @Published private(set) var tagGroups: APIResult<[Category]> = .none
-    var categoryListSubject = CurrentValueSubject<[Category], Never>([])
-    var categoryList: [Category] = []
+    private(set) var categoryListSubject = CurrentValueSubject<[Category], Never>([])
+    private(set) var drinkSuject = CurrentValueSubject<[Drink], Never>([])
 
     // ViewModelType conforming
     private(set) var isLoading: CurrentValueSubject<Bool, Never> = .init(false)
@@ -45,5 +45,11 @@ final class HomeViewModel: ViewModelType {
             })
             .assign(to: \.tagGroups, on: self)
             .store(in: &subscriptions)
+    }
+
+    func viewModelDidSelectRowAt(index: Int) -> DetailViewModel {
+        var drink: Drink
+        drink = drinkSuject.value[index]
+        return DetailViewModel(drink: drink)
     }
 }

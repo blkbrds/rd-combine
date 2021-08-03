@@ -14,6 +14,10 @@
 		6A401BC126A9B50300C4285F /* DrinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A401BBF26A9B50300C4285F /* DrinkTableViewCell.swift */; };
 		6A401BC226A9B50300C4285F /* DrinkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A401BC026A9B50300C4285F /* DrinkTableViewCell.xib */; };
 		6A401BCA26A9B56400C4285F /* DrinkCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A401BC926A9B56400C4285F /* DrinkCellViewModel.swift */; };
+		6A7B157826B94BAC007265F9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7B157626B94BAC007265F9 /* DetailViewController.swift */; };
+		6A7B157926B94BAC007265F9 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A7B157726B94BAC007265F9 /* DetailViewController.xib */; };
+		6A7B158126B94BBE007265F9 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7B158026B94BBE007265F9 /* DetailViewModel.swift */; };
+		6A7B158626B9A9ED007265F9 /* DrinkDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7B158526B9A9ED007265F9 /* DrinkDetail.swift */; };
 		6AAA9D6126AA6AEF007A6735 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAA9D6026AA6AEF007A6735 /* Category.swift */; };
 		6AAA9D6826AA6FB5007A6735 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAA9D6626AA6FB5007A6735 /* TagCollectionViewCell.swift */; };
 		6AAA9D6926AA6FB5007A6735 /* TagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AAA9D6726AA6FB5007A6735 /* TagCollectionViewCell.xib */; };
@@ -131,6 +135,10 @@
 		6A401BC026A9B50300C4285F /* DrinkTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrinkTableViewCell.xib; sourceTree = "<group>"; };
 		6A401BC926A9B56400C4285F /* DrinkCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCellViewModel.swift; sourceTree = "<group>"; };
 		6A6A9A3A937565235C1B466C /* Pods-MVVMCombine-MVVMCombineUITests.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMCombine-MVVMCombineUITests.staging.xcconfig"; path = "Target Support Files/Pods-MVVMCombine-MVVMCombineUITests/Pods-MVVMCombine-MVVMCombineUITests.staging.xcconfig"; sourceTree = "<group>"; };
+		6A7B157626B94BAC007265F9 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		6A7B157726B94BAC007265F9 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		6A7B158026B94BBE007265F9 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		6A7B158526B9A9ED007265F9 /* DrinkDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDetail.swift; sourceTree = "<group>"; };
 		6AAA9D6026AA6AEF007A6735 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		6AAA9D6626AA6FB5007A6735 /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
 		6AAA9D6726AA6FB5007A6735 /* TagCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -275,6 +283,16 @@
 			path = DrinkTableViewCell;
 			sourceTree = "<group>";
 		};
+		6A7B157526B94B8F007265F9 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				6A7B157626B94BAC007265F9 /* DetailViewController.swift */,
+				6A7B157726B94BAC007265F9 /* DetailViewController.xib */,
+				6A7B158026B94BBE007265F9 /* DetailViewModel.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		6AAA9D6526AA6F80007A6735 /* TagCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -300,6 +318,7 @@
 		74B30D622674B3D400EB3673 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6A7B157526B94B8F007265F9 /* Detail */,
 				6A401B9726A8147900C4285F /* Home */,
 				74B30D7F2674D94900EB3673 /* ListWork */,
 				74B30D632674B3DE00EB3673 /* ListType */,
@@ -572,6 +591,7 @@
 				74B30D842674DB7600EB3673 /* WorkList.swift */,
 				6A401BA726A8296000C4285F /* Drink.swift */,
 				6AAA9D6026AA6AEF007A6735 /* Category.swift */,
+				6A7B158526B9A9ED007265F9 /* DrinkDetail.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -749,6 +769,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3E61B672670F31200FB317C /* LaunchScreen.storyboard in Resources */,
+				6A7B157926B94BAC007265F9 /* DetailViewController.xib in Resources */,
 				6A401BC226A9B50300C4285F /* DrinkTableViewCell.xib in Resources */,
 				74B30D832674D9AE00EB3673 /* ListWorkViewController.xib in Resources */,
 				74B30D902674FD1600EB3673 /* WorkCell.xib in Resources */,
@@ -922,13 +943,16 @@
 				6A401BA826A8296000C4285F /* Drink.swift in Sources */,
 				6A401BCA26A9B56400C4285F /* DrinkCellViewModel.swift in Sources */,
 				A3E61C622671ABFB00FB317C /* DeviceType.swift in Sources */,
+				6A7B158626B9A9ED007265F9 /* DrinkDetail.swift in Sources */,
 				A3E61CFE2671AF8D00FB317C /* CollectionView.swift in Sources */,
 				A3E61D082671AF8D00FB317C /* TextView.swift in Sources */,
 				6A401BA026A8149500C4285F /* HomeViewModel.swift in Sources */,
+				6A7B157826B94BAC007265F9 /* DetailViewController.swift in Sources */,
 				A3E61D032671AF8D00FB317C /* ScrollView.swift in Sources */,
 				A3E61D012671AF8D00FB317C /* PageControl.swift in Sources */,
 				A3E61C652671ABFB00FB317C /* Color.swift in Sources */,
 				74B30D662674B42600EB3673 /* ListTypeViewController.swift in Sources */,
+				6A7B158126B94BBE007265F9 /* DetailViewModel.swift in Sources */,
 				A3E61C602671ABFB00FB317C /* App.swift in Sources */,
 				74B30D792674CCAF00EB3673 /* TypeCell.swift in Sources */,
 				74B30D8F2674FD1600EB3673 /* WorkCell.swift in Sources */,

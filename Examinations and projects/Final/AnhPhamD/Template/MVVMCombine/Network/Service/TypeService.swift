@@ -14,6 +14,7 @@ enum TypeService {
     case listWork(typeId: String, offset: Int)
     case getCategory(key: String, strCategory: String)
     case getTagGroup(key: String)
+    case getDetail(idDrink: String)
 }
 
 extension TypeService: TargetType {
@@ -33,19 +34,21 @@ extension TypeService: TargetType {
             return "filter.php?\(key)\(strCategory)"
         case .getTagGroup(let key):
             return "list.php?\(key)list"
+        case .getDetail(let idDrink):
+            return "lookup.php?i=\(idDrink)"
         }
     }
 
     var method: HTTPMethod {
         switch self {
-        case .listType, .listWork, .getCategory, .getTagGroup:
+        case .listType, .listWork, .getCategory, .getTagGroup, .getDetail:
             return .get
         }
     }
 
     var parameters: Parameters? {
         switch self {
-        case .listType, .getCategory, .getTagGroup:
+        case .listType, .getCategory, .getTagGroup, .getDetail:
             return nil
         case .listWork(_, let offset):
             return ["offset": "\(offset)"]
@@ -56,7 +59,7 @@ extension TypeService: TargetType {
         switch self {
         case .listType, .listWork:
             return NetworkingController.defaultHeaders
-        case .getCategory, .getTagGroup:
+        case .getCategory, .getTagGroup, .getDetail:
             return nil
         }
     }

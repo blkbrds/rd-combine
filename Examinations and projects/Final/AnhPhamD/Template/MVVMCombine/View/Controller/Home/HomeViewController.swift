@@ -53,9 +53,10 @@ final class HomeViewController: ViewController {
     override func binding() {
         super.binding()
         viewModel.$apiResult
-            .handle(onSucess: { [weak self] value in
+            .handle(onSucess: { [weak self] in
                 self?.navigationItem.title = "Category"
-                self?.applySnapshot(value)
+                self?.applySnapshot($0)
+                self?.viewModel.drinkSuject.value = $0
             }, onFailure: { [weak self] _ in
                 self?.showAlert(error: "Call API Failure")
             })
@@ -116,7 +117,9 @@ final class HomeViewController: ViewController {
 
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Detail")
+        let vc = DetailViewController()
+        vc.viewModel = viewModel.viewModelDidSelectRowAt(index: indexPath.row)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
