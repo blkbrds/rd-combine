@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  Foody
+
+  Created by Hai Nguyen H.P.[3] VN.Danang on 5/26/21.
+  
+*/
+
+// MARK: - Settings
+"settings.title" = "Settings";
+"settings.profile" = "Profile";
+"settings.language" = "Language";
+"settings.notifications" = "Notifications";
+"settings.about" = "About";
+"settings.version" = "Version";
+"settings.logout" = "Logout";
+
+// MARK: - Login
+"login.title" = "Login Form";
+"login.username" = "Username";
+"login.password" = "Password";
+"login.login" = "Login";
