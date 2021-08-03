@@ -30,6 +30,17 @@
 		22FE742826AC1C0A00F0ECE4 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE742726AC1C0A00F0ECE4 /* InformationView.swift */; };
 		22FE742D26AC1D1900F0ECE4 /* InformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FE742C26AC1D1900F0ECE4 /* InformationView.xib */; };
 		22FE743226AC1F8100F0ECE4 /* InfomationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE743126AC1F8100F0ECE4 /* InfomationViewModel.swift */; };
+		60108DE926B4034600C56549 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60108DE826B4034600C56549 /* BaseViewController.swift */; };
+		60108DEE26B411B000C56549 /* extTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60108DED26B411B000C56549 /* extTextField.swift */; };
+		6097E23726B8F22D00584D54 /* Screen Shot 2021-08-03 at 10.35.43 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = 6097E22E26B8F22C00584D54 /* Screen Shot 2021-08-03 at 10.35.43 AM.png */; };
+		6097E23826B8F22D00584D54 /* Simulator Screen Shot - iPhone 11 Pro Max - 2021-08-03 at 10.27.48.png in Resources */ = {isa = PBXBuildFile; fileRef = 6097E22F26B8F22C00584D54 /* Simulator Screen Shot - iPhone 11 Pro Max - 2021-08-03 at 10.27.48.png */; };
+		6097E23926B8F22D00584D54 /* Simulator Screen Shot - iPhone 11 Pro Max - 2021-08-03 at 10.28.21.png in Resources */ = {isa = PBXBuildFile; fileRef = 6097E23026B8F22D00584D54 /* Simulator Screen Shot - iPhone 11 Pro Max - 2021-08-03 at 10.28.21.png */; };
+		6097E23A26B8F22D00584D54 /* Screen Shot 2021-08-03 at 10.27.12 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = 6097E23126B8F22D00584D54 /* Screen Shot 2021-08-03 at 10.27.12 AM.png */; };
+		6097E23B26B8F22D00584D54 /* Screen Shot 2021-08-03 at 10.37.04 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = 6097E23226B8F22D00584D54 /* Screen Shot 2021-08-03 at 10.37.04 AM.png */; };
+		6097E23C26B8F22D00584D54 /* Screen Shot 2021-08-03 at 10.35.55 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = 6097E23326B8F22D00584D54 /* Screen Shot 2021-08-03 at 10.35.55 AM.png */; };
+		6097E23D26B8F22D00584D54 /* Screen Shot 2021-08-03 at 10.36.55 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = 6097E23426B8F22D00584D54 /* Screen Shot 2021-08-03 at 10.36.55 AM.png */; };
+		6097E23E26B8F22D00584D54 /* Screen Shot 2021-08-03 at 10.36.01 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = 6097E23526B8F22D00584D54 /* Screen Shot 2021-08-03 at 10.36.01 AM.png */; };
+		6097E23F26B8F22D00584D54 /* Screen Shot 2021-08-03 at 10.37.17 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = 6097E23626B8F22D00584D54 /* Screen Shot 2021-08-03 at 10.37.17 AM.png */; };
 		74B30D55267450DA00EB3673 /* APIResult+APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B30D54267450DA00EB3673 /* APIResult+APIError.swift */; };
 		74B30D57267450FD00EB3673 /* NetworkingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B30D56267450FD00EB3673 /* NetworkingController.swift */; };
 		74B30D592674512200EB3673 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B30D582674512200EB3673 /* Response.swift */; };
@@ -157,6 +168,17 @@
 		22FE743126AC1F8100F0ECE4 /* InfomationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfomationViewModel.swift; sourceTree = "<group>"; };
 		330EFEB4046813DE8E7AA1B4 /* Pods-MVVMCombine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMCombine.debug.xcconfig"; path = "Target Support Files/Pods-MVVMCombine/Pods-MVVMCombine.debug.xcconfig"; sourceTree = "<group>"; };
 		513684D095EA43CA8C181897 /* Pods_MVVMCombine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVMCombine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		60108DE826B4034600C56549 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		60108DED26B411B000C56549 /* extTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extTextField.swift; sourceTree = "<group>"; };
+		6097E22E26B8F22C00584D54 /* Screen Shot 2021-08-03 at 10.35.43 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Screen Shot 2021-08-03 at 10.35.43 AM.png"; path = "../../../../../Desktop/Screen Shot 2021-08-03 at 10.35.43 AM.png"; sourceTree = "<group>"; };
+		6097E22F26B8F22C00584D54 /* Simulator Screen Shot - iPhone 11 Pro Max - 2021-08-03 at 10.27.48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Simulator Screen Shot - iPhone 11 Pro Max - 2021-08-03 at 10.27.48.png"; path = "../../../../../Desktop/Simulator Screen Shot - iPhone 11 Pro Max - 2021-08-03 at 10.27.48.png"; sourceTree = "<group>"; };
+		6097E23026B8F22D00584D54 /* Simulator Screen Shot - iPhone 11 Pro Max - 2021-08-03 at 10.28.21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Simulator Screen Shot - iPhone 11 Pro Max - 2021-08-03 at 10.28.21.png"; path = "../../../../../Desktop/Simulator Screen Shot - iPhone 11 Pro Max - 2021-08-03 at 10.28.21.png"; sourceTree = "<group>"; };
+		6097E23126B8F22D00584D54 /* Screen Shot 2021-08-03 at 10.27.12 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Screen Shot 2021-08-03 at 10.27.12 AM.png"; path = "../../../../../Desktop/Screen Shot 2021-08-03 at 10.27.12 AM.png"; sourceTree = "<group>"; };
+		6097E23226B8F22D00584D54 /* Screen Shot 2021-08-03 at 10.37.04 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Screen Shot 2021-08-03 at 10.37.04 AM.png"; path = "../../../../../Desktop/Screen Shot 2021-08-03 at 10.37.04 AM.png"; sourceTree = "<group>"; };
+		6097E23326B8F22D00584D54 /* Screen Shot 2021-08-03 at 10.35.55 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Screen Shot 2021-08-03 at 10.35.55 AM.png"; path = "../../../../../Desktop/Screen Shot 2021-08-03 at 10.35.55 AM.png"; sourceTree = "<group>"; };
+		6097E23426B8F22D00584D54 /* Screen Shot 2021-08-03 at 10.36.55 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Screen Shot 2021-08-03 at 10.36.55 AM.png"; path = "../../../../../Desktop/Screen Shot 2021-08-03 at 10.36.55 AM.png"; sourceTree = "<group>"; };
+		6097E23526B8F22D00584D54 /* Screen Shot 2021-08-03 at 10.36.01 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Screen Shot 2021-08-03 at 10.36.01 AM.png"; path = "../../../../../Desktop/Screen Shot 2021-08-03 at 10.36.01 AM.png"; sourceTree = "<group>"; };
+		6097E23626B8F22D00584D54 /* Screen Shot 2021-08-03 at 10.37.17 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Screen Shot 2021-08-03 at 10.37.17 AM.png"; path = "../../../../../Desktop/Screen Shot 2021-08-03 at 10.37.17 AM.png"; sourceTree = "<group>"; };
 		677708C0E7DB9663BCB0BFD5 /* Pods_MVVMCombineTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVMCombineTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A6A9A3A937565235C1B466C /* Pods-MVVMCombine-MVVMCombineUITests.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMCombine-MVVMCombineUITests.staging.xcconfig"; path = "Target Support Files/Pods-MVVMCombine-MVVMCombineUITests/Pods-MVVMCombine-MVVMCombineUITests.staging.xcconfig"; sourceTree = "<group>"; };
 		713F68F6268582E758C32376 /* Pods_MVVMCombine_MVVMCombineUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVMCombine_MVVMCombineUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -358,6 +380,22 @@
 			path = CustomView;
 			sourceTree = "<group>";
 		};
+		6097E22D26B8F1B900584D54 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				6097E23126B8F22D00584D54 /* Screen Shot 2021-08-03 at 10.27.12 AM.png */,
+				6097E22E26B8F22C00584D54 /* Screen Shot 2021-08-03 at 10.35.43 AM.png */,
+				6097E23326B8F22D00584D54 /* Screen Shot 2021-08-03 at 10.35.55 AM.png */,
+				6097E23526B8F22D00584D54 /* Screen Shot 2021-08-03 at 10.36.01 AM.png */,
+				6097E23426B8F22D00584D54 /* Screen Shot 2021-08-03 at 10.36.55 AM.png */,
+				6097E23226B8F22D00584D54 /* Screen Shot 2021-08-03 at 10.37.04 AM.png */,
+				6097E23626B8F22D00584D54 /* Screen Shot 2021-08-03 at 10.37.17 AM.png */,
+				6097E22F26B8F22C00584D54 /* Simulator Screen Shot - iPhone 11 Pro Max - 2021-08-03 at 10.27.48.png */,
+				6097E23026B8F22D00584D54 /* Simulator Screen Shot - iPhone 11 Pro Max - 2021-08-03 at 10.28.21.png */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
 		74B30D53267450B800EB3673 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -495,6 +533,7 @@
 		A3E61B592670F30C00FB317C /* MVVMCombine */ = {
 			isa = PBXGroup;
 			children = (
+				6097E22D26B8F1B900584D54 /* Image */,
 				A3E61BC7267108E200FB317C /* Define */,
 				A3E61BC6267108DB00FB317C /* Library */,
 				A3E61BC8267108E700FB317C /* Manager */,
@@ -668,6 +707,8 @@
 				A3E61CF32671AF8D00FB317C /* TableView.swift */,
 				A3E61CF72671AF8D00FB317C /* TextView.swift */,
 				A3E61CEC2671AF8D00FB317C /* View.swift */,
+				60108DE826B4034600C56549 /* BaseViewController.swift */,
+				60108DED26B411B000C56549 /* extTextField.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -824,22 +865,31 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6097E23C26B8F22D00584D54 /* Screen Shot 2021-08-03 at 10.35.55 AM.png in Resources */,
+				6097E23B26B8F22D00584D54 /* Screen Shot 2021-08-03 at 10.37.04 AM.png in Resources */,
 				2294B46D26B15F1700E3DC48 /* LoginViewController.xib in Resources */,
 				22FE742D26AC1D1900F0ECE4 /* InformationView.xib in Resources */,
 				A3E61B672670F31200FB317C /* LaunchScreen.storyboard in Resources */,
 				74B30D832674D9AE00EB3673 /* ListWorkViewController.xib in Resources */,
+				6097E23E26B8F22D00584D54 /* Screen Shot 2021-08-03 at 10.36.01 AM.png in Resources */,
 				74B30D902674FD1600EB3673 /* WorkCell.xib in Resources */,
 				A3E61B642670F31200FB317C /* Assets.xcassets in Resources */,
+				6097E23D26B8F22D00584D54 /* Screen Shot 2021-08-03 at 10.36.55 AM.png in Resources */,
 				22FE740726AC0A5F00F0ECE4 /* DesciptionTableViewCell.xib in Resources */,
 				74B30D672674B42600EB3673 /* ListTypeViewController.xib in Resources */,
+				6097E23A26B8F22D00584D54 /* Screen Shot 2021-08-03 at 10.27.12 AM.png in Resources */,
+				6097E23F26B8F22D00584D54 /* Screen Shot 2021-08-03 at 10.37.17 AM.png in Resources */,
 				22162A6826A1BFFD0026ED5C /* TeamViewController.xib in Resources */,
 				22FE741526AC12FF00F0ECE4 /* StadiumTableViewCell.xib in Resources */,
+				6097E23826B8F22D00584D54 /* Simulator Screen Shot - iPhone 11 Pro Max - 2021-08-03 at 10.27.48.png in Resources */,
+				6097E23726B8F22D00584D54 /* Screen Shot 2021-08-03 at 10.35.43 AM.png in Resources */,
 				A3E61DB426749C2300FB317C /* Dev.xcconfig in Resources */,
 				74B30D7A2674CCAF00EB3673 /* TypeCell.xib in Resources */,
 				22162A7326A1C02B0026ED5C /* TeamTableViewCell.xib in Resources */,
 				A3E61DBD26749C3D00FB317C /* Staging.xcconfig in Resources */,
 				22C810E426A9B440007BF2AD /* DetailTeamViewController.xib in Resources */,
 				A3E61DBC26749C3D00FB317C /* Release.xcconfig in Resources */,
+				6097E23926B8F22D00584D54 /* Simulator Screen Shot - iPhone 11 Pro Max - 2021-08-03 at 10.28.21.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -990,7 +1040,9 @@
 				74B30D5D2674515D00EB3673 /* TargetType.swift in Sources */,
 				74B30D712674BEE800EB3673 /* ViewControllerType+ViewModelType.swift in Sources */,
 				A3E61D092671AF8D00FB317C /* ImageView.swift in Sources */,
+				60108DE926B4034600C56549 /* BaseViewController.swift in Sources */,
 				74B30D852674DB7600EB3673 /* WorkList.swift in Sources */,
+				60108DEE26B411B000C56549 /* extTextField.swift in Sources */,
 				A3E61CFB2671AF8D00FB317C /* CollectionCell.swift in Sources */,
 				A3E61D072671AF8D00FB317C /* TableCell.swift in Sources */,
 				74B30D922674FE4C00EB3673 /* WorkCellViewModel.swift in Sources */,

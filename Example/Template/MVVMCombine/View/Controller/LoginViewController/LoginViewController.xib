@@ -51,6 +51,10 @@
                     <state key="normal" title="login">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <connections>
+                        <action selector="doneButtonTouchUpInsde:" destination="-1" eventType="touchUpInside" id="vqH-m9-08i"/>
+                        <action selector="doneButtonTouchUpInside:" destination="-1" eventType="touchUpOutside" id="cRX-hg-SAZ"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6h-Nc-SfT">
                     <rect key="frame" x="168" y="179" width="78" height="21"/>
