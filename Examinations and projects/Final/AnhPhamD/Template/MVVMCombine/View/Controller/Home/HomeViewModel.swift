@@ -15,6 +15,7 @@ final class HomeViewModel: ViewModelType {
     // API Result
     @Published private(set) var apiResult: APIResult<[Drink]> = .none
     @Published private(set) var tagGroups: APIResult<[Category]> = .none
+    @Published private(set) var apiSearch: APIResult<[Drink]> = .none
     private(set) var categoryListSubject = CurrentValueSubject<[Category], Never>([])
     private(set) var drinkSuject = CurrentValueSubject<[Drink], Never>([])
 
@@ -44,6 +45,18 @@ final class HomeViewModel: ViewModelType {
                 this.isLoading.send(false)
             })
             .assign(to: \.tagGroups, on: self)
+            .store(in: &subscriptions)
+    }
+
+    func searchByname(drinkName: String) {
+        isLoading.send(true)
+        APIType.searchByName(drinkName: drinkName)
+            .transformToAPIResult()
+            .handleEvents(receiveOutput: { [weak self] _ in
+                guard let this = self else { return }
+                this.isLoading.send(false)
+            })
+            .assign(to: \.apiSearch, on: self)
             .store(in: &subscriptions)
     }
 

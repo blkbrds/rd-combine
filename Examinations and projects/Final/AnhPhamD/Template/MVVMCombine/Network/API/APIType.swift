@@ -44,4 +44,11 @@ final class APIType {
             .response([DrinkDetail].self)
             .eraseToAnyPublisher()
     }
+
+    static func searchByName(drinkName: String) -> AnyPublisher<[Drink], Error> {
+        return NetworkingController.shared
+            .requestWithTarget(TypeService.searchByName(drinkName: drinkName))
+            .response([Drink].self)
+            .eraseToAnyPublisher()
+    }
 }

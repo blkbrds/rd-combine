@@ -21,6 +21,11 @@ final class HomeViewController: ViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var tagCollectionView: UICollectionView!
+    @IBOutlet private weak var searchView: UIView!
+    @IBOutlet private weak var searchImage: UIImageView!
+    @IBOutlet private weak var placeholderLabel: UILabel!
+    @IBOutlet private weak var searchTextField: UITextField!
+    @IBOutlet private weak var warningLabel: UILabel!
 
     private var dataSource: DataSource!
     private var dataSourceCollectionView: DataSourceCollectionView!
@@ -36,6 +41,16 @@ final class HomeViewController: ViewController {
                 tagCollectionView.reloadData()
             }
         }
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        updateView()
+    }
+
+    private func updateView() {
+        searchView.layer.cornerRadius = 15
+        searchView.clipsToBounds = true
     }
 
     override func setupUI() {
@@ -57,6 +72,8 @@ final class HomeViewController: ViewController {
                 self?.navigationItem.title = "Category"
                 self?.applySnapshot($0)
                 self?.viewModel.drinkSuject.value = $0
+                self?.warningLabel.isHidden = true
+                self?.tableView.isHidden = false
             }, onFailure: { [weak self] _ in
                 self?.showAlert(error: "Call API Failure")
             })
@@ -68,6 +85,19 @@ final class HomeViewController: ViewController {
                 self?.viewModel.categoryListSubject.value = value
             }, onFailure: { [weak self] _ in
                 self?.showAlert(error: "Call API Failure")
+            })
+            .store(in: &subscriptions)
+
+        viewModel.$apiSearch
+            .handle(onSucess: { [weak self] in
+                self?.navigationItem.title = "Category"
+                self?.applySnapshot($0)
+                self?.viewModel.drinkSuject.value = $0
+                self?.warningLabel.isHidden = true
+                self?.tableView.isHidden = false
+            }, onFailure: { [weak self] _ in
+                self?.warningLabel.isHidden = false
+                self?.tableView.isHidden = true
             })
             .store(in: &subscriptions)
     }
@@ -113,6 +143,13 @@ final class HomeViewController: ViewController {
         snapshot.appendItems(data, toSection: .home)
         dataSourceCollectionView.apply(snapshot, animatingDifferences: true)
     }
+
+    @IBAction func searchEditingChanged(_ sender: Any) {
+        searchImage.isHidden = true
+        placeholderLabel.isHidden = true
+        guard let drinkName = searchTextField.text else { return }
+        viewModel.searchByname(drinkName: drinkName)
+    }
 }
 
 extension HomeViewController: UITableViewDelegate {
@@ -125,6 +162,11 @@ extension HomeViewController: UITableViewDelegate {
 
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        searchTextField.text = ""
+        searchTextField.resignFirstResponder()
+        searchImage.isHidden = false
+        placeholderLabel.isHidden = false
+
         guard let cell = tagCollectionView.cellForItem(at: indexPath) as? TagCollectionViewCell else {
             return
         }
