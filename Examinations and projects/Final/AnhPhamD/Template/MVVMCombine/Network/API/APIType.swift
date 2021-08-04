@@ -1,0 +1,54 @@
+//
+//  APIType.swift
+//  MVVMCombine
+//
+//  Created by Van Le H. on 6/12/21.
+//  Copyright © 2021 Monstar Lab VietNam Co., Ltd. All rights reserved.
+//
+
+import Foundation
+import Combine
+
+final class APIType {
+    static func getListType() -> AnyPublisher<TypeList, Error> {
+        return NetworkingController.shared
+            .requestWithTarget(TypeService.listType)
+            .response(TypeList.self)
+            .eraseToAnyPublisher()
+    }
+
+    static func getListWork(typeId: String, currentPage: Int) -> AnyPublisher<WorkList, Error> {
+        return NetworkingController.shared
+            .requestWithTarget(TypeService.listWork(typeId: typeId, offset: currentPage))
+            .response(WorkList.self)
+            .eraseToAnyPublisher()
+    }
+
+    static func getDrinkByCategory(key: String, strCategory: String) -> AnyPublisher<[Drink], Error> {
+        return NetworkingController.shared
+            .requestWithTarget(TypeService.getCategory(key: key, strCategory: strCategory))
+            .response([Drink].self)
+            .eraseToAnyPublisher()
+    }
+
+    static func getCategoryList(key: String) -> AnyPublisher<[Category], Error> {
+        return NetworkingController.shared
+            .requestWithTarget(TypeService.getTagGroup(key: key))
+            .response([Category].self)
+            .eraseToAnyPublisher()
+    }
+
+    static func getDetailOfDrink(idDrink: String) -> AnyPublisher<[DrinkDetail], Error> {
+        return NetworkingController.shared
+            .requestWithTarget(TypeService.getDetail(idDrink: idDrink))
+            .response([DrinkDetail].self)
+            .eraseToAnyPublisher()
+    }
+
+    static func searchByName(drinkName: String) -> AnyPublisher<[Drink], Error> {
+        return NetworkingController.shared
+            .requestWithTarget(TypeService.searchByName(drinkName: drinkName))
+            .response([Drink].self)
+            .eraseToAnyPublisher()
+    }
+}

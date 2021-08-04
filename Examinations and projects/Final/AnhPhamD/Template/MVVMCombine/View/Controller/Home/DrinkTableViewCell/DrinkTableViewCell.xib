@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="147" id="tD2-Pr-zgR" customClass="DrinkTableViewCell" customModule="MVVMCombine">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="147"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tD2-Pr-zgR" id="0X8-oS-xQq">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="147"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading" translatesAutoresizingMaskIntoConstraints="NO" id="HXt-Qj-aAC">
+                        <rect key="frame" x="20" y="10" width="280" height="127"/>
+                    </imageView>
+                    <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TFo-GD-ohc">
+                        <rect key="frame" x="20" y="105.5" width="280" height="31.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gfr-qc-Coc">
+                                <rect key="frame" x="10" y="5" width="260" height="21.5"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="16"/>
+                                <color key="textColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Gfr-qc-Coc" secondAttribute="bottom" constant="5" id="7dc-Wi-HE5"/>
+                            <constraint firstItem="Gfr-qc-Coc" firstAttribute="top" secondItem="TFo-GD-ohc" secondAttribute="top" constant="5" id="P2x-lL-Ork"/>
+                            <constraint firstAttribute="trailing" secondItem="Gfr-qc-Coc" secondAttribute="trailing" constant="10" id="f1T-gj-KWt"/>
+                            <constraint firstItem="Gfr-qc-Coc" firstAttribute="leading" secondItem="TFo-GD-ohc" secondAttribute="leading" constant="10" id="vEc-AG-ozi"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eh4-nV-zXo">
+                        <rect key="frame" x="262" y="21.5" width="28" height="23.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="28" id="i2C-Qv-op3"/>
+                            <constraint firstAttribute="height" constant="26" id="rBj-mv-2bW"/>
+                        </constraints>
+                        <color key="tintColor" red="0.79607843140000001" green="0.2156862745" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <state key="normal" backgroundImage="heart" catalog="system">
+                            <color key="titleColor" red="1" green="0.024002201210000001" blue="0.072374784380000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <state key="selected" backgroundImage="heart.fill" catalog="system"/>
+                        <connections>
+                            <action selector="favoriteButtonTouchUpInSide:" destination="tD2-Pr-zgR" eventType="touchUpInside" id="MAj-kB-kxO"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="TFo-GD-ohc" firstAttribute="leading" secondItem="HXt-Qj-aAC" secondAttribute="leading" id="0ga-d7-fh4"/>
+                    <constraint firstAttribute="trailing" secondItem="HXt-Qj-aAC" secondAttribute="trailing" constant="20" id="4F6-y0-VBm"/>
+                    <constraint firstItem="HXt-Qj-aAC" firstAttribute="top" secondItem="0X8-oS-xQq" secondAttribute="top" constant="10" id="Gex-OP-zlm"/>
+                    <constraint firstItem="TFo-GD-ohc" firstAttribute="height" secondItem="HXt-Qj-aAC" secondAttribute="height" multiplier="1/4" id="Wvo-tr-u7U"/>
+                    <constraint firstItem="TFo-GD-ohc" firstAttribute="bottom" secondItem="HXt-Qj-aAC" secondAttribute="bottom" id="deD-IW-X4V"/>
+                    <constraint firstItem="HXt-Qj-aAC" firstAttribute="leading" secondItem="0X8-oS-xQq" secondAttribute="leading" constant="20" id="m6z-JS-3wX"/>
+                    <constraint firstItem="Eh4-nV-zXo" firstAttribute="top" secondItem="HXt-Qj-aAC" secondAttribute="top" constant="10" id="mpW-LA-Hw8"/>
+                    <constraint firstItem="TFo-GD-ohc" firstAttribute="trailing" secondItem="HXt-Qj-aAC" secondAttribute="trailing" id="pTR-du-tFM"/>
+                    <constraint firstItem="Eh4-nV-zXo" firstAttribute="trailing" secondItem="HXt-Qj-aAC" secondAttribute="trailing" constant="-10" id="sM3-8T-3OF"/>
+                    <constraint firstAttribute="bottom" secondItem="HXt-Qj-aAC" secondAttribute="bottom" constant="10" id="vVM-RU-YnA"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="s3T-p2-YLy"/>
+            <connections>
+                <outlet property="avatarImageView" destination="HXt-Qj-aAC" id="ChZ-y9-vf8"/>
+                <outlet property="favoriteButton" destination="Eh4-nV-zXo" id="kyO-QE-WgB"/>
+                <outlet property="nameLabel" destination="Gfr-qc-Coc" id="8Jj-4N-77G"/>
+                <outlet property="titleView" destination="TFo-GD-ohc" id="LH6-tJ-BZs"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="187.83482142857142"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="loading" width="440" height="232"/>
+    </resources>
+</document>
